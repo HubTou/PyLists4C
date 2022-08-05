@@ -81,7 +81,7 @@ listStr()|listAscii()<br>listRepr()|Returns a pointer to a string containing a P
 listFreeStr()||Frees the memory allocated to a LIST representation
 listPrint()||Prints a Python-style (ie. [e1, e2...]) representated LIST
 listDebug()||Prints all LIST details to stderr
-**lists to arrays conversion**||
+**Lists to arrays conversion**||
 listToArray()||Converts a LIST into an ARRAY
 listFromArray()||Converts an ARRAY into a LIST
 listFreeArray()||Frees the memory allocated to an ARRAY
