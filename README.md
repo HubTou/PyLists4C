@@ -23,7 +23,7 @@ Beyond Python lists emulation (within the limits of the C language syntax of cou
 With:
 * 48 base functions + 10 other intuitive aliases,
 * 221 convenience type-oriented functions,
-* with high modularity so your linker only includes what you use in your own executables.
+* and high modularity so your linker only includes what you use in your own executables.
 
 ## Custom types
 TODO...
