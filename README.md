@@ -25,9 +25,6 @@ With:
 * 221 convenience type-oriented functions,
 * and high modularity so your linker only includes what you use in your own executables.
 
-## Custom types
-TODO...
-
 ## Base functions overview
 Base function | Aliases | Description
 --- | --- | ---
