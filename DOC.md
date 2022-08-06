@@ -6,7 +6,7 @@
 * A **value** is the payload of an element of a LIST.
 * An **index** is the position of an element in a LIST.
   * Like in Python, indexes are numbered from 0 when you go through a LIST from its beginning, or from -1 when you go through its end.
-* An **homogeneous LIST** is a special kind of LIST where all values are of the same type.
+* An **homogeneous** LIST or ARRAY is a special kind of data structure where all values are of the same type.
 * Pointers variable names are prefixed with a **p** character. Pointers to pointers with **pp** and so on.
 
 ## Data structures
