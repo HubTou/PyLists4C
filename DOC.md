@@ -4,6 +4,8 @@
 * A **LIST** is an instance of linked list this library provides.
 * An **element** is a node of a LIST.
 * A **value** is the payload of an element of a LIST.
+* An **index** is the position of an element in a LIST.
+  * Like in Python, indexes are numbered from 0 when you go through a LIST from its beginning, or from -1 when you go through its end.
 * An **homogeneous LIST** is a special kind of LIST where all values are of the same type.
 * Pointers variable names are prefixed with a **p** character. Pointers to pointers with **pp** and so on.
 
@@ -122,6 +124,7 @@ typedef struct array
 Design notes:
 * An ARRAY has only one **type** and **size**, so it has homogeneous *values*.
 * The number of *values* is given by the **length** variable.
+  * LISTs indexes and lengths are of the C language **long** type. 
 * In order to avoid casting, we provide an union **u** with all possible subtypes.
 * Every standard C language type is a pointer to that type
 * Being of unknown size to the C language, our additional types are pointers to pointers so the table indexation will work.
