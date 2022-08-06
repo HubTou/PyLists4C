@@ -7,12 +7,12 @@ Of course, there were multiple libraries available for that, but none with the p
 So here's my attempt to fix this, with all I ever wanted from a C language linked list library...
 
 ## Features
-This library provides [Python-style](https://docs.python.org/3/tutorial/datastructures.html) doubly-linked lists:
+This library provides [Python-style](https://docs.python.org/3/tutorial/datastructures.html) (within the limits of the C language syntax of course) doubly-linked lists:
 * List items are ordered, changeable, and allow duplicate values.
 * List items can be of any standard C data type, plus strings, sub-lists and self-contained (= without pointers) structs of variable sizes.
 * A list can contain different data types at the same time.
 
-Beyond Python lists emulation (within the limits of the C language syntax of course), you'll also find:
+Beyond Python lists emulation, you'll also find:
 * conversion from or to arrays
 * sorted insertion with optional removal of duplicate values
 * list sorting by insertion or qsort (via array conversion)
@@ -88,3 +88,6 @@ listFreeArray()||Frees the memory allocated to an ARRAY
 **Miscellaneous**||
 listGetAllocatedMemory()||Returns the quantity of allocated/unfreed memory used by this library
 listSetFatalMallocErrors()||Sets whether memory allocation errors are fatal or not
+
+## Documentation
+OK, I'm in! I want to [know everything](DOC.md) about this library!
