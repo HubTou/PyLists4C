@@ -75,9 +75,9 @@ typedef enum
     ETYPE_STRUCT = 34
 } ETYPE;
 ```
-Design notels:
+Design notes:
 * ETYPE_UNDEFINED is meant for internal use.
-* ETYPE_DICT is a placeholder for a possible complementary library for Python-style dictionaries.
+* ETYPE_DICT is a placeholder for a possible complementary library for [Python-style dictionaries](https://www.w3schools.com/python/python_dictionaries.asp).
 
 We provide convenience functions for each standard C language types, so you don't have to pass values by address, provide the *type* and *size* parameters, or cast variables to specific types.
 
