@@ -122,10 +122,11 @@ typedef struct array
 } ARRAY;
 ```
 Design notes:
-* An ARRAY has only one **type** and **size**, so it has homogeneous *values*.
+* An ARRAY has only one **type** and **size**, so it has *homogeneous values*.
 * The number of *values* is given by the **length** variable.
   * LISTs indexes and lengths are of the C language **long** type. 
 * In order to avoid casting, we provide an union **u** with all possible subtypes.
+  * We could have used the same scheme for the LIST data structure **pValue** variable but thought it would needlessly complexify things... 
 * Every standard C language type is a pointer to that type.
 * Being of unknown size to the C language, our custom types are pointers to pointers so their table indexation will work.
 
