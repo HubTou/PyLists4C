@@ -1,10 +1,11 @@
 ![alt text](https://github.com/HubTou/PyLists4C/blob/main/logo/pylists4c-logo.png "PyLists4C: Python-style lists for the C language")
 # PyLists4C: Python-style lists for the C language
-## Glossary
+## Glossary and conventions
 * A **LIST** is an instance of linked list this library provides.
 * An **element** is a node of a LIST.
-* A **value** is the payload of an element of a LIST
+* A **value** is the payload of an element of a LIST.
 * An **homogeneous LIST** is a special kind of LIST where all values are of the same type.
+* Pointers variable names are prefixed with a **p** character. Pointers to pointers with **pp** and so on.
 
 ## Data structures
 ### LIST type
@@ -42,7 +43,43 @@ LIST* MyList = NULL;
 LISTs should only be allocated through the library's functions, so don't use static LIST objects (eg: LIST MyList).
 
 ### ETYPE type
-TODO
+It's defined like this:
+```C
+// Element TYPEs:
+typedef enum
+{
+    ETYPE_UNDEFINED = -1,
+    ETYPE_CHAR = 1,
+    ETYPE_U_CHAR = 2,
+    ETYPE_SHORT = 3,
+    ETYPE_U_SHORT = 4,
+    ETYPE_INT = 5,
+    ETYPE_U_INT = 6,
+    ETYPE_LONG = 7,
+    ETYPE_U_LONG = 8,
+    ETYPE_LONG_LONG = 9,
+    ETYPE_U_LONG_LONG = 10,
+    ETYPE_FLOAT = 21,
+    ETYPE_DOUBLE = 22,
+    ETYPE_LONG_DOUBLE = 23,
+    // C-style strings:
+    // (ie. 0 terminated character array)
+    ETYPE_STRING = 31,
+    // Sub-LISTs:
+    ETYPE_LIST = 32,
+    // Python-style dictionaries for C (maybe one day :-))
+//  ETYPE_DICT = 33,
+    // Self-contained structures without pointers:
+    // (it would be a good practice to have a starting sub-TYPE field
+    // if you want to have non homogeneous STRUCTs)
+    ETYPE_STRUCT = 34
+} ETYPE;
+```
+Design notels:
+* ETYPE_UNDEFINED is meant for internal use.
+* ETYPE_DICT is a placeholder for a possible complementary library for Python-style dictionaries.
+
+We provide convenience functions for each standard C language types, so you don't have to pass values by address, provide the *type* and *size* parameters, or cast variables to specific types.
 
 ## Base functions
 TODO
