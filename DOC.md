@@ -32,7 +32,7 @@ Design notes:
   * We might add Python-style dictionaries (DICTs) in the future.
   * With Python-style lists, you can implement many other data types with sub LISTS (all kind of trees, for example).
 * As the size of user defined STRUCTs is unknown (and furthermore can be of variable size inside a same LIST) and STRINGS can be allocated to larger character arrays than their current content, we need a **size** variable to keep track of the space allocated to store the *value*.
-  * If you use multiple kind of STRUCTs in the same LIST, it is advised to start each of these STRUCTs with a fixed length field indicating its sub type.
+  * If you use multiple kinds of STRUCTs in the same LIST, it is advised to start each of these STRUCTs with a fixed length field indicating its sub type.
 * As we want an *element* to have the same memory size, we use pointers for all *values*, not just STRINGs, LISTs and STRUCTS. Thus we need a **pValue** variable to point to the *value* of each *element*.
 
 If you want to declare an empty LIST, just use:
@@ -40,7 +40,7 @@ If you want to declare an empty LIST, just use:
 LIST* MyList = NULL;
 ```
 
-LISTs should only be allocated through the library's functions, so don't use static LIST objects (eg: LIST MyList).
+LISTs should only be allocated through the library's functions, so don't use static LIST objects (eg: LIST MyList) or you won't be able to have empty LISTs, to change the first *element* easily or to clear your LIST... 
 
 ### ETYPE type
 It's defined like this:
@@ -79,7 +79,52 @@ Design notes:
 * ETYPE_UNDEFINED is meant for internal use.
 * ETYPE_DICT is a placeholder for a possible complementary library for [Python-style dictionaries](https://www.w3schools.com/python/python_dictionaries.asp).
 
-We provide convenience functions for each standard C language types, so you don't have to pass values by address, provide the *type* and *size* parameters, or cast variables to specific types.
+We provide convenience functions for each standard C language types, so you don't have to pass *values* by address, provide the *type* and *size* parameters, or cast variables to specific types.
+
+### ARRAY type
+One thing we can't easily do in C language is to have directly indexed LIST *elements* (ie: MyList\[0], MyList\[1] and so on), though we provide a listGet() base function to access the Nth *element* of a LIST.
+
+In order to make this easier, we provide the listToArray() and listFromArray() base functions in order to convert between LISTs and ARRAYs.
+These functions, however, only work on *homogeneous LISTs*.
+
+An ARRAY is defined like this:
+```C
+// Generic self-contained array (for LIST from/to ARRAY conversions):
+typedef struct array
+{
+    ETYPE type;
+    size_t size;
+
+    long length;
+
+    union
+    {
+        void* pGeneric;
+        char* pChar;
+        unsigned char* pUChar;
+        short* pShort;
+        unsigned short* pUShort;
+        int* pInt;
+        unsigned int* pUInt;
+        long* pLong;
+        unsigned long* pULong;
+        long long* pLongLong;
+        unsigned long long* pULongLong;
+        float* pFloat;
+        double* pDouble;
+        long double* pLongDouble;
+        char** ppString;
+        LIST** ppList;
+        void** ppStruct;
+    } u;
+} ARRAY;
+```
+Design notes:
+* An ARRAY has only one **type** and **size**, so it has homogeneous *values*.
+* The number of *values* is given by the **length** variable.
+* In order to avoid casting, we provide an union **u** with all possible subtypes.
+* Every standard C language type is a pointer to that type
+* Being of unknown size to the C language, our additional types are pointers to pointers so the table indexation will work.
 
 ## Base functions
 TODO
