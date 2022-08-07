@@ -188,6 +188,15 @@ typedef enum
 Design notes:
 * Pragma protected as it may be defined elsewhere...
 
+### STRING type
+Just a simple C language string (\0 terminated character array), defined like this:
+```C
+#ifndef STRING_TYPE
+#define STRING_TYPE
+typedef char* STRING;
+#endif // STRING_TYPE
+```
+
 ### STATUS type
 Standard exit/return codes, defined like this:
 ```C
