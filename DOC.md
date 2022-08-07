@@ -27,7 +27,7 @@ typedef struct list
 ```
 Design notes:
 * In order to mix different types of *values* in a same LIST, we need a **type** variable to keep track of the kind of *value* a peculiar *element* will carry.
-* As we want to use some custom types beyond standard C language types, we introduce the **ETYPE** type to be able to use:
+* As we want to use some custom types beyond standard C language types, we introduce the [ETYPE](https://github.com/HubTou/PyLists4C/blob/main/DOC.md#etype-type) type to be able to use:
   * STRINGs (C language NUL terminated character arrays),
   * sub-LISTs,
   * and user defined, self contained (that is to say, without pointers) STRUCTs.
@@ -131,4 +131,173 @@ Design notes:
 * Being of unknown size to the C language, our custom types are pointers to pointers so their table indexation will work.
 
 ## Base functions
-TODO
+### Creating a list
+#### list()
+Creates a LIST from a Python-style list declaration string
+
+### listCreateElement()
+Creates an unlinked LIST element
+
+### listFromTable()
+Converts a C-language table into a LIST
+
+## Adding elements
+### listAppend()
+### listPush()
+Adds an element at the end of a LIST
+
+### listInsertFirst()
+### listPrepend()
+Adds an element at the start of a LIST
+
+### listInsert(n)
+Inserts an element at the Nth position of a LIST
+
+### listInsertSorted()
+Inserts an element in a sorted LIST
+
+## Getting list information
+### listLen()
+Returns the number of elements in a LIST
+
+### listStats()
+Fills statistics about a LIST
+
+### listStatsPrint()
+Prints statistics about a LIST
+
+## Fetching elements
+### listGet(n)
+Returns the Nth element of a LIST
+
+### listGetLast()
+Returns the last element of a LIST
+
+### listSlice(n, m)
+### listSliceFrom(n)
+### listSliceTo(m)
+Returns a copy of a slice (ie. [n:m]) of a LIST
+
+## Testing lists
+### listAreEqual()
+Tests if two LISTs contain exactly the same values
+
+### listAreEqualCaseInsensitive()
+Tests if two LISTs contain the same values, without regard to case
+
+## Searching for elements
+### listContains()
+Tests if a value appears in a LIST
+
+### listCount()
+Returns the number of elements with the specified value
+
+### listIndex()
+Returns the index of the first element with the specified value
+
+### listIndexAll()
+### listFind()
+### listSearch()
+Returns a LIST of all the indexes of the elements with the specified value
+
+## Working with lists
+### listCopy()
+Returns a copy of the LIST (a full/deep copy as we don't want multiple references to the same values)
+
+### listConcat()
+Returns a new LIST with the concatenation of the elements of LIST1 and LIST2
+
+### listExtend()
+Adds a copy of the elements of the second LIST to the end of the first one
+
+### listJoin()
+### listStitch()
+Moves the elements of the second LIST to the end of the first one
+
+## Changing list order**
+### listSort()
+Sorts a LIST
+
+### listSorted()
+Returns a sorted copy of a LIST
+
+### listSortedByInsertion()
+Returns a sorted copy of a LIST, using an insertion sort algorithm
+
+### listReverse()
+Reverses the order of a LIST
+
+### listReversed()
+Returns a reversed copy of a LIST
+
+### listShuffle()
+Shuffles a LIST
+
+### listShuffled()
+Creates a shuffled LIST from an existing one
+
+## Removing elements
+### listPopNth(n)
+### listDelNth(n)
+Removes the element at the specified position
+
+### listPopFirst()
+Equivalent to listPopNth(0)
+
+### listPopLast()
+### ListPop()
+Equivalent to listPopNth(-1)
+
+### listRemove()
+Removes the first item with the specified value
+
+### listRemoveAll()
+Removes all the items with the specified value
+
+## Clearing lists
+### listClear()
+### listDel()
+### listFree()
+Removes all the elements of the LIST
+
+## Working with numerical lists
+### listMaxXXX()
+Returns the maximum value in the LIST for the XXX type
+
+### listMinXXX()
+Returns the minimum value in the LIST for the XXX type
+
+### listSumXXX()
+Returns the sum of values in the LIST for the XXX type
+
+## Displaying lists
+### listStr()
+### listAscii()
+### listRepr()
+Returns a pointer to a string containing a Python-style (ie. [e1, e2...]) representated LIST (which you'll need to free afterwards using listFreeStr())
+
+### listFreeStr()
+Frees the memory allocated to a LIST representation
+
+### listPrint()
+Prints a Python-style (ie. [e1, e2...]) representated LIST
+
+### listDebug()
+Prints all LIST details to stderr
+
+## Lists to arrays conversion
+### listToArray()
+Converts a LIST into an ARRAY
+
+### listFromArray()
+Converts an ARRAY into a LIST
+
+### listFreeArray()
+Frees the memory allocated to an ARRAY
+
+## Miscellaneous
+### listGetAllocatedMemory()
+Returns the quantity of allocated/unfreed memory used by this library
+
+### listSetFatalMallocErrors()
+Sets whether memory allocation errors are fatal or not
