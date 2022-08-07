@@ -84,9 +84,9 @@ Design notes:
 We provide convenience functions for each standard C language types, so you don't always have to pass *values* by address, provide the *type* and *size* parameters, or cast variables to specific types.
 
 ### ARRAY type
-One thing we can't easily do in C language is to have directly indexed LIST *elements* (ie: MyList\[0], MyList\[1] and so on), though we provide a listGet() base function to access the Nth *element* of a LIST.
+One thing we can't easily do in C language is to have directly indexed LIST *elements* (ie: MyList\[0], MyList\[1] and so on), though we provide a [listGet()](DOC.md#listgetn) base function to access the Nth *element* of a LIST.
 
-In order to make this easier, we provide the listToArray() and listFromArray() base functions in order to convert between LISTs and ARRAYs.
+In order to make this easier, we provide the [listToArray()](DOC.md#listtoarray) and [listFromArray()](DOC.md#listfromarray) base functions in order to convert between LISTs and ARRAYs.
 These functions, however, only work on *homogeneous LISTs*.
 
 An ARRAY is defined like this:
