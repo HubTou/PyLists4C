@@ -210,7 +210,7 @@ Example use:
 LIST* MyList = NULL;
 ```
 
-LISTs should only be allocated through the library's functions, so **never** use LIST variables directly (ie: LIST MyList) or you won't be able to have empty LISTs, to change the first *element* easily or to clear your LIST... 
+LISTs should only be allocated through the library's functions, so **never use LIST variables directly** (ie: LIST MyList) or you won't be able to have empty LISTs, to change the first *element* easily or to clear your LIST... 
 
 ### listCreateElement()
 Creates an unlinked LIST element
