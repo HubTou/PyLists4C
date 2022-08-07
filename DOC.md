@@ -476,14 +476,59 @@ extern void listFree(LIST** ppList); // listClear() alias```
 ```
 
 ## Working with numerical lists
-### listMaxXXX()
-Returns the maximum value in the LIST for the XXX type
-
 ### listMinXXX()
 Returns the minimum value in the LIST for the XXX type
+```C
+extern char listMinChar(LIST* pList);
+extern unsigned char listMinUChar(LIST*);
+extern short listMinShort(LIST*);
+extern unsigned short listMinUShort(LIST*);
+extern int listMinInt(LIST*);
+extern unsigned int listMinUInt(LIST*);
+extern long listMinLong(LIST*);
+extern unsigned long listMinULong(LIST*);
+extern long long listMinLongLong(LIST*);
+extern unsigned long long listMinULongLong(LIST*);
+extern float listMinFloat(LIST*);
+extern double listMinDouble(LIST*);
+extern long double listMinLongDouble(LIST*);
+```
+
+### listMaxXXX()
+Returns the maximum value in the LIST for the XXX type
+```C
+extern char listMaxChar(LIST* pList);
+extern unsigned char listMaxUChar(LIST*);
+extern short listMaxShort(LIST*);
+extern unsigned short listMaxUShort(LIST*);
+extern int listMaxInt(LIST*);
+extern unsigned int listMaxUInt(LIST*);
+extern long listMaxLong(LIST*);
+extern unsigned long listMaxULong(LIST*);
+extern long long listMaxLongLong(LIST*);
+extern unsigned long long listMaxULongLong(LIST*);
+extern float listMaxFloat(LIST*);
+extern double listMaxDouble(LIST*);
+extern long double listMaxLongDouble(LIST*);
+```
 
 ### listSumXXX()
 Returns the sum of values in the LIST for the XXX type
+```C
+extern long listSumChar(LIST* pList);
+extern unsigned long listSumUChar(LIST*);
+extern long listSumShort(LIST*);
+extern unsigned long listSumUShort(LIST*);
+extern long listSumInt(LIST*);
+extern unsigned long listSumUInt(LIST*);
+extern long long listSumLong(LIST*);
+extern unsigned long long listSumULong(LIST*);
+extern long long listSumLongLong(LIST*);
+extern unsigned long long listSumULongLong(LIST*);
+extern double listSumFloat(LIST*);
+extern long double listSumDouble(LIST*);
+extern long double listSumLongDouble(LIST*);
+```
 
 ## Displaying lists
 ### listStr()
