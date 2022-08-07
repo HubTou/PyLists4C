@@ -6,6 +6,7 @@
 * A **value** is the payload of an element of a LIST.
 * An **index** is the position of an element in a LIST.
   * Like in Python, indexes are numbered from 0 when you go through a LIST from its beginning, or from -1 when you go through its end.
+  * LISTs indexes and lengths are of the C language **long** type. 
 * An **homogeneous** LIST or ARRAY is a special kind of data structure where all values are of the same type.
 * Pointers variable names are prefixed with a **p** character. Pointers to pointers with **pp** and so on.
 
@@ -37,13 +38,6 @@ Design notes:
 * As the size of user defined STRUCTs is unknown (and furthermore can be of variable size inside a same LIST) and STRINGS can be allocated to larger character arrays than their current content, we need a **size** variable to keep track of the space allocated to store the *value*.
   * If you use multiple kinds of STRUCTs in the same LIST, it is advised to start each of these STRUCTs with a fixed length field indicating its sub type.
 * As we want an *element* to have the same memory size, we use pointers for all *values*, not just STRINGs, LISTs and STRUCTS. Thus we need a **pValue** variable to point to the *value* of each *element*.
-
-If you want to declare an empty LIST, just use:
-```C
-LIST* MyList = NULL;
-```
-
-LISTs should only be allocated through the library's functions, so don't use static LIST objects (ie: LIST MyList) or you won't be able to have empty LISTs, to change the first *element* easily or to clear your LIST... 
 
 ### ETYPE type
 It's defined like this:
@@ -125,7 +119,6 @@ typedef struct array
 Design notes:
 * An ARRAY has only one **type** and **size**, so it has *homogeneous values*.
 * The number of *values* is given by the **length** variable.
-  * LISTs indexes and lengths are of the C language **long** type. 
 * In order to avoid casting, we provide an union **u** with all possible subtypes.
   * We could have used the same scheme for the LIST data structure **pValue** variable but thought it would needlessly complexify things... 
 * Every standard C language type is a pointer to (ie. a table of) that type.
@@ -177,6 +170,7 @@ typedef struct
 
 ## Generic types
 ### BOOLEAN type
+Just a simple boolean type:
 ```C
 #ifndef BOOLEAN_TYPE
 #define BOOLEAN_TYPE
@@ -191,6 +185,7 @@ Design notes:
 * Pragma protected as it may be defined elsewhere...
 
 ### STATUS type
+Standard exit/return codes:
 ```C
 #ifndef STATUS_TYPE
 #define STATUS_TYPE
@@ -207,8 +202,15 @@ Design notes:
 
 # Base functions
 ## Creating a list
-### LIST* MyList = NULL;
+### LIST declaration
 Creates an empty list.
+
+Example use:
+```C
+LIST* MyList = NULL;
+```
+
+LISTs should only be allocated through the library's functions, so **never** use LIST variables directly (ie: LIST MyList) or you won't be able to have empty LISTs, to change the first *element* easily or to clear your LIST... 
 
 ### listCreateElement()
 Creates an unlinked LIST element
