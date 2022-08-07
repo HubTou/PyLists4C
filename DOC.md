@@ -130,7 +130,7 @@ It's defined like this:
 // List statistics:
 typedef struct
 {
-    long length;
+    long length; // same as listLen() result
 
     long charCount;
     long uCharCount;
@@ -162,7 +162,7 @@ typedef struct
     ETYPE homogeneousType;
     size_t homogeneousSize; // STRUCTs could be of different sizes...
 
-    LIST* lastElement; // same as getLast() result
+    LIST* lastElement; // same as listGetLast() result
 
     unsigned long memoryUsed; // including eventual subLISTs
 } LIST_STATS;
