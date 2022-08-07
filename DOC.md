@@ -234,7 +234,7 @@ Returns a reversed copy of a LIST
 Shuffles a LIST
 
 ### listShuffled()
-Creates a shuffled LIST from an existing one
+Returns a shuffled copy of a LIST
 
 ## Removing elements
 ### listPopNth(n)
