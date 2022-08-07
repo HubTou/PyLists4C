@@ -196,6 +196,9 @@ Just a simple C language string (\0 terminated character array), defined like th
 typedef char* STRING;
 #endif // STRING_TYPE
 ```
+Design notes:
+* Introduced in order to make function prototypes more readable and avoid the "p" prefix for character arrays...
+* Pragma protected as it may be defined elsewhere...
 
 ### STATUS type
 Standard exit/return codes, defined like this:
