@@ -37,7 +37,7 @@ listAppend()|listPush()|Adds an element at the end of a LIST
 listInsertFirst()|listPrepend()|Adds an element at the start of a LIST
 listInsert(n)||Inserts an element at the Nth position of a LIST
 listInsertSorted()||Inserts an element in a sorted LIST
-**Getting lists information**||
+**Getting list information**||
 listLen()||Returns the number of elements in a LIST
 listStats()||Fills statistics about a LIST
 listStatsPrint()||Prints statistics about a LIST
@@ -58,7 +58,7 @@ listCopy()||Returns a copy of the LIST (a full/deep copy as we don't want multip
 listConcat()||Returns a new LIST with the concatenation of the elements of LIST1 and LIST2
 listExtend()||Adds a copy of the elements of the second LIST to the end of the first one
 listJoin()|listStitch()|Moves the elements of the second LIST to the end of the first one
-**Changing lists order**||
+**Changing list order**||
 listSort()||Sorts a LIST
 listSorted()||Returns a sorted copy of a LIST
 listSortedByInsertion()||Returns a sorted copy of a LIST, using an insertion sort algorithm
