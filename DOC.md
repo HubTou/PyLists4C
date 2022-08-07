@@ -8,7 +8,6 @@
   * Like in Python, indexes are numbered from 0 when you go through a LIST from its beginning, or from -1 when you go through its end.
   * LISTs indexes and lengths are of the C language **long** type. 
 * An **homogeneous** LIST is a special kind of data structure where all values are of the same type.
-  * ARRAYs are always homogeneous
 * Pointers variable names are prefixed with a **p** character. Pointers to pointers with **pp** and so on.
 
 # Data structures
