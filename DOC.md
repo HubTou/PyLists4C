@@ -164,7 +164,7 @@ typedef struct
     ETYPE homogeneousType;
     size_t homogeneousSize; // STRUCTs could be of different sizes...
 
-    LIST* lastElement; // same as listGetLast() result
+    LIST* pLastElement; // same as listGetLast() result
 
     unsigned long memoryUsed; // including eventual subLISTs
 } LIST_STATS;
