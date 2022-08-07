@@ -27,7 +27,7 @@ typedef struct list
 ```
 Design notes:
 * In order to mix different types of *values* in a same LIST, we need a **type** variable to keep track of the kind of *value* a peculiar *element* will carry.
-* As we want to use some custom types beyond standard C language types, we introduce the [ETYPE](https://github.com/HubTou/PyLists4C/blob/main/DOC.md#etype-type) type to be able to use:
+* As we want to use some custom types beyond standard C language types, we introduce the [ETYPE](DOC.md#etype-type) type to be able to use:
   * STRINGs (C language NUL terminated character arrays),
   * sub-LISTs,
   * and user defined, self contained (that is to say, without pointers) STRUCTs.
