@@ -28,7 +28,7 @@ With:
 ## Base functions overview
 Base function | Aliases | Description
 --- | --- | ---
-**List creation**||
+**Creating a list**||
 list()||Creates a LIST from a Python-style list declaration string
 listCreateElement()||Creates an unlinked LIST element
 listFromTable()||Converts a C-language table into a LIST
@@ -37,7 +37,7 @@ listAppend()|listPush()|Adds an element at the end of a LIST
 listInsertFirst()|listPrepend()|Adds an element at the start of a LIST
 listInsert(n)||Inserts an element at the Nth position of a LIST
 listInsertSorted()||Inserts an element in a sorted LIST
-**Examining a list**||
+**Getting lists information**||
 listLen()||Returns the number of elements in a LIST
 listStats()||Fills statistics about a LIST
 listStatsPrint()||Prints statistics about a LIST
@@ -48,7 +48,7 @@ listSlice(n, m)<br>listSliceFrom(n)<br>listSliceTo(m)||Returns a copy of a slice
 **Testing lists**||
 listAreEqual()||Tests if two LISTs contain exactly the same values
 listAreEqualCaseInsensitive()||Tests if two LISTs contain the same values, without regard to case
-**Searching elements**||
+**Searching for elements**||
 listContains()||Tests if a value appears in a LIST
 listCount()||Returns the number of elements with the specified value
 listIndex()||Returns the index of the first element with the specified value
