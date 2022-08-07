@@ -9,7 +9,8 @@
 * An **homogeneous** LIST or ARRAY is a special kind of data structure where all values are of the same type.
 * Pointers variable names are prefixed with a **p** character. Pointers to pointers with **pp** and so on.
 
-## Data structures
+# Data structures
+## Specific types
 ### LIST type
 The main data structure of this library is defined like this:
 ```C
@@ -130,13 +131,90 @@ Design notes:
 * Every standard C language type is a pointer to (ie. a table of) that type.
 * Being of unknown size to the C language, our custom types are pointers to pointers so their table indexation will work.
 
-## Base functions
-### Creating a list
-#### list()
-Creates a LIST from a Python-style list declaration string
+### LIST_STATS type
+It's defined like this:
+```C
+// List statistics:
+typedef struct
+{
+    long length;
+
+    long charCount;
+    long uCharCount;
+    long shortCount;
+    long uShortCount;
+    long intCount;
+    long uIntCount;
+    long longCount;
+    long uLongCount;
+    long longLongCount;
+    long uLongLongCount;
+    long floatCount;
+    long doubleCount;
+    long longDoubleCount;
+    long stringCount;
+    long listCount;
+    long structCount;
+    long unknownCount;
+
+    unsigned long smallestString; // without the 0 terminating character
+    unsigned long largestString; // without the 0 terminating character
+    unsigned long smallestStruct;
+    unsigned long largestStruct;
+
+    long shortestList; // number of elements at first level
+    long longestList; // number of elements at first level
+
+    BOOLEAN isHomogeneous;
+    ETYPE homogeneousType;
+    size_t homogeneousSize; // STRUCTs could be of different sizes...
+
+    LIST* lastElement; // same as getLast() result
+
+    unsigned long memoryUsed; // including eventual subLISTs
+} LIST_STATS;
+```
+
+## Generic types
+### BOOLEAN type
+```C
+#ifndef BOOLEAN_TYPE
+#define BOOLEAN_TYPE
+typedef enum
+{
+    FALSE = 0,
+    TRUE = 1
+} BOOLEAN;
+#endif // BOOLEAN_TYPE
+```
+Design notes:
+* Pragma protected as it may be defined elsewhere...
+
+### STATUS type
+```C
+#ifndef STATUS_TYPE
+#define STATUS_TYPE
+typedef enum
+{
+    SUCCESS = 0,
+    FAILURE = 1
+} STATUS;
+#endif // STATUS_TYPE
+```
+Design notes:
+* Can be used both as an exit code for reporting errors to the shell (if you use [listSetFatalMallocErrors(TRUE)](DOC.md#listSetFatalMallocErrors)) or as a return code to your program calling function.
+* Pragma protected as it may be defined elsewhere...
+
+# Base functions
+## Creating a list
+### LIST* MyList = NULL;
+Creates an empty list.
 
 ### listCreateElement()
 Creates an unlinked LIST element
+
+### list()
+Creates a LIST from a Python-style list declaration string
 
 ### listFromTable()
 Converts a C-language table into a LIST
