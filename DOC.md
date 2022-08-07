@@ -170,7 +170,7 @@ typedef struct
 
 ## Generic types
 ### BOOLEAN type
-Just a simple boolean type:
+Just a simple boolean type, defined like this:
 ```C
 #ifndef BOOLEAN_TYPE
 #define BOOLEAN_TYPE
@@ -185,7 +185,7 @@ Design notes:
 * Pragma protected as it may be defined elsewhere...
 
 ### STATUS type
-Standard exit/return codes:
+Standard exit/return codes, defined like this:
 ```C
 #ifndef STATUS_TYPE
 #define STATUS_TYPE
