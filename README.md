@@ -29,6 +29,7 @@ With:
 Base function | Aliases | Description
 --- | --- | ---
 **Creating a list**||
+LIST* MyList = NULL;||Creates an empty LIST
 list()||Creates a LIST from a Python-style list declaration string
 listCreateElement()||Creates an unlinked LIST element
 listFromTable()||Converts a C-language table into a LIST
