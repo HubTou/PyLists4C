@@ -6,7 +6,7 @@
 * A **value** is the payload of an element of a LIST.
 * An **index** is the position of an element in a LIST.
   * Like in Python, indexes are numbered from 0 when you go through a LIST from its beginning, or from -1 when you go through its end.
-  * LISTs indexes and lengths are of the C language **long** type. 
+  * LISTs indexes, lengths and counts are of the C language **long** type. 
 * An **homogeneous** LIST is a special kind of data structure where all values are of the same type.
 * Pointers variable names are prefixed with a **p** character. Pointers to pointers with **pp** and so on.
 
@@ -230,131 +230,250 @@ LISTs should only be allocated through the library's functions, so **never use L
 
 ### listCreateElement()
 Creates an unlinked LIST element
+```C
+extern LIST* listCreateElement(void* pValue, ETYPE type, size_t size);
+```
 
 ### list()
 Creates a LIST from a Python-style list declaration string
+```C
+extern LIST* list(STRING string, char separator);
+```
 
 ### listFromTable()
 Converts a C-language table into a LIST
+```C
+extern LIST* listFromTable(void* pTable, ETYPE type, size_t size, long length); // listFromArray() wrapper
+```
 
 ## Adding elements
 ### listAppend()
 ### listPush()
 Adds an element at the end of a LIST
+```C
+extern STATUS listAppend(LIST** ppList, void* pValue, ETYPE type, size_t size);
+extern STATUS listPush(LIST** ppList, void* pValue, ETYPE type, size_t size); // listAppend() alias
+```
 
 ### listInsertFirst()
 ### listPrepend()
 Adds an element at the start of a LIST
+```C
+extern STATUS listInsertFirst(LIST** ppList, void* pValue, ETYPE type, size_t size);
+extern STATUS listPrepend(LIST** ppList, void* pValue, ETYPE type, size_t size); // listInsertFirst() alias
+```
 
 ### listInsert(n)
 Inserts an element at the Nth position of a LIST
+```C
+extern STATUS listInsert(LIST** ppList, long n, void* pValue, ETYPE type, size_t size);
+```
 
 ### listInsertSorted()
 Inserts an element in a sorted LIST
+```C
+extern STATUS listInsertSorted(LIST** ppList, void* pValue, ETYPE type, size_t size, BOOLEAN reversed, BOOLEAN caseInsensitive, BOOLEAN noDuplicates);
+```
 
 ## Getting list information
 ### listLen()
 Returns the number of elements in a LIST
+```C
+extern long listLen(LIST* pList);
+```
 
 ### listStats()
 Fills statistics about a LIST
+```C
+extern void listStats(LIST* pList, LIST_STATS* pStats);
+```
 
 ### listStatsPrint()
 Prints statistics about a LIST
+```C
+extern void listStatsPrint(LIST_STATS stats, STRING name);
+```
 
 ## Fetching elements
 ### listGet(n)
 Returns the Nth element of a LIST
+```C
+extern LIST* listGet(LIST* pList, long n);
+```
 
 ### listGetLast()
 Returns the last element of a LIST
+```C
+extern LIST* listGetLast(LIST* pList);
+```
 
 ### listSlice(n, m)
 ### listSliceFrom(n)
 ### listSliceTo(m)
 Returns a copy of a slice (ie. [n:m]) of a LIST
+```C
+extern LIST* listSlice(LIST* pList, long n, long m);
+extern LIST* listSliceFrom(LIST* pList, long n);
+extern LIST* listSliceTo(LIST* pList, long m);
+```
 
 ## Testing lists
 ### listAreEqual()
 Tests if two LISTs contain exactly the same values
+```C
+extern BOOLEAN listAreEqual(LIST* pList1, LIST* pList2);
+```
 
 ### listAreEqualCaseInsensitive()
 Tests if two LISTs contain the same values, without regard to case
+```C
+extern BOOLEAN listAreEqualCaseInsensitive(LIST* pList1, LIST* pList2);
+```
 
 ## Searching for elements
 ### listContains()
 Tests if a value appears in a LIST
+```C
+extern BOOLEAN listContains(LIST* pList, void* pValue, ETYPE type, size_t size);
+```
 
 ### listCount()
 Returns the number of elements with the specified value
+```C
+extern long listCount(LIST* pList, void* pValue, ETYPE type, size_t size);
+```
 
 ### listIndex()
 Returns the index of the first element with the specified value
+```C
+extern long listIndex(LIST* pList, void* pValue, ETYPE type, size_t size);
+```
 
 ### listIndexAll()
 ### listFind()
 ### listSearch()
 Returns a LIST of all the indexes of the elements with the specified value
+```C
+extern LIST* listIndexAll(LIST* pList, void* pValue, ETYPE type, size_t size);
+extern LIST* listFind(LIST* pList, void* pValue, ETYPE type, size_t size); // listIndexAll() alias
+extern LIST* listSearch(LIST* pList, void* pValue, ETYPE type, size_t size); // listIndexAll() alias
+```
 
 ## Working with lists
 ### listCopy()
 Returns a copy of the LIST (a full/deep copy as we don't want multiple references to the same values)
+```C
+extern LIST* listCopy(LIST* pList);
+```
 
 ### listConcat()
 Returns a new LIST with the concatenation of the elements of LIST1 and LIST2
+```C
+extern LIST* listConcat(LIST* pList1, LIST* pList2);
+```
 
 ### listExtend()
 Adds a copy of the elements of the second LIST to the end of the first one
+```C
+extern void listExtend(LIST** ppList1, LIST* pList2);
+```
 
 ### listJoin()
 ### listStitch()
 Moves the elements of the second LIST to the end of the first one
+```C
+extern void listJoin(LIST** ppList1, LIST** ppList2);
+extern void listStitch(LIST** ppList1, LIST** ppList2);// listJoin() alias
+```
 
 ## Changing list order**
 ### listSort()
 Sorts a LIST
+```C
+extern STATUS listSort(LIST** ppList, BOOLEAN reversed, BOOLEAN caseInsensitive, BOOLEAN noDuplicates);
+```
 
 ### listSorted()
 Returns a sorted copy of a LIST
+```C
+extern LIST* listSorted(LIST* pList, BOOLEAN reversed, BOOLEAN caseInsensitive, BOOLEAN noDuplicates);
+```
 
 ### listSortedByInsertion()
 Returns a sorted copy of a LIST, using an insertion sort algorithm
+```C
+extern LIST* listSortedByInsertion(LIST* pList, BOOLEAN reversed, BOOLEAN caseInsensitive, BOOLEAN noDuplicates);
+```
 
 ### listReverse()
 Reverses the order of a LIST
+```C
+extern void listReverse(LIST** ppList);
+```
 
 ### listReversed()
 Returns a reversed copy of a LIST
+```C
+extern LIST* listReversed(LIST* pList);
+```
 
 ### listShuffle()
 Shuffles a LIST
+```C
+extern STATUS listShuffle(LIST** ppList);
+```
 
 ### listShuffled()
 Returns a shuffled copy of a LIST
+```C
+extern LIST* listShuffled(LIST* extern void listPopNth(LIST** ppList, long n);
+```
 
 ## Removing elements
 ### listPopNth(n)
 ### listDelNth(n)
 Removes the element at the specified position
+```C
+extern void listPopNth(LIST** ppList, long n);
+extern void listDelNth(LIST** ppList, long n); // listPopNth() alias
+```
 
 ### listPopFirst()
 Equivalent to listPopNth(0)
+```C
+extern void listPopFirst(LIST** ppList); // listPopNth(0) alias
+```
 
 ### listPopLast()
 ### ListPop()
 Equivalent to listPopNth(-1)
+```C
+extern void listPopLast(LIST** ppList); // listPopNth(-1) alias
+extern void listPop(LIST** ppList); // listPopNth(-1) alias
+```
 
 ### listRemove()
 Removes the first item with the specified value
+```C
+extern void listRemove(LIST** ppList, void* pValue, ETYPE type, size_t size);
+```
 
 ### listRemoveAll()
 Removes all the items with the specified value
+```C
+extern void listRemoveAll(LIST** ppList, void* pValue, ETYPE type, size_t size);
+```
 
 ## Clearing lists
 ### listClear()
 ### listDel()
 ### listFree()
 Removes all the elements of the LIST
+```C
+extern void listClear(LIST** ppList);
+extern void listDel(LIST** ppList); // listClear() alias
+extern void listFree(LIST** ppList); // listClear() alias```
+```
 
 ## Working with numerical lists
 ### listMaxXXX()
@@ -371,29 +490,58 @@ Returns the sum of values in the LIST for the XXX type
 ### listAscii()
 ### listRepr()
 Returns a pointer to a string containing a Python-style (ie. [e1, e2...]) representated LIST (which you'll need to free afterwards using listFreeStr())
+```C
+extern STRING listStr(LIST* pList);
+extern STRING listAscii(LIST* pList); // listStr() alias
+extern STRING listRepr(LIST* pList); // listStr() alias
+```
 
 ### listFreeStr()
 Frees the memory allocated to a LIST representation
+```C
+extern void listFreeStr(STRING*); // NB: passing the previous STRING by address to reset it
+```
 
 ### listPrint()
 Prints a Python-style (ie. [e1, e2...]) representated LIST
+```C
+extern void listPrint(LIST* pList);
+```
 
 ### listDebug()
 Prints all LIST details to stderr
+```C
+extern void listDebug(LIST* pList, STRING name);
+```
 
 ## Lists to arrays conversion
 ### listToArray()
 Converts a LIST into an ARRAY
+```C
+extern ARRAY* listToArray(LIST* pList);
+```
 
 ### listFromArray()
 Converts an ARRAY into a LIST
+```C
+extern LIST* listFromArray(ARRAY* pArray);
+```
 
 ### listFreeArray()
 Frees the memory allocated to an ARRAY
+```C
+extern void listFreeArray(ARRAY** ppArray);
+```
 
 ## Miscellaneous
 ### listGetAllocatedMemory()
 Returns the quantity of allocated/unfreed memory used by this library
+```C
+extern unsigned long listGetAllocatedMemory();
+```
 
 ### listSetFatalMallocErrors()
 Sets whether memory allocation errors are fatal or not
+```C
+extern void listSetFatalMallocErrors(BOOLEAN fatal);
+```
