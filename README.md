@@ -65,7 +65,7 @@ listSortedByInsertion()||Returns a sorted copy of a LIST, using an insertion sor
 listReverse()||Reverses the order of a LIST
 listReversed()||Returns a reversed copy of a LIST
 listShuffle()||Shuffles a LIST
-listShuffled()||Creates a shuffled LIST from an existing one
+listShuffled()||Returns a shuffled copy of a LIST
 **Removing elements**||
 listPopNth(n)|listDelNth(n)<br>listPopFirst() for n=0<br>listPopLast() for n=-1<br>ListPop() for n=-1|Removes the element at the specified position
 listRemove()||Removes the first item with the specified value
