@@ -480,61 +480,61 @@ extern void listFree(LIST** ppList); // listClear() alias```
 Returns the minimum value in the LIST for the XXX type
 ```C
 extern char listMinChar(LIST* pList);
-extern unsigned char listMinUChar(LIST*);
-extern short listMinShort(LIST*);
-extern unsigned short listMinUShort(LIST*);
-extern int listMinInt(LIST*);
-extern unsigned int listMinUInt(LIST*);
-extern long listMinLong(LIST*);
-extern unsigned long listMinULong(LIST*);
-extern long long listMinLongLong(LIST*);
-extern unsigned long long listMinULongLong(LIST*);
-extern float listMinFloat(LIST*);
-extern double listMinDouble(LIST*);
-extern long double listMinLongDouble(LIST*);
+extern unsigned char listMinUChar(LIST* pList);
+extern short listMinShort(LIST* pList);
+extern unsigned short listMinUShort(LIST* pList);
+extern int listMinInt(LIST* pList);
+extern unsigned int listMinUInt(LIST* pList);
+extern long listMinLong(LIST* pList);
+extern unsigned long listMinULong(LIST* pList);
+extern long long listMinLongLong(LIST* pList);
+extern unsigned long long listMinULongLong(LIST* pList);
+extern float listMinFloat(LIST* pList);
+extern double listMinDouble(LIST* pList);
+extern long double listMinLongDouble(LIST* pList);
 ```
 
 ### listMaxXXX()
 Returns the maximum value in the LIST for the XXX type
 ```C
 extern char listMaxChar(LIST* pList);
-extern unsigned char listMaxUChar(LIST*);
-extern short listMaxShort(LIST*);
-extern unsigned short listMaxUShort(LIST*);
-extern int listMaxInt(LIST*);
-extern unsigned int listMaxUInt(LIST*);
-extern long listMaxLong(LIST*);
-extern unsigned long listMaxULong(LIST*);
-extern long long listMaxLongLong(LIST*);
-extern unsigned long long listMaxULongLong(LIST*);
-extern float listMaxFloat(LIST*);
-extern double listMaxDouble(LIST*);
-extern long double listMaxLongDouble(LIST*);
+extern unsigned char listMaxUChar(LIST* pList);
+extern short listMaxShort(LIST* pList);
+extern unsigned short listMaxUShort(LIST* pList);
+extern int listMaxInt(LIST* pList);
+extern unsigned int listMaxUInt(LIST* pList);
+extern long listMaxLong(LIST* pList);
+extern unsigned long listMaxULong(LIST* pList);
+extern long long listMaxLongLong(LIST* pList);
+extern unsigned long long listMaxULongLong(LIST* pList);
+extern float listMaxFloat(LIST* pList);
+extern double listMaxDouble(LIST* pList);
+extern long double listMaxLongDouble(LIST* pList);
 ```
 
 ### listSumXXX()
 Returns the sum of values in the LIST for the XXX type
 ```C
 extern long listSumChar(LIST* pList);
-extern unsigned long listSumUChar(LIST*);
-extern long listSumShort(LIST*);
-extern unsigned long listSumUShort(LIST*);
-extern long listSumInt(LIST*);
-extern unsigned long listSumUInt(LIST*);
-extern long long listSumLong(LIST*);
-extern unsigned long long listSumULong(LIST*);
-extern long long listSumLongLong(LIST*);
-extern unsigned long long listSumULongLong(LIST*);
-extern double listSumFloat(LIST*);
-extern long double listSumDouble(LIST*);
-extern long double listSumLongDouble(LIST*);
+extern unsigned long listSumUChar(LIST* pList);
+extern long listSumShort(LIST* pList);
+extern unsigned long listSumUShort(LIST* pList);
+extern long listSumInt(LIST* pList);
+extern unsigned long listSumUInt(LIST* pList);
+extern long long listSumLong(LIST* pList);
+extern unsigned long long listSumULong(LIST* pList);
+extern long long listSumLongLong(LIST* pList);
+extern unsigned long long listSumULongLong(LIST* pList);
+extern double listSumFloat(LIST* pList);
+extern long double listSumDouble(LIST* pList);
+extern long double listSumLongDouble(LIST* pList);
 ```
 
 ## Displaying lists
 ### listStr()
 ### listAscii()
 ### listRepr()
-Returns a pointer to a string containing a Python-style (ie. [e1, e2...]) representated LIST (which you'll need to free afterwards using listFreeStr())
+Returns a pointer to a string containing a Python-style (ie. [e1, e2...]) representated LIST (which you'll need to free afterwards using [listFreeStr()](DOC.md#listfreestr)
 ```C
 extern STRING listStr(LIST* pList);
 extern STRING listAscii(LIST* pList); // listStr() alias
