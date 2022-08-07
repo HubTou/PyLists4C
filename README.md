@@ -30,8 +30,8 @@ Base function | Aliases | Description
 --- | --- | ---
 **Creating a list**||
 LIST* MyList = NULL;||Creates an empty LIST
-list()||Creates a LIST from a Python-style list declaration string
 listCreateElement()||Creates an unlinked LIST element
+list()||Creates a LIST from a Python-style list declaration string
 listFromTable()||Converts a C-language table into a LIST
 **Adding elements**||
 listAppend()|listPush()|Adds an element at the end of a LIST
