@@ -33,7 +33,6 @@ Design notes:
   * STRINGs (C language NUL terminated character arrays),
   * sub-LISTs,
   * and user defined, self contained (that is to say, without pointers) STRUCTs.
-  * We might add Python-style dictionaries (DICTs) in the future.
 * With Python-style lists, you can implement many other data types with sub LISTS (all kind of trees, for example).
 * As the size of user defined STRUCTs is unknown (and furthermore can be of variable size inside a same LIST) and STRINGS can be allocated to larger character arrays than their current content, we need a **size** variable to keep track of the space allocated to store the *value*.
   * If you use multiple kinds of STRUCTs in the same LIST, it is advised to start each of these STRUCTs with a fixed length field indicating its sub type.
@@ -46,6 +45,7 @@ It's defined like this:
 typedef enum
 {
     ETYPE_UNDEFINED = -1,
+//  ETYPE_NULL = 0,
     ETYPE_CHAR = 1,
     ETYPE_U_CHAR = 2,
     ETYPE_SHORT = 3,
@@ -59,22 +59,24 @@ typedef enum
     ETYPE_FLOAT = 21,
     ETYPE_DOUBLE = 22,
     ETYPE_LONG_DOUBLE = 23,
-    // C-style strings:
-    // (ie. 0 terminated character array)
+    // C-style strings (ie. 0 terminated character array):
     ETYPE_STRING = 31,
+    // Homogeneous ARRAYs:
+//  ETYPE_ARRAY = 32,
     // Sub-LISTs:
-    ETYPE_LIST = 32,
-    // Python-style dictionaries for C (maybe one day :-))
-//  ETYPE_DICT = 33,
+    ETYPE_LIST = 33,
+    // Python-style dictionaries for C:
+//  ETYPE_DICT = 34,
     // Self-contained structures without pointers:
-    // (it would be a good practice to have a starting sub-TYPE field
-    // if you want to have non homogeneous STRUCTs)
-    ETYPE_STRUCT = 34
+    ETYPE_STRUCT = 35
 } ETYPE;
 ```
 Design notes:
 * ETYPE_UNDEFINED is meant for internal use.
-* ETYPE_DICT is a placeholder for a possible complementary library for [Python-style dictionaries](https://www.w3schools.com/python/python_dictionaries.asp).
+* The following types are placeholders for possible future extensions:
+  * ETYPE_NULL for empty elements (I couldn't find a use case for this?)
+  * ETYPE_ARRAY for our ARRAYs as we have defined them anyway (The same functionalities could be achieved through sub-LISTs)
+  * ETYPE_DICT for a possible complementary library of [Python-style dictionaries](https://www.w3schools.com/python/python_dictionaries.asp).
 
 We provide convenience functions for each standard C language types, so you don't always have to pass *values* by address, provide the *type* and *size* parameters, or cast variables to specific types.
 
