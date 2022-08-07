@@ -125,7 +125,9 @@ Design notes:
 * Being of unknown size to the C language, our custom types are pointers to pointers so their table indexation will work.
 
 ### LIST_STATS type
-It's defined like this:
+The [listStats()](DOC.md#liststats) function provides a way to collect several information in one LIST walkthrough.
+
+It fills a data structure defined like this:
 ```C
 // List statistics:
 typedef struct
