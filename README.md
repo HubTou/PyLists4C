@@ -29,7 +29,7 @@ With:
 Base function | Aliases | Description
 --- | --- | ---
 **Creating a list**||
-LIST* MyList = NULL;||Creates an empty LIST
+[LIST](DOC.md#list-type)* MyList = NULL;||Creates an empty LIST
 listCreateElement()||Creates an unlinked LIST element
 list()||Creates a LIST from a Python-style list declaration string
 listFromTable()||Converts a C-language table into a LIST
