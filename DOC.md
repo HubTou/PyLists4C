@@ -75,7 +75,7 @@ Design notes:
 * ETYPE_UNDEFINED is meant for internal use.
 * The following types are placeholders for possible future extensions:
   * ETYPE_NULL for empty elements (I haven't found a use case for this yet),
-  * ETYPE_ARRAY for our [ARRAYs](DOC.md#arraytype) as we have defined them anyway (though the same functionalities could be achieved through sub-LISTs),
+  * ETYPE_ARRAY for our [ARRAYs](DOC.md#array-type) as we have defined them anyway (though the same functionalities could be achieved through sub-LISTs),
   * ETYPE_DICT for a possible complementary library of [Python-style dictionaries](https://www.w3schools.com/python/python_dictionaries.asp).
 
 We provide convenience functions for each standard C language types, so you don't always have to pass *values* by address, provide the *type* and *size* parameters, or cast variables to specific types.
