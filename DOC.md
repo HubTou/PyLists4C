@@ -216,7 +216,7 @@ Design notes:
 * Can be used both as an exit code for reporting errors to the shell (if you use [listSetFatalMallocErrors(TRUE)](DOC.md#listSetFatalMallocErrors)) or as a return code to your program calling function.
 * Pragma protected as it may be defined elsewhere...
 
-# Base functions
+# Functions available
 ## Creating a list
 ### LIST declaration
 Creates an empty list.
