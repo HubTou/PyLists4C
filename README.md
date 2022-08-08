@@ -35,10 +35,10 @@ Base function | Aliases | Description
 [list()](DOC.md#list)||Creates a LIST from a Python-style list declaration string
 [listFromTable()](DOC.md#listfromtable)||Converts a C-language table into a LIST
 **Adding elements**||
-listAppend()|listPush()|Adds an element at the end of a LIST
-listInsertFirst()|listPrepend()|Adds an element at the start of a LIST
-listInsert(n)||Inserts an element at the Nth position of a LIST
-listInsertSorted()||Inserts an element in a sorted LIST
+[listAppend()](DOC.md#listappend)|[listPush()](DOC.md#listpush)|Adds an element at the end of a LIST
+[listInsertFirst()](DOC.md#listinsertfirst)|[listPrepend()](DOC.md#listprepend)|Adds an element at the start of a LIST
+[listInsert(n)](DOC.md#listinsert)||Inserts an element at the Nth position of a LIST
+[listInsertSorted()](DOC.md#listinsertsorted)||Inserts an element in a sorted LIST
 **Getting list information**||
 listLen()||Returns the number of elements in a LIST
 listStats()||Fills statistics about a LIST
@@ -70,7 +70,7 @@ listShuffle()||Shuffles a LIST
 listShuffled()||Returns a shuffled copy of a LIST
 **Removing elements**||
 listDelNth(n)|listDelFirst() for n=0<br>listDelLast() for n=-1|Removes the element at the specified position
-listPopNth(n)|ListPop() for n=-1|Removes the element at the specified position and returns it (you'll have to free it after use with listClear())
+listPopNth(n)|ListPop() for n=-1|Removes the element at the specified position and returns it<br>(you'll have to free it after use with [listClear()](DOC.md#listclear))
 listRemove()||Removes the first item with the specified value
 listRemoveAll()||Removes all the items with the specified value
 **Clearing lists**||
@@ -80,12 +80,12 @@ listMaxXXX()||Returns the maximum value in the LIST for the XXX type
 listMinXXX()||Returns the minimum value in the LIST for the XXX type
 listSumXXX()||Returns the sum of values in the LIST for the XXX type
 **Displaying lists**||
-listStr()|listAscii()<br>listRepr()|Returns a pointer to a string containing a Python-style (ie. [e1, e2...]) representated LIST (you'll have to free it after use with listFreeStr())
+listStr()|listAscii()<br>listRepr()|Returns a pointer to a string containing a Python-style (ie. [e1, e2...]) representated LIST<br>(you'll have to free it after use with [listFreeStr()](DOC.md#listfreestr))
 listFreeStr()||Frees the memory allocated to a LIST representation
 listPrint()||Prints a Python-style (ie. [e1, e2...]) representated LIST
 listDebug()||Prints all LIST details to stderr
 **Lists to arrays conversion**||
-listToArray()||Converts a LIST into an ARRAY (you'll have to free it after use with listFreeArray())
+listToArray()||Converts a LIST into an ARRAY<br>(you'll have to free it after use with [listFreeArray()](DOC.md#listfreearray))
 listFromArray()||Converts an ARRAY into a LIST
 listFreeArray()||Frees the memory allocated to an ARRAY
 **Miscellaneous**||
