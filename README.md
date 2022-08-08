@@ -98,3 +98,5 @@ Interested? Then go to the [documentation](DOC.md) to learn more about this libr
 Still missing something? Then go to the [discussions](https://github.com/HubTou/PyLists4C/discussions) and tell me!
 
 Encountering issues? Then report it in the [issues](https://github.com/HubTou/PyLists4C/issues) section.
+
+Happy with it? Then please help me promote this library.
