@@ -70,7 +70,7 @@ listShuffle()||Shuffles a LIST
 listShuffled()||Returns a shuffled copy of a LIST
 **Removing elements**||
 listDelNth(n)|listDelFirst() for n=0<br>listDelLast() for n=-1|Removes the element at the specified position
-listPopNth(n)|ListPop() for n=-1|Removes the element at the specified position and returns it (which you'll need to free after use with listClear())
+listPopNth(n)|ListPop() for n=-1|Removes the element at the specified position and returns it (you'll have to free it after use with listClear())
 listRemove()||Removes the first item with the specified value
 listRemoveAll()||Removes all the items with the specified value
 **Clearing lists**||
@@ -80,12 +80,12 @@ listMaxXXX()||Returns the maximum value in the LIST for the XXX type
 listMinXXX()||Returns the minimum value in the LIST for the XXX type
 listSumXXX()||Returns the sum of values in the LIST for the XXX type
 **Displaying lists**||
-listStr()|listAscii()<br>listRepr()|Returns a pointer to a string containing a Python-style (ie. [e1, e2...]) representated LIST (which you'll need to free after use with listFreeStr())
+listStr()|listAscii()<br>listRepr()|Returns a pointer to a string containing a Python-style (ie. [e1, e2...]) representated LIST (you'll have to free it after use with listFreeStr())
 listFreeStr()||Frees the memory allocated to a LIST representation
 listPrint()||Prints a Python-style (ie. [e1, e2...]) representated LIST
 listDebug()||Prints all LIST details to stderr
 **Lists to arrays conversion**||
-listToArray()||Converts a LIST into an ARRAY(which you'll need to free after use with listFreeArray())
+listToArray()||Converts a LIST into an ARRAY (you'll have to free it after use with listFreeArray())
 listFromArray()||Converts an ARRAY into a LIST
 listFreeArray()||Frees the memory allocated to an ARRAY
 **Miscellaneous**||
