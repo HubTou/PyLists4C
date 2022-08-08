@@ -69,7 +69,8 @@ listReversed()||Returns a reversed copy of a LIST
 listShuffle()||Shuffles a LIST
 listShuffled()||Returns a shuffled copy of a LIST
 **Removing elements**||
-listPopNth(n)|listDelNth(n)<br>listPopFirst() for n=0<br>listPopLast() for n=-1<br>ListPop() for n=-1|Removes the element at the specified position
+listDelNth(n)|listDelFirst() for n=0<br>listDelLast() for n=-1|Removes the element at the specified position
+listPopNth(n)|ListPop() for n=-1|Removes the element at the specified position and returns it (you'll have to listClear() it after use!)
 listRemove()||Removes the first item with the specified value
 listRemoveAll()||Removes all the items with the specified value
 **Clearing lists**||
