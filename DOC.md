@@ -437,26 +437,34 @@ extern LIST* listShuffled(LIST* extern void listPopNth(LIST** ppList, long n);
 ```
 
 ## Removing elements
-### listPopNth(n)
 ### listDelNth(n)
 Removes the element at the specified position
 ```C
-extern void listPopNth(LIST** ppList, long n);
 extern void listDelNth(LIST** ppList, long n); // listPopNth() alias
 ```
 
-### listPopFirst()
-Equivalent to listPopNth(0)
+### listDelFirst()
+Equivalent to listDelNth(0)
 ```C
-extern void listPopFirst(LIST** ppList); // listPopNth(0) alias
+extern void listDelFirst(LIST** ppList); // listDelNth(0) alias
 ```
 
-### listPopLast()
+### listDelLast()
+Equivalent to listDelNth(-1)
+```C
+extern void listDelLast(LIST** ppList); // listDelNth(-1) alias
+```
+
+### listPopNth(n)
+Removes the element at the specified position and returns it (you'll have to listClear() it after use!)
+```C
+extern LIST* listPopNth(LIST** ppList, long n);
+```
+
 ### ListPop()
 Equivalent to listPopNth(-1)
 ```C
-extern void listPopLast(LIST** ppList); // listPopNth(-1) alias
-extern void listPop(LIST** ppList); // listPopNth(-1) alias
+extern LIST* listPop(LIST** ppList); // listPopNth(-1) alias
 ```
 
 ### listRemove()
