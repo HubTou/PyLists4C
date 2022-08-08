@@ -456,7 +456,7 @@ extern void listDelLast(LIST** ppList); // listDelNth(-1) alias
 ```
 
 ### listPopNth(n)
-Removes the element at the specified position and returns it (you'll have to listClear() it after use!)
+Removes the element at the specified position and returns it (you'll have to free it after use with listClear())
 ```C
 extern LIST* listPopNth(LIST** ppList, long n);
 ```
@@ -549,7 +549,7 @@ extern long double listSumLongDouble(LIST* pList);
 ### listStr()
 ### listAscii()
 ### listRepr()
-Returns a pointer to a string containing a Python-style (ie. [e1, e2...]) representated LIST (which you'll need to free afterwards using [listFreeStr()](DOC.md#listfreestr)
+Returns a pointer to a string containing a Python-style (ie. [e1, e2...]) representated LIST (you'll have to free it after use with [listFreeStr()](DOC.md#listfreestr)
 ```C
 extern STRING listStr(LIST* pList);
 extern STRING listAscii(LIST* pList); // listStr() alias
@@ -576,7 +576,7 @@ extern void listDebug(LIST* pList, STRING name);
 
 ## Lists to arrays conversion
 ### listToArray()
-Converts a LIST into an ARRAY
+Converts a LIST into an ARRAY (you'll have to free it after use with [listFreeArray()](DOC.md#listfreearray))
 ```C
 extern ARRAY* listToArray(LIST* pList);
 ```
