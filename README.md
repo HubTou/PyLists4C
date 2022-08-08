@@ -23,7 +23,8 @@ Beyond Python lists emulation, you'll also find:
 With:
 * 45 base functions + 10 other intuitive aliases,
 * 221 convenience type-oriented functions,
-* and high modularity so your linker only includes what you use in your own executables.
+* high modularity so your linker only includes what you use in your own executables,
+* and friendly BSD license, for open and free usage.
 
 ## Base functions overview
 Base function | Aliases | Description
@@ -90,5 +91,9 @@ listFreeArray()||Frees the memory allocated to an ARRAY
 listGetAllocatedMemory()||Returns the quantity of allocated/unfreed memory used by this library
 listSetFatalMallocErrors()||Sets whether memory allocation errors are fatal or not
 
-## Documentation
-OK, I'm in! I want to [know everything](DOC.md) about this library!
+## Where to go from here?
+Interested? Then go to the [documentation](DOC.md) to learn more about this library and find multiple examples.
+
+Still missing something? Then go to the [discussions](discussions) and tell me!
+
+Encountering issues? Then report it in the [issues](issues) section.
