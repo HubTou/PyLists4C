@@ -24,16 +24,16 @@ With:
 * 45 base functions + 10 other intuitive aliases,
 * 221 convenience type-oriented functions,
 * high modularity so your linker only includes what you use in your own executables,
-* and friendly BSD license, for open and free usage.
+* and friendly [BSD license](License), for open and free usage.
 
 ## Base functions overview
 Base function | Aliases | Description
 --- | --- | ---
 **Creating a list**||
 [LIST](DOC.md#list-type)* MyList = NULL;||Creates an empty LIST
-listCreateElement()||Creates an unlinked LIST element
-list()||Creates a LIST from a Python-style list declaration string
-listFromTable()||Converts a C-language table into a LIST
+[listCreateElement()](DOC.md#listcreateelement)||Creates an unlinked LIST element
+[list()](DOC.md#list)||Creates a LIST from a Python-style list declaration string
+[listFromTable()](DOC.md#listfromtable)||Converts a C-language table into a LIST
 **Adding elements**||
 listAppend()|listPush()|Adds an element at the end of a LIST
 listInsertFirst()|listPrepend()|Adds an element at the start of a LIST
@@ -94,6 +94,6 @@ listSetFatalMallocErrors()||Sets whether memory allocation errors are fatal or n
 ## Where to go from here?
 Interested? Then go to the [documentation](DOC.md) to learn more about this library and find multiple examples.
 
-Still missing something? Then go to the [discussions](discussions) and tell me!
+Still missing something? Then go to the [discussions](https://github.com/HubTou/PyLists4C/discussions) and tell me!
 
-Encountering issues? Then report it in the [issues](issues) section.
+Encountering issues? Then report it in the [issues](https://github.com/HubTou/PyLists4C/issues) section.
