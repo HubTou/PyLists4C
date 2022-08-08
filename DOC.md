@@ -225,13 +225,20 @@ Example use:
 ```C
 LIST* MyList = NULL;
 ```
-
 LISTs should only be allocated through the library's functions, so **never use LIST variables directly** (ie: LIST MyList) or you won't be able to have empty LISTs, to change the first *element* easily or to clear your LIST... 
 
 ### listCreateElement()
 Creates an unlinked LIST element
 ```C
 extern LIST* listCreateElement(void* pValue, ETYPE type, size_t size);
+```
+Used by all the functions adding elements to a LIST, this one is rather intended for internal use.
+
+Example use, though you'd better just [listAppend()](DOC.md#listappend) your first value:
+```C
+LIST* MyList = NULL;
+long aLongValue = 42;
+MyList = listCreateElement(&aLongValue, ETYPE_LONG, sizeof(long));
 ```
 
 ### list()
