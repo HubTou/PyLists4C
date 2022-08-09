@@ -256,10 +256,12 @@ extern LIST* listFromTable(void* pTable, ETYPE type, size_t size, long length); 
 ## Adding elements
 ### listAppend()
 ### listPush()
+### listEnqueue()
 Adds an element at the end of a LIST
 ```C
 extern STATUS listAppend(LIST** ppList, void* pValue, ETYPE type, size_t size);
 extern STATUS listPush(LIST** ppList, void* pValue, ETYPE type, size_t size); // listAppend() alias
+extern STATUS listEnqueue(LIST** ppList, void* pValue, ETYPE type, size_t size); // listAppend() alias
 ```
 
 ### listInsertFirst()
@@ -461,7 +463,15 @@ Removes the element at the specified position and returns it (you'll have to fre
 extern LIST* listPopNth(LIST** ppList, long n);
 ```
 
-### ListPop()
+### listPopFirst()
+### listDequeue()
+Equivalent to listPopNth(0)
+```C
+extern LIST* listPopFirst(LIST** ppList); // listPopNth(-1) alias
+extern LIST* listDequeue(LIST** ppList); // listPopNth(-1) alias
+```
+
+### listPop()
 Equivalent to listPopNth(-1)
 ```C
 extern LIST* listPop(LIST** ppList); // listPopNth(-1) alias
