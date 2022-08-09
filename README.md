@@ -35,7 +35,7 @@ Base function | Aliases | Description
 [list()](DOC.md#list)||Creates a LIST from a Python-style list declaration string
 [listFromTable()](DOC.md#listfromtable)||Converts a C-language table into a LIST
 **Adding elements**||
-[listAppend()](DOC.md#listappend)|[listPush()](DOC.md#listpush)|Adds an element at the end of a LIST
+[listAppend()](DOC.md#listappend)|[listPush()](DOC.md#listpush)<br>[listEnqueue()](DOC.md#listenqueue)|Adds an element at the end of a LIST
 [listInsertFirst()](DOC.md#listinsertfirst)|[listPrepend()](DOC.md#listprepend)|Adds an element at the start of a LIST
 [listInsert(n)](DOC.md#listinsert)||Inserts an element at the Nth position of a LIST
 [listInsertSorted()](DOC.md#listinsertsorted)||Inserts an element in a sorted LIST
@@ -70,7 +70,7 @@ listShuffle()||Shuffles a LIST
 listShuffled()||Returns a shuffled copy of a LIST
 **Removing elements**||
 listDelNth(n)|listDelFirst() for n=0<br>listDelLast() for n=-1|Removes the element at the specified position
-listPopNth(n)|ListPop() for n=-1|Removes the element at the specified position and returns it<br>(you'll have to free it after use with [listClear()](DOC.md#listclear))
+listPopNth(n)|listPopFirst() for n=0<br>listDequeue() for n=0<br>listPop() for n=-1|Removes the element at the specified position and returns it<br>(you'll have to free it after use with [listClear()](DOC.md#listclear))
 listRemove()||Removes the first item with the specified value
 listRemoveAll()||Removes all the items with the specified value
 **Clearing lists**||
