@@ -40,34 +40,34 @@ Base function | Aliases | Description
 [listInsert(n)](DOC.md#listinsert)||Inserts an element at the Nth position of a LIST
 [listInsertSorted()](DOC.md#listinsertsorted)||Inserts an element in a sorted LIST
 **Getting list information**||
-listLen()||Returns the number of elements in a LIST
-listStats()||Fills statistics about a LIST
-listStatsPrint()||Prints statistics about a LIST
+[listLen()](DOC.md#listlen)||Returns the number of elements in a LIST
+[listStats()](DOC.md#liststats)||Fills statistics about a LIST
+[listStatsPrint()](DOC.md#liststatsprint)||Prints statistics about a LIST
 **Fetching elements**||
-listGet(n)||Returns the Nth element of a LIST
-listGetLast()||Returns the last element of a LIST
-listSlice(n, m)<br>listSliceFrom(n)<br>listSliceTo(m)||Returns a copy of a slice (ie. [n:m]) of a LIST
+[listGet(n)](DOC.md#listget)||Returns the Nth element of a LIST (don't free it!)
+[listGetLast()](DOC.md#listgetlast)||Returns the last element of a LIST (don't free it!)
+[listSlice(n, m)](DOC.md#listslice)<br>[listSliceFrom(n)](DOC.md#listslicefrom)<br>[listSliceTo(m)](DOC.md#listsliceto)||Returns a copy of a slice (ie. [n:m]) of a LIST
 **Testing lists**||
-listAreEqual()||Tests if two LISTs contain exactly the same values
-listAreEqualCaseInsensitive()||Tests if two LISTs contain the same values, without regard to case
+[listAreEqual()](DOC.md#listareequal)||Tests if two LISTs contain exactly the same values
+[listAreEqualCaseInsensitive()](DOC.md#listareequalcaseinsensitive)||Tests if two LISTs contain the same values, without regard to case
 **Searching for elements**||
-listContains()||Tests if a value appears in a LIST
-listCount()||Returns the number of elements with the specified value
-listIndex()||Returns the index of the first element with the specified value
-listIndexAll()|listFind()<br>listSearch()|Returns a LIST of all the indexes of the elements with the specified value
+[listContains()](DOC.md#listcontains)||Tests if a value appears in a LIST
+[listCount()](DOC.md#listcount)||Returns the number of elements with the specified value
+[listIndex()](DOC.md#listindex)||Returns the index of the first element with the specified value
+[listIndexAll()](DOC.md#listindexall)|[listFind()](DOC.md#listfind)<br>[listSearch()](DOC.md#listsearch)|Returns a LIST of all the indexes of the elements with the specified value
 **Working with lists**||
-listCopy()||Returns a copy of the LIST (a full/deep copy as we don't want multiple references to the same values)
-listConcat()||Returns a new LIST with the concatenation of the elements of LIST1 and LIST2
-listExtend()||Adds a copy of the elements of the second LIST to the end of the first one
-listJoin()|listStitch()|Moves the elements of the second LIST to the end of the first one
+[listCopy()](DOC.md#listcopy)||Returns a copy of the LIST (a full/deep copy as we don't want multiple references to the same values)
+[listConcat()](DOC.md#listconcat)||Returns a new LIST with the concatenation of the elements of LIST1 and LIST2
+[listExtend()](DOC.md#listextend)||Adds a copy of the elements of the second LIST to the end of the first one
+[listJoin()](DOC.md#listjoin)|[listStitch()](DOC.md#liststitch)|Moves the elements of the second LIST to the end of the first one
 **Changing list order**||
-listSort()||Sorts a LIST
-listSorted()||Returns a sorted copy of a LIST
-listSortedByInsertion()||Returns a sorted copy of a LIST, using an insertion sort algorithm
-listReverse()||Reverses the order of a LIST
-listReversed()||Returns a reversed copy of a LIST
-listShuffle()||Shuffles a LIST
-listShuffled()||Returns a shuffled copy of a LIST
+[listSort()](DOC.md#listsort)||Sorts a LIST
+[listSorted()](DOC.md#listsorted)||Returns a sorted copy of a LIST
+[listSortedByInsertion()](DOC.md#listsortedbyinsertion)||Returns a sorted copy of a LIST, using an insertion sort algorithm
+[listReverse()](DOC.md#listreverse)||Reverses the order of a LIST
+[listReversed()](DOC.md#listreversed)||Returns a reversed copy of a LIST
+[listShuffle()](DOC.md#listshuffle)||Shuffles a LIST
+[listShuffled()](DOC.md#listshuffled)||Returns a shuffled copy of a LIST
 **Removing elements**||
 listDelNth(n)|listDelFirst() for n=0<br>listDelLast() for n=-1|Removes the element at the specified position
 listPopNth(n)|listPopFirst() for n=0<br>listDequeue() for n=0<br>listPop() for n=-1|Removes the element at the specified position and returns it<br>(you'll have to free it after use with [listClear()](DOC.md#listclear))
