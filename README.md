@@ -82,16 +82,16 @@ Base function | Aliases | Description
 [listSumXXX()](DOC.md#listsumxxx)||Returns the sum of values in the LIST for the XXX type
 **Displaying lists**||
 [listStr()](DOC.md#liststr)|[listAscii()](DOC.md#listascii)<br>[listRepr()](DOC.md#listrepr)|Returns a pointer to a string containing a Python-style (ie. [e1, e2...]) representated LIST<br>(you'll have to free it after use with [listFreeStr()](DOC.md#listfreestr))
-listFreeStr()||Frees the memory allocated to a LIST representation
-listPrint()||Prints a Python-style (ie. [e1, e2...]) representated LIST
-listDebug()||Prints all LIST details to stderr
+[listFreeStr()](DOC.md#listfreestr)||Frees the memory allocated to a LIST representation
+[listPrint()](DOC.md#listprint)||Prints a Python-style (ie. [e1, e2...]) representated LIST
+[listDebug()](DOC.md#listdebug)||Prints all LIST details to stderr
 **Lists to arrays conversion**||
-listToArray()||Converts a LIST into an ARRAY<br>(you'll have to free it after use with [listFreeArray()](DOC.md#listfreearray))
-listFromArray()||Converts an ARRAY into a LIST
-listFreeArray()||Frees the memory allocated to an ARRAY
+[listToArray()](DOC.md#listtoarray)||Converts a LIST into an ARRAY<br>(you'll have to free it after use with [listFreeArray()](DOC.md#listfreearray))
+[listFromArray()](DOC.md#listfromarray)||Converts an ARRAY into a LIST
+[listFreeArray()](DOC.md#listfreearray)||Frees the memory allocated to an ARRAY
 **Miscellaneous**||
-listGetAllocatedMemory()||Returns the quantity of allocated/unfreed memory used by this library
-listSetFatalMallocErrors()||Sets whether memory allocation errors are fatal or not
+[listGetAllocatedMemory()](DOC.md#listgetallocatedmemory)||Returns the quantity of allocated/unfreed memory used by this library
+[listSetFatalMallocErrors()](DOC.md#listsetfatalmallocerrors)||Sets whether memory allocation errors are fatal or not
 
 ## Where to go from here?
 Interested? Then go to the [documentation](DOC.md) to learn more about this library and find multiple examples.
