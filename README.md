@@ -77,11 +77,11 @@ Base function | Aliases | Description
 **Clearing lists**||
 [listClear()](DOC.md#listclear)|[listDel()](DOC.md#listdel)<br>[listFree()](DOC.md#listfree)|Removes all the elements of the LIST
 **Working with numerical lists**||
-[listMaxXXX()](DOC.md#listmax)||Returns the maximum value in the LIST for the XXX type
-[listMinXXX()](DOC.md#listmin)||Returns the minimum value in the LIST for the XXX type
-[listSumXXX()](DOC.md#listsum)||Returns the sum of values in the LIST for the XXX type
+[listMaxXXX()](DOC.md#listmaxxxx)||Returns the maximum value in the LIST for the XXX type
+[listMinXXX()](DOC.md#listminxxx)||Returns the minimum value in the LIST for the XXX type
+[listSumXXX()](DOC.md#listsumxxx)||Returns the sum of values in the LIST for the XXX type
 **Displaying lists**||
-listStr()|listAscii()<br>listRepr()|Returns a pointer to a string containing a Python-style (ie. [e1, e2...]) representated LIST<br>(you'll have to free it after use with [listFreeStr()](DOC.md#listfreestr))
+[listStr()](DOC.md#liststr)|[listAscii()](DOC.md#listascii)<br>[listRepr()](DOC.md#listrepr)|Returns a pointer to a string containing a Python-style (ie. [e1, e2...]) representated LIST<br>(you'll have to free it after use with [listFreeStr()](DOC.md#listfreestr))
 listFreeStr()||Frees the memory allocated to a LIST representation
 listPrint()||Prints a Python-style (ie. [e1, e2...]) representated LIST
 listDebug()||Prints all LIST details to stderr
