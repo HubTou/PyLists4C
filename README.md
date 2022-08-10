@@ -14,11 +14,10 @@ This library provides [Python-style](https://docs.python.org/3/tutorial/datastru
 
 Beyond Python lists emulation, you'll also find:
 * conversion from or to arrays
-* heap (push/pop) and queue (enqueue/dequeue) management aliases 
 * sorted insertion with optional removal of duplicate values
-* list sorting by insertion or qsort (via array conversion)
 * list shuffling
 * list joining (beyond concatenation or extention)
+* heap (push/pop) and queue (enqueue/dequeue) management aliases 
 * statistics and debugging, including memory allocation followup
 
 With:
