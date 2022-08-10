@@ -14,6 +14,7 @@ This library provides [Python-style](https://docs.python.org/3/tutorial/datastru
 
 Beyond Python lists emulation, you'll also find:
 * conversion from or to arrays
+* heap (push/pop) and queue (enqueue/dequeue) management aliases 
 * sorted insertion with optional removal of duplicate values
 * list sorting by insertion or qsort (via array conversion)
 * list shuffling
@@ -21,8 +22,8 @@ Beyond Python lists emulation, you'll also find:
 * statistics and debugging, including memory allocation followup
 
 With:
-* 45 base functions + 10 other intuitive aliases,
-* 221 convenience type-oriented functions,
+* 46 base functions + 15 other intuitive aliases,
+* 234 convenience type-oriented functions,
 * high modularity so your linker only includes what you use in your own executables,
 * and friendly [BSD license](License), for open and free usage.
 
@@ -69,16 +70,16 @@ Base function | Aliases | Description
 [listShuffle()](DOC.md#listshuffle)||Shuffles a LIST
 [listShuffled()](DOC.md#listshuffled)||Returns a shuffled copy of a LIST
 **Removing elements**||
-listDelNth(n)|listDelFirst() for n=0<br>listDelLast() for n=-1|Removes the element at the specified position
-listPopNth(n)|listPopFirst() for n=0<br>listDequeue() for n=0<br>listPop() for n=-1|Removes the element at the specified position and returns it<br>(you'll have to free it after use with [listClear()](DOC.md#listclear))
-listRemove()||Removes the first item with the specified value
-listRemoveAll()||Removes all the items with the specified value
+[listDelNth(n)](DOC.md#listdelnth)|[listDelFirst()](DOC.md#listdelfirst) for n=0<br>[listDelLast()](DOC.md#listdellast) for n=-1|Removes the element at the specified position
+[listPopNth(n)](DOC.md#listpopnth)|[listPopFirst()](doc.md#listpopfirst) for n=0<br>[listDequeue()](DOC.md#listdequeue) for n=0<br>[listPop()](DOC.md#listpop) for n=-1|Removes the element at the specified position and returns it<br>(you'll have to free it after use with [listClear()](DOC.md#listclear))
+[listRemove()](DOC.md#listremove)||Removes the first item with the specified value
+[listRemoveAll()](DOC.md#listremoveall)||Removes all the items with the specified value
 **Clearing lists**||
-listClear()|listDel()<br>listFree()|Removes all the elements of the LIST
+[listClear()](DOC.md#listclear)|[listDel()](DOC.md#listdel)<br>[listFree()](DOC.md#listfree)|Removes all the elements of the LIST
 **Working with numerical lists**||
-listMaxXXX()||Returns the maximum value in the LIST for the XXX type
-listMinXXX()||Returns the minimum value in the LIST for the XXX type
-listSumXXX()||Returns the sum of values in the LIST for the XXX type
+[listMaxXXX()](DOC.md#listmax)||Returns the maximum value in the LIST for the XXX type
+[listMinXXX()](DOC.md#listmin)||Returns the minimum value in the LIST for the XXX type
+[listSumXXX()](DOC.md#listsum)||Returns the sum of values in the LIST for the XXX type
 **Displaying lists**||
 listStr()|listAscii()<br>listRepr()|Returns a pointer to a string containing a Python-style (ie. [e1, e2...]) representated LIST<br>(you'll have to free it after use with [listFreeStr()](DOC.md#listfreestr))
 listFreeStr()||Frees the memory allocated to a LIST representation
