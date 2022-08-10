@@ -37,16 +37,16 @@ Base function | Aliases | Description
 **Adding elements**||
 [listAppend()](DOC.md#listappend)|[listPush()](DOC.md#listpush)<br>[listEnqueue()](DOC.md#listenqueue)|Adds an element at the end of a LIST
 [listInsertFirst()](DOC.md#listinsertfirst)|[listPrepend()](DOC.md#listprepend)|Adds an element at the start of a LIST
-[listInsert(n)](DOC.md#listinsert)||Inserts an element at the Nth position of a LIST
+[listInsert(n)](DOC.md#listinsertn)||Inserts an element at the Nth position of a LIST
 [listInsertSorted()](DOC.md#listinsertsorted)||Inserts an element in a sorted LIST
 **Getting list information**||
 [listLen()](DOC.md#listlen)||Returns the number of elements in a LIST
 [listStats()](DOC.md#liststats)||Fills statistics about a LIST
 [listStatsPrint()](DOC.md#liststatsprint)||Prints statistics about a LIST
 **Fetching elements**||
-[listGet(n)](DOC.md#listget)||Returns the Nth element of a LIST (don't free it!)
+[listGet(n)](DOC.md#listgetn)||Returns the Nth element of a LIST (don't free it!)
 [listGetLast()](DOC.md#listgetlast)||Returns the last element of a LIST (don't free it!)
-[listSlice(n, m)](DOC.md#listslice)<br>[listSliceFrom(n)](DOC.md#listslicefrom)<br>[listSliceTo(m)](DOC.md#listsliceto)||Returns a copy of a slice (ie. [n:m]) of a LIST
+[listSlice(n, m)](DOC.md#listslicenm)<br>[listSliceFrom(n)](DOC.md#listslicefromn)<br>[listSliceTo(m)](DOC.md#listslicetom)||Returns a copy of a slice (ie. [n:m]) of a LIST
 **Testing lists**||
 [listAreEqual()](DOC.md#listareequal)||Tests if two LISTs contain exactly the same values
 [listAreEqualCaseInsensitive()](DOC.md#listareequalcaseinsensitive)||Tests if two LISTs contain the same values, without regard to case
@@ -69,8 +69,8 @@ Base function | Aliases | Description
 [listShuffle()](DOC.md#listshuffle)||Shuffles a LIST
 [listShuffled()](DOC.md#listshuffled)||Returns a shuffled copy of a LIST
 **Removing elements**||
-[listDelNth(n)](DOC.md#listdelnth)|[listDelFirst()](DOC.md#listdelfirst) for n=0<br>[listDelLast()](DOC.md#listdellast) for n=-1|Removes the element at the specified position
-[listPopNth(n)](DOC.md#listpopnth)|[listPopFirst()](doc.md#listpopfirst) for n=0<br>[listDequeue()](DOC.md#listdequeue) for n=0<br>[listPop()](DOC.md#listpop) for n=-1|Removes the element at the specified position and returns it<br>(you'll have to free it after use with [listClear()](DOC.md#listclear))
+[listDelNth(n)](DOC.md#listdelnthn)|[listDelFirst()](DOC.md#listdelfirst) for n=0<br>[listDelLast()](DOC.md#listdellast) for n=-1|Removes the element at the specified position
+[listPopNth(n)](DOC.md#listpopnthn)|[listPopFirst()](doc.md#listpopfirst) for n=0<br>[listDequeue()](DOC.md#listdequeue) for n=0<br>[listPop()](DOC.md#listpop) for n=-1|Removes the element at the specified position and returns it<br>(you'll have to free it after use with [listClear()](DOC.md#listclear))
 [listRemove()](DOC.md#listremove)||Removes the first item with the specified value
 [listRemoveAll()](DOC.md#listremoveall)||Removes all the items with the specified value
 **Clearing lists**||
