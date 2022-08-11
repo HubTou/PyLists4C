@@ -252,6 +252,17 @@ Converts a C language table into a LIST
 ```C
 extern LIST* listFromTable(void* pTable, ETYPE type, size_t size, long length); // listFromArray() wrapper
 ```
+* *pTable* is just your 1 dimensional array pointer.
+* *length* is the number of elements in your array.
+
+Example use:
+```C
+long anArrayOfLongs[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+long length = 9;
+LIST* pList = listFromTable(anArrayOfLongs, ETYPE_LONG, sizeof(long), length);
+...
+listClear(&pList);
+```
 
 ## Adding elements
 ### listAppend()
