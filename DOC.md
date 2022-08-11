@@ -379,6 +379,7 @@ extern float listMinFloat(LIST* pList);
 extern double listMinDouble(LIST* pList);
 extern long double listMinLongDouble(LIST* pList);
 ```
+If pList is NULL or if the LIST contains no elements of the requested ETYPE, the value returned will be meaningless (it will be the maximum one for the requested type).
 
 ### listMaxXXX()
 Returns the maximum value in the LIST for the XXX type
@@ -397,6 +398,7 @@ extern float listMaxFloat(LIST* pList);
 extern double listMaxDouble(LIST* pList);
 extern long double listMaxLongDouble(LIST* pList);
 ```
+If pList is NULL or if the LIST contains no elements of the requested ETYPE, the value returned will be meaningless (it will be the minimum one for the requested type).
 
 ### listSumXXX()
 Returns the sum of values in the LIST for the XXX type
@@ -415,6 +417,7 @@ extern double listSumFloat(LIST* pList);
 extern long double listSumDouble(LIST* pList);
 extern long double listSumLongDouble(LIST* pList);
 ```
+⚠️ There is no warning in cases of sum overflow, or precision losses.
 
 ## Fetching elements
 ### listGet(n)
