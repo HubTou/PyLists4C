@@ -302,7 +302,7 @@ extern void listFreeStr(STRING*); // NB: passing the previous STRING by address 
 ```
 
 ### listPrint()
-Prints a Python-style (ie. [e1, e2...]) representated LIST
+Prints a Python-style (ie. [e1, e2...]) representated LIST to stdout
 ```C
 extern void listPrint(LIST* pList);
 ```
@@ -327,7 +327,7 @@ extern void listStats(LIST* pList, LIST_STATS* pStats);
 ```
 
 ### listStatsPrint()
-Prints statistics about a LIST
+Prints statistics about a LIST to stdout
 ```C
 extern void listStatsPrint(LIST_STATS stats, STRING name);
 ```
