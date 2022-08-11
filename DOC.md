@@ -236,9 +236,8 @@ Used by all the functions adding elements to a LIST, this one is rather intended
 
 Example use, though you'd better just [listAppend()](DOC.md#listappend) your first value:
 ```C
-LIST* pList = NULL;
 long aLongValue = 42;
-pList = listCreateElement(&aLongValue, ETYPE_LONG, sizeof(long));
+LIST* pList = listCreateElement(&aLongValue, ETYPE_LONG, sizeof(long));
 ...
 listClear(&pList);
 ```
