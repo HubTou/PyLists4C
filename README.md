@@ -33,7 +33,7 @@ Base function | Aliases | Description
 [LIST](DOC.md#list-type)* MyList = NULL;||Creates an empty LIST
 [listCreateElement()](DOC.md#listcreateelement)||Creates an unlinked LIST element
 [list()](DOC.md#list)||Creates a LIST from a Python-style list declaration string
-[listFromTable()](DOC.md#listfromtable)||Converts a C-language table into a LIST
+[listFromTable()](DOC.md#listfromtable)||Converts a C language table into a LIST
 **Adding elements**||
 [listAppend()](DOC.md#listappend)|[listPush()](DOC.md#listpush)<br>[listEnqueue()](DOC.md#listenqueue)|Adds an element at the end of a LIST
 [listInsertFirst()](DOC.md#listinsertfirst)|[listPrepend()](DOC.md#listprepend)|Adds an element at the start of a LIST
