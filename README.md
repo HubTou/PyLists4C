@@ -39,22 +39,33 @@ Base function | Aliases | Description
 [listInsertFirst()](DOC.md#listinsertfirst)|[listPrepend()](DOC.md#listprepend)|Adds an element at the start of a LIST
 [listInsert(n)](DOC.md#listinsertn)||Inserts an element at the Nth position of a LIST
 [listInsertSorted()](DOC.md#listinsertsorted)||Inserts an element in a sorted LIST
+**Displaying lists**||
+[listStr()](DOC.md#liststr)|[listAscii()](DOC.md#listascii)<br>[listRepr()](DOC.md#listrepr)|Returns a pointer to a string containing a Python-style (ie. [e1, e2...]) representated LIST<br>(you'll have to free it after use with [listFreeStr()](DOC.md#listfreestr))
+[listFreeStr()](DOC.md#listfreestr)||Frees the memory allocated to a LIST representation
+[listPrint()](DOC.md#listprint)||Prints a Python-style (ie. [e1, e2...]) representated LIST
+[listDebug()](DOC.md#listdebug)||Prints all LIST details to stderr
 **Getting list information**||
 [listLen()](DOC.md#listlen)||Returns the number of elements in a LIST
 [listStats()](DOC.md#liststats)||Fills statistics about a LIST
 [listStatsPrint()](DOC.md#liststatsprint)||Prints statistics about a LIST
-**Fetching elements**||
-[listGet(n)](DOC.md#listgetn)||Returns the Nth element of a LIST (don't free it!)
-[listGetLast()](DOC.md#listgetlast)||Returns the last element of a LIST (don't free it!)
-[listSlice(n, m)](DOC.md#listslicenm)<br>[listSliceFrom(n)](DOC.md#listslicefromn)<br>[listSliceTo(m)](DOC.md#listslicetom)||Returns a copy of a slice (ie. [n:m]) of a LIST
-**Testing lists**||
-[listAreEqual()](DOC.md#listareequal)||Tests if two LISTs contain exactly the same values
-[listAreEqualCaseInsensitive()](DOC.md#listareequalcaseinsensitive)||Tests if two LISTs contain the same values, without regard to case
 **Searching for elements**||
 [listContains()](DOC.md#listcontains)||Tests if a value appears in a LIST
 [listCount()](DOC.md#listcount)||Returns the number of elements with the specified value
 [listIndex()](DOC.md#listindex)||Returns the index of the first element with the specified value
 [listIndexAll()](DOC.md#listindexall)|[listFind()](DOC.md#listfind)<br>[listSearch()](DOC.md#listsearch)|Returns a LIST of all the indexes of the elements with the specified value
+**Working with numerical lists**||
+[listMaxXXX()](DOC.md#listmaxxxx)||Returns the maximum value in the LIST for the XXX type
+[listMinXXX()](DOC.md#listminxxx)||Returns the minimum value in the LIST for the XXX type
+[listSumXXX()](DOC.md#listsumxxx)||Returns the sum of values in the LIST for the XXX type
+**Fetching elements**||
+[listGet(n)](DOC.md#listgetn)||Returns the Nth element of a LIST (don't free it!)
+[listGetLast()](DOC.md#listgetlast)||Returns the last element of a LIST (don't free it!)
+[listSlice(n, m)](DOC.md#listslicenm)<br>[listSliceFrom(n)](DOC.md#listslicefromn)<br>[listSliceTo(m)](DOC.md#listslicetom)||Returns a copy of a slice (ie. [n:m]) of a LIST
+**Changing elements**||
+[listChange(n)](DOC.md#listchangen)|[listModify(n)](DOC.md#listmodifyn)|Changes the value of the element at the Nth position of a LIST
+**Testing lists**||
+[listAreEqual()](DOC.md#listareequal)||Tests if two LISTs contain exactly the same values
+[listAreEqualCaseInsensitive()](DOC.md#listareequalcaseinsensitive)||Tests if two LISTs contain the same values, without regard to case
 **Working with lists**||
 [listCopy()](DOC.md#listcopy)||Returns a copy of the LIST (a full/deep copy as we don't want multiple references to the same values)
 [listConcat()](DOC.md#listconcat)||Returns a new LIST with the concatenation of the elements of LIST1 and LIST2
@@ -68,6 +79,10 @@ Base function | Aliases | Description
 [listReversed()](DOC.md#listreversed)||Returns a reversed copy of a LIST
 [listShuffle()](DOC.md#listshuffle)||Shuffles a LIST
 [listShuffled()](DOC.md#listshuffled)||Returns a shuffled copy of a LIST
+**Lists to arrays conversion**||
+[listToArray()](DOC.md#listtoarray)||Converts a LIST into an ARRAY<br>(you'll have to free it after use with [listFreeArray()](DOC.md#listfreearray))
+[listFromArray()](DOC.md#listfromarray)||Converts an ARRAY into a LIST
+[listFreeArray()](DOC.md#listfreearray)||Frees the memory allocated to an ARRAY
 **Removing elements**||
 [listDelNth(n)](DOC.md#listdelnthn)|[listDelFirst()](DOC.md#listdelfirst) for n=0<br>[listDelLast()](DOC.md#listdellast) for n=-1|Removes the element at the specified position
 [listPopNth(n)](DOC.md#listpopnthn)|[listPopFirst()](doc.md#listpopfirst) for n=0<br>[listDequeue()](DOC.md#listdequeue) for n=0<br>[listPop()](DOC.md#listpop) for n=-1|Removes the element at the specified position and returns it<br>(you'll have to free it after use with [listClear()](DOC.md#listclear))
@@ -75,19 +90,6 @@ Base function | Aliases | Description
 [listRemoveAll()](DOC.md#listremoveall)||Removes all the items with the specified value
 **Clearing lists**||
 [listClear()](DOC.md#listclear)|[listDel()](DOC.md#listdel)<br>[listFree()](DOC.md#listfree)|Removes all the elements of the LIST
-**Working with numerical lists**||
-[listMaxXXX()](DOC.md#listmaxxxx)||Returns the maximum value in the LIST for the XXX type
-[listMinXXX()](DOC.md#listminxxx)||Returns the minimum value in the LIST for the XXX type
-[listSumXXX()](DOC.md#listsumxxx)||Returns the sum of values in the LIST for the XXX type
-**Displaying lists**||
-[listStr()](DOC.md#liststr)|[listAscii()](DOC.md#listascii)<br>[listRepr()](DOC.md#listrepr)|Returns a pointer to a string containing a Python-style (ie. [e1, e2...]) representated LIST<br>(you'll have to free it after use with [listFreeStr()](DOC.md#listfreestr))
-[listFreeStr()](DOC.md#listfreestr)||Frees the memory allocated to a LIST representation
-[listPrint()](DOC.md#listprint)||Prints a Python-style (ie. [e1, e2...]) representated LIST
-[listDebug()](DOC.md#listdebug)||Prints all LIST details to stderr
-**Lists to arrays conversion**||
-[listToArray()](DOC.md#listtoarray)||Converts a LIST into an ARRAY<br>(you'll have to free it after use with [listFreeArray()](DOC.md#listfreearray))
-[listFromArray()](DOC.md#listfromarray)||Converts an ARRAY into a LIST
-[listFreeArray()](DOC.md#listfreearray)||Frees the memory allocated to an ARRAY
 **Miscellaneous**||
 [listGetAllocatedMemory()](DOC.md#listgetallocatedmemory)||Returns the quantity of allocated/unfreed memory used by this library
 [listSetFatalMallocErrors()](DOC.md#listsetfatalmallocerrors)||Sets whether memory allocation errors are fatal or not
