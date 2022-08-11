@@ -302,7 +302,7 @@ extern STATUS listPrepend(LIST** ppList, void* pValue, ETYPE type, size_t size);
 Example use:
 
 ```C
-LIST* pList = list("Gene Cernan, 1972");
+LIST* pList = list("Gene Cernan, 1972", ",");
 static char* firstManOnTheMoon = "Neil Armstrong";
 long year = 1969;
 ...
