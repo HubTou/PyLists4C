@@ -223,9 +223,9 @@ Creates an empty list.
 
 Example use:
 ```C
-LIST* MyList = NULL;
+LIST* pList = NULL;
 ```
-LISTs should only be allocated through the library's functions, so **never use LIST variables directly** (ie: LIST MyList) or you won't be able to have empty LISTs, to change the first *element* easily or to clear your LIST... 
+LISTs should only be allocated through the library's functions, so **never use LIST variables directly** (ie: LIST myList) or you won't be able to have empty LISTs, to change the first *element* easily or to clear your LIST... 
 
 ### listCreateElement()
 Creates an unlinked LIST element
@@ -236,11 +236,11 @@ Used by all the functions adding elements to a LIST, this one is rather intended
 
 Example use, though you'd better just [listAppend()](DOC.md#listappend) your first value:
 ```C
-LIST* MyList = NULL;
+LIST* pList = NULL;
 long aLongValue = 42;
-MyList = listCreateElement(&aLongValue, ETYPE_LONG, sizeof(long));
+pList = listCreateElement(&aLongValue, ETYPE_LONG, sizeof(long));
 ...
-listClear(&MyList);
+listClear(&pList);
 ```
 
 ### list()
