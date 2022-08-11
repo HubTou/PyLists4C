@@ -42,12 +42,12 @@ Base function | Aliases | Description
 **Displaying lists**||
 [listStr()](DOC.md#liststr)|[listAscii()](DOC.md#listascii)<br>[listRepr()](DOC.md#listrepr)|Returns a pointer to a string containing a Python-style (ie. [e1, e2...]) representated LIST<br>(you'll have to free it after use with [listFreeStr()](DOC.md#listfreestr))
 [listFreeStr()](DOC.md#listfreestr)||Frees the memory allocated to a LIST representation
-[listPrint()](DOC.md#listprint)||Prints a Python-style (ie. [e1, e2...]) representated LIST
+[listPrint()](DOC.md#listprint)||Prints a Python-style (ie. [e1, e2...]) representated LIST to stdout
 [listDebug()](DOC.md#listdebug)||Prints all LIST details to stderr
 **Getting list information**||
 [listLen()](DOC.md#listlen)||Returns the number of elements in a LIST
 [listStats()](DOC.md#liststats)||Fills statistics about a LIST
-[listStatsPrint()](DOC.md#liststatsprint)||Prints statistics about a LIST
+[listStatsPrint()](DOC.md#liststatsprint)||Prints statistics about a LIST to stdout
 **Searching for elements**||
 [listContains()](DOC.md#listcontains)||Tests if a value appears in a LIST
 [listCount()](DOC.md#listcount)||Returns the number of elements with the specified value
