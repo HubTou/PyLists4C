@@ -284,6 +284,35 @@ Inserts an element in a sorted LIST
 extern STATUS listInsertSorted(LIST** ppList, void* pValue, ETYPE type, size_t size, BOOLEAN reversed, BOOLEAN caseInsensitive, BOOLEAN noDuplicates);
 ```
 
+## Displaying lists
+### listStr()
+### listAscii()
+### listRepr()
+Returns a pointer to a string containing a Python-style (ie. [e1, e2...]) representated LIST (you'll have to free it after use with [listFreeStr()](DOC.md#listfreestr)
+```C
+extern STRING listStr(LIST* pList);
+extern STRING listAscii(LIST* pList); // listStr() alias
+extern STRING listRepr(LIST* pList); // listStr() alias
+```
+
+### listFreeStr()
+Frees the memory allocated to a LIST representation
+```C
+extern void listFreeStr(STRING*); // NB: passing the previous STRING by address to reset it
+```
+
+### listPrint()
+Prints a Python-style (ie. [e1, e2...]) representated LIST
+```C
+extern void listPrint(LIST* pList);
+```
+
+### listDebug()
+Prints all LIST details to stderr
+```C
+extern void listDebug(LIST* pList, STRING name);
+```
+
 ## Getting list information
 ### listLen()
 Returns the number of elements in a LIST
@@ -301,42 +330,6 @@ extern void listStats(LIST* pList, LIST_STATS* pStats);
 Prints statistics about a LIST
 ```C
 extern void listStatsPrint(LIST_STATS stats, STRING name);
-```
-
-## Fetching elements
-### listGet(n)
-Returns the Nth element of a LIST
-```C
-extern LIST* listGet(LIST* pList, long n);
-```
-
-### listGetLast()
-Returns the last element of a LIST
-```C
-extern LIST* listGetLast(LIST* pList);
-```
-
-### listSlice(n, m)
-### listSliceFrom(n)
-### listSliceTo(m)
-Returns a copy of a slice (ie. [n:m]) of a LIST
-```C
-extern LIST* listSlice(LIST* pList, long n, long m);
-extern LIST* listSliceFrom(LIST* pList, long n);
-extern LIST* listSliceTo(LIST* pList, long m);
-```
-
-## Testing lists
-### listAreEqual()
-Tests if two LISTs contain exactly the same values
-```C
-extern BOOLEAN listAreEqual(LIST* pList1, LIST* pList2);
-```
-
-### listAreEqualCaseInsensitive()
-Tests if two LISTs contain the same values, without regard to case
-```C
-extern BOOLEAN listAreEqualCaseInsensitive(LIST* pList1, LIST* pList2);
 ```
 
 ## Searching for elements
@@ -366,6 +359,106 @@ Returns a LIST of all the indexes of the elements with the specified value
 extern LIST* listIndexAll(LIST* pList, void* pValue, ETYPE type, size_t size);
 extern LIST* listFind(LIST* pList, void* pValue, ETYPE type, size_t size); // listIndexAll() alias
 extern LIST* listSearch(LIST* pList, void* pValue, ETYPE type, size_t size); // listIndexAll() alias
+```
+
+## Working with numerical lists
+### listMinXXX()
+Returns the minimum value in the LIST for the XXX type
+```C
+extern char listMinChar(LIST* pList);
+extern unsigned char listMinUChar(LIST* pList);
+extern short listMinShort(LIST* pList);
+extern unsigned short listMinUShort(LIST* pList);
+extern int listMinInt(LIST* pList);
+extern unsigned int listMinUInt(LIST* pList);
+extern long listMinLong(LIST* pList);
+extern unsigned long listMinULong(LIST* pList);
+extern long long listMinLongLong(LIST* pList);
+extern unsigned long long listMinULongLong(LIST* pList);
+extern float listMinFloat(LIST* pList);
+extern double listMinDouble(LIST* pList);
+extern long double listMinLongDouble(LIST* pList);
+```
+
+### listMaxXXX()
+Returns the maximum value in the LIST for the XXX type
+```C
+extern char listMaxChar(LIST* pList);
+extern unsigned char listMaxUChar(LIST* pList);
+extern short listMaxShort(LIST* pList);
+extern unsigned short listMaxUShort(LIST* pList);
+extern int listMaxInt(LIST* pList);
+extern unsigned int listMaxUInt(LIST* pList);
+extern long listMaxLong(LIST* pList);
+extern unsigned long listMaxULong(LIST* pList);
+extern long long listMaxLongLong(LIST* pList);
+extern unsigned long long listMaxULongLong(LIST* pList);
+extern float listMaxFloat(LIST* pList);
+extern double listMaxDouble(LIST* pList);
+extern long double listMaxLongDouble(LIST* pList);
+```
+
+### listSumXXX()
+Returns the sum of values in the LIST for the XXX type
+```C
+extern long listSumChar(LIST* pList);
+extern unsigned long listSumUChar(LIST* pList);
+extern long listSumShort(LIST* pList);
+extern unsigned long listSumUShort(LIST* pList);
+extern long listSumInt(LIST* pList);
+extern unsigned long listSumUInt(LIST* pList);
+extern long long listSumLong(LIST* pList);
+extern unsigned long long listSumULong(LIST* pList);
+extern long long listSumLongLong(LIST* pList);
+extern unsigned long long listSumULongLong(LIST* pList);
+extern double listSumFloat(LIST* pList);
+extern long double listSumDouble(LIST* pList);
+extern long double listSumLongDouble(LIST* pList);
+```
+
+## Fetching elements
+### listGet(n)
+Returns the Nth element of a LIST
+```C
+extern LIST* listGet(LIST* pList, long n);
+```
+
+### listGetLast()
+Returns the last element of a LIST
+```C
+extern LIST* listGetLast(LIST* pList);
+```
+
+### listSlice(n, m)
+### listSliceFrom(n)
+### listSliceTo(m)
+Returns a copy of a slice (ie. [n:m]) of a LIST
+```C
+extern LIST* listSlice(LIST* pList, long n, long m);
+extern LIST* listSliceFrom(LIST* pList, long n);
+extern LIST* listSliceTo(LIST* pList, long m);
+```
+
+## Changing elements
+### listChange(n)
+### listModify(n)
+Changes the value of the element at the Nth position of a LIST
+```C
+extern STATUS listChange(LIST* pList, long n, void* pValue, ETYPE type, size_t size);
+extern STATUS listModify(LIST* pList, long n, void* pValue, ETYPE type, size_t size); // listChange() alias
+```
+
+## Testing lists
+### listAreEqual()
+Tests if two LISTs contain exactly the same values
+```C
+extern BOOLEAN listAreEqual(LIST* pList1, LIST* pList2);
+```
+
+### listAreEqualCaseInsensitive()
+Tests if two LISTs contain the same values, without regard to case
+```C
+extern BOOLEAN listAreEqualCaseInsensitive(LIST* pList1, LIST* pList2);
 ```
 
 ## Working with lists
@@ -438,6 +531,25 @@ Returns a shuffled copy of a LIST
 extern LIST* listShuffled(LIST* extern void listPopNth(LIST** ppList, long n);
 ```
 
+## Lists to arrays conversion
+### listToArray()
+Converts a LIST into an ARRAY (you'll have to free it after use with [listFreeArray()](DOC.md#listfreearray))
+```C
+extern ARRAY* listToArray(LIST* pList);
+```
+
+### listFromArray()
+Converts an ARRAY into a LIST
+```C
+extern LIST* listFromArray(ARRAY* pArray);
+```
+
+### listFreeArray()
+Frees the memory allocated to an ARRAY
+```C
+extern void listFreeArray(ARRAY** ppArray);
+```
+
 ## Removing elements
 ### listDelNth(n)
 Removes the element at the specified position
@@ -498,109 +610,6 @@ Removes all the elements of the LIST
 extern void listClear(LIST** ppList);
 extern void listDel(LIST** ppList); // listClear() alias
 extern void listFree(LIST** ppList); // listClear() alias```
-```
-
-## Working with numerical lists
-### listMinXXX()
-Returns the minimum value in the LIST for the XXX type
-```C
-extern char listMinChar(LIST* pList);
-extern unsigned char listMinUChar(LIST* pList);
-extern short listMinShort(LIST* pList);
-extern unsigned short listMinUShort(LIST* pList);
-extern int listMinInt(LIST* pList);
-extern unsigned int listMinUInt(LIST* pList);
-extern long listMinLong(LIST* pList);
-extern unsigned long listMinULong(LIST* pList);
-extern long long listMinLongLong(LIST* pList);
-extern unsigned long long listMinULongLong(LIST* pList);
-extern float listMinFloat(LIST* pList);
-extern double listMinDouble(LIST* pList);
-extern long double listMinLongDouble(LIST* pList);
-```
-
-### listMaxXXX()
-Returns the maximum value in the LIST for the XXX type
-```C
-extern char listMaxChar(LIST* pList);
-extern unsigned char listMaxUChar(LIST* pList);
-extern short listMaxShort(LIST* pList);
-extern unsigned short listMaxUShort(LIST* pList);
-extern int listMaxInt(LIST* pList);
-extern unsigned int listMaxUInt(LIST* pList);
-extern long listMaxLong(LIST* pList);
-extern unsigned long listMaxULong(LIST* pList);
-extern long long listMaxLongLong(LIST* pList);
-extern unsigned long long listMaxULongLong(LIST* pList);
-extern float listMaxFloat(LIST* pList);
-extern double listMaxDouble(LIST* pList);
-extern long double listMaxLongDouble(LIST* pList);
-```
-
-### listSumXXX()
-Returns the sum of values in the LIST for the XXX type
-```C
-extern long listSumChar(LIST* pList);
-extern unsigned long listSumUChar(LIST* pList);
-extern long listSumShort(LIST* pList);
-extern unsigned long listSumUShort(LIST* pList);
-extern long listSumInt(LIST* pList);
-extern unsigned long listSumUInt(LIST* pList);
-extern long long listSumLong(LIST* pList);
-extern unsigned long long listSumULong(LIST* pList);
-extern long long listSumLongLong(LIST* pList);
-extern unsigned long long listSumULongLong(LIST* pList);
-extern double listSumFloat(LIST* pList);
-extern long double listSumDouble(LIST* pList);
-extern long double listSumLongDouble(LIST* pList);
-```
-
-## Displaying lists
-### listStr()
-### listAscii()
-### listRepr()
-Returns a pointer to a string containing a Python-style (ie. [e1, e2...]) representated LIST (you'll have to free it after use with [listFreeStr()](DOC.md#listfreestr)
-```C
-extern STRING listStr(LIST* pList);
-extern STRING listAscii(LIST* pList); // listStr() alias
-extern STRING listRepr(LIST* pList); // listStr() alias
-```
-
-### listFreeStr()
-Frees the memory allocated to a LIST representation
-```C
-extern void listFreeStr(STRING*); // NB: passing the previous STRING by address to reset it
-```
-
-### listPrint()
-Prints a Python-style (ie. [e1, e2...]) representated LIST
-```C
-extern void listPrint(LIST* pList);
-```
-
-### listDebug()
-Prints all LIST details to stderr
-```C
-extern void listDebug(LIST* pList, STRING name);
-```
-
-## Lists to arrays conversion
-### listToArray()
-Converts a LIST into an ARRAY (you'll have to free it after use with [listFreeArray()](DOC.md#listfreearray))
-```C
-extern ARRAY* listToArray(LIST* pList);
-```
-
-### listFromArray()
-Converts an ARRAY into a LIST
-```C
-extern LIST* listFromArray(ARRAY* pArray);
-```
-
-### listFreeArray()
-Frees the memory allocated to an ARRAY
-```C
-extern void listFreeArray(ARRAY** ppArray);
 ```
 
 ## Miscellaneous
