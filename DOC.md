@@ -275,6 +275,20 @@ extern STATUS listAppend(LIST** ppList, void* pValue, ETYPE type, size_t size);
 extern STATUS listPush(LIST** ppList, void* pValue, ETYPE type, size_t size); // listAppend() alias
 extern STATUS listEnqueue(LIST** ppList, void* pValue, ETYPE type, size_t size); // listAppend() alias
 ```
+* *ppList** is the address of your LIST pointer as the first element will change if your LIST was empty.
+* In case of FAILURE return code, the LIST is unaffected.
+
+Example use:
+```C
+LIST* pList = NULL;
+static char* lastManOnTheMoon = "Gene Cernan";
+int year = 1972;
+...
+listAppend(&pList, lastManOnTheMoon, ETYPE_STRING, strlen(lastManOnTheMoon) + 1);
+listAppend(&pList, &year, ETYPE_INT, sizeof(int));
+...
+listClear(&pList);
+```
 
 ### listInsertFirst()
 ### listPrepend()
