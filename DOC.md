@@ -275,7 +275,7 @@ extern STATUS listAppend(LIST** ppList, void* pValue, ETYPE type, size_t size);
 extern STATUS listPush(LIST** ppList, void* pValue, ETYPE type, size_t size); // listAppend() alias
 extern STATUS listEnqueue(LIST** ppList, void* pValue, ETYPE type, size_t size); // listAppend() alias
 ```
-* *ppList** is the address of your LIST pointer as the first element will change if your LIST was empty.
+* *ppList* is the address of your LIST pointer as the first element will change if your LIST was empty.
 * In case of FAILURE return code, the LIST is unaffected.
 
 Example use:
@@ -296,6 +296,20 @@ Adds an element at the start of a LIST
 ```C
 extern STATUS listInsertFirst(LIST** ppList, void* pValue, ETYPE type, size_t size);
 extern STATUS listPrepend(LIST** ppList, void* pValue, ETYPE type, size_t size); // listInsertFirst() alias
+```
+* *ppList* is the address of your LIST pointer as the first element will change if your LIST was empty.
+* In case of FAILURE return code, the LIST is unaffected.
+Example use:
+
+```C
+LIST* pList = list("Gene Cernan, 1972");
+static char* firstManOnTheMoon = "Neil Armstrong";
+long year = 1969;
+...
+listInsertFirst(&pList, &year, ETYPE_LONG, sizeof(long));
+listInsertFirst(&pList, firstManOnTheMoon, ETYPE_STRING, strlen(firstManOnTheMoon) + 1);
+...
+listClear(&pList);
 ```
 
 ### listInsert(n)
