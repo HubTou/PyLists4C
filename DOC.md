@@ -248,7 +248,7 @@ extern LIST* list(STRING string, char separator);
 ```
 
 ### listFromTable()
-Converts a C-language table into a LIST
+Converts a C language table into a LIST
 ```C
 extern LIST* listFromTable(void* pTable, ETYPE type, size_t size, long length); // listFromArray() wrapper
 ```
