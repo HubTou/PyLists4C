@@ -239,6 +239,8 @@ Example use, though you'd better just [listAppend()](DOC.md#listappend) your fir
 LIST* MyList = NULL;
 long aLongValue = 42;
 MyList = listCreateElement(&aLongValue, ETYPE_LONG, sizeof(long));
+...
+listClear(&MyList);
 ```
 
 ### list()
