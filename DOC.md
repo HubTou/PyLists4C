@@ -38,6 +38,23 @@ Design notes:
   * If you use multiple kinds of STRUCTs in the same LIST, it is advised to start each of these STRUCTs with a fixed length field indicating its sub type.
 * As we want an *element* to have the same memory size, we use pointers for all *values*, not just STRINGs, LISTs and STRUCTS. Thus we need a **pValue** variable to point to the *value* of each *element*.
 
+### ELEMENT type
+An alias for a pointer to a LIST, defined like this:
+```C
+typedef LIST* ELEMENT;
+```
+Design notes:
+* It's main use is to differenciate functions that return a whole LIST that would need to be freed after use, from those that return an ELEMENT of a LIST that must not be freed).
+* The use of a variable-like name is meant to discourage the idea of freeing it, though as it's still a pointer its members will have to be accessed with "->" rather than "."...
+
+### ITERATOR type
+An alias for a pointer to a LIST, defined like this:
+```C
+typedef LIST* ITERATOR;
+```
+Design notes:
+* See the comments for the ELEMENT type above... 
+
 ### ETYPE type
 It's defined like this:
 ```C
@@ -461,15 +478,33 @@ extern long double listSumLongDouble(LIST* pList);
 
 ## Fetching elements
 ### listGet(n)
-Returns the Nth element of a LIST
+Returns the Nth ELEMENT of a LIST
 ```C
-extern LIST* listGet(LIST* pList, long n);
+extern ELEMENT listGet(LIST* pList, long n);
 ```
 
 ### listGetLast()
-Returns the last element of a LIST
+Returns the last ELEMENT of a LIST
 ```C
-extern LIST* listGetLast(LIST* pList);
+extern ELEMENT listGetLast(LIST* pList);
+```
+
+### listSetIterator()
+Defines an ITERATOR from an ELEMENT of a LIST
+```C
+extern ITERATOR listSetIterator(ELEMENT element);
+```
+    
+### listNext()
+Returns the next ELEMENT of a LIST starting from an ITERATOR
+```C
+extern ELEMENT listNext(ITERATOR* pIterator);
+```
+
+### listPrevious()
+Returns the previous ELEMENT of a LIST starting from an ITERATOR
+```C
+extern ELEMENT listPrevious(ITERATOR* pIterator);
 ```
 
 ### listSlice(n, m)
