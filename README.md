@@ -21,7 +21,7 @@ Beyond Python lists emulation, you'll also find:
 * statistics and debugging, including memory allocation followup
 
 With:
-* 46 base functions + 15 other intuitive aliases,
+* 49 base functions + 15 other intuitive aliases,
 * 249 convenience type-oriented functions,
 * high modularity so your linker only includes what you use in your own executables,
 * and friendly [BSD license](License), for open and free usage.
@@ -58,8 +58,11 @@ Base function | Aliases | Description
 [listMinXXX()](DOC.md#listminxxx)||Returns the minimum value in the LIST for the XXX type
 [listSumXXX()](DOC.md#listsumxxx)||Returns the sum of values in the LIST for the XXX type
 **Fetching elements**||
-[listGet(n)](DOC.md#listgetn)||Returns the Nth element of a LIST (don't free it!)
-[listGetLast()](DOC.md#listgetlast)||Returns the last element of a LIST (don't free it!)
+[listGet(n)](DOC.md#listgetn)||Returns the Nth ELEMENT of a LIST
+[listGetLast()](DOC.md#listgetlast)||Returns the last ELEMENT of a LIST
+[listSetIterator()](DOC.md#listsetiterator)||Defines an iterator from an ELEMENT of a LIST
+[listNext()](DOC.md#listnext)||Returns the next element of a LIST starting from an ITERATOR
+[listPrevious()](DOC.md#listprevious)||Returns the previous element of a LIST starting from an ITERATOR
 [listSlice(n, m)](DOC.md#listslicenm)<br>[listSliceFrom(n)](DOC.md#listslicefromn)<br>[listSliceTo(m)](DOC.md#listslicetom)||Returns a copy of a slice (ie. [n:m]) of a LIST
 **Changing elements**||
 [listChange(n)](DOC.md#listchangen)|[listModify(n)](DOC.md#listmodifyn)|Changes the value of the element at the Nth position of a LIST
