@@ -60,7 +60,7 @@ Base function | Aliases | Description
 **Fetching elements**||
 [listGet(n)](DOC.md#listgetn)||Returns the Nth ELEMENT of a LIST
 [listGetLast()](DOC.md#listgetlast)||Returns the last ELEMENT of a LIST
-[listSetIterator()](DOC.md#listsetiterator)||Defines an iterator from an ELEMENT of a LIST
+[listSetIterator()](DOC.md#listsetiterator)||Defines an ITERATOR from an ELEMENT of a LIST
 [listNext()](DOC.md#listnext)||Returns the next ELEMENT of a LIST starting from an ITERATOR
 [listPrevious()](DOC.md#listprevious)||Returns the previous ELEMENT of a LIST starting from an ITERATOR
 [listSlice(n, m)](DOC.md#listslicenm)<br>[listSliceFrom(n)](DOC.md#listslicefromn)<br>[listSliceTo(m)](DOC.md#listslicetom)||Returns a copy of a slice (ie. [n:m]) of a LIST
