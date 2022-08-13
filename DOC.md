@@ -31,13 +31,13 @@ typedef struct list
 Design notes:
 * In order to mix different types of *values* in a same LIST, we need a **type** variable to keep track of the kind of *value* a peculiar *element* will carry.
 * As we want to use some custom types beyond standard C language types, we introduce the [ETYPE](DOC.md#etype-type) type to be able to use:
-  * STRINGs (C language \0 terminated character arrays),
+  * [STRING](DOC.md#string-type)s (C language \0 terminated character arrays),
   * sub-LISTs,
   * and user defined, self contained (that is to say, without pointers) STRUCTs.
 * With Python-style lists, you can implement many other data types with sub LISTS (all kind of trees, for example).
 * As the size of user defined STRUCTs is unknown (and furthermore can be of variable size inside a same LIST) and STRINGS can be allocated to larger character arrays than their current content, we need a **size** variable to keep track of the space allocated to store the *value*.
   * If you use multiple kinds of STRUCTs in the same LIST, it is advised to start each of these STRUCTs with a fixed length field indicating its sub type.
-* As we want an *element* to have the same memory size, we use pointers for all *values*, not just STRINGs, LISTs and STRUCTS. Thus we need a **pValue** variable to point to the *value* of each *element*.
+* As I want all *elements* to have the same memory size, we use pointers for all *values*, not just STRINGs, LISTs and STRUCTS. Thus we need a **pValue** variable to point to the *value* of each *element*.
 
 ### ELEMENT type
 An alias for a pointer to a LIST, defined like this:
@@ -54,6 +54,7 @@ An alias for a pointer to a LIST, defined like this:
 typedef LIST* ITERATOR;
 ```
 Design notes:
+* It's main use is to differenciate LISTs that would need to be freed after use, from pointers to walkthrough a LIST that must not be freed.
 * See the comments for the ELEMENT type above... 
 
 ### ETYPE type
