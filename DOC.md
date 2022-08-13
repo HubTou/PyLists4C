@@ -7,8 +7,9 @@
 * An **index** is the position of an element in a LIST.
   * Like in Python, indexes are numbered from 0 when you go through a LIST from its beginning, or from -1 when you go through its end.
   * LISTs indexes, lengths and counts are of the C language **long** type. 
-* An **homogeneous** LIST is a special kind of data structure where all values are of the same type.
+* An **homogeneous** LIST is a special kind of LIST where all values are of the same type.
 * Pointers variable names are prefixed with a **p** character. Pointers to pointers with **pp** and so on.
+  * Thus a ppList parameter means that you'll pass the address of your LIST, enabling the modification of the first element pointer or its NULL-ification if the LIST is emptied. 
 
 # Data structures
 ## Specific types
@@ -30,7 +31,7 @@ typedef struct list
 Design notes:
 * In order to mix different types of *values* in a same LIST, we need a **type** variable to keep track of the kind of *value* a peculiar *element* will carry.
 * As we want to use some custom types beyond standard C language types, we introduce the [ETYPE](DOC.md#etype-type) type to be able to use:
-  * STRINGs (C language NUL terminated character arrays),
+  * STRINGs (C language \0 terminated character arrays),
   * sub-LISTs,
   * and user defined, self contained (that is to say, without pointers) STRUCTs.
 * With Python-style lists, you can implement many other data types with sub LISTS (all kind of trees, for example).
