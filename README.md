@@ -30,9 +30,9 @@ With:
 Base function | Aliases | Description
 --- | --- | ---
 **Creating a list**||
-[LIST](DOC.md#list-type)* MyList = NULL;||Creates an empty LIST
+[LIST](DOC.md#list-type)* MyList = NULL;||Creates an empty [LIST](DOC.md#list-type)
 [listCreateElement()](DOC.md#listcreateelement)||Creates an unlinked LIST element
-[list()](DOC.md#list)||Creates a LIST from a Python-style list declaration string
+[list()](DOC.md#list)||Creates a LIST from a [Python-style list declaration string](DOC.md#list)
 [listFromTable()](DOC.md#listfromtable)||Converts a C language table into a LIST
 **Adding elements**||
 [listAppend()](DOC.md#listappend)|[listPush()](DOC.md#listpush)<br>[listEnqueue()](DOC.md#listenqueue)|Adds an element at the end of a LIST
@@ -46,7 +46,7 @@ Base function | Aliases | Description
 [listDebug()](DOC.md#listdebug)||Prints all LIST details to stderr
 **Getting list information**||
 [listLen()](DOC.md#listlen)||Returns the number of elements in a LIST
-[listStats()](DOC.md#liststats)||Fills statistics about a LIST
+[listStats()](DOC.md#liststats)||Fills statistics about a LIST in one walkthrough
 [listStatsPrint()](DOC.md#liststatsprint)||Prints statistics about a LIST to stdout
 **Searching for elements**||
 [listContains()](DOC.md#listcontains)||Tests if a value appears in a LIST
@@ -58,9 +58,9 @@ Base function | Aliases | Description
 [listMinXXX()](DOC.md#listminxxx)||Returns the minimum value in the LIST for the XXX type
 [listSumXXX()](DOC.md#listsumxxx)||Returns the sum of values in the LIST for the XXX type
 **Fetching elements**||
-[listGet(n)](DOC.md#listgetn)||Returns the Nth ELEMENT of a LIST
+[listGet(n)](DOC.md#listgetn)||Returns the Nth [ELEMENT](DOC.md#element-type) of a LIST
 [listGetLast()](DOC.md#listgetlast)||Returns the last ELEMENT of a LIST
-[listSetIterator()](DOC.md#listsetiterator)||Defines an ITERATOR from an ELEMENT of a LIST
+[listSetIterator()](DOC.md#listsetiterator)||Defines an [ITERATOR](DOC.md#iterator-type) from an ELEMENT of a LIST
 [listNext()](DOC.md#listnext)||Returns the next ELEMENT of a LIST starting from an ITERATOR
 [listPrevious()](DOC.md#listprevious)||Returns the previous ELEMENT of a LIST starting from an ITERATOR
 [listSlice(n, m)](DOC.md#listslicenm)<br>[listSliceFrom(n)](DOC.md#listslicefromn)<br>[listSliceTo(m)](DOC.md#listslicetom)||Returns a copy of a slice (ie. [n:m]) of a LIST
