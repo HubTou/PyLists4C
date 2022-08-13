@@ -16,7 +16,7 @@ Beyond Python lists emulation, you'll also find:
 * conversion from or to arrays
 * sorted insertion with optional removal of duplicate values
 * list shuffling
-* list joining (beyond concatenation or extention)
+* list joining (beyond concatenation or extension)
 * heap (push/pop) and queue (enqueue/dequeue) management aliases 
 * statistics and debugging, including memory allocation followup
 
