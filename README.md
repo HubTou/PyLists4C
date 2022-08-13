@@ -63,7 +63,7 @@ Base function | Aliases | Description
 [listSetIterator()](DOC.md#listsetiterator)||Defines an [ITERATOR](DOC.md#iterator-type) from an ELEMENT of a LIST
 [listNext()](DOC.md#listnext)||Returns the next ELEMENT of a LIST starting from an ITERATOR
 [listPrevious()](DOC.md#listprevious)||Returns the previous ELEMENT of a LIST starting from an ITERATOR
-[listSlice(n, m)](DOC.md#listslicenm)<br>[listSliceFrom(n)](DOC.md#listslicefromn)<br>[listSliceTo(m)](DOC.md#listslicetom)||Returns a copy of a slice (ie. [n:m]) of a LIST
+[listSlice(n, m)](DOC.md#listslicenm)<br>[listSliceFrom(n)](DOC.md#listslicefromn)<br>[listSliceTo(m)](DOC.md#listslicetom)||Returns a copy of a slice (i.e.: [n:m]) of a LIST
 **Changing elements**||
 [listChange(n)](DOC.md#listchangen)|[listModify(n)](DOC.md#listmodifyn)|Changes the value of the element at the Nth position of a LIST
 **Testing lists**||
@@ -83,7 +83,7 @@ Base function | Aliases | Description
 [listShuffle()](DOC.md#listshuffle)||Shuffles a LIST
 [listShuffled()](DOC.md#listshuffled)||Returns a shuffled copy of a LIST
 **Lists to arrays conversion**||
-[listToArray()](DOC.md#listtoarray)||Converts a LIST into an ARRAY<br>(you'll have to free it after use with [listFreeArray()](DOC.md#listfreearray))
+[listToArray()](DOC.md#listtoarray)||Converts a LIST into an [ARRAY](DOC.md#array-type)<br>(you'll have to free it after use with [listFreeArray()](DOC.md#listfreearray))
 [listFromArray()](DOC.md#listfromarray)||Converts an ARRAY into a LIST
 [listFreeArray()](DOC.md#listfreearray)||Frees the memory allocated to an ARRAY
 **Removing elements**||
