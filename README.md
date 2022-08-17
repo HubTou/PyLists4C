@@ -21,7 +21,7 @@ Beyond Python lists emulation, you'll also find:
 * statistics and debugging, including memory allocation followup
 
 With:
-* 49 base functions + 15 other intuitive aliases,
+* 50 base functions + 16 other intuitive aliases,
 * 249 convenience type-oriented functions,
 * high modularity so your linker only includes what you use in your own executables,
 * and friendly [BSD license](License), for open and free usage.
@@ -71,6 +71,7 @@ Base function | Aliases | Description
 [listAreEqualCaseInsensitive()](DOC.md#listareequalcaseinsensitive)||Tests if two LISTs contain the same values, without regard to case
 **Working with lists**||
 [listCopy()](DOC.md#listcopy)||Returns a copy of the LIST (a full/deep copy as we don't want multiple references to the same values)
+[listFilter()](DOC.md#listfilter)|[listComprehension()](DOC.md#listcomprehension)|Returns a filtered copy of the LIST according to a user defined function telling if an ELEMENT should be included or not
 [listConcat()](DOC.md#listconcat)||Returns a new LIST with the concatenation of the elements of LIST1 and LIST2
 [listExtend()](DOC.md#listextend)||Adds a copy of the elements of the second LIST to the end of the first one
 [listJoin()](DOC.md#listjoin)|[listStitch()](DOC.md#liststitch)|Moves the elements of the second LIST to the end of the first one
