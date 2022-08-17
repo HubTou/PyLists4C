@@ -548,6 +548,38 @@ Returns a copy of the LIST (a full/deep copy as we don't want multiple reference
 extern LIST* listCopy(LIST* pList);
 ```
 
+### listFilter()
+### listComprehension()
+Returns a filtered copy of the LIST according to a user defined function telling if an ELEMENT should be included or not
+```C
+extern LIST* listFilter(LIST* pList, BOOLEAN (*pMyInclusionFunction)(ELEMENT element));
+```
+Example use:
+```C
+BOOLEAN noEInStrings(ELEMENT element)
+{
+    if (element -> type == ETYPE_STRING)
+        if (strchr(element -> pValue, 'e') || strchr(element -> pValue, 'E'))
+            return FALSE;
+
+    return TRUE;
+}
+
+int main(int argc, char *argv[])
+{
+    LIST* pList = NULL;
+    LIST* pFilteredList = NULL;
+
+    printf("\nFiltering strings containing the E letter:\n");
+    pList = list("'la', 'disparition', 'est', 'un', 'livre', 'fameux', 'de', 'Georges', 'Perec'", ',');
+    listPrint(pList);
+    pFilteredList = listFilter(pList, noEInStrings);
+    listPrint(pFilteredList);
+    listClear(&pList);
+    listClear(&pFilteredList);
+}
+```
+
 ### listConcat()
 Returns a new LIST with the concatenation of the elements of LIST1 and LIST2
 ```C
