@@ -556,6 +556,10 @@ extern LIST* listFilter(LIST* pList, BOOLEAN (*pMyInclusionFunction)(ELEMENT ele
 ```
 Example use:
 ```C
+#include <stdio.h>
+#include <string.h>
+#include <pylists4c.h>
+
 BOOLEAN noEInStrings(ELEMENT element)
 {
     if (element -> type == ETYPE_STRING)
@@ -570,7 +574,7 @@ int main(int argc, char *argv[])
     LIST* pList = NULL;
     LIST* pFilteredList = NULL;
 
-    printf("\nFiltering strings containing the E letter:\n");
+    printf("Filtering strings containing the E letter:\n");
     pList = list("'la', 'disparition', 'est', 'un', 'livre', 'fameux', 'de', 'Georges', 'Perec'", ',');
     listPrint(pList);
     pFilteredList = listFilter(pList, noEInStrings);
