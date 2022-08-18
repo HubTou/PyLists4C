@@ -624,6 +624,21 @@ Returns a new LIST with the concatenation of the elements of LIST1 and LIST2
 ```C
 extern LIST* listConcat(LIST* pList1, LIST* pList2);
 ```
+It's like using Python "+" operator between lists...
+
+Example use:
+```C
+LIST* pList1 = list("'a', 'b', 'c'", ",");
+LIST* pList2 = list("1, 2, 3", ",");
+LIST* pList3 = NULL;
+
+pList3 = listConcat(pList1, pList2);
+...
+listClear(&pList1);
+listClear(&pList2);
+listClear(&pList3);
+```
+
 
 ### listExtend()
 Adds a copy of the elements of the second LIST to the end of the first one
