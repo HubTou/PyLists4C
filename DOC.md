@@ -262,8 +262,10 @@ Example use, though you'd better just [listAppend()](DOC.md#listappend) your fir
 ```C
 long aLongValue = 42;
 LIST* pList = listCreateElement(&aLongValue, ETYPE_LONG, sizeof(long));
+// pList now is [42]
 ...
 listClear(&pList);
+// pList now is NULL
 ```
 
 ### list()
@@ -285,6 +287,7 @@ Example use:
 long anArrayOfLongs[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 long length = 9;
 LIST* pList = listFromTable(anArrayOfLongs, ETYPE_LONG, sizeof(long), length);
+// pList now is [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ...
 listClear(&pList);
 ```
@@ -312,7 +315,10 @@ static char* lastManOnTheMoon = "Gene Cernan";
 long year = 1972;
 ...
 listAppend(&pAstronauts, lastManOnTheMoon, ETYPE_STRING, strlen(lastManOnTheMoon) + 1);
+// pAstronauts now is ['Gene Cernan']
 listAppend(&pAstronauts, &year, ETYPE_LONG, sizeof(long));
+// pAstronauts now is ['Gene Cernan', 1972]
+
 // or, more simply:
 // listAppendString(&pAstronauts, lastManOnTheMoon);
 // listAppendLong(&pAstronauts, year);
@@ -339,7 +345,10 @@ static char* firstManOnTheMoon = "Neil Armstrong";
 long year = 1969;
 ...
 listInsertFirst(&pAstronauts, &year, ETYPE_LONG, sizeof(long));
+// pAstronauts now is [1969, 'Gene Cernan', 1972]
 listInsertFirst(&pAstronauts, firstManOnTheMoon, ETYPE_STRING, strlen(firstManOnTheMoon) + 1);
+// pAstronauts now is ['Neil Armstrong', 1969, 'Gene Cernan', 1972]
+
 // or, more simply:
 // listInsertFirstLong(&pAstronauts, year);
 // listInsertFirstString(&pAstronauts, firstManOnTheMoon);
@@ -386,6 +395,7 @@ Example use:
 ```C
 LIST* pList = list("'Yesterday', 'all', 'my', 'troubles', 'seemed', 'so', 'far', 'away'", ',');
 listPrint(pList);
+// "['Yesterday', 'all', 'my', 'troubles', 'seemed', 'so', 'far', 'away']" is printed to stdout
 ...
 listClear(&pList);
 ```
@@ -445,6 +455,8 @@ if (listContains(pPrimeNumbers, &number, ETYPE_LONG, sizeof(number)))
     printf("%ld is a prime number\n", number);
 else
     printf("%ld is NOT a prime number\n", number);
+// "14 is NOT a prime number\n" is printed to stdout
+    
 // or, more simply:
 // if (listContainsLong(pPrimeNumbers, number))
 ...
@@ -461,6 +473,7 @@ Example use:
 LIST* pFruits = list("'apple', 'banana', 'mango', 'pear', 'banana'", ',');
 static char* fruit = "banana";
 long count = listCount(pFruits, fruit, ETYPE_STRING, sizeof(fruit));
+// count now is 2
 ...
 listClear(&pFruits);
 ```
@@ -610,6 +623,7 @@ ELEMENT e;
 i = listSetIterator(pList);
 while ((e = listNext(&i)) != NULL)
     printf("%ld\n", listValueLong(e));
+// "1\n", "2\n", "3\n", "4\n" and "5\n" are printed to stdout
 ...
 listClear(&pList);
 ```
@@ -631,6 +645,8 @@ LIST* pFabFour = list("'john', 'paul', 'george', 'pete'", ',');
 static char* fourthMember = "ringo";
 
 listChange(pFabFour, 3, fourthMember, ETYPE_STRING, strlen(fourthMember) + 1);
+// pFabFour now is ['john', 'paul', 'george', 'ringo']
+
 // or, more simply:
 // listChangeString(pFabFour, 3, "ringo");
 ...
@@ -652,6 +668,7 @@ if (listAreEqual(pList1, pList2))
     printf("The lists are equal!\n");
 else
     printf("The lists are NOT equal!\n");
+// "The lists are NOT equal!\n" is printed to stdout
 ...
 listClear(&pList1);
 listClear(&pList2);
@@ -677,6 +694,7 @@ LIST* pList1 = list("1, 2, 3", ',');
 LIST* pList2 = NULL;
 
 pList2 = listCopy(pList1);
+// pList2 (and pList1) now is [1, 2, 3]
 ...
 listClear(&pList1);
 listClear(&pList2);
@@ -714,8 +732,10 @@ int main(int argc, char *argv[])
     printf("Filtering strings containing the E letter:\n");
     pList = list("'la', 'disparition', 'est', 'un', 'livre', 'fameux', 'de', 'Georges', 'Perec'", ',');
     listPrint(pList);
+    // "['la', 'disparition', 'est', 'un', 'livre', 'fameux', 'de', 'Georges', 'Perec']" is printed to stdout
     pFilteredList = listFilter(pList, noEInStrings);
     listPrint(pFilteredList);
+    // "['la', 'disparition', 'un']" is printed to stdout
     listClear(&pList);
     listClear(&pFilteredList);
 }
@@ -733,10 +753,10 @@ Example use:
 LIST* pList1 = list("'a', 'b', 'c'", ',');
 LIST* pList2 = list("1, 2, 3", ',');
 LIST* pList3 = NULL;
-// pList3 now contains ['a', 'b', 'c', 1, 2, 3]
-// pList1 and pList2 are unchanged
 
 pList3 = listConcat(pList1, pList2);
+// pList3 now is ['a', 'b', 'c', 1, 2, 3]
+// pList1 and pList2 are unchanged
 ...
 listClear(&pList1);
 listClear(&pList2);
@@ -755,7 +775,7 @@ LIST* pList1 = list("'a', 'b', 'c'", ',');
 LIST* pList2 = list("1, 2, 3", ',');
 
 listExtend(&pList1, pList2);
-// pList1 now contains ['a', 'b', 'c', 1, 2, 3]
+// pList1 now is ['a', 'b', 'c', 1, 2, 3]
 // pList2 is unchanged
 ...
 listClear(&pList1);
@@ -777,8 +797,8 @@ LIST* pList1 = list("'a', 'b', 'c'", ',');
 LIST* pList2 = list("1, 2, 3", ',');
 
 listJoin(&pList1, &pList2);
-// pList1 now contains ['a', 'b', 'c', 1, 2, 3]
-// pList2 is now NULL (its elements have been moved to pList1)
+// pList1 now is ['a', 'b', 'c', 1, 2, 3]
+// pList2 now is NULL
 ...
 listClear(&pList1);
 listClear(&pList2);
@@ -856,7 +876,7 @@ Example use:
 ```C
 LIST* pList = list("1, 2, 3"; ',');
 listDelNth(&pList, 1);
-// LIST is now [1, 3]
+// pList now is [1, 3]
 ...
 listClear(&pList);
 ```
@@ -870,7 +890,7 @@ Example use:
 ```C
 LIST* pList = list("1, 2, 3"; ',');
 listDelFirst(&pList);
-// LIST is now [2, 3]
+pList now is [2, 3]
 ...
 listClear(&pList);
 ```
@@ -884,7 +904,7 @@ Example use:
 ```C
 LIST* pList = list("1, 2, 3"; ',');
 listDelLast(&pList);
-// LIST is now [1, 2]
+// pList now is [1, 2]
 ...
 listClear(&pList);
 ```
