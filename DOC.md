@@ -733,6 +733,8 @@ Example use:
 LIST* pList1 = list("'a', 'b', 'c'", ',');
 LIST* pList2 = list("1, 2, 3", ',');
 LIST* pList3 = NULL;
+// pList3 now contains ['a', 'b', 'c', 1, 2, 3]
+// pList1 and pList2 are unchanged
 
 pList3 = listConcat(pList1, pList2);
 ...
@@ -746,6 +748,40 @@ listClear(&pList3);
 Adds a copy of the elements of the second LIST to the end of the first one
 ```C
 extern void listExtend(LIST** ppList1, LIST* pList2);
+```
+Example use:
+```C
+LIST* pList1 = list("'a', 'b', 'c'", ',');
+LIST* pList2 = list("1, 2, 3", ',');
+
+listExtend(&pList1, pList2);
+// pList1 now contains ['a', 'b', 'c', 1, 2, 3]
+// pList2 is unchanged
+...
+listClear(&pList1);
+listClear(&pList2);
+```
+
+### listJoin()
+### listStitch()
+Moves the elements of the second LIST to the end of the first one
+```C
+extern void listJoin(LIST** ppList1, LIST** ppList2);
+extern void listStitch(LIST** ppList1, LIST** ppList2);// listJoin() alias
+```
+The second LIST is emptied (i.e.: NULL) after use.
+
+Example use:
+```C
+LIST* pList1 = list("'a', 'b', 'c'", ',');
+LIST* pList2 = list("1, 2, 3", ',');
+
+listJoin(&pList1, &pList2);
+// pList1 now contains ['a', 'b', 'c', 1, 2, 3]
+// pList2 is now NULL (its elements have been moved to pList1)
+...
+listClear(&pList1);
+listClear(&pList2);
 ```
 
 ### listJoin()
