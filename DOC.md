@@ -296,8 +296,9 @@ extern STATUS listPush(LIST** ppList, void* pValue, ETYPE type, size_t size); //
 extern STATUS listEnqueue(LIST** ppList, void* pValue, ETYPE type, size_t size); // listAppend() alias
 ```
 * *ppList* is the address of your LIST pointer as the first element will change if your LIST was empty.
-* In case of FAILURE return code (which can only happen in case of memory allocation error), the existing LIST is unaffected.
-  * If you don't want to test the result of each STATUS returning function call, you can use the [listSetFatalMallocErrors()](DOC.md#listSetFatalMallocErrors) function at the start of your program to make it exit on any memory allocation error (anyway it'll be difficult to continue if there is no more memory available...)
+
+In case of FAILURE return code (which can only happen in case of memory allocation error), the existing LIST is unaffected.
+* If you don't want to test the result of each STATUS returning function call, you can use the [listSetFatalMallocErrors()](DOC.md#listSetFatalMallocErrors) function at the start of your program to make it exit on any memory allocation error (anyway it'll be difficult to continue if there is no more memory available...)
  
 
 Example use:
@@ -320,7 +321,9 @@ extern STATUS listInsertFirst(LIST** ppList, void* pValue, ETYPE type, size_t si
 extern STATUS listPrepend(LIST** ppList, void* pValue, ETYPE type, size_t size); // listInsertFirst() alias
 ```
 * *ppList* is the address of your LIST pointer as the first element will change if your LIST was empty.
-* In case of FAILURE return code, the LIST is unaffected.
+
+In case of FAILURE return code, the LIST is unaffected.
+
 Example use:
 
 ```C
@@ -530,6 +533,19 @@ Changes the value of the element at the Nth position of a LIST
 extern STATUS listChange(LIST* pList, long n, void* pValue, ETYPE type, size_t size);
 extern STATUS listModify(LIST* pList, long n, void* pValue, ETYPE type, size_t size); // listChange() alias
 ```
+In case of FAILURE return code (which can happen either if *n* is greater than the LIST length or in case of memory allocation error), the LIST is unaffected.
+
+Else, only the *pValue* pointer is deallocated / reallocated.
+
+```C
+LIST* pList = list("1, 2, 7, 4, 5", ",");
+long correctedValue = 3;
+
+listChange(pList, 2, &correctedValue, ETYPE_LONG, sizeof(long));
+// or listChangeLong(pList, 2, 3);
+...
+listClear(&pList);
+```
 
 ## Testing lists
 ### listAreEqual()
@@ -544,6 +560,11 @@ LIST* pList2 = list("1, 2, 3, 4", ",");
 
 if (listAreEqual(pList1, pList2))
     printf("The lists are equal!\n");
+else
+    printf("The lists are NOT equal!\n");
+...
+listClear(&pList1);
+listClear(&pList2);
 ```
 :warning: "exactly the same values" means having the same value *and* the same type *and* the same allocated size!
 
