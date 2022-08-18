@@ -42,7 +42,7 @@ Design notes:
 * As all *elements* should have the same memory size, we use pointers for all *values*, not just STRINGs, LISTs and STRUCTS. Thus we need a **pValue** variable to point to the *value* of each *element*.
 * Being a pointer to a void, you'll either have to:
   * cast it to a pointer to a known type, and then take its value before use.<br>For example, assuming you want to retrieve a "short" value, do: \*((short\*) element -> pValue)
-  * or, more simply, use a [listValueXXX()](DOC.md#listvaluechar) "getter" for the type you expect.<br>To continue the previous example, do: listValueShort(element)
+  * or, more simply, use a [listValueXXX()](DOC.md#listvaluexxx) "getter" for the type you expect.<br>To continue the previous example, do: listValueShort(element)
 
 ### ELEMENT type
 An alias for a pointer to a LIST, defined like this:
@@ -578,6 +578,38 @@ Returns a copy of a slice (ie. [n:m]) of a LIST
 extern LIST* listSlice(LIST* pList, long n, long m);
 extern LIST* listSliceFrom(LIST* pList, long n);
 extern LIST* listSliceTo(LIST* pList, long m);
+```
+
+## Fetching elements values
+### listValueXXX()
+Returns the element value in the requested type
+```C
+extern char listValueChar(ELEMENT element);
+extern unsigned char listValueUChar(ELEMENT element);
+extern short listValueShort(ELEMENT element);
+extern unsigned short listValueUShort(ELEMENT element);
+extern int listValueInt(ELEMENT element);
+extern unsigned int listValueUInt(ELEMENT element);
+extern long listValueLong(ELEMENT element);
+extern unsigned long listValueULong(ELEMENT element);
+extern long long listValueLongLong(ELEMENT element);
+extern unsigned long long listValueULongLong(ELEMENT element);
+extern float listValueFloat(ELEMENT element);
+extern double listValueDouble(ELEMENT element);
+extern long double listValueLongDouble(ELEMENT element);
+extern STRING listValueString(ELEMENT element);
+```
+Example use:
+```C
+LIST* pList = list("1, 2, 3, 4, 5", ',');
+ITERATOR i;
+ELEMENT e;
+
+i = listSetIterator(pList);
+while ((e = listNext(&i)) != NULL)
+    printf("%ld\n", listValueLong(e));
+...
+listClear(&pList);
 ```
 
 ## Changing elements
