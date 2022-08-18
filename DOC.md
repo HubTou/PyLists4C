@@ -789,17 +789,41 @@ Removes the element at the specified position
 ```C
 extern void listDelNth(LIST** ppList, long n);
 ```
+Example use:
+```C
+LIST* pList = list("1, 2, 3"; ',');
+listDelNth(&pList, 1);
+// LIST is now [1, 3]
+...
+listClear(&pList);
+```
 
 ### listDelFirst()
 Equivalent to listDelNth(0)
 ```C
 extern void listDelFirst(LIST** ppList); // listDelNth(0) alias
 ```
+Example use:
+```C
+LIST* pList = list("1, 2, 3"; ',');
+listDelFirst(&pList);
+// LIST is now [2, 3]
+...
+listClear(&pList);
+```
 
 ### listDelLast()
 Equivalent to listDelNth(-1)
 ```C
 extern void listDelLast(LIST** ppList); // listDelNth(-1) alias
+```
+Example use:
+```C
+LIST* pList = list("1, 2, 3"; ',');
+listDelLast(&pList);
+// LIST is now [1, 2]
+...
+listClear(&pList);
 ```
 
 ### listPopNth(n)
