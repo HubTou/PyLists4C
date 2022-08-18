@@ -542,7 +542,8 @@ LIST* pList = list("1, 2, 7, 4, 5", ",");
 long correctedValue = 3;
 
 listChange(pList, 2, &correctedValue, ETYPE_LONG, sizeof(long));
-// or listChangeLong(pList, 2, 3);
+// or, more simply:
+// listChangeLong(pList, 2, 3);
 ...
 listClear(&pList);
 ```
