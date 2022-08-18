@@ -9,7 +9,10 @@ So here's my attempt to fix this, with all I ever wanted from a C language linke
 ## Features
 This library provides [Python-style](https://docs.python.org/3/tutorial/datastructures.html) (within the limits of the C language syntax of course) doubly-linked lists:
 * List items are ordered, changeable, and allow duplicate values.
-* List items can be of any standard C data type, plus strings, sub-lists (thus enabling tree data structures) and self-contained (= without pointers) structs of variable sizes.
+* List items can be of any standard C data type, plus:
+  * strings,
+  * sub-lists (thus enabling tree data structures)
+  * and self-contained (= without pointers) structs of variable sizes.
 * A list can contain different data types at the same time.
 
 Beyond Python lists emulation, you'll also find:
