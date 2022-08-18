@@ -298,7 +298,7 @@ extern STATUS listEnqueue(LIST** ppList, void* pValue, ETYPE type, size_t size);
 * *ppList* is the address of your LIST pointer as the first element will change if your LIST was empty.
 
 In case of FAILURE return code (which can only happen in case of memory allocation error), the existing LIST is unaffected.
-* If you don't want to test the result of each STATUS returning function call, you can use the [listSetFatalMallocErrors()](DOC.md#listSetFatalMallocErrors) function at the start of your program to make it exit on any memory allocation error (anyway it'll be difficult to continue if there is no more memory available...)
+If you don't want to test the result of each STATUS returning function call, you can use the [listSetFatalMallocErrors()](DOC.md#listSetFatalMallocErrors) function at the start of your program to make it exit on any memory allocation error (anyway it'll be difficult to continue if there is no more memory available...)
  
 
 Example use:
