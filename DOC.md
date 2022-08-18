@@ -245,7 +245,7 @@ Example use:
 ```C
 LIST* pList = NULL;
 ```
-LISTs should only be allocated through the library's functions, so **never use LIST variables directly** (ie: LIST myList) or you won't be able to have empty LISTs, to change the first *element* easily or to clear your LIST... 
+:no_entry: LISTs should only be allocated through the library's functions, so **never use LIST variables directly** (ie: LIST myList) or you won't be able to have empty LISTs, to change the first *element* easily or to clear your LIST... 
 
 ### listCreateElement()
 Creates an unlinked LIST element
