@@ -320,7 +320,7 @@ Adds an element at the start of a LIST
 extern STATUS listInsertFirst(LIST** ppList, void* pValue, ETYPE type, size_t size);
 extern STATUS listPrepend(LIST** ppList, void* pValue, ETYPE type, size_t size); // listInsertFirst() alias
 ```
-* *ppList* is the address of your LIST pointer as the first element will change if your LIST was empty.
+* *ppList* is the address of your LIST pointer as the first element will, by design, always change!
 
 In case of FAILURE return code, the LIST is unaffected.
 
