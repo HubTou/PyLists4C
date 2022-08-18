@@ -381,10 +381,31 @@ Prints a Python-style (ie. [e1, e2...]) representated LIST to stdout
 extern void listPrint(LIST* pList);
 ```
 
+Example use:
+```C
+LIST* pList = list("'Yesterday', 'all', 'my', 'troubles', 'seemed', 'so', 'far', 'away'", ',');
+listPrint(pList);
+...
+listClear(&pList);
+```
+
 ### listDebug()
 Prints all LIST details to stderr
 ```C
 extern void listDebug(LIST* pList, STRING name);
+```
+* *name* is an optional (you can pass NULL instead) STRING containing the name of your LIST variable
+
+:warning: we only print the address of STRUCTs.
+
+Example use:
+```C
+LIST* pList = list("123, 456.789, 'abc', \"def\", ['r', 2, 'd', 2], []", ',');
+listDebug(pList, "pList");
+// or, if you don't want to use your variable name in prints:
+// listDebug(pList, NULL);
+...
+listClear(&pList);
 ```
 
 ## Getting list information
