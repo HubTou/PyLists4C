@@ -34,10 +34,11 @@ Design notes:
   * [STRING](DOC.md#string-type)s (C language \0 terminated character arrays),
   * sub-LISTs,
   * and user defined, self contained (that is to say, without pointers) STRUCTs.
-* With Python-style lists, you can implement many other data types with sub LISTS (all kind of trees, for example).
 * As the size of user defined STRUCTs is unknown (and furthermore can be of variable size inside a same LIST) and STRINGS can be allocated to larger character arrays than their current content, we need a **size** variable to keep track of the space allocated to store the *value*.
   * If you use multiple kinds of STRUCTs in the same LIST, it is advised to start each of these STRUCTs with a fixed length field indicating its sub type.
-* As I want all *elements* to have the same memory size, we use pointers for all *values*, not just STRINGs, LISTs and STRUCTS. Thus we need a **pValue** variable to point to the *value* of each *element*.
+* As all *elements* should have the same memory size, we use pointers for all *values*, not just STRINGs, LISTs and STRUCTS. Thus we need a **pValue** variable to point to the *value* of each *element*.
+* Being a pointer to a void, you'll have to cast it to a pointer to a known type, and then take its value before use. This is done like this:
+  * Assuming you want to retrieve a "short" value, do: *((short*) element -> pValue)
 
 ### ELEMENT type
 An alias for a pointer to a LIST, defined like this:
@@ -295,16 +296,18 @@ extern STATUS listPush(LIST** ppList, void* pValue, ETYPE type, size_t size); //
 extern STATUS listEnqueue(LIST** ppList, void* pValue, ETYPE type, size_t size); // listAppend() alias
 ```
 * *ppList* is the address of your LIST pointer as the first element will change if your LIST was empty.
-* In case of FAILURE return code, the LIST is unaffected.
+* In case of FAILURE return code (which can only happen in case of memory allocation error), the existing LIST is unaffected.
+  * If you don't want to test the result of each STATUS returning function call, you can use the [listSetFatalMallocErrors()](DOC.md#listSetFatalMallocErrors) function at the start of your program to make it exit on any memory allocation error (anyway it'll be difficult to continue if there is no more memory available...)
+ 
 
 Example use:
 ```C
 LIST* pList = NULL;
 static char* lastManOnTheMoon = "Gene Cernan";
-int year = 1972;
+long year = 1972;
 ...
 listAppend(&pList, lastManOnTheMoon, ETYPE_STRING, strlen(lastManOnTheMoon) + 1);
-listAppend(&pList, &year, ETYPE_INT, sizeof(int));
+listAppend(&pList, &year, ETYPE_LONG, sizeof(long));
 ...
 listClear(&pList);
 ```
@@ -321,7 +324,7 @@ extern STATUS listPrepend(LIST** ppList, void* pValue, ETYPE type, size_t size);
 Example use:
 
 ```C
-LIST* pList = list("Gene Cernan, 1972", ",");
+LIST* pList = list("'Gene Cernan', 1972", ",");
 static char* firstManOnTheMoon = "Neil Armstrong";
 long year = 1969;
 ...
