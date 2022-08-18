@@ -40,8 +40,9 @@ Design notes:
 * As the size of user defined STRUCTs is unknown (and furthermore can be of variable size inside a same LIST) and STRINGS can be allocated to larger character arrays than their current content, we need a **size** variable to keep track of the space allocated to store the *value*.
   * If you use multiple kinds of STRUCTs in the same LIST, it is advised to start each of these STRUCTs with a fixed length field indicating its sub type.
 * As all *elements* should have the same memory size, we use pointers for all *values*, not just STRINGs, LISTs and STRUCTS. Thus we need a **pValue** variable to point to the *value* of each *element*.
-* Being a pointer to a void, you'll have to cast it to a pointer to a known type, and then take its value before use. This is done like this:
-  * Assuming you want to retrieve a "short" value, do: \*((short\*) element -> pValue)
+* Being a pointer to a void, you'll either have to:
+  * cast it to a pointer to a known type, and then take its value before use. For example, assuming you want to retrieve a "short" value, do: \*((short\*) element -> pValue)
+  * or, more simply, use a [listValueXXX()](DOC.md#listvaluechar) "getter" for the type you expect. To continue the previous example, do: listValueShort(element)
 
 ### ELEMENT type
 An alias for a pointer to a LIST, defined like this:
