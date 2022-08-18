@@ -589,6 +589,8 @@ Returns a filtered copy of the LIST according to a user defined function telling
 ```C
 extern LIST* listFilter(LIST* pList, BOOLEAN (*pMyInclusionFunction)(ELEMENT element));
 ```
+:warning: listComprehension() currently only offers a subset of what can be done with list comprehension in Python...
+
 Example use:
 ```C
 #include <stdio.h>
