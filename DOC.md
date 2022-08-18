@@ -38,7 +38,7 @@ Design notes:
   * If you use multiple kinds of STRUCTs in the same LIST, it is advised to start each of these STRUCTs with a fixed length field indicating its sub type.
 * As all *elements* should have the same memory size, we use pointers for all *values*, not just STRINGs, LISTs and STRUCTS. Thus we need a **pValue** variable to point to the *value* of each *element*.
 * Being a pointer to a void, you'll have to cast it to a pointer to a known type, and then take its value before use. This is done like this:
-  * Assuming you want to retrieve a "short" value, do: *((short*) element -> pValue)
+  * Assuming you want to retrieve a "short" value, do: \*((short\*) element -> pValue)
 
 ### ELEMENT type
 An alias for a pointer to a LIST, defined like this:
