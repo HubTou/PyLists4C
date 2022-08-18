@@ -433,7 +433,7 @@ Tests if a value appears in a LIST
 ```C
 extern BOOLEAN listContains(LIST* pList, void* pValue, ETYPE type, size_t size);
 ```
-:warning: The value tested has to be of the same type, and for STUCTs to be of the same size (i.e.: an int value of 2 is different from a long value of 2).
+:warning: The value tested has to be of the same type, and for STRUCTs to be of the same size (i.e.: an int value of 2 is different from a long value of 2).
 
 Example use:
 ```C
