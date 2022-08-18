@@ -784,14 +784,6 @@ listClear(&pList1);
 listClear(&pList2);
 ```
 
-### listJoin()
-### listStitch()
-Moves the elements of the second LIST to the end of the first one
-```C
-extern void listJoin(LIST** ppList1, LIST** ppList2);
-extern void listStitch(LIST** ppList1, LIST** ppList2);// listJoin() alias
-```
-
 ## Changing list order**
 ### listSort()
 Sorts a LIST
