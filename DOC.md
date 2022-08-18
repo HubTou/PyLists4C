@@ -537,6 +537,15 @@ Tests if two LISTs contain exactly the same values
 ```C
 extern BOOLEAN listAreEqual(LIST* pList1, LIST* pList2);
 ```
+Example use:
+```C
+LIST* pList1 = list("1, 2, 3", ",");
+LIST* pList2 = list("1, 2, 3, 4", ",");
+
+if (listAreEqual(pList1, pList2))
+    printf("The lists are equal!\n");
+```
+:warning: "exactly the same values" means having the same value *and* the same type *and* the same allocated size!
 
 ### listAreEqualCaseInsensitive()
 Tests if two LISTs contain the same values, without regard to case
