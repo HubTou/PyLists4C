@@ -306,17 +306,17 @@ If you don't want to test the result of each STATUS returning function call, you
 
 Example use:
 ```C
-LIST* pList = NULL;
+LIST* pAstronauts = NULL;
 static char* lastManOnTheMoon = "Gene Cernan";
 long year = 1972;
 ...
-listAppend(&pList, lastManOnTheMoon, ETYPE_STRING, strlen(lastManOnTheMoon) + 1);
-listAppend(&pList, &year, ETYPE_LONG, sizeof(long));
+listAppend(&pAstronauts, lastManOnTheMoon, ETYPE_STRING, strlen(lastManOnTheMoon) + 1);
+listAppend(&pAstronauts, &year, ETYPE_LONG, sizeof(long));
 // or, more simply:
-// listAppendString(&pList, lastManOnTheMoon);
-// listAppendLong(&pList, year);
+// listAppendString(&pAstronauts, lastManOnTheMoon);
+// listAppendLong(&pAstronauts, year);
 ...
-listClear(&pList);
+listClear(&pAstronauts);
 ```
 
 ### listInsertFirst()
@@ -333,17 +333,17 @@ In case of FAILURE return code, the LIST is unaffected.
 Example use:
 
 ```C
-LIST* pList = list("'Gene Cernan', 1972", ',');
+LIST* pAstronauts = list("'Gene Cernan', 1972", ',');
 static char* firstManOnTheMoon = "Neil Armstrong";
 long year = 1969;
 ...
-listInsertFirst(&pList, &year, ETYPE_LONG, sizeof(long));
-listInsertFirst(&pList, firstManOnTheMoon, ETYPE_STRING, strlen(firstManOnTheMoon) + 1);
+listInsertFirst(&pAstronauts, &year, ETYPE_LONG, sizeof(long));
+listInsertFirst(&pAstronauts, firstManOnTheMoon, ETYPE_STRING, strlen(firstManOnTheMoon) + 1);
 // or, more simply:
-// listInsertFirstLong(&pList, year);
-// listInsertFirstString(&pList, firstManOnTheMoon);
+// listInsertFirstLong(&pAstronauts, year);
+// listInsertFirstString(&pAstronauts, firstManOnTheMoon);
 ...
-listClear(&pList);
+listClear(&pAstronauts);
 ```
 
 ### listInsert(n)
@@ -433,6 +433,14 @@ listClear(&pPrimeNumbers);
 Returns the number of elements with the specified value
 ```C
 extern long listCount(LIST* pList, void* pValue, ETYPE type, size_t size);
+```
+Example use:
+```C
+LIST* pFruits = list("'apple', 'banana', 'mango', 'pear', 'banana'", ',');
+static char* fruit = "banana";
+long count = listCount(pFruits, fruit, ETYPE_STRING, sizeof(fruit));
+...
+listClear(&pFruits);
 ```
 
 ### listIndex()
@@ -623,6 +631,7 @@ listClear(&pList2);
 Returns a filtered copy of the LIST according to a user defined function telling if an ELEMENT should be included or not
 ```C
 extern LIST* listFilter(LIST* pList, BOOLEAN (*pMyInclusionFunction)(ELEMENT element));
+extern LIST* listComprehension(LIST* pList, BOOLEAN (*pMyInclusionFunction)(ELEMENT element)); // listFilter() alias
 ```
 :warning: listComprehension() currently only offers a subset of what can be done with list comprehension in Python...
 
