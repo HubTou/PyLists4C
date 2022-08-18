@@ -599,7 +599,7 @@ extern double listValueDouble(ELEMENT element);
 extern long double listValueLongDouble(ELEMENT element);
 extern STRING listValueString(ELEMENT element);
 ```
-Meant for use with the [listGet(n)](DOC.md#listgetn), [listGetlast()](DOC.md#listgetlast), [listNext()](DOC.md#listnext) and [listPrevious()](DOC.md#listprevious) if you want something fancier than pointer casting + value getting...
+Meant for use with the [listGet(n)](DOC.md#listgetn), [listGetlast()](DOC.md#listgetlast), [listNext()](DOC.md#listnext) and [listPrevious()](DOC.md#listprevious) functions if you want something fancier than pointer casting + value getting, and you know the types of the ELEMENTs in the LIST...
 
 Example use:
 ```C
