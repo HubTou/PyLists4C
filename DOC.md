@@ -538,12 +538,12 @@ In case of FAILURE return code (which can happen either if *n* is greater than t
 Else, only the *pValue* pointer is deallocated / reallocated.
 
 ```C
-LIST* pList = list("1, 2, 7, 4, 5", ",");
-long correctedValue = 3;
+LIST* pList = list("'john', 'paul', 'george', 'pete'", ",");
+static char* fourthMember = "ringo";
 
-listChange(pList, 2, &correctedValue, ETYPE_LONG, sizeof(long));
+listChange(pList, 3, fourthMember, ETYPE_STRING, strlen(fourthMember) + 1);
 // or, more simply:
-// listChangeLong(pList, 2, 3);
+// listChangeString(pList, 3, "ringo");
 ...
 listClear(&pList);
 ```
