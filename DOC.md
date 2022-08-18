@@ -607,6 +607,16 @@ Returns a copy of the LIST (a full/deep copy as we don't want multiple reference
 ```C
 extern LIST* listCopy(LIST* pList);
 ```
+Example use;
+```C
+LIST* pList1 = list("1, 2, 3", ',');
+LIST* pList2 = NULL;
+
+pList2 = listCopy(pList1);
+...
+listClear(&pList1);
+listClear(&pList2);
+```
 
 ### listFilter()
 ### listComprehension()
