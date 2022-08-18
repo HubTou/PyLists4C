@@ -67,7 +67,7 @@ Base function | Aliases | Description
 [listNext()](DOC.md#listnext)||Returns the next ELEMENT of a LIST starting from an ITERATOR
 [listPrevious()](DOC.md#listprevious)||Returns the previous ELEMENT of a LIST starting from an ITERATOR
 [listSlice(n, m)](DOC.md#listslicenm)<br>[listSliceFrom(n)](DOC.md#listslicefromn)<br>[listSliceTo(m)](DOC.md#listslicetom)||Returns a copy of a slice (i.e.: [n:m]) of a LIST
-**Fetching elements value**||
+**Fetching elements values**||
 [listValueXXX()](DOC.md#listvaluexxx)||Returns the element value in the requested type
 **Changing elements**||
 [listChange(n)](DOC.md#listchangen)|[listModify(n)](DOC.md#listmodifyn)|Changes the value of the element at the Nth position of a LIST
