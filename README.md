@@ -25,7 +25,7 @@ Beyond Python lists emulation, you'll also find:
 
 With:
 * 51 base functions + 17 other intuitive aliases,
-* 263 convenience type-oriented functions,
+* 277 convenience type-oriented functions,
 * high modularity so your linker only includes what you use in your own executables,
 * and friendly [BSD license](License), for open and free usage.
 
