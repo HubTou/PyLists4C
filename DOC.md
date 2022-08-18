@@ -787,7 +787,7 @@ extern void listFreeArray(ARRAY** ppArray);
 ### listDelNth(n)
 Removes the element at the specified position
 ```C
-extern void listDelNth(LIST** ppList, long n); // listPopNth() alias
+extern void listDelNth(LIST** ppList, long n);
 ```
 
 ### listDelFirst()
