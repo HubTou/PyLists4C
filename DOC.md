@@ -327,7 +327,7 @@ In case of FAILURE return code, the LIST is unaffected.
 Example use:
 
 ```C
-LIST* pList = list("'Gene Cernan', 1972", ",");
+LIST* pList = list("'Gene Cernan', 1972", ',');
 static char* firstManOnTheMoon = "Neil Armstrong";
 long year = 1969;
 ...
@@ -538,7 +538,7 @@ In case of FAILURE return code (which can happen either if *n* is greater than t
 Else, only the *pValue* pointer is deallocated / reallocated.
 
 ```C
-LIST* pList = list("'john', 'paul', 'george', 'pete'", ",");
+LIST* pList = list("'john', 'paul', 'george', 'pete'", ',');
 static char* fourthMember = "ringo";
 
 listChange(pList, 3, fourthMember, ETYPE_STRING, strlen(fourthMember) + 1);
@@ -556,8 +556,8 @@ extern BOOLEAN listAreEqual(LIST* pList1, LIST* pList2);
 ```
 Example use:
 ```C
-LIST* pList1 = list("1, 2, 3", ",");
-LIST* pList2 = list("1, 2, 3, 4", ",");
+LIST* pList1 = list("1, 2, 3", ',');
+LIST* pList2 = list("1, 2, 3, 4", ',');
 
 if (listAreEqual(pList1, pList2))
     printf("The lists are equal!\n");
@@ -630,8 +630,8 @@ It's like using Python "+" operator between lists...
 
 Example use:
 ```C
-LIST* pList1 = list("'a', 'b', 'c'", ",");
-LIST* pList2 = list("1, 2, 3", ",");
+LIST* pList1 = list("'a', 'b', 'c'", ',');
+LIST* pList2 = list("1, 2, 3", ',');
 LIST* pList3 = NULL;
 
 pList3 = listConcat(pList1, pList2);
