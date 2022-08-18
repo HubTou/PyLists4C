@@ -552,6 +552,7 @@ Tests if two LISTs contain the same values, without regard to case
 ```C
 extern BOOLEAN listAreEqualCaseInsensitive(LIST* pList1, LIST* pList2);
 ```
+It's the same as above, but the CHAR, U_CHAR and STRING ETYPEs are compared without regard to case.
 
 ## Working with lists
 ### listCopy()
