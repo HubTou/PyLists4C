@@ -396,7 +396,7 @@ extern void listDebug(LIST* pList, STRING name);
 ```
 * *name* is an optional (you can pass NULL instead) STRING containing the name of your LIST variable
 
-:warning: we only print the address of STRUCTs.
+:warning: we only print the address of STRUCTs. Doing more would require passing as parameter a user defined STRUCT printing function or NULL in most cases...
 
 Example use:
 ```C
