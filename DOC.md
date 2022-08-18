@@ -309,6 +309,9 @@ long year = 1972;
 ...
 listAppend(&pList, lastManOnTheMoon, ETYPE_STRING, strlen(lastManOnTheMoon) + 1);
 listAppend(&pList, &year, ETYPE_LONG, sizeof(long));
+// or, more simply:
+// listAppendString(&pList, lastManOnTheMoon);
+// listAppendLong(&pList, year);
 ...
 listClear(&pList);
 ```
@@ -333,6 +336,9 @@ long year = 1969;
 ...
 listInsertFirst(&pList, &year, ETYPE_LONG, sizeof(long));
 listInsertFirst(&pList, firstManOnTheMoon, ETYPE_STRING, strlen(firstManOnTheMoon) + 1);
+// or, more simply:
+// listInsertFirstLong(&pList, year);
+// listInsertFirstString(&pList, firstManOnTheMoon);
 ...
 listClear(&pList);
 ```
