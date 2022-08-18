@@ -627,14 +627,14 @@ In case of FAILURE return code (which can happen either if *n* is greater than t
 Else, only the *pValue* pointer is deallocated / reallocated.
 
 ```C
-LIST* pList = list("'john', 'paul', 'george', 'pete'", ',');
+LIST* pFabFour = list("'john', 'paul', 'george', 'pete'", ',');
 static char* fourthMember = "ringo";
 
-listChange(pList, 3, fourthMember, ETYPE_STRING, strlen(fourthMember) + 1);
+listChange(pFabFour, 3, fourthMember, ETYPE_STRING, strlen(fourthMember) + 1);
 // or, more simply:
-// listChangeString(pList, 3, "ringo");
+// listChangeString(pFabFour, 3, "ringo");
 ...
-listClear(&pList);
+listClear(&pFabFour);
 ```
 
 ## Testing lists
