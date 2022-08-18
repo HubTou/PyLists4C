@@ -409,6 +409,22 @@ Tests if a value appears in a LIST
 ```C
 extern BOOLEAN listContains(LIST* pList, void* pValue, ETYPE type, size_t size);
 ```
+:warning: The value tested has to be of the same type, and for STUCTs to be of the same size (i.e.: an int value of 2 is different from a long value of 2).
+
+Example use:
+```C
+LIST* pPrimeNumbers = list("1, 2, 3, 5, 7, 11, 13, 17, 19", ',');
+long number = 14;
+
+if (listContains(pPrimeNumbers, &number, ETYPE_LONG, sizeof(number)))
+    printf("%ld is a prime number\n", number);
+else
+    printf("%ld is NOT a prime number\n", number);
+// or, more simply:
+// if (listContainsLong(pPrimeNumbers, number))
+...
+listClear(&pPrimeNumbers);
+```
 
 ### listCount()
 Returns the number of elements with the specified value
