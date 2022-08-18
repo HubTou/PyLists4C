@@ -762,6 +762,11 @@ extern void listClear(LIST** ppList);
 extern void listDel(LIST** ppList); // listClear() alias
 extern void listFree(LIST** ppList); // listClear() alias```
 ```
+The LIST pointer is resetted to NULL after use.
+
+Contrarily to what Python does, listDel() only clears the LIST (i.e.: reset it to 0 elements), but does not destroy it.
+
+Example uses provided all through this documentation 😄...
 
 ## Miscellaneous
 ### listGetAllocatedMemory()
