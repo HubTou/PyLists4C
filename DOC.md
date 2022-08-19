@@ -518,6 +518,9 @@ LIST* pFruits = list("'apple', 'banana', 'mango', 'pear', 'banana'", ',');
 static char* fruit = "banana";
 long count = listCount(pFruits, fruit, ETYPE_STRING, sizeof(fruit));
 // count now is 2
+
+// or, more simply:
+// long count = listCountString(pFruits, "banana");
 ...
 listClear(&pFruits);
 ```
@@ -526,6 +529,23 @@ listClear(&pFruits);
 Returns the index of the first element with the specified value
 ```C
 extern long listIndex(LIST* pList, void* pValue, ETYPE type, size_t size);
+```
+Or returns -1 is the element is not found.
+
+Example use:
+```C
+LIST* pFruits = list("'apple', 'banana', 'mango', 'pear', 'banana'", ',');
+static char* fruit = "banana";
+long i = listIndex(pFruits, fruit, ETYPE_STRING, sizeof(fruit));
+// i now is 1
+if (i >= 0)
+    printf("%s found at index %ld\n", fruit, i);
+// "banana found at index 1\n" is printed to stdout
+
+// or, more simply:
+// long i = listIndexString(pFruits, "banana");
+...
+listClear(&pFruits);
 ```
 
 ### listIndexAll()
@@ -536,6 +556,26 @@ Returns a LIST of all the indexes of the elements with the specified value
 extern LIST* listIndexAll(LIST* pList, void* pValue, ETYPE type, size_t size);
 extern LIST* listFind(LIST* pList, void* pValue, ETYPE type, size_t size); // listIndexAll() alias
 extern LIST* listSearch(LIST* pList, void* pValue, ETYPE type, size_t size); // listIndexAll() alias
+```
+
+Example use:
+```C
+LIST* pFruits = list("'apple', 'banana', 'mango', 'pear', 'banana'", ',');
+static char* fruit = "banana";
+LIST* pIndexes = listIndexAll(pFruits, fruit, ETYPE_STRING, sizeof(fruit));
+// pIndexes now is [1, 4]
+if (listLen(pIndexes) >= 0)
+{
+    printf("%s found at indexes ", fruit);
+    listPrint(pIndexes);
+}
+// "banana found at indexes [1, 4]\n" is printed to stdout
+
+// or, more simply:
+// LIST* pIndexes = listIndexAllString(pFruits, "banana");
+...
+listClear(&pFruits);
+listClear(&pIndexes);
 ```
 
 ## Working with numerical lists
