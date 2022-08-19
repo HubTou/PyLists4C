@@ -1,12 +1,14 @@
 ![alt text](https://github.com/HubTou/PyLists4C/blob/main/logo/pylists4c-logo.png "PyLists4C: Python-style lists for the C language")
 # PyLists4C: Python-style lists for the C language
+(Way more than) all you ever wanted to know about this library in one printable page!
+
 ## Installation
 :construction: TODO
 ## Glossary and conventions
 * A **LIST** is an instance of linked list this library provides.
 * An **element** is a node of a LIST.
 * A **value** is the payload of an element of a LIST.
-  * The values that you pass to the library's functions are never used directly and always copied before insertion into a LIST (we don't want dependencies with what's going on outside of the library). The copies are also never re-used (as we don't want multiple references to an allocated variable either).
+  * The values that you pass to the library's functions are never used directly and always copied before insertion into a LIST (we don't want dependencies with what's going on outside of the library). The copies are also never re-used into other LISTs (as we don't want multiple references to an allocated variable either).
 * An **index** is the position of an element in a LIST.
   * Like in Python, indexes are numbered from 0 when you go through a LIST from its beginning, or from -1 when you go through its end.
   * LISTs indexes, lengths and counts are of the C language **long** type. 
