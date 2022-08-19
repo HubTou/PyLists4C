@@ -16,19 +16,19 @@ This library provides [Python-style](https://docs.python.org/3/tutorial/datastru
 * A list can contain different data types at the same time.
 
 Beyond Python lists emulation, you'll also find:
-* conversion from or to arrays
-* sorted insertion with optional removal of duplicate values
-* list shuffling
-* list joining (beyond concatenation or extension)
-* heap (push/pop) and queue (enqueue/dequeue) management aliases 
-* statistics and debugging, including memory allocation followup
+* Conversion from or to arrays
+* Sorted insertion with optional removal of duplicate values
+* List shuffling
+* List joining (beyond concatenation or extension)
+* Heap (push/pop) and queue (enqueue/dequeue) management aliases 
+* Statistics and debugging, including memory allocation followup
 
 With:
 * 51 base functions + 17 other intuitive aliases,
 * 277 convenience type-oriented functions,
-* high modularity so your linker only includes what you use in your own executables,
-* extensive [documentation](DOC.md) with examples for almost everything,
-* and friendly [BSD license](License), for open and free usage.
+* High modularity so your linker only includes what you use in your own executables,
+* Extensive [documentation](DOC.md) with examples for almost everything,
+* And friendly [BSD license](License), for open and free usage.
 
 ## Base functions overview
 Base function | Aliases | Description
