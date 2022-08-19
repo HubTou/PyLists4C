@@ -68,14 +68,15 @@ typedef LIST* ITERATOR;
 ```
 Design notes:
 * It's main use is to walkthrough a LIST without restarting from its first element at each iteration.
-* Like the ELEMENT type, it's also use to differenciate LISTs that would need to be freed after use, from pointers to walkthrough a LIST that must not be freed.
-* See the comments for the ELEMENT type above... 
+* Like the ELEMENT type, it's also used to differenciate LISTs that would need to be freed after use, from pointers to walkthrough a LIST, that must not be freed.
 
 Example use:
 ```C
-LIST* pList = list("1, 2, 3, 4, 5", ',');
+LIST* pList = NULL;
 ITERATOR i;
 ELEMENT e;
+
+// pList defined somewhere...
 
 i = listSetIterator(pList);
 while ((e = listNext(&i)) != NULL)
@@ -105,7 +106,7 @@ typedef enum
     ETYPE_FLOAT = 21,
     ETYPE_DOUBLE = 22,
     ETYPE_LONG_DOUBLE = 23,
-    // C-style strings (ie. 0 terminated character array):
+    // C-style strings (i.e.: \0 terminated character array):
     ETYPE_STRING = 31,
     // Homogeneous ARRAYs:
 //  ETYPE_ARRAY = 32,
@@ -124,7 +125,7 @@ Design notes:
   * ETYPE_ARRAY for our [ARRAYs](DOC.md#array-type) as we have defined them anyway (though the same functionalities could be achieved through sub-LISTs),
   * ETYPE_DICT for a possible complementary library of [Python-style dictionaries](https://www.w3schools.com/python/python_dictionaries.asp).
 
-We provide convenience functions for each standard C language types, so you don't always have to pass *values* by address, provide the *type* and *size* parameters, or cast variables to specific types.
+We provide convenience functions for each standard C language types, so you don't always have to pass *values* by address, provide the *type* and *size* parameters, or cast variables to specific types...
 
 ### ARRAY type
 One thing we can't easily do in C language is to have directly indexed LIST *elements* (ie: MyList\[0], MyList\[1] and so on), though we provide a [listGet()](DOC.md#listgetn) base function to access the Nth *element* of a LIST.
@@ -167,9 +168,9 @@ typedef struct array
 Design notes:
 * An ARRAY has only one **type** and **size**, so it has *homogeneous values*.
 * The number of *values* is given by the **length** variable.
-* In order to avoid casting, we provide an union **u** with all possible subtypes.
+* In order to be able to use the \[] notation directly, we provide an union **u** with all possible subtypes.
   * We could have used the same scheme for the LIST data structure **pValue** variable but thought it would needlessly complexify things... 
-* Every standard C language type is a pointer to (ie. a table of) that type.
+* Every standard C language type is a pointer to (i.e.: a table of) that type.
 * Being of unknown size to the C language, our custom types are pointers to pointers so their table indexation will work.
 
 ### LIST_STATS type
