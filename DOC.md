@@ -447,7 +447,7 @@ listDebug(pList, "pList");
 listClear(&pList);
 ```
 
-Which would result in the following stdout display:
+Which would result in the following stderr display:
 ```
 pList[0] = address: @0x800a0a000 / contents: @0x0 <-- 123 (long, 8 bytes) --> @0x800a0a030
 pList[1] = address: @0x800a0a030 / contents: @0x800a0a000 <-- 456.789000 (double, 8 bytes) --> @0x800a0a060
