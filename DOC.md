@@ -414,6 +414,9 @@ Prints a Python-style (i.e.: [e1, e2...]) representated LIST to stdout
 ```C
 extern void listPrint(LIST* pList);
 ```
+:warning: we only print the address of STRUCTs. Doing more would require passing as parameter a user defined STRUCT printing function or NULL in most cases...
+
+:warning: single quotes characters are not backslash escaped (yet).
 
 Example use:
 ```C
