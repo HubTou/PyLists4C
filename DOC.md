@@ -828,7 +828,7 @@ listClear(&pList1);
 listClear(&pList2);
 ```
 
-## Changing list order**
+## Changing list order
 ### listSort()
 Sorts a LIST
 ```C
@@ -882,6 +882,39 @@ extern ARRAY* listToArray(LIST* pList);
 Converts an ARRAY into a LIST
 ```C
 extern LIST* listFromArray(ARRAY* pArray);
+```
+This function is typically used to convert an ARRAY obtained through [listToArray()](DOC.md#listtoarray) back to a LIST.
+
+Here's a full example using the Quick SOrt algorithm to sort a LIST:
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <pylists4c.h>
+
+int longCompare(const void *p1, const void *p2)
+{
+    long left = *((long*) p1);
+    long right = *((long*) p2);
+
+    return ((left > right) - (left < right));
+}
+
+int main(int argc, char *argv[])
+{
+    LIST* pList;
+    ARRAY* pArray;
+    LIST* pSortedList;
+
+    pList = list("8, 1, 3, 0, 2, 6, 4, 9, 5, 0, 7", ',');
+    pArray = listToArray(pList);
+    qsort(pArray -> u.pLong, pArray -> length, pArray -> size, longCompare);
+    pSortedList = listFromArray(pArray);
+    listPrint(pSortedList);
+
+    listClear(&pList);
+    listFreeArray(&pArray);
+    listClear(&pSortedList);
+}
 ```
 
 ### listFreeArray()
