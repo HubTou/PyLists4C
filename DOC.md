@@ -642,7 +642,7 @@ Returns the Nth ELEMENT of a LIST
 ```C
 extern ELEMENT listGet(LIST* pList, long n);
 ```
-N can be a positive or negative index.
+*n* can be a positive or negative index.
 
 NUll will be returned if the index requested is out of the LIST.
 
