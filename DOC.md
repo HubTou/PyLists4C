@@ -408,6 +408,8 @@ Frees the memory allocated to a LIST representation
 ```C
 extern void listFreeStr(STRING*); // NB: passing the previous STRING by address to reset it
 ```
+The STRING pointer is resetted to NULL after use.
+
 Example uses provided just above...
 
 ### listPrint()
@@ -806,7 +808,6 @@ listClear(&pList2);
 listClear(&pList3);
 ```
 
-
 ### listExtend()
 Adds a copy of the elements of the second LIST to the end of the first one
 ```C
@@ -941,6 +942,8 @@ Frees the memory allocated to an ARRAY
 ```C
 extern void listFreeArray(ARRAY** ppArray);
 ```
+The ARRAY pointer is resetted to NULL after use.
+
 Example uses provided just above...
 
 ## Removing elements
