@@ -416,7 +416,7 @@ extern void listPrint(LIST* pList);
 ```
 :warning: we only print the address of STRUCTs. Doing more would require passing as parameter a user defined STRUCT printing function or NULL in most cases...
 
-:warning: single quotes characters are not backslash escaped (yet).
+:construction: single quotes characters are not backslash escaped (yet).
 
 Example use:
 ```C
