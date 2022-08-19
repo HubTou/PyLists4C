@@ -50,8 +50,14 @@ Design notes:
 * It's main use is to differenciate functions that return a whole LIST that would need to be freed after use, from those that return an ELEMENT of a LIST that must not be freed).
 * The use of a variable-like name is meant to discourage the idea of freeing it, though as it's still a pointer its members will have to be accessed with "->" rather than "."...
 * In order to obtain the *value* carried by an ELEMENT, you'll either have to:
-  * cast its pointer to a void to a pointer of a known type, and then take its value before use.<br>For example, assuming you want to retrieve a "short" value, do: \*((short\*) element -> pValue)
-  * or, more simply, use a [listValueXXX()](DOC.md#listvaluexxx) "getter" for the type you expect.<br>To continue the previous example, do: listValueShort(element)
+  * cast its pointer to a void to a pointer of a known type, and then take its value before use.<br>For example, assuming you want to retrieve a "short" value, do:
+```C
+*((short*) element -> pValue)
+```
+  * or, more simply, use a [listValueXXX()](DOC.md#listvaluexxx) "getter" for the type you expect.<br>To continue the previous example, do:
+```C
+listValueShort(element)
+```
 
 ### ITERATOR type
 An alias for a pointer to a LIST, defined like this:
