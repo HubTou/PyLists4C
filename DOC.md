@@ -885,7 +885,7 @@ extern LIST* listFromArray(ARRAY* pArray);
 ```
 This function is typically used to convert an ARRAY obtained through [listToArray()](DOC.md#listtoarray) back to a LIST.
 
-Here's a full example using the Quick SOrt algorithm to sort a LIST:
+Here's a full example using the Quick Sort algorithm to sort a LIST:
 ```C
 #include <stdio.h>
 #include <stdlib.h>
