@@ -202,8 +202,8 @@ typedef struct
     long structCount;
     long unknownCount;
 
-    unsigned long smallestString; // without the 0 terminating character
-    unsigned long largestString; // without the 0 terminating character
+    unsigned long smallestString; // without the \0 terminating character
+    unsigned long largestString; // without the \0 terminating character
     unsigned long smallestStruct;
     unsigned long largestStruct;
 
