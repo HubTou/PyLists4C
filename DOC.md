@@ -8,7 +8,8 @@
 * A **LIST** is an instance of linked list this library provides.
 * An **element** is a node of a LIST.
 * A **value** is the payload of an element of a LIST.
-  * The values that you pass to the library's functions are never used directly and always copied before insertion into a LIST (we don't want dependencies with what's going on outside of the library). The copies are also never re-used into other LISTs (as we don't want multiple references to an allocated variable either).
+  * The values that you pass to the library's functions are never used directly and always copied before insertion into a LIST (we don't want dependencies with what's going on outside of the library).
+  * The copies are also never re-used into other LISTs (as we don't want multiple references to an allocated variable either).
 * An **index** is the position of an element in a LIST.
   * Like in Python, indexes are numbered from 0 when you go through a LIST from its beginning, or from -1 when you go through its end.
   * LISTs indexes, lengths and counts are of the C language **long** type. 
@@ -128,7 +129,7 @@ Design notes:
 We provide convenience functions for each standard C language types, so you don't always have to pass *values* by address, provide the *type* and *size* parameters, or cast variables to specific types...
 
 ### ARRAY type
-One thing we can't easily do in C language is to have directly indexed LIST *elements* (ie: MyList\[0], MyList\[1] and so on), though we provide a [listGet()](DOC.md#listgetn) base function to access the Nth *element* of a LIST.
+One thing we can't easily do in C language is to have directly indexed LIST *elements* (i.e.: MyList\[0], MyList\[1] and so on), though we provide a [listGet()](DOC.md#listgetn) base function to access the Nth *element* of a LIST.
 
 In order to make this easier, we provide the [listToArray()](DOC.md#listtoarray) and [listFromArray()](DOC.md#listfromarray) base functions in order to convert between LISTs and ARRAYs.
 These functions, however, only work on *homogeneous LISTs*.
@@ -168,7 +169,7 @@ typedef struct array
 Design notes:
 * An ARRAY has only one **type** and **size**, so it has *homogeneous values*.
 * The number of *values* is given by the **length** variable.
-* In order to be able to use the \[] notation directly, we provide an union **u** with all possible subtypes.
+* In order to be able to use the \[n] notation directly, we provide an union **u** with all possible subtypes.
   * We could have used the same scheme for the LIST data structure **pValue** variable but thought it would needlessly complexify things... 
 * Every standard C language type is a pointer to (i.e.: a table of) that type.
 * Being of unknown size to the C language, our custom types are pointers to pointers so their table indexation will work.
@@ -272,7 +273,7 @@ Example use:
 ```C
 LIST* pList = NULL;
 ```
-:no_entry: LISTs should only be allocated through the library's functions, so **never use LIST variables directly** (ie: LIST myList) or you won't be able to have empty LISTs, to change the first *element* easily or to clear your LISTs... 
+:no_entry: LISTs should only be allocated through the library's functions, so **never use LIST variables directly** (i.e.: LIST myList) or you won't be able to have empty LISTs, to change the first *element* easily or to clear your LISTs... 
 
 ### listCreateElement()
 Creates an unlinked LIST element
@@ -328,7 +329,7 @@ extern STATUS listEnqueue(LIST** ppList, void* pValue, ETYPE type, size_t size);
 * *ppList* is the address of your LIST pointer as the first element will change if your LIST was empty.
 
 In case of FAILURE return code (which can only happen in case of memory allocation error), the existing LIST is unaffected.
-If you don't want to test the result of each STATUS returning function call, you can use the [listSetFatalMallocErrors()](DOC.md#listSetFatalMallocErrors) function at the start of your program to make it exit on any memory allocation error (anyway it'll be difficult to continue if there is no more memory available...)
+If you don't want to test the result of each STATUS returning function call, you can use the [listSetFatalMallocErrors(TRUE)](DOC.md#listSetFatalMallocErrors) function at the start of your program to make it exit on any memory allocation error (anyway it'll be difficult to continue if there is no more memory available...)
  
 
 Example use:
@@ -395,7 +396,7 @@ extern STATUS listInsertSorted(LIST** ppList, void* pValue, ETYPE type, size_t s
 ### listStr()
 ### listAscii()
 ### listRepr()
-Returns a pointer to a string containing a Python-style (ie. [e1, e2...]) representated LIST (you'll have to free it after use with [listFreeStr()](DOC.md#listfreestr)
+Returns a pointer to a string containing a Python-style (i.e.: [e1, e2...]) representated LIST (you'll have to free it after use with [listFreeStr()](DOC.md#listfreestr)
 ```C
 extern STRING listStr(LIST* pList);
 extern STRING listAscii(LIST* pList); // listStr() alias
@@ -409,7 +410,7 @@ extern void listFreeStr(STRING*); // NB: passing the previous STRING by address 
 ```
 
 ### listPrint()
-Prints a Python-style (ie. [e1, e2...]) representated LIST to stdout
+Prints a Python-style (i.e.: [e1, e2...]) representated LIST to stdout
 ```C
 extern void listPrint(LIST* pList);
 ```
@@ -609,7 +610,7 @@ extern ELEMENT listPrevious(ITERATOR* pIterator);
 ### listSlice(n, m)
 ### listSliceFrom(n)
 ### listSliceTo(m)
-Returns a copy of a slice (ie. [n:m]) of a LIST
+Returns a copy of a slice (i.e.: [n:m]) of a LIST
 ```C
 extern LIST* listSlice(LIST* pList, long n, long m);
 extern LIST* listSliceFrom(LIST* pList, long n);
