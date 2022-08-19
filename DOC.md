@@ -408,15 +408,16 @@ Frees the memory allocated to a LIST representation
 ```C
 extern void listFreeStr(STRING*); // NB: passing the previous STRING by address to reset it
 ```
+Example uses provided just above...
 
 ### listPrint()
 Prints a Python-style (i.e.: [e1, e2...]) representated LIST to stdout
 ```C
 extern void listPrint(LIST* pList);
 ```
-:warning: we only print the address of STRUCTs. Doing more would require passing as parameter a user defined STRUCT printing function or NULL in most cases...
+:warning: We only print the address of STRUCTs. Doing more would require passing as parameter a user defined STRUCT printing function or NULL in most cases...
 
-:construction: single quotes characters are not backslash escaped (yet).
+:construction: Single quotes characters are not backslash-escaped (yet).
 
 Example use:
 ```C
@@ -434,7 +435,7 @@ extern void listDebug(LIST* pList, STRING name);
 ```
 * *name* is an optional (you can pass NULL instead) STRING containing the name of your LIST variable
 
-:warning: we only print the address of STRUCTs. Doing more would require passing as parameter a user defined STRUCT printing function or NULL in most cases...
+:warning: We only print the address of STRUCTs. Doing more would require passing as parameter a user defined STRUCT printing function or NULL in most cases...
 
 Example use:
 ```C
@@ -686,6 +687,8 @@ Tests if two LISTs contain exactly the same values
 ```C
 extern BOOLEAN listAreEqual(LIST* pList1, LIST* pList2);
 ```
+:warning: "exactly the same values" means having the same value *and* the same type *and* the same allocated size!
+
 Example use:
 ```C
 LIST* pList1 = list("1, 2, 3", ',');
@@ -700,7 +703,6 @@ else
 listClear(&pList1);
 listClear(&pList2);
 ```
-:warning: "exactly the same values" means having the same value *and* the same type *and* the same allocated size!
 
 ### listAreEqualCaseInsensitive()
 Tests if two LISTs contain the same values, without regard to case
@@ -925,6 +927,7 @@ Frees the memory allocated to an ARRAY
 ```C
 extern void listFreeArray(ARRAY** ppArray);
 ```
+Example uses provided just above...
 
 ## Removing elements
 ### listDelNth(n)
