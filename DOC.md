@@ -37,12 +37,9 @@ Design notes:
   * [STRING](DOC.md#string-type)s (C language \0 terminated character arrays),
   * sub-LISTs,
   * and user defined, self contained (that is to say, without pointers) STRUCTs.
-* As the size of user defined STRUCTs is unknown (and furthermore can be of variable size inside a same LIST) and STRINGS can be allocated to larger character arrays than their current content, we need a **size** variable to keep track of the space allocated to store the *value*.
+* As the size of user defined STRUCTs is unknown (and furthermore can be of variable size inside a same LIST) and STRINGS can be allocated to larger character arrays than their current content, we also need a **size** variable to keep track of the space allocated to store the *value*.
   * If you use multiple kinds of STRUCTs in the same LIST, it is advised to start each of these STRUCTs with a fixed length field indicating its sub type.
 * As all *elements* should have the same memory size, we use pointers for all *values*, not just STRINGs, LISTs and STRUCTS. Thus we need a **pValue** variable to point to the *value* of each *element*.
-* Being a pointer to a void, you'll either have to:
-  * cast it to a pointer to a known type, and then take its value before use.<br>For example, assuming you want to retrieve a "short" value, do: \*((short\*) element -> pValue)
-  * or, more simply, use a [listValueXXX()](DOC.md#listvaluexxx) "getter" for the type you expect.<br>To continue the previous example, do: listValueShort(element)
 
 ### ELEMENT type
 An alias for a pointer to a LIST, defined like this:
@@ -52,6 +49,9 @@ typedef LIST* ELEMENT;
 Design notes:
 * It's main use is to differenciate functions that return a whole LIST that would need to be freed after use, from those that return an ELEMENT of a LIST that must not be freed).
 * The use of a variable-like name is meant to discourage the idea of freeing it, though as it's still a pointer its members will have to be accessed with "->" rather than "."...
+* In order to obtain the *value* carried by an ELEMENT, you'll either have to:
+  * cast its pointer to a void to a pointer of a known type, and then take its value before use.<br>For example, assuming you want to retrieve a "short" value, do: \*((short\*) element -> pValue)
+  * or, more simply, use a [listValueXXX()](DOC.md#listvaluexxx) "getter" for the type you expect.<br>To continue the previous example, do: listValueShort(element)
 
 ### ITERATOR type
 An alias for a pointer to a LIST, defined like this:
@@ -59,8 +59,22 @@ An alias for a pointer to a LIST, defined like this:
 typedef LIST* ITERATOR;
 ```
 Design notes:
-* It's main use is to differenciate LISTs that would need to be freed after use, from pointers to walkthrough a LIST that must not be freed.
+* It's main use is to walkthrough a LIST without restarting from its first element at each iteration.
+* Like the ELEMENT type, it's also use to differenciate LISTs that would need to be freed after use, from pointers to walkthrough a LIST that must not be freed.
 * See the comments for the ELEMENT type above... 
+
+Example use:
+```C
+LIST* pList = list("1, 2, 3, 4, 5", ',');
+ITERATOR i;
+ELEMENT e;
+
+i = listSetIterator(pList);
+while ((e = listNext(&i)) != NULL)
+    /* do something */ ;
+...
+listClear(&pList);
+```
 
 ### ETYPE type
 It's defined like this:
