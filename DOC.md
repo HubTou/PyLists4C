@@ -602,11 +602,33 @@ Returns the Nth ELEMENT of a LIST
 ```C
 extern ELEMENT listGet(LIST* pList, long n);
 ```
+N can be a positive or negative index.
+
+NUll will be returned if the index requested is out of the LIST.
+
+Otherwise the requested ELEMENT will be returned.
+
+Example use:
+```C
+LIST* pList = list("'a', 'b', 'c'", ',');
+printf("%ld\n", listValueString(listGet(1)));
+// "b\n" is printed to stdout
+printf("%ld\n", listValueString(listGet(-2)));
+// "b\n" is also printed to stdout
+```
 
 ### listGetLast()
 Returns the last ELEMENT of a LIST
 ```C
 extern ELEMENT listGetLast(LIST* pList);
+```
+Equivalent to listGet(-1) though optimized as it's frequently used.
+
+Example use:
+```C
+LIST* pList = list("'a', 'b', 'c'", ',');
+printf("%ld\n", listValueString(listGetLast()));
+// "c\n" is printed to stdout
 ```
 
 ### listSetIterator()
