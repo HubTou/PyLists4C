@@ -11,7 +11,7 @@ If the library has been installed system-wide, you just have to:
 ```C
 #include <pylists4c.h>
 ```
-* link the library with the rest of your objects. For example, if you're working under a Unix-like system, put something like this in your **makefile**:
+* link the library with the rest of your objects. For example, if you're working on a Unix-like system, put something like this in your **makefile**:
 ```C
 LDFLAGS=-lpylists4c
 $(CC) $(CFLAGS) $LDFLAGS) $(MY_OBJECTS_FILES) -o $(MY_PROGRAM_NAME)
@@ -78,7 +78,8 @@ Design notes:
 ```C
 listValueShort(element)
 ```
-
+  * The types available for XXX are: Char, UChar, Short, UShort, Int, UInt, Long, ULong, LongLong, ULongLong, Float, Double, LongDouble and String (withU standing for Unsigned).
+  
 ### ITERATOR type
 An alias for a pointer to a LIST, defined like this:
 ```C
