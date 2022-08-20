@@ -430,6 +430,28 @@ Inserts an element in a sorted LIST
 ```C
 extern STATUS listInsertSorted(LIST** ppList, void* pValue, ETYPE type, size_t size, BOOLEAN reversed, BOOLEAN caseInsensitive, BOOLEAN noDuplicates);
 ```
+* *reversed* is a BOOLEAN indicating the sort order (TRUE=descending, FALSE=ascending)
+* *caseInsensitive* is a BOOLEAN specifying how to handle char and STRINgs (TRUE=case insensitive, FALSE=case sensitive)
+* *noDuplicates* is a BOOLEAN indicating if duplicate values are discarded (TRUE=discarded, FALSE=inserted)
+
+:warning: Assumes the LIST is already sorted or impredictible results will occur!
+
+:warning: Contrarily to what Python does, it's possible to sort non *homogeneous* LISTs. In these cases, values will be grouped by ETYPE (in ascending value order).
+
+:warning: STRUCTs sorting is crude (done with memcmp()...). It could be improved by passing a comparison function as an additional parameter (maybe in another future function?).
+
+:warning: sub-LISTs are not sorted between themselves (*before* and *after* being hard to define...) but they are still added to the resulting LIST as we don't want to lose any element.
+
+Example use:
+```C
+LIST* pList = list("2, 4, 6, 8");
+long v = 5;
+listInsertSorted(&pList, &v, ETYPE_LONG, sizeof(v), FALSE, FALSE, FALSE);
+// pList now is [2, 4, 5, 6, 8]
+
+// or, more simply:
+// listInsertSortedLong(&pList, 5, FALSE, FALSE, FALSE);
+```
 
 ## Displaying lists
 ### listStr()
