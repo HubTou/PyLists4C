@@ -21,6 +21,7 @@ If you have only installed the library in your user account, you have to add:
 * -I$(HOME)/include in the CFLAGS definition
 * -L$(HOME)/lib in the LDFLAGS definition
 
+# Data structures
 ## Glossary and conventions
 * A **LIST** is an instance of linked list this library provides.
 * An **element** is a node of a LIST.
@@ -34,8 +35,7 @@ If you have only installed the library in your user account, you have to add:
 * Pointers variable names are prefixed with a **p** character. Pointers to pointers with **pp** and so on.
   * Thus a ppList parameter means that you'll pass the address of your LIST, enabling the modification of the first element pointer or its NULL-ification if the LIST is emptied. 
 
-# Data structures
-## Specific types
+# Specific types
 ### LIST type
 The main data structure of this library is defined like this:
 ```C
