@@ -423,7 +423,7 @@ extern STATUS listInsertSorted(LIST** ppList, void* pValue, ETYPE type, size_t s
 ### listStr()
 ### listAscii()
 ### listRepr()
-Returns a pointer to a string containing a Python-style (i.e.: [e1, e2...]) representated LIST (you'll have to free it after use with [listFreeStr()](DOC.md#listfreestr)
+Returns a pointer to a string containing a [Python-style representated LIST](DOC.md#list) (you'll have to free it after use with [listFreeStr()](DOC.md#listfreestr)
 ```C
 extern STRING listStr(LIST* pList);
 extern STRING listAscii(LIST* pList); // listStr() alias
@@ -440,7 +440,7 @@ The STRING pointer is resetted to NULL after use.
 Example uses provided just above...
 
 ### listPrint()
-Prints a Python-style (i.e.: [e1, e2...]) representated LIST to stdout
+Prints a [Python-style representated LIST](DOC.md#list) to stdout
 ```C
 extern void listPrint(LIST* pList);
 ```
