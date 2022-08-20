@@ -371,8 +371,8 @@ listAppend(&pAstronauts, &year, ETYPE_LONG, sizeof(long));
 // pAstronauts now is ['Gene Cernan', 1972]
 
 // or, more simply:
-// listAppendString(&pAstronauts, lastManOnTheMoon);
-// listAppendLong(&pAstronauts, year);
+// listAppendString(&pAstronauts, "Gene Cernan");
+// listAppendLong(&pAstronauts, 1972);
 ...
 listClear(&pAstronauts);
 ```
@@ -401,8 +401,8 @@ listInsertFirst(&pAstronauts, firstManOnTheMoon, ETYPE_STRING, strlen(firstManOn
 // pAstronauts now is ['Neil Armstrong', 1969, 'Gene Cernan', 1972]
 
 // or, more simply:
-// listInsertFirstLong(&pAstronauts, year);
-// listInsertFirstString(&pAstronauts, firstManOnTheMoon);
+// listInsertFirstLong(&pAstronauts, 1969);
+// listInsertFirstString(&pAstronauts, "Neil Armstrong");
 ...
 listClear(&pAstronauts);
 ```
