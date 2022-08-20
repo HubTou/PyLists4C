@@ -1,6 +1,6 @@
 ![alt text](https://github.com/HubTou/PyLists4C/blob/main/logo/pylists4c-logo.png "PyLists4C: Python-style lists for the C language")
 # PyLists4C: Python-style lists for the C language
-Coming back to the [C language](https://www.open-std.org/JTC1/SC22/WG14/www/standards) after 30+ years, and having discovered [Python](https://www.python.org/) in-between, I found it frustrating not having handy tools such as linked lists by default.
+Coming back to the [C language](https://www.open-std.org/JTC1/SC22/WG14/www/standards) after 30+ years, and having discovered [Python](https://www.python.org/) in-between, I found it frustrating not having handy tools such as linked lists by default (and I guess many people now learning Python, then C, must feel the same!).
 
 Of course, there were multiple libraries available for that, but none with the power of [what's available in Python](https://www.w3schools.com/python/python_lists.asp), or packaged with too many things that I didn't need.
 
@@ -112,3 +112,6 @@ Still missing something? Then go to the [discussions](https://github.com/HubTou/
 Encountering issues? Then report it in the [issues](https://github.com/HubTou/PyLists4C/issues) section.
 
 Happy with it? Then please help me promote this library.
+* Go, tell it on the mountain, over the hills and everywhere!
+* Reference your own creations with the [pylists4c](https://github.com/topics/pylists4c) GitHub topic,
+* Package it for your favourite operating system,
