@@ -295,7 +295,7 @@ listClear(&pList);
 ### list()
 Creates a LIST from a Python-style list declaration string
 ```C
-extern LIST* list(STRING string, char separator);
+extern LIST* list(STRING string);
 ```
 
 ### listFromTable()
@@ -364,7 +364,7 @@ In case of FAILURE return code, the LIST is unaffected.
 Example use:
 
 ```C
-LIST* pAstronauts = list("'Gene Cernan', 1972", ',');
+LIST* pAstronauts = list("'Gene Cernan', 1972");
 static char* firstManOnTheMoon = "Neil Armstrong";
 long year = 1969;
 ...
@@ -423,7 +423,7 @@ extern void listPrint(LIST* pList);
 
 Example use:
 ```C
-LIST* pList = list("'Yesterday', 'all', 'my', 'troubles', 'seemed', 'so', 'far', 'away'", ',');
+LIST* pList = list("'Yesterday', 'all', 'my', 'troubles', 'seemed', 'so', 'far', 'away'");
 listPrint(pList);
 // "['Yesterday', 'all', 'my', 'troubles', 'seemed', 'so', 'far', 'away']" is printed to stdout
 ...
@@ -441,7 +441,7 @@ extern void listDebug(LIST* pList, STRING name);
 
 Example use:
 ```C
-LIST* pList = list("123, 456.789, 'abc', \"def\", ['r', 2, 'd', 2], []", ',');
+LIST* pList = list("123, 456.789, 'abc', \"def\", ['r', 2, 'd', 2], []");
 listDebug(pList, "pList");
 // or, if you don't want to use your variable name in prints:
 // listDebug(pList, NULL);
@@ -492,7 +492,7 @@ extern BOOLEAN listContains(LIST* pList, void* pValue, ETYPE type, size_t size);
 
 Example use:
 ```C
-LIST* pPrimeNumbers = list("1, 2, 3, 5, 7, 11, 13, 17, 19", ',');
+LIST* pPrimeNumbers = list("1, 2, 3, 5, 7, 11, 13, 17, 19");
 long number = 14;
 
 if (listContains(pPrimeNumbers, &number, ETYPE_LONG, sizeof(number)))
@@ -514,7 +514,7 @@ extern long listCount(LIST* pList, void* pValue, ETYPE type, size_t size);
 ```
 Example use:
 ```C
-LIST* pFruits = list("'apple', 'banana', 'mango', 'pear', 'banana'", ',');
+LIST* pFruits = list("'apple', 'banana', 'mango', 'pear', 'banana'");
 static char* fruit = "banana";
 long count = listCount(pFruits, fruit, ETYPE_STRING, sizeof(fruit));
 // count now is 2
@@ -534,7 +534,7 @@ Or returns -1 is the element is not found.
 
 Example use:
 ```C
-LIST* pFruits = list("'apple', 'banana', 'mango', 'pear', 'banana'", ',');
+LIST* pFruits = list("'apple', 'banana', 'mango', 'pear', 'banana'");
 static char* fruit = "banana";
 long i = listIndex(pFruits, fruit, ETYPE_STRING, sizeof(fruit));
 // i now is 1
@@ -560,7 +560,7 @@ extern LIST* listSearch(LIST* pList, void* pValue, ETYPE type, size_t size); // 
 
 Example use:
 ```C
-LIST* pFruits = list("'apple', 'banana', 'mango', 'pear', 'banana'", ',');
+LIST* pFruits = list("'apple', 'banana', 'mango', 'pear', 'banana'");
 static char* fruit = "banana";
 LIST* pIndexes = listIndexAll(pFruits, fruit, ETYPE_STRING, sizeof(fruit));
 // pIndexes now is [1, 4]
@@ -650,7 +650,7 @@ Otherwise the requested ELEMENT will be returned.
 
 Example use:
 ```C
-LIST* pList = list("'a', 'b', 'c'", ',');
+LIST* pList = list("'a', 'b', 'c'");
 printf("%ld\n", listValueString(listGet(1)));
 // "b\n" is printed to stdout
 printf("%ld\n", listValueString(listGet(-2)));
@@ -666,7 +666,7 @@ Equivalent to listGet(-1) though optimized as it's frequently used.
 
 Example use:
 ```C
-LIST* pList = list("'a', 'b', 'c'", ',');
+LIST* pList = list("'a', 'b', 'c'");
 printf("%ld\n", listValueString(listGetLast()));
 // "c\n" is printed to stdout
 ```
@@ -722,7 +722,7 @@ Meant for use with the [listGet(n)](DOC.md#listgetn), [listGetlast()](DOC.md#lis
 
 Example use:
 ```C
-LIST* pList = list("1, 2, 3, 4, 5", ',');
+LIST* pList = list("1, 2, 3, 4, 5");
 ITERATOR i;
 ELEMENT e;
 
@@ -746,7 +746,7 @@ In case of FAILURE return code (which can happen either if *n* is greater than t
 Else, only the *pValue* pointer is deallocated / reallocated.
 
 ```C
-LIST* pFabFour = list("'john', 'paul', 'george', 'pete'", ',');
+LIST* pFabFour = list("'john', 'paul', 'george', 'pete'");
 static char* fourthMember = "ringo";
 
 listChange(pFabFour, 3, fourthMember, ETYPE_STRING, strlen(fourthMember) + 1);
@@ -768,8 +768,8 @@ extern BOOLEAN listAreEqual(LIST* pList1, LIST* pList2);
 
 Example use:
 ```C
-LIST* pList1 = list("1, 2, 3", ',');
-LIST* pList2 = list("1, 2, 3, 4", ',');
+LIST* pList1 = list("1, 2, 3");
+LIST* pList2 = list("1, 2, 3, 4");
 
 if (listAreEqual(pList1, pList2))
     printf("The lists are equal!\n");
@@ -796,7 +796,7 @@ extern LIST* listCopy(LIST* pList);
 ```
 Example use;
 ```C
-LIST* pList1 = list("1, 2, 3", ',');
+LIST* pList1 = list("1, 2, 3");
 LIST* pList2 = NULL;
 
 pList2 = listCopy(pList1);
@@ -836,7 +836,7 @@ int main(int argc, char *argv[])
     LIST* pFilteredList = NULL;
 
     printf("Filtering strings containing the E letter:\n");
-    pList = list("'la', 'disparition', 'est', 'un', 'livre', 'fameux', 'de', 'Georges', 'Perec'", ',');
+    pList = list("'la', 'disparition', 'est', 'un', 'livre', 'fameux', 'de', 'Georges', 'Perec'");
     listPrint(pList);
     // "['la', 'disparition', 'est', 'un', 'livre', 'fameux', 'de', 'Georges', 'Perec']" is printed to stdout
     pFilteredList = listFilter(pList, noEInStrings);
@@ -856,8 +856,8 @@ It's like using Python "+" operator between lists...
 
 Example use:
 ```C
-LIST* pList1 = list("'a', 'b', 'c'", ',');
-LIST* pList2 = list("1, 2, 3", ',');
+LIST* pList1 = list("'a', 'b', 'c'");
+LIST* pList2 = list("1, 2, 3");
 LIST* pList3 = NULL;
 
 pList3 = listConcat(pList1, pList2);
@@ -876,8 +876,8 @@ extern void listExtend(LIST** ppList1, LIST* pList2);
 ```
 Example use:
 ```C
-LIST* pList1 = list("'a', 'b', 'c'", ',');
-LIST* pList2 = list("1, 2, 3", ',');
+LIST* pList1 = list("'a', 'b', 'c'");
+LIST* pList2 = list("1, 2, 3");
 
 listExtend(&pList1, pList2);
 // pList1 now is ['a', 'b', 'c', 1, 2, 3]
@@ -897,8 +897,8 @@ The second LIST is emptied (i.e.: NULL) after use.
 
 Example use:
 ```C
-LIST* pList1 = list("'a', 'b', 'c'", ',');
-LIST* pList2 = list("1, 2, 3", ',');
+LIST* pList1 = list("'a', 'b', 'c'");
+LIST* pList2 = list("1, 2, 3");
 
 listJoin(&pList1, &pList2);
 // pList1 now is ['a', 'b', 'c', 1, 2, 3]
@@ -985,7 +985,7 @@ int main(int argc, char *argv[])
     ARRAY* pArray;
     LIST* pSortedList;
 
-    pList = list("8, 1, 3, 0, 2, 6, 4, 9, 5, 0, 7", ',');
+    pList = list("8, 1, 3, 0, 2, 6, 4, 9, 5, 0, 7");
     pArray = listToArray(pList);
     qsort(pArray -> u.pLong, pArray -> length, pArray -> size, longCompare);
     pSortedList = listFromArray(pArray);
@@ -1014,7 +1014,7 @@ extern void listDelNth(LIST** ppList, long n);
 ```
 Example use:
 ```C
-LIST* pList = list("1, 2, 3"; ',');
+LIST* pList = list("1, 2, 3");
 listDelNth(&pList, 1);
 // pList now is [1, 3]
 ...
@@ -1028,7 +1028,7 @@ extern void listDelFirst(LIST** ppList); // listDelNth(0) alias
 ```
 Example use:
 ```C
-LIST* pList = list("1, 2, 3"; ',');
+LIST* pList = list("1, 2, 3");
 listDelFirst(&pList);
 pList now is [2, 3]
 ...
@@ -1042,7 +1042,7 @@ extern void listDelLast(LIST** ppList); // listDelNth(-1) alias
 ```
 Example use:
 ```C
-LIST* pList = list("1, 2, 3"; ',');
+LIST* pList = list("1, 2, 3");
 listDelLast(&pList);
 // pList now is [1, 2]
 ...
