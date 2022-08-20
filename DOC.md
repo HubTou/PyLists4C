@@ -304,7 +304,7 @@ A LIST declaration string is a comma-separated list of:
 * decimal numbers (\[-]\[0-9]+\\.\[0-9]+) => converted to C language **double** type
 * strings ('.\*' or ".\*" with eventual embedded single or double quotes characters backslash-escaped) => converted to this library **STRING** type
 * lists ([.\*]) => converted to this library **LIST** type
-* All the rest is treated as garbage => converted to this library empty **STRING** type
+* All the rest is treated as garbage => converted to this library *empty* **STRING** type (so you can notice there was something wrong)
 
 Please note:
 * The decimal separator is a point, not a comma,
