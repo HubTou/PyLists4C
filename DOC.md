@@ -78,7 +78,7 @@ Design notes:
 ```C
 listValueShort(element)
 ```
-  * The types available for XXX are: Char, UChar, Short, UShort, Int, UInt, Long, ULong, LongLong, ULongLong, Float, Double, LongDouble and String (withU standing for Unsigned).
+  * The types available for XXX are: Char, UChar, Short, UShort, Int, UInt, Long, ULong, LongLong, ULongLong, Float, Double, LongDouble and String (with the U prefix standing for Unsigned).
   
 ### ITERATOR type
 An alias for a pointer to a LIST, defined like this:
