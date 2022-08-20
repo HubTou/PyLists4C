@@ -736,7 +736,6 @@ listClear(&pList);
 
 ## Changing elements
 ### listChange(n)
-### listModify(n)
 Changes the value of the element at the Nth position of a LIST
 ```C
 extern STATUS listChange(LIST* pList, long n, void* pValue, ETYPE type, size_t size);
@@ -889,7 +888,6 @@ listClear(&pList2);
 ```
 
 ### listJoin()
-### listStitch()
 Moves the elements of the second LIST to the end of the first one
 ```C
 extern void listJoin(LIST** ppList1, LIST** ppList2);
