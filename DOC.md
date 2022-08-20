@@ -1164,11 +1164,31 @@ Reverses the order of a LIST
 ```C
 extern void listReverse(LIST** ppList);
 ```
+This function just reverses the order of a LIST, it doesn't sort it.
+
+Example use:
+```C
+LIST* pList = list("1, 2, 3, 4");
+listReverse(&pList);
+// pList now is [4, 3, 2, 1]
+...
+listClear(&pList);
+```
 
 ### listReversed()
 Returns a reversed copy of a LIST
 ```C
 extern LIST* listReversed(LIST* pList);
+```
+Example use:
+```C
+LIST* pList = list("1, 2, 3, 4");
+LIST* pReversedList = listReversed(&pList);
+// pReversedList now is [4, 3, 2, 1]
+// pList still is [1, 2, 3, 4]
+...
+listClear(&pList);
+listClear(&pReversedList);
 ```
 
 ### listShuffle()
@@ -1176,11 +1196,31 @@ Shuffles a LIST
 ```C
 extern STATUS listShuffle(LIST** ppList);
 ```
+This function randomly shuffles the order of the elements of a LIST.
+
+Example use:
+```C
+LIST* pList = list("1, 2, 3, 4");
+listShuffle(&pList);
+// pList could, for example, be [3, 1, 4, 2]
+...
+listClear(&pList);
+```
 
 ### listShuffled()
 Returns a shuffled copy of a LIST
 ```C
 extern LIST* listShuffled(LIST* extern void listPopNth(LIST** ppList, long n);
+```
+Example use:
+```C
+LIST* pList = list("1, 2, 3, 4");
+LIST* pShuffledList = listShuffled(&pList);
+// pShuffledList could, for example, be [2, 4, 1, 3]
+// pList still is [1, 2, 3, 4]
+...
+listClear(&pList);
+listClear(&pShuffledList);
 ```
 
 ## Lists to arrays conversion
