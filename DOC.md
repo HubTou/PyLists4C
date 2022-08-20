@@ -869,6 +869,45 @@ extern LIST* listSlice(LIST* pList, long n, long m);
 extern LIST* listSliceFrom(LIST* pList, long n);
 extern LIST* listSliceTo(LIST* pList, long m);
 ```
+*n* and *m* can be a positive or negative indexes (but *n* must be inferior or equal to *m*).
+
+Depending on what you use, *n* and *m* values will go either from 0 to the length of your LIST, or -length to -1.
+
+*n* is included in the results, but *m* is not.
+
+You'll get a **copy** of a part of your LIST, so you'll have to free it after use.
+
+Example uses:
+```C
+LIST* pList = list("0, 1, 2, 3, 4, 5, 6, 7, 8, 9");
+LIST* pSlice = NULL;
+
+pSlice = listSlice(pList, 1, 9); // same as Python pList[1:9]
+// pSlice now is [1, 2, 3, 4, 5, 6, 7, 8]
+listClear(&pSlice);
+
+pSlice = listSliceTo(pList, 5); // same as Python pList[:5]
+// pSlice now is [0, 1, 2, 3, 4]
+listClear(&pSlice);
+
+pSlice = listSliceFrom(pList, 5); // same as Python pList[5:]
+// pSlice now is 5, 6, 7, 8, 9
+listClear(&pSlice);
+
+pSlice = listSlice(pList, -9, -1); // same as Python pList[-9:-1]
+// pSlice now is [1, 2, 3, 4, 5, 6, 7, 8]
+listClear(&pSlice);
+
+pSlice = listSliceTo(pList, -5); // same as Python pList[:-5]
+// pSlice now is [0, 1, 2, 3, 4]
+listClear(&pSlice);
+
+pSlice = listSliceFrom(pList, -5); // same as Python pList[-5:]
+// pSlice now is 5, 6, 7, 8, 9
+listClear(&pSlice);
+
+listClear(&pList);
+```
 
 ## Fetching elements values
 ### listValueXXX()
