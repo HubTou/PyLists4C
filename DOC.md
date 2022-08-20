@@ -1288,6 +1288,21 @@ Removes the element at the specified position and returns it (you'll have to fre
 ```C
 extern LIST* listPopNth(LIST** ppList, long n);
 ```
+Will return NULL if *n* is greater than the LIST length.
+
+Example use:
+```C
+LIST* pList = list("1, 2, 3");
+LIST* pElement = NULL;
+
+pElement = listPopNth(&pList, 1);
+// pList now is [1, 3]
+printf("%ld\n", listValueLong(pElement);
+// "2\n" is printed to stdout
+...
+listClear(&pElement);
+listClear(&pList);
+```
 
 ### listPopFirst()
 ### listDequeue()
@@ -1296,11 +1311,36 @@ Equivalent to listPopNth(0)
 extern LIST* listPopFirst(LIST** ppList); // listPopNth(-1) alias
 extern LIST* listDequeue(LIST** ppList); // listPopNth(-1) alias
 ```
+Example use:
+```C
+LIST* pList = list("1, 2, 3");
+LIST* pElement = NULL;
+
+pElement = listPopFirst(&pList);
+// pList now is [2, 3]
+printf("%ld\n", listValueLong(pElement);
+// "1\n" is printed to stdout
+...
+listClear(&pElement);
+listClear(&pList);
+```
 
 ### listPop()
 Equivalent to listPopNth(-1)
 ```C
 extern LIST* listPop(LIST** ppList); // listPopNth(-1) alias
+```
+```C
+LIST* pList = list("1, 2, 3");
+LIST* pElement = NULL;
+
+pElement = listPop(&pList);
+// pList now is [1, 2]
+printf("%ld\n", listValueLong(pElement);
+// "3\n" is printed to stdout
+...
+listClear(&pElement);
+listClear(&pList);
 ```
 
 ### listRemove()
