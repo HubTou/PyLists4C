@@ -436,7 +436,7 @@ extern STATUS listInsertSorted(LIST** ppList, void* pValue, ETYPE type, size_t s
 
 :warning: Assumes the LIST is already sorted or impredictible results will occur!
 
-:warning: Contrarily to what Python does, it's possible to sort non *homogeneous* LISTs. In these cases, values will be grouped by ETYPE (in ascending value order).
+:warning: Contrarily to what Python does, it's possible to sort non *homogeneous* LISTs. In these cases, values will be grouped by ETYPE (in ascending [ETYPE value order](DOC.md#etype-type)).
 
 :warning: STRUCTs sorting is crude (done with [memcmp()](https://www.freebsd.org/cgi/man.cgi?query=memcmp)...). It could be improved by passing a comparison function as an additional parameter (maybe in another future function?).
 
