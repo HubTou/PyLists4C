@@ -313,6 +313,8 @@ Please note:
 
 🚧 Exponents are not yet supported for decimal numbers.
 
+:construction: There's currently no way to insert CHAR, SHORT, INT, LONG_LONG, UNSIGNED_\*, FLOAT and LONG_DOUBLE values in a LIST declaration string.
+
 :warning: Contrarily to what Python does, you don't have to enclose your list declaration string in braces (for once, this is a Python syntax limitation!).
 
 You don't have to enclose them in brackets either because that would be like saying you're already manipulating a LIST (and, indeed, you would create a single element LIST).
