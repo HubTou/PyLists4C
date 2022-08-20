@@ -412,6 +412,18 @@ Inserts an element at the Nth position of a LIST
 ```C
 extern STATUS listInsert(LIST** ppList, long n, void* pValue, ETYPE type, size_t size);
 ```
+If *n* is greater than the LIST length, your element will be appended at the end of the LIST.
+
+Example use:
+```C
+LIST* pList = list("2, 4, 6, 8");
+long v = 5;
+listInsert(&pList, 2, &v, ETYPE_LONG, sizeof(v));
+// pList now is [2, 4, 5, 6, 8]
+
+// or, more simply:
+// listInsertLong(&pList, 5);
+```
 
 ### listInsertSorted()
 Inserts an element in a sorted LIST
