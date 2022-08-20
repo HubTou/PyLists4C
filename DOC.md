@@ -851,7 +851,7 @@ The function will return NULL when there are no more elements to get.
 Example use:
 ```C
 LIST* pList = list("1, 2, 3, 4, 5");
-ITERATOR i = listSetIterator(getLast(pList));
+ITERATOR i = listSetIterator(getLast(pList)); // starting from the end of the LIST
 ELEMENT e;
 
 while ((e = listPrevious(&i)) != NULL)
