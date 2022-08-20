@@ -1221,7 +1221,7 @@ extern void listFreeArray(ARRAY** ppArray);
 ```
 The ARRAY pointer is resetted to NULL after use.
 
-Example uses provided just above...
+Example use provided just above...
 
 ## Removing elements
 ### listDelNth(n)
