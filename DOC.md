@@ -35,7 +35,7 @@ If you have only installed the library in your user account, you have to add:
 * Pointers variable names are prefixed with a **p** character. Pointers to pointers with **pp** and so on.
   * Thus a ppList parameter means that you'll pass the address of your LIST, enabling the modification of the first element pointer or its NULL-ification if the LIST is emptied. 
 
-# Specific types
+## Specific types
 ### LIST type
 The main data structure of this library is defined like this:
 ```C
