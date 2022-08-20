@@ -511,7 +511,7 @@ Prints all LIST details to stderr
 ```C
 extern void listDebug(LIST* pList, STRING name);
 ```
-* *name* is an optional (you can pass NULL instead) STRING containing the name of your LIST variable
+* *name* is an optional STRING (you can pass NULL instead) containing the name of your LIST variable.
 
 :warning: We only print the address of STRUCTs. Doing more would require passing as parameter a user defined STRUCT printing function or NULL in most cases...
 
@@ -555,10 +555,12 @@ listClear(&pList);
 ```
 
 ### listStats()
-Fills statistics about a LIST
+Fills statistics about a LIST in one walkthrough
 ```C
 extern void listStats(LIST* pList, LIST_STATS* pStats);
 ```
+Aside from providing unique information about a LIST (*homogeneous* status and details, memory footprint, etc.), this function main virtue is to do it in one walkthrough.
+
 For once, the LIST_STATS variable doesn't need to be dynamically allocated. You can simply declare it as a variable.
 
 Example use:
@@ -588,14 +590,16 @@ pList:
   memoryUsed=460
 ```
 
-Note that only the filled fields are displayed.
-
 ### listStatsPrint()
 Prints statistics about a LIST to stdout
 ```C
 extern void listStatsPrint(LIST_STATS stats, STRING name);
 ```
+* *name* is an optional STRING (you can pass NULL instead to get the default "list:") containing the name of your LIST variable.
+
 Example use provided just above...
+
+As you can see, only the relevant fields are displayed.
 
 ## Searching for elements
 ### listContains()
