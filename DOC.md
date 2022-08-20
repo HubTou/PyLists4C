@@ -1146,11 +1146,37 @@ Sorts a LIST
 ```C
 extern STATUS listSort(LIST** ppList, BOOLEAN reversed, BOOLEAN caseInsensitive, BOOLEAN noDuplicates);
 ```
+This function sorts a LIST in ascending or descending order, with or without regard to case for Char, UChar and STRING values, with or without duplicate values in the resulting LIST.
+
+It's currently based on [listSortedByInsertion()](DOC.md#listsortedbyinsertion), which itself is based on [listInsertSorted()](DOC.md#listinsertsorted), so check the caveats of that last function.
+
+This could change in the future, but when it comes to sorting linked lists, such an algorithm is almost as good as any other...
+
+You can check the example in [listFromArray()] to see an implementation of the Quick Sort algorithm...
+
+Example use:
+```C
+LIST* pList = list("2, 1, 4, 3");
+listSort(&pList, FALSE, FALSE, FALSE);
+// pList now is [1, 2, 3, 4]
+...
+listClear(&pList);
+```
 
 ### listSorted()
 Returns a sorted copy of a LIST
 ```C
 extern LIST* listSorted(LIST* pList, BOOLEAN reversed, BOOLEAN caseInsensitive, BOOLEAN noDuplicates);
+```
+Example use:
+```C
+LIST* pList = list("2, 1, 4, 3");
+LIST* pSortedList = listSort(&pList, FALSE, FALSE, FALSE);
+// pSortedList now is [1, 2, 3, 4]
+// pList still is [2, 1, 4, 3]
+...
+listClear(&pList);
+listClear(&pSortedList);
 ```
 
 ### listSortedByInsertion()
@@ -1158,6 +1184,9 @@ Returns a sorted copy of a LIST, using an insertion sort algorithm
 ```C
 extern LIST* listSortedByInsertion(LIST* pList, BOOLEAN reversed, BOOLEAN caseInsensitive, BOOLEAN noDuplicates);
 ```
+As explained above, this function is based on [listInsertSorted()](DOC.md#listinsertsorted), so check its caveats.
+
+It's meant to be called (or not...) by the listSort() function, but you can still call it directly if you want to benchmark the efficiency of different sort algorithms on linked lists...
 
 ### listReverse()
 Reverses the order of a LIST
