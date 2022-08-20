@@ -1291,11 +1291,37 @@ Removes the first item with the specified value
 ```C
 extern void listRemove(LIST** ppList, void* pValue, ETYPE type, size_t size);
 ```
+Example use:
+```C
+LIST* pFruits = list("'apple', 'banana', 'mango', 'pear', 'banana'");
+static char* fruit = "banana";
+
+listRemove(&pFruits, fruit, ETYPE_STRING, strlen(fruit) + 1);
+// pFruits now is ['apple', 'mango', 'pear', 'banana']
+
+// or, more simply:
+// listRemove(&pFruits, "banana");
+...
+listClear(&pFruits);
+```
 
 ### listRemoveAll()
 Removes all the items with the specified value
 ```C
 extern void listRemoveAll(LIST** ppList, void* pValue, ETYPE type, size_t size);
+```
+Example use:
+```C
+LIST* pFruits = list("'apple', 'banana', 'mango', 'pear', 'banana'");
+static char* fruit = "banana";
+
+listRemoveAll(&pFruits, fruit, ETYPE_STRING, strlen(fruit) + 1);
+// pFruits now is ['apple', 'mango', 'pear']
+
+// or, more simply:
+// listRemoveAll(&pFruits, "banana");
+...
+listClear(&pFruits);
 ```
 
 ## Clearing lists
