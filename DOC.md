@@ -1317,9 +1317,24 @@ Returns the quantity of allocated/unfreed memory used by this library
 ```C
 extern unsigned long listGetAllocatedMemory();
 ```
+You can use this for debugging purposes if you want to detect if you have memory leaks in your programs...
+
+Example use:
+```C
+// Do the following near the end of your program.
+// If you have more than 0 bytes allocated, you probably have a memory leak somewhere...
+printf("Allocated memory: %lu\n", listGetAllocatedMemory());
+```
 
 ### listSetFatalMallocErrors()
 Sets whether memory allocation errors are fatal or not
 ```C
 extern void listSetFatalMallocErrors(BOOLEAN fatal);
+```
+If you want to avoid testing the return code of the STATUS returning functions, as in most cases they can only fail if there's a memory allocation error, you can set this to TRUE so they'll exit to the shell with a FAILURE exit code. Anyway, your program will probably be in jeopardy if there's no memory left!
+
+Example use:
+```C
+// Do the following near the beginning of your program.
+listSetFatalMallocErrors(TRUE);
 ```
