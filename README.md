@@ -24,7 +24,7 @@ Beyond Python lists emulation, you'll also find:
 * Statistics and debugging, including memory allocation followup
 
 With:
-* 51 base functions + 17 other intuitive aliases,
+* 51 base functions + 15 other intuitive aliases,
 * 277 convenience type-oriented functions,
 * High modularity so your linker only includes what you use in your own executables,
 * Extensive [documentation](DOC.md) with examples for almost everything,
@@ -71,7 +71,7 @@ Base function | Aliases | Description
 **Fetching elements values**||
 [listValueXXX()](DOC.md#listvaluexxx)||Returns the element value in the requested type
 **Changing elements**||
-[listChange(n)](DOC.md#listchangen)|[listModify(n)](DOC.md#listmodifyn)|Changes the value of the element at the Nth position of a LIST
+[listChange(n)](DOC.md#listchangen)||Changes the value of the element at the Nth position of a LIST
 **Testing lists**||
 [listAreEqual()](DOC.md#listareequal)||Tests if two LISTs contain exactly the same values
 [listAreEqualCaseInsensitive()](DOC.md#listareequalcaseinsensitive)||Tests if two LISTs contain the same values, without regard to case
@@ -80,7 +80,7 @@ Base function | Aliases | Description
 [listFilter()](DOC.md#listfilter)|[listComprehension()](DOC.md#listcomprehension)|Returns a filtered copy of the LIST according to a user defined function telling if an ELEMENT should be included or not
 [listConcat()](DOC.md#listconcat)||Returns a new LIST with the concatenation of the elements of LIST1 and LIST2
 [listExtend()](DOC.md#listextend)||Adds a copy of the elements of the second LIST to the end of the first one
-[listJoin()](DOC.md#listjoin)|[listStitch()](DOC.md#liststitch)|Moves the elements of the second LIST to the end of the first one
+[listJoin()](DOC.md#listjoin)||Moves the elements of the second LIST to the end of the first one
 **Changing list order**||
 [listSort()](DOC.md#listsort)||Sorts a LIST
 [listSorted()](DOC.md#listsorted)||Returns a sorted copy of a LIST
