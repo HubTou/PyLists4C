@@ -4,6 +4,23 @@
 
 ## Installation
 :construction: TODO
+
+## Use within your own programs
+If the library has been installed system-wide, you just have to:
+* include the library header in your programs:
+```C
+#include <pylists4c.h>
+```
+* link the library with the rest of your objects. For example, if you're working under a Unix-like system, put something like this in your **makefile**:
+```C
+LDFLAGS=-lpylists4c
+$(CC) $(CFLAGS) $LDFLAGS) $(MY_OBJECTS_FILES) -o $(MY_PROGRAM_NAME)
+```
+
+If you have only installed the library in your user account, you have to add:
+* -I$(HOME)/include in the CFLAGS definition
+* -L$(HOME)/lib in the LDFLAGS definition
+
 ## Glossary and conventions
 * A **LIST** is an instance of linked list this library provides.
 * An **element** is a node of a LIST.
