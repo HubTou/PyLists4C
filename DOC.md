@@ -763,9 +763,11 @@ extern ELEMENT listGet(LIST* pList, long n);
 ```
 *n* can be a positive or negative index.
 
-NUll will be returned if the index requested is out of the LIST.
+NULL will be returned if the index requested is out of the LIST.
 
 Otherwise the requested ELEMENT will be returned.
+
+:no_entry: ELEMENTs must never be freed or you'll disrupt the LIST they belong to!
 
 Example use:
 ```C
@@ -783,6 +785,8 @@ extern ELEMENT listGetLast(LIST* pList);
 ```
 Equivalent to listGet(-1) though optimized as it's frequently used.
 
+:no_entry: ELEMENTs must never be freed or you'll disrupt the LIST they belong to!
+
 Example use:
 ```C
 LIST* pList = list("'a', 'b', 'c'");
@@ -795,17 +799,65 @@ Defines an ITERATOR from an ELEMENT of a LIST
 ```C
 extern ITERATOR listSetIterator(ELEMENT element);
 ```
-    
+This function is really only here for the sake of readability, as you could, just as simply, affect a LIST* or ELEMENT variable to an ITERATOR...
+
+:no_entry: ITERATORs must never be freed or you'll disrupt the LIST they belong to!
+
+Example use:
+```C
+LIST* pList = list("1, 2, 3, 4, 5");
+ITERATOR i = listSetIterator(pList);
+
+// or, more simply:
+// ITERATOR i = pList;
+...
+listClear(&pList);
+```
+
 ### listNext()
 Returns the next ELEMENT of a LIST starting from an ITERATOR
 ```C
 extern ELEMENT listNext(ITERATOR* pIterator);
+```
+The main purpose of this function is to avoid making a walkthrough of your LIST each time you want to reach a new element.
+
+The function will return NULL when there are no more elements to get.
+
+:no_entry: ELEMENTs must never be freed or you'll disrupt the LIST they belong to!
+
+Example use:
+```C
+LIST* pList = list("1, 2, 3, 4, 5");
+ITERATOR i = listSetIterator(pList);
+ELEMENT e;
+
+while ((e = listNext(&i)) != NULL)
+    /* do something with e */ ;
+...
+listClear(&pList);
 ```
 
 ### listPrevious()
 Returns the previous ELEMENT of a LIST starting from an ITERATOR
 ```C
 extern ELEMENT listPrevious(ITERATOR* pIterator);
+```
+The main purpose of this function is to avoid making a walkthrough of your LIST each time you want to reach a new element.
+
+The function will return NULL when there are no more elements to get.
+
+:no_entry: ELEMENTs must never be freed or you'll disrupt the LIST they belong to!
+
+Example use:
+```C
+LIST* pList = list("1, 2, 3, 4, 5");
+ITERATOR i = listSetIterator(getLast(pList));
+ELEMENT e;
+
+while ((e = listPrevious(&i)) != NULL)
+    /* do something with e */ ;
+...
+listClear(&pList);
 ```
 
 ### listSlice(n, m)
