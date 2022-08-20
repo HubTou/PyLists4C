@@ -486,7 +486,7 @@ extern void listFreeStr(STRING*); // NB: passing the previous STRING by address 
 ```
 The STRING pointer is resetted to NULL after use.
 
-Example uses provided just above...
+Example use provided just above...
 
 ### listPrint()
 Prints a [Python-style representated LIST](DOC.md#list) to stdout
@@ -545,18 +545,57 @@ Returns the number of elements in a LIST
 ```C
 extern long listLen(LIST* pList);
 ```
+Example use:
+```C
+LIST* pList = list("1,2, 3");
+long length = listLen(pList);
+// length now is 3
+...
+listClear(&pList);
+```
 
 ### listStats()
 Fills statistics about a LIST
 ```C
 extern void listStats(LIST* pList, LIST_STATS* pStats);
 ```
+For once, the LIST_STATS variable doesn't need to be dynamically allocated. You can simply declare it as a variable.
+
+Example use:
+```C
+LIST* pList = list("123, 456.789, 'abc', \"def\", ['r', 2, 'd', 2], []");
+LIST_STATS stats;
+listStats(pList, &stats);
+listStatsPrint(stats, "pList");
+...
+listClear(&pList);
+```
+
+Which would result in the following stdout display:
+```
+pList:
+  length=6
+    longCount=1
+    doubleCount=1
+    stringCount=2
+      smallestString=3 + 1
+      largestString=3 + 1
+    listCount=2
+      shortestList=0
+      longestList=4
+  isHomogeneous=FALSE
+  pLastElement=@0x800a0a150
+  memoryUsed=460
+```
+
+Note that only the filled fields are displayed.
 
 ### listStatsPrint()
 Prints statistics about a LIST to stdout
 ```C
 extern void listStatsPrint(LIST_STATS stats, STRING name);
 ```
+Example use provided just above...
 
 ## Searching for elements
 ### listContains()
