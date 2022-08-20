@@ -1119,6 +1119,10 @@ listClear(&pList2);
 ```
 
 ## Changing list order
+We follow the Python convention here:
+* listSort(), listReverse(), listShuffle() modify the order of your LIST,
+* while listSorted(), listReversed(), listShuffled() return a re-ordered copy of your LIST.
+
 ### listSort()
 Sorts a LIST
 ```C
