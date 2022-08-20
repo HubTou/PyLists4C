@@ -463,6 +463,19 @@ extern STRING listStr(LIST* pList);
 extern STRING listAscii(LIST* pList); // listStr() alias
 extern STRING listRepr(LIST* pList); // listStr() alias
 ```
+:warning: We only print the address of STRUCTs. Doing more would require passing as parameter a user defined STRUCT printing function or NULL in most cases...
+
+:construction: Single quotes characters are not backslash-escaped (yet).
+
+Example use:
+```C
+LIST* pList = list("'Yesterday', 'all', 'my', 'troubles', 'seemed', 'so', 'far', 'away'");
+STRING printableString = listStr(pList);
+// printableString now is "['Yesterday', 'all', 'my', 'troubles', 'seemed', 'so', 'far', 'away']"
+...
+listFreeStr(&printableString);
+listClear(&pList);
+```
 
 ### listFreeStr()
 Frees the memory allocated to a LIST representation
@@ -484,9 +497,9 @@ extern void listPrint(LIST* pList);
 
 Example use:
 ```C
-LIST* pList = list("'Yesterday', 'all', 'my', 'troubles', 'seemed', 'so', 'far', 'away'");
+LIST* pList = list("'Now', 'it', 'looks', 'as', 'though', 'they\'re', 'here', 'to', 'stay'");
 listPrint(pList);
-// "['Yesterday', 'all', 'my', 'troubles', 'seemed', 'so', 'far', 'away']" is printed to stdout
+// "['Now', 'it', 'looks', 'as', 'though', 'they're', 'here', 'to', 'stay']" is printed to stdout
 ...
 listClear(&pList);
 ```
