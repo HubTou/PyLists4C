@@ -1171,6 +1171,9 @@ Converts a LIST into an ARRAY (you'll have to free it after use with [listFreeAr
 ```C
 extern ARRAY* listToArray(LIST* pList);
 ```
+:warning: This only works on *homogeneous* LISTs. Else a NULL pointer will be returned.
+
+See the example use just below.
 
 ### listFromArray()
 Converts an ARRAY into a LIST
