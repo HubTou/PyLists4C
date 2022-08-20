@@ -280,7 +280,7 @@ Creates an unlinked LIST element
 ```C
 extern LIST* listCreateElement(void* pValue, ETYPE type, size_t size);
 ```
-Used by all the functions adding elements to a LIST, this one is rather intended for internal use.
+Used by all the functions adding elements to a LIST (it bears almost all the memory allocation stuff), this one is rather intended for internal use.
 
 Example use, though you'd better just [listAppend()](DOC.md#listappend) your first value:
 ```C
@@ -296,6 +296,33 @@ listClear(&pList);
 Creates a LIST from a Python-style list declaration string
 ```C
 extern LIST* list(STRING string);
+```
+That's the LIST constructor for easy initilization of LISTs.
+
+A LIST declaration string is a comma-separated list of:
+* integer numbers (\[-]\[0-9]+) => converted to C language **long** type
+* decimal numbers (\[-]\[0-9]+\\.\[0-9]+) => converted to C language **double** type
+* strings ('.\*' or ".\*" with eventual embedded single or double quotes characters backslash-escaped) => converted to this library **STRING** type
+* lists ([.\*]) => converted to this library **LIST** type
+* All the rest is treated as garbage => converted to this library empty **STRING** type
+
+Please note:
+* The decimal separator is a point, not a comma,
+* You can have as many nested LISTs as you want,
+* You can declare empty STRINGs or LISTs.
+
+🚧 Exponents are not yet supported for decimal numbers.
+
+:warning: Contrarily to what Python does, you don't have to enclose your list declaration string in braces (for once, this is a Python syntax limitation!).
+
+You don't have to enclose them in brackets either because that would be like saying you're already manipulating a LIST (and, indeed, you would create a single element LIST).
+
+Example use:
+```C
+pList = list("123, 456.789, -987, 'abc', \"def\", garbage, ['r', 2, 'd', 2]");
+// pList now is [123, 456.789, -987, 'abc', 'def', '', ['r', 2, 'd', 2]]
+...
+listClear(&pList);
 ```
 
 ### listFromTable()
