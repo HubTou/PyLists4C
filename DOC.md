@@ -667,7 +667,7 @@ Returns the index of the first element with the specified value
 ```C
 extern long listIndex(LIST* pList, void* pValue, ETYPE type, size_t size);
 ```
-Or returns -1 is the element is not found.
+Or returns -1 if the element is not found.
 
 Example use:
 ```C
@@ -771,7 +771,7 @@ extern double listSumFloat(LIST* pList);
 extern long double listSumDouble(LIST* pList);
 extern long double listSumLongDouble(LIST* pList);
 ```
-⚠️ There is no warning in cases of sum overflow, or precision losses.
+:warning: There is no warning in cases of sum overflow, or precision losses.
 
 ## Fetching elements
 ### listGet(n)
@@ -1139,7 +1139,7 @@ listClear(&pList2);
 ## Changing list order
 We follow the Python convention here:
 * listSort(), listReverse(), listShuffle() modify the order of your LIST,
-* while listSorted(), listReversed(), listShuffled() return a re-ordered copy of your LIST.
+* while listSort**ed**(), listReverse**d**(), listShuffle**d**() return a re-ordered **copy** of your LIST.
 
 ### listSort()
 Sorts a LIST
@@ -1152,7 +1152,7 @@ It's currently based on [listSortedByInsertion()](DOC.md#listsortedbyinsertion),
 
 This could change in the future, but when it comes to sorting linked lists, such an algorithm is almost as good as any other...
 
-You can check the example in [listFromArray()] to see an implementation of the Quick Sort algorithm...
+You can check the example in [listFromArray()](DOC.md#listfromarray) to see an implementation of the [Quicksort](https://en.wikipedia.org/wiki/Quicksort) algorithm...
 
 Example use:
 ```C
@@ -1186,7 +1186,7 @@ extern LIST* listSortedByInsertion(LIST* pList, BOOLEAN reversed, BOOLEAN caseIn
 ```
 As explained above, this function is based on [listInsertSorted()](DOC.md#listinsertsorted), so check its caveats.
 
-It's meant to be called (or not...) by the listSort() function, but you can still call it directly if you want to benchmark the efficiency of different sort algorithms on linked lists...
+It's meant to be called (or not...) by the [listSort()](DOC.md#listsort) function, but you can still call it directly if you want to benchmark the efficiency of different sort algorithms on linked lists...
 
 ### listReverse()
 Reverses the order of a LIST
@@ -1239,7 +1239,7 @@ listClear(&pList);
 ### listShuffled()
 Returns a shuffled copy of a LIST
 ```C
-extern LIST* listShuffled(LIST* extern void listPopNth(LIST** ppList, long n);
+extern LIST* listShuffled(LIST** ppList);
 ```
 Example use:
 ```C
@@ -1269,7 +1269,7 @@ extern LIST* listFromArray(ARRAY* pArray);
 ```
 This function is typically used to convert an ARRAY obtained through [listToArray()](DOC.md#listtoarray) back to a LIST.
 
-Here's a full example using the Quick Sort algorithm to sort a LIST:
+Here's a full example using the [Quicksort](https://en.wikipedia.org/wiki/Quicksort) algorithm to sort a LIST:
 ```C
 #include <stdio.h>
 #include <stdlib.h>
@@ -1427,7 +1427,7 @@ listRemove(&pFruits, fruit, ETYPE_STRING, strlen(fruit) + 1);
 // pFruits now is ['apple', 'mango', 'pear', 'banana']
 
 // or, more simply:
-// listRemove(&pFruits, "banana");
+// listRemoveString(&pFruits, "banana");
 ...
 listClear(&pFruits);
 ```
@@ -1446,7 +1446,7 @@ listRemoveAll(&pFruits, fruit, ETYPE_STRING, strlen(fruit) + 1);
 // pFruits now is ['apple', 'mango', 'pear']
 
 // or, more simply:
-// listRemoveAll(&pFruits, "banana");
+// listRemoveAllString(&pFruits, "banana");
 ...
 listClear(&pFruits);
 ```
@@ -1468,29 +1468,29 @@ The LIST pointer is resetted to NULL after use.
 Example uses provided all through this documentation 😄...
 
 ## Miscellaneous
+### listSetFatalMallocErrors()
+Sets whether memory allocation errors are fatal or not
+```C
+extern void listSetFatalMallocErrors(BOOLEAN fatal);
+```
+If you want to avoid testing the return code of the STATUS returning functions, as in most cases they can only fail if there's a memory allocation error, you can set this to TRUE so they'll exit to the [shell](https://en.wikipedia.org/wiki/Shell_(computing)) with a FAILURE exit code. Anyway, your program will probably be in jeopardy if there's no memory left!
+
+Example use:
+```C
+// Do the following near the beginning of your program.
+listSetFatalMallocErrors(TRUE);
+```
+
 ### listGetAllocatedMemory()
 Returns the quantity of allocated/unfreed memory used by this library
 ```C
 extern unsigned long listGetAllocatedMemory();
 ```
-You can use this for debugging purposes if you want to detect if you have memory leaks in your programs...
+You can use this for debugging purposes if you want to detect if you have [memory leaks](https://en.wikipedia.org/wiki/Memory_leak) in your programs...
 
 Example use:
 ```C
 // Do the following near the end of your program.
 // If you have more than 0 bytes allocated, you probably have a memory leak somewhere...
 printf("Allocated memory: %lu\n", listGetAllocatedMemory());
-```
-
-### listSetFatalMallocErrors()
-Sets whether memory allocation errors are fatal or not
-```C
-extern void listSetFatalMallocErrors(BOOLEAN fatal);
-```
-If you want to avoid testing the return code of the STATUS returning functions, as in most cases they can only fail if there's a memory allocation error, you can set this to TRUE so they'll exit to the shell with a FAILURE exit code. Anyway, your program will probably be in jeopardy if there's no memory left!
-
-Example use:
-```C
-// Do the following near the beginning of your program.
-listSetFatalMallocErrors(TRUE);
 ```
