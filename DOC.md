@@ -547,12 +547,12 @@ Which would result in the following stderr display:
 ```
 pList[0] = address: @0x800a0a000 / contents: @0x0 <-- 123 (long, 8 bytes) --> @0x800a0a030
 pList[1] = address: @0x800a0a030 / contents: @0x800a0a000 <-- 456.789000 (double, 8 bytes) --> @0x800a0a060
-pList[2] = address: @0x800a0a060 / contents: @0x800a0a030 <-- 'abc' (char*, 4 bytes) --> @0x800a0a090
-pList[3] = address: @0x800a0a090 / contents: @0x800a0a060 <-- 'def' (char*, 4 bytes) --> @0x800a0a180
+pList[2] = address: @0x800a0a060 / contents: @0x800a0a030 <-- 'abc' (STRING, 4 bytes) --> @0x800a0a090
+pList[3] = address: @0x800a0a090 / contents: @0x800a0a060 <-- 'def' (STRING, 4 bytes) --> @0x800a0a180
 pList[4] = address: @0x800a0a180 / contents: @0x800a0a090 <-- see below (LIST*, 8 bytes) --> @0x800a0a150
-pList[4][0] = address: @0x800a0a1b0 / contents: @0x0 <-- 'r' (char*, 2 bytes) --> @0x800a0a1e0
+pList[4][0] = address: @0x800a0a1b0 / contents: @0x0 <-- 'r' (STRING, 2 bytes) --> @0x800a0a1e0
 pList[4][1] = address: @0x800a0a1e0 / contents: @0x800a0a1b0 <-- 2 (long, 8 bytes) --> @0x800a0a210
-pList[4][2] = address: @0x800a0a210 / contents: @0x800a0a1e0 <-- 'd' (char*, 2 bytes) --> @0x800a0a240
+pList[4][2] = address: @0x800a0a210 / contents: @0x800a0a1e0 <-- 'd' (STRING, 2 bytes) --> @0x800a0a240
 pList[4][3] = address: @0x800a0a240 / contents: @0x800a0a210 <-- 2 (long, 8 bytes) --> @0x0
 pList[5] = address: @0x800a0a150 / contents: @0x800a0a180 <-- [] (LIST*, 8 bytes) --> @0x0
 ```
