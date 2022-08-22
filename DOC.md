@@ -111,7 +111,8 @@ It's defined like this:
 typedef enum
 {
     ETYPE_UNDEFINED = -1,
-//  ETYPE_NULL = 0,
+    // Empty elements:
+    ETYPE_NULL = 0, // Not implemented
     ETYPE_CHAR = 1,
     ETYPE_U_CHAR = 2,
     ETYPE_SHORT = 3,
@@ -128,11 +129,11 @@ typedef enum
     // C-style strings (i.e.: \0 terminated character array):
     ETYPE_STRING = 31,
     // Homogeneous ARRAYs:
-//  ETYPE_ARRAY = 32,
+    ETYPE_ARRAY = 32, // Not implemented
     // Sub-LISTs:
     ETYPE_LIST = 33,
     // Python-style dictionaries for C:
-//  ETYPE_DICT = 34,
+    ETYPE_DICT = 34, // Not implemented
     // Self-contained structures without pointers:
     ETYPE_STRUCT = 35
 } ETYPE;
@@ -200,7 +201,7 @@ It fills a data structure defined like this:
 // List statistics:
 typedef struct
 {
-    long length; // same as listLen() result
+    long length; // Same as listLen() result
 
     long charCount;
     long uCharCount;
@@ -220,21 +221,21 @@ typedef struct
     long structCount;
     long unknownCount;
 
-    unsigned long smallestString; // without the \0 terminating character
-    unsigned long largestString; // without the \0 terminating character
+    unsigned long smallestString; // Without the \0 terminating character
+    unsigned long largestString; // Without the \0 terminating character
     unsigned long smallestStruct;
     unsigned long largestStruct;
 
-    long shortestList; // number of elements at first level
-    long longestList; // number of elements at first level
+    long shortestList; // Number of elements at first level
+    long longestList; // Number of elements at first level
 
     BOOLEAN isHomogeneous;
     ETYPE homogeneousType;
     size_t homogeneousSize; // STRUCTs could be of different sizes...
 
-    LIST* pLastElement; // same as listGetLast() result
+    LIST* pLastElement; // Same as listGetLast() result
 
-    unsigned long memoryUsed; // including eventual subLISTs
+    unsigned long memoryUsed; // Including eventual subLISTs
 } LIST_STATS;
 ```
 
