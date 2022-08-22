@@ -101,8 +101,8 @@ Base function | Aliases | Description
 **Clearing lists**||
 [listClear()](DOC.md#listclear)|[listDel()](DOC.md#listdel)<br>[listFree()](DOC.md#listfree)|Removes all the elements of the LIST
 **Miscellaneous**||
-[listGetAllocatedMemory()](DOC.md#listgetallocatedmemory)||Returns the quantity of allocated/unfreed memory used by this library
 [listSetFatalMallocErrors()](DOC.md#listsetfatalmallocerrors)||Sets whether memory allocation errors are fatal or not
+[listGetAllocatedMemory()](DOC.md#listgetallocatedmemory)||Returns the quantity of allocated/unfreed memory used by this library
 
 ## Where to go from here?
 Interested? Then go to the [documentation](DOC.md) to learn more about this library and find multiple examples.
@@ -115,3 +115,4 @@ Happy with it? Then please help me promote this library.
 * Go, tell it on the mountain, over the hills and everywhere!
 * Reference your own creations with the [pylists4c](https://github.com/topics/pylists4c) GitHub topic,
 * Package it for your favourite operating system,
+* ...
