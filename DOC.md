@@ -364,7 +364,7 @@ LIST* pList = listFromTable(anArrayOfLongs, ETYPE_LONG, sizeof(long), length);
 listClear(&pList);
 ```
 
-## Adding elements
+## Adding & changing elements
 ### listAppend()
 ### listPush()
 ### listEnqueue()
@@ -474,6 +474,29 @@ listInsertSorted(&pList, &v, ETYPE_LONG, sizeof(v), FALSE, FALSE, FALSE);
 // listInsertSortedLong(&pList, 5, FALSE, FALSE, FALSE);
 ```
 
+### listChange(n)
+Changes the value of the element at the Nth position of a LIST
+```C
+extern STATUS listChange(LIST* pList, long n, void* pValue, ETYPE type, size_t size);
+extern STATUS listModify(LIST* pList, long n, void* pValue, ETYPE type, size_t size); // listChange() alias
+```
+In case of FAILURE return code (which can happen either if *n* is greater than the LIST length or in case of memory allocation error), the LIST is unaffected.
+
+Else, only the *pValue* pointer is deallocated / reallocated.
+
+```C
+LIST* pFabFour = list("'john', 'paul', 'george', 'pete'");
+static char* fourthMember = "ringo";
+
+listChange(pFabFour, 3, fourthMember, ETYPE_STRING, strlen(fourthMember) + 1);
+// pFabFour now is ['john', 'paul', 'george', 'ringo']
+
+// or, more simply:
+// listChangeString(pFabFour, 3, "ringo");
+...
+listClear(&pFabFour);
+```
+
 ## Displaying lists
 ### listStr()
 ### listAscii()
@@ -566,7 +589,7 @@ extern long listLen(LIST* pList);
 ```
 Example use:
 ```C
-LIST* pList = list("1,2, 3");
+LIST* pList = list("1, 2, 3");
 long length = listLen(pList);
 // length now is 3
 ...
@@ -879,56 +902,7 @@ while ((e = listPrevious(&i)) != NULL)
 listClear(&pList);
 ```
 
-### listSlice(n, m)
-### listSliceFrom(n)
-### listSliceTo(m)
-Returns a copy of a slice (i.e.: [n:m]) of a LIST
-```C
-extern LIST* listSlice(LIST* pList, long n, long m);
-extern LIST* listSliceFrom(LIST* pList, long n);
-extern LIST* listSliceTo(LIST* pList, long m);
-```
-*n* and *m* can be a positive or negative indexes (but *n* must be inferior or equal to *m*).
-
-Depending on what you use, *n* and *m* values will go either from 0 to the length of your LIST, or -length to -1.
-
-*n* is included in the results, but *m* is not.
-
-You'll get a **copy** of a part of your LIST, so you'll have to free it after use.
-
-Example uses:
-```C
-LIST* pList = list("0, 1, 2, 3, 4, 5, 6, 7, 8, 9");
-LIST* pSlice = NULL;
-
-pSlice = listSlice(pList, 1, 9); // same as Python pList[1:9]
-// pSlice now is [1, 2, 3, 4, 5, 6, 7, 8]
-listClear(&pSlice);
-
-pSlice = listSliceTo(pList, 5); // same as Python pList[:5]
-// pSlice now is [0, 1, 2, 3, 4]
-listClear(&pSlice);
-
-pSlice = listSliceFrom(pList, 5); // same as Python pList[5:]
-// pSlice now is 5, 6, 7, 8, 9
-listClear(&pSlice);
-
-pSlice = listSlice(pList, -9, -1); // same as Python pList[-9:-1]
-// pSlice now is [1, 2, 3, 4, 5, 6, 7, 8]
-listClear(&pSlice);
-
-pSlice = listSliceTo(pList, -5); // same as Python pList[:-5]
-// pSlice now is [0, 1, 2, 3, 4]
-listClear(&pSlice);
-
-pSlice = listSliceFrom(pList, -5); // same as Python pList[-5:]
-// pSlice now is 5, 6, 7, 8, 9
-listClear(&pSlice);
-
-listClear(&pList);
-```
-
-## Fetching elements values
+# Fetching elements values
 ### listValueXXX()
 Returns the element value in the requested type
 ```C
@@ -961,30 +935,6 @@ while ((e = listNext(&i)) != NULL)
 // "1\n", "2\n", "3\n", "4\n" and "5\n" are printed to stdout
 ...
 listClear(&pList);
-```
-
-## Changing elements
-### listChange(n)
-Changes the value of the element at the Nth position of a LIST
-```C
-extern STATUS listChange(LIST* pList, long n, void* pValue, ETYPE type, size_t size);
-extern STATUS listModify(LIST* pList, long n, void* pValue, ETYPE type, size_t size); // listChange() alias
-```
-In case of FAILURE return code (which can happen either if *n* is greater than the LIST length or in case of memory allocation error), the LIST is unaffected.
-
-Else, only the *pValue* pointer is deallocated / reallocated.
-
-```C
-LIST* pFabFour = list("'john', 'paul', 'george', 'pete'");
-static char* fourthMember = "ringo";
-
-listChange(pFabFour, 3, fourthMember, ETYPE_STRING, strlen(fourthMember) + 1);
-// pFabFour now is ['john', 'paul', 'george', 'ringo']
-
-// or, more simply:
-// listChangeString(pFabFour, 3, "ringo");
-...
-listClear(&pFabFour);
 ```
 
 ## Testing lists
@@ -1033,6 +983,55 @@ pList2 = listCopy(pList1);
 ...
 listClear(&pList1);
 listClear(&pList2);
+```
+
+### listSlice(n, m)
+### listSliceFrom(n)
+### listSliceTo(m)
+Returns a copy of a slice (i.e.: [n:m]) of a LIST
+```C
+extern LIST* listSlice(LIST* pList, long n, long m);
+extern LIST* listSliceFrom(LIST* pList, long n);
+extern LIST* listSliceTo(LIST* pList, long m);
+```
+*n* and *m* can be a positive or negative indexes (but *n* must be inferior or equal to *m*).
+
+Depending on what you use, *n* and *m* values will go either from 0 to the length of your LIST, or -length to -1.
+
+*n* is included in the results, but *m* is not.
+
+You'll get a **copy** of a part of your LIST, so you'll have to free it after use.
+
+Example uses:
+```C
+LIST* pList = list("0, 1, 2, 3, 4, 5, 6, 7, 8, 9");
+LIST* pSlice = NULL;
+
+pSlice = listSlice(pList, 1, 9); // same as Python pList[1:9]
+// pSlice now is [1, 2, 3, 4, 5, 6, 7, 8]
+listClear(&pSlice);
+
+pSlice = listSliceTo(pList, 5); // same as Python pList[:5]
+// pSlice now is [0, 1, 2, 3, 4]
+listClear(&pSlice);
+
+pSlice = listSliceFrom(pList, 5); // same as Python pList[5:]
+// pSlice now is 5, 6, 7, 8, 9
+listClear(&pSlice);
+
+pSlice = listSlice(pList, -9, -1); // same as Python pList[-9:-1]
+// pSlice now is [1, 2, 3, 4, 5, 6, 7, 8]
+listClear(&pSlice);
+
+pSlice = listSliceTo(pList, -5); // same as Python pList[:-5]
+// pSlice now is [0, 1, 2, 3, 4]
+listClear(&pSlice);
+
+pSlice = listSliceFrom(pList, -5); // same as Python pList[-5:]
+// pSlice now is 5, 6, 7, 8, 9
+listClear(&pSlice);
+
+listClear(&pList);
 ```
 
 ### listFilter()
