@@ -38,11 +38,12 @@ Base function | Aliases | Description
 [listCreateElement()](DOC.md#listcreateelement)||Creates an unlinked LIST element
 [list()](DOC.md#list)||Creates a LIST from a [Python-style list declaration string](DOC.md#list)
 [listFromTable()](DOC.md#listfromtable)||Converts a C language table into a LIST
-**Adding elements**||
+**Adding & changing elements**||
 [listAppend()](DOC.md#listappend)|[listPush()](DOC.md#listpush)<br>[listEnqueue()](DOC.md#listenqueue)|Adds an element at the end of a LIST
 [listInsertFirst()](DOC.md#listinsertfirst)|[listPrepend()](DOC.md#listprepend)|Adds an element at the start of a LIST
 [listInsert(n)](DOC.md#listinsertn)||Inserts an element at the Nth position of a LIST
 [listInsertSorted()](DOC.md#listinsertsorted)||Inserts an element in a sorted LIST
+[listChange(n)](DOC.md#listchangen)||Changes the value of the element at the Nth position of a LIST
 **Displaying lists**||
 [listStr()](DOC.md#liststr)|[listAscii()](DOC.md#listascii)<br>[listRepr()](DOC.md#listrepr)|Returns a pointer to a string containing a Python-style (ie. [e1, e2...]) representated LIST<br>(you'll have to free it after use with [listFreeStr()](DOC.md#listfreestr))
 [listFreeStr()](DOC.md#listfreestr)||Frees the memory allocated to a LIST representation
@@ -67,16 +68,14 @@ Base function | Aliases | Description
 [listSetIterator()](DOC.md#listsetiterator)||Defines an [ITERATOR](DOC.md#iterator-type) from an ELEMENT of a LIST
 [listNext()](DOC.md#listnext)||Returns the next ELEMENT of a LIST starting from an ITERATOR
 [listPrevious()](DOC.md#listprevious)||Returns the previous ELEMENT of a LIST starting from an ITERATOR
-[listSlice(n, m)](DOC.md#listslicenm)<br>[listSliceFrom(n)](DOC.md#listslicefromn)<br>[listSliceTo(m)](DOC.md#listslicetom)||Returns a copy of a slice (i.e.: [n:m]) of a LIST
 **Fetching elements values**||
 [listValueXXX()](DOC.md#listvaluexxx)||Returns the element value in the requested type
-**Changing elements**||
-[listChange(n)](DOC.md#listchangen)||Changes the value of the element at the Nth position of a LIST
 **Testing lists**||
 [listAreEqual()](DOC.md#listareequal)||Tests if two LISTs contain exactly the same values
 [listAreEqualCaseInsensitive()](DOC.md#listareequalcaseinsensitive)||Tests if two LISTs contain the same values, without regard to case
 **Working with lists**||
 [listCopy()](DOC.md#listcopy)||Returns a copy of the LIST (a full/deep copy as we don't want multiple references to the same values)
+[listSlice(n, m)](DOC.md#listslicenm)<br>[listSliceFrom(n)](DOC.md#listslicefromn)<br>[listSliceTo(m)](DOC.md#listslicetom)||Returns a copy of a slice (i.e.: [n:m]) of a LIST
 [listFilter()](DOC.md#listfilter)|[listComprehension()](DOC.md#listcomprehension)|Returns a filtered copy of the LIST according to a user defined function telling if an ELEMENT should be included or not
 [listConcat()](DOC.md#listconcat)||Returns a new LIST with the concatenation of the elements of LIST1 and LIST2
 [listExtend()](DOC.md#listextend)||Adds a copy of the elements of the second LIST to the end of the first one
