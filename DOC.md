@@ -537,7 +537,7 @@ Prints a [Python-style representated LIST](DOC.md#list) to stdout
 ```C
 extern void listPrint(LIST* pList);
 ```
-:warning: By default, STRUCTs printing is minimalist (we only print the address) but you can supply your own printing function with [listSetStructPrinter()](DOC.md#listsetstructprinter).
+:warning: By default, STRUCTs printing is minimalist (we only print their address) but you can supply your own printing function with [listSetStructPrinter()](DOC.md#listsetstructprinter).
 
 :construction: Single quotes characters are not backslash-escaped (yet).
 
@@ -1569,6 +1569,23 @@ int myStructComparator(const void* pStruct1, const void* pStruct2)
 }
 
 listSetStructComparator(myStructComparator);
+```
+
+### listSetStructPrinter()
+Sets the function to be used to compare STRUCTs
+```C
+extern void listSetStructPrinter(void (*listStructPrinter)(void* pStruct, size_t size));
+```
+By default, the supplied listPrintStructByDefault() function is used to print STRUCTs, but if you intend to more useful information you'd better define your own function.
+
+Example use:
+```C
+int myStructPrinter(void* pStruct, size_t size)
+{
+    // my stuff
+}
+
+listSetStructPrinter(myStructPrinter);
 ```
 
 ### listGetAllocatedMemory()
