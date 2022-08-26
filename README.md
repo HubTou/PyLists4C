@@ -85,7 +85,6 @@ Base function | Aliases | Description
 [listSorted()](DOC.md#listsorted)||Returns a sorted copy of a LIST
 [listSortedByInsertion()](DOC.md#listsortedbyinsertion)||Returns a sorted copy of a LIST, using an [insertion sort](DOC.md#listinsertsorted) algorithm
 [listSortedByQsort()](DOC.md#listsortedbyqsort)||Returns a sorted copy of a LIST, using a [Quicksort](https://en.wikipedia.org/wiki/Quicksort) algorithm
-[listSetDefaultSort()](DOC.md#listsetdefaultsort)||Sets the default sorting algorithm
 [listReverse()](DOC.md#listreverse)||Reverses the order of a LIST
 [listReversed()](DOC.md#listreversed)||Returns a reversed copy of a LIST
 [listShuffle()](DOC.md#listshuffle)||Shuffles a LIST
@@ -103,6 +102,7 @@ Base function | Aliases | Description
 [listClear()](DOC.md#listclear)|[listDel()](DOC.md#listdel)<br>[listFree()](DOC.md#listfree)|Removes all the elements of the LIST
 **Miscellaneous**||
 [listSetFatalMallocErrors()](DOC.md#listsetfatalmallocerrors)||Sets whether memory allocation errors are fatal or not
+[listSetDefaultSort()](DOC.md#listsetdefaultsort)||Sets the default sorting algorithm
 [listGetAllocatedMemory()](DOC.md#listgetallocatedmemory)||Returns the quantity of allocated/unfreed memory used by this library
 
 ## Where to go from here?
