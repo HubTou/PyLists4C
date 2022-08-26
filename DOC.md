@@ -1148,11 +1148,7 @@ extern STATUS listSort(LIST** ppList, BOOLEAN reversed, BOOLEAN caseInsensitive,
 ```
 This function sorts a LIST in ascending or descending order, with or without regard to case for Char, UChar and STRING values, with or without duplicate values in the resulting LIST.
 
-It's currently based on [listSortedByInsertion()](DOC.md#listsortedbyinsertion), which itself is based on [listInsertSorted()](DOC.md#listinsertsorted), so check the caveats of that last function.
-
-This could change in the future, but when it comes to sorting linked lists, such an algorithm is almost as good as any other...
-
-You can check the example in [listFromArray()](DOC.md#listfromarray) to see an implementation of the [Quicksort](https://en.wikipedia.org/wiki/Quicksort) algorithm...
+By default (but you can change it with [listSetDefaultSort()](DOC.md#listsetdefaultsort)) it's based on [listSortedByInsertion()](DOC.md#listsortedbyinsertion), which itself is based on [listInsertSorted()](DOC.md#listinsertsorted), so check the caveats of that last function.
 
 Example use:
 ```C
@@ -1184,9 +1180,29 @@ Returns a sorted copy of a LIST, using an insertion sort algorithm
 ```C
 extern LIST* listSortedByInsertion(LIST* pList, BOOLEAN reversed, BOOLEAN caseInsensitive, BOOLEAN noDuplicates);
 ```
-As explained above, this function is based on [listInsertSorted()](DOC.md#listinsertsorted), so check its caveats.
+This function is based on [listInsertSorted()](DOC.md#listinsertsorted), so check its caveats.
 
-It's meant to be called (or not...) by the [listSort()](DOC.md#listsort) function, but you can still call it directly if you want to benchmark the efficiency of different sort algorithms on linked lists...
+It may seems a little simple, but When it comes to sorting linked lists, such an algorithm is almost as good as any other...
+
+It's meant to be called (by default) by the [listSort()](DOC.md#listsort) function, but you can still call it directly if you want to benchmark the efficiency of different sort algorithms on linked lists...
+
+### listSortedByQsort()
+Returns a sorted copy of a LIST, using a [Quicksort](https://en.wikipedia.org/wiki/Quicksort) algorithm
+```C
+extern LIST* listSortedByQsort(LIST* pList, BOOLEAN reversed, BOOLEAN caseInsensitive, BOOLEAN noDuplicates);
+```
+It's meant to be called (if you set it as the new default) by the [listSort()](DOC.md#listsort) function.
+
+### listSetDefaultSort()
+Sets the default sorting algorithm
+```C
+extern void listSetDefaultSort(LIST* (*defaultSortAlgorithm)(LIST* pList, BOOLEAN reversed, BOOLEAN caseInsensitive, BOOLEAN noDuplicates));
+```
+
+Example use:
+```C
+listSetDefaultSort(listSortedByQsort);
+```
 
 ### listReverse()
 Reverses the order of a LIST
