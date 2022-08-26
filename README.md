@@ -24,7 +24,7 @@ Beyond Python lists emulation, you'll also find:
 * Statistics and debugging, including memory allocation followup
 
 With:
-* 53 base functions + 15 other intuitive aliases,
+* 55 base functions + 15 other intuitive aliases,
 * 277 convenience type-oriented functions,
 * High modularity so your linker only includes what you use in your own executables,
 * Extensive [documentation](DOC.md) with examples for almost everything,
@@ -103,6 +103,8 @@ Base function | Aliases | Description
 **Miscellaneous**||
 [listSetFatalMallocErrors()](DOC.md#listsetfatalmallocerrors)||Sets whether memory allocation errors are fatal or not
 [listSetDefaultSort()](DOC.md#listsetdefaultsort)||Sets the default sorting algorithm
+[listSetStructSize()](DOC.md#listsetstructsize)||Sets the size of a STRUCT you want to compare
+[listSetStructComparator()](DOC.md#listsetstructcomparator)||Sets the function to be used to compare STRUCTs
 [listGetAllocatedMemory()](DOC.md#listgetallocatedmemory)||Returns the quantity of allocated/unfreed memory used by this library
 
 ## Where to go from here?
