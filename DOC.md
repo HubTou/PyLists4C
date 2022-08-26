@@ -1176,7 +1176,7 @@ listClear(&pSortedList);
 ```
 
 ### listSortedByInsertion()
-Returns a sorted copy of a LIST, using an insertion sort algorithm
+Returns a sorted copy of a LIST, using an [insertion sort](DOC.md#listinsertsorted) algorithm
 ```C
 extern LIST* listSortedByInsertion(LIST* pList, BOOLEAN reversed, BOOLEAN caseInsensitive, BOOLEAN noDuplicates);
 ```
