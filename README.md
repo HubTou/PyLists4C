@@ -24,7 +24,7 @@ Beyond Python lists emulation, you'll also find:
 * Statistics and debugging, including memory allocation followup
 
 With:
-* 51 base functions + 15 other intuitive aliases,
+* 53 base functions + 15 other intuitive aliases,
 * 277 convenience type-oriented functions,
 * High modularity so your linker only includes what you use in your own executables,
 * Extensive [documentation](DOC.md) with examples for almost everything,
@@ -84,6 +84,8 @@ Base function | Aliases | Description
 [listSort()](DOC.md#listsort)||Sorts a LIST
 [listSorted()](DOC.md#listsorted)||Returns a sorted copy of a LIST
 [listSortedByInsertion()](DOC.md#listsortedbyinsertion)||Returns a sorted copy of a LIST, using an insertion sort algorithm
+[listSortedByQsort()](DOC.md#listsortedbyqsort)||Returns a sorted copy of a LIST, using a [Quicksort](https://en.wikipedia.org/wiki/Quicksort) algorithm
+[listSetDefaultSort()](DOC.md#listsetdefaultsort)||Sets the default sorting algorithm
 [listReverse()](DOC.md#listreverse)||Reverses the order of a LIST
 [listReversed()](DOC.md#listreversed)||Returns a reversed copy of a LIST
 [listShuffle()](DOC.md#listshuffle)||Shuffles a LIST
