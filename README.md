@@ -105,6 +105,7 @@ Base function | Aliases | Description
 [listSetDefaultSort()](DOC.md#listsetdefaultsort)||Sets the default sorting algorithm
 [listSetStructSize()](DOC.md#listsetstructsize)||Sets the size of a STRUCT you want to compare
 [listSetStructComparator()](DOC.md#listsetstructcomparator)||Sets the function to be used to compare STRUCTs
+[listSetStructPrinter()](DOC.md#listsetstructprinter)||Sets the function to be used to print STRUCTs
 [listGetAllocatedMemory()](DOC.md#listgetallocatedmemory)||Returns the quantity of allocated/unfreed memory used by this library
 
 ## Where to go from here?
