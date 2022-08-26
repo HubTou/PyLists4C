@@ -1237,7 +1237,7 @@ extern LIST* listSortedByQsort(LIST* pList, BOOLEAN reversed, BOOLEAN caseInsens
 ```
 :warning: As Quicksort is made for sorting tables, we go through a [LIST to ARRAY to LIST conversion](DOC.md#lists-to-arrays-conversion). Thus it will only work on *homogeneous LISTs*.
 
-The function is meant to be called (if you set it as the new default with [listSetDefaultSort()](DOC.md#listsetdefaultsort)) by the [listSort()](DOC.md#listsort) function.
+The function is meant to be called by the [listSort()](DOC.md#listsort) function (if you set it as the new default with [listSetDefaultSort()](DOC.md#listsetdefaultsort)).
 
 ### listReverse()
 Reverses the order of a LIST
