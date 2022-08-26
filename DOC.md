@@ -759,6 +759,13 @@ extern long double listMinLongDouble(LIST* pList);
 ```
 If pList is NULL or if the LIST contains no elements of the requested ETYPE, the value returned will be meaningless (it will be the maximum one for the requested type).
 
+Example use:
+```C
+LIST* pNumbers = list("128, 64, 32, 16, 8, 4, 2, 1");
+long min = listMinLong(pList);
+// min now is 1
+```
+
 ### listMaxXXX()
 Returns the maximum value in the LIST for the XXX type
 ```C
@@ -778,6 +785,13 @@ extern long double listMaxLongDouble(LIST* pList);
 ```
 If pList is NULL or if the LIST contains no elements of the requested ETYPE, the value returned will be meaningless (it will be the minimum one for the requested type).
 
+Example use:
+```C
+LIST* pNumbers = list("128, 64, 32, 16, 8, 4, 2, 1");
+long max = listMaxLong(pList);
+// max now is 128
+```
+
 ### listSumXXX()
 Returns the sum of values in the LIST for the XXX type
 ```C
@@ -796,6 +810,13 @@ extern long double listSumDouble(LIST* pList);
 extern long double listSumLongDouble(LIST* pList);
 ```
 :warning: There is no warning in cases of sum overflow, or precision losses.
+
+Example use:
+```C
+LIST* pNumbers = list("128, 64, 32, 16, 8, 4, 2, 1");
+long long sum = listSumLong(pList);
+// sum now is 255
+```
 
 ## Fetching elements
 ### listGet(n)
