@@ -827,6 +827,10 @@ listClear(&pNumbers);
 ```
 
 ## Fetching elements
+:no_entry: ELEMENTs and ITERATORs must never be freed or you'll disrupt the LIST they belong to!
+
+:warning: Of course, beware of using ELEMENTS or ITERATORs if you have destroyed the underlying LIST element!
+
 ### listGet(n)
 Returns the Nth ELEMENT of a LIST
 ```C
@@ -1318,6 +1322,8 @@ extern ARRAY* listToArray(LIST* pList);
 ```
 :warning: This only works on *homogeneous* LISTs. Else a NULL pointer will be returned.
 
+:warning: The size of all STRING values is set to the longest one.
+
 See the example use just below.
 
 ### listFromArray()
@@ -1326,6 +1332,8 @@ Converts an ARRAY into a LIST
 extern LIST* listFromArray(ARRAY* pArray);
 ```
 This function is typically used to convert an ARRAY obtained through [listToArray()](DOC.md#listtoarray) back to a LIST.
+
+:warning: The size of each STRING values is (re)set to the minimum required.
 
 Here's a full example using the [Quicksort](https://en.wikipedia.org/wiki/Quicksort) algorithm to sort a LIST:
 ```C
