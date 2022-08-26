@@ -1547,6 +1547,30 @@ Example use:
 listSetDefaultSort(listSortedByQsort);
 ```
 
+### listSetStructSize()
+Sets the size of a STRUCT you want to compare
+```C
+extern void listSetStructSize(size_t size);
+```
+:warning: This function has to be called *before* any call to the STRUCT comparator function.
+
+### listSetStructComparator()
+Sets the function to be used to compare STRUCTs
+```C
+extern void listSetStructComparator(int (*listStructComparator)(const void* pStruct1, const void* pStruct2));
+```
+By default, the supplied listCompareStructByMemcmp() function is used to compare STRUCTs, but if you intend to sort LISTs containing STRUCTs elements you'd better define your own function.
+
+Example use:
+```C
+int myStructComparator(const void* pStruct1, const void* pStruct2)
+{
+    // my stuff
+}
+
+listSetStructComparator(myStructComparator);
+```
+
 ### listGetAllocatedMemory()
 Returns the quantity of allocated/unfreed memory used by this library
 ```C
