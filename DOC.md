@@ -356,10 +356,10 @@ extern LIST* listFromTable(void* pTable, ETYPE type, size_t size, long length); 
 
 Example use:
 ```C
-long anArrayOfLongs[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+long anArrayOfLongs[] = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 9};
 long length = 9;
 LIST* pList = listFromTable(anArrayOfLongs, ETYPE_LONG, sizeof(long), length);
-// pList now is [1, 2, 3, 4, 5, 6, 7, 8, 9]
+// pList now is [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 9]
 ...
 listClear(&pList);
 ```
