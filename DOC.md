@@ -1193,7 +1193,7 @@ extern LIST* listSortedByQsort(LIST* pList, BOOLEAN reversed, BOOLEAN caseInsens
 ```
 As Quicksort is made for sorting tables, we go through a [LIST to ARRAY to LIST conversion](DOC.md#lists-to-arrays-conversion).
 
-It's meant to be called (if you set it as the new default) by the [listSort()](DOC.md#listsort) function.
+The function is meant to be called (if you set it as the new default) by the [listSort()](DOC.md#listsort) function.
 
 ### listSetDefaultSort()
 Sets the default sorting algorithm
