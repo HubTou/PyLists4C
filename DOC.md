@@ -1572,11 +1572,11 @@ listSetStructComparator(myStructComparator);
 ```
 
 ### listSetStructPrinter()
-Sets the function to be used to compare STRUCTs
+Sets the function to be used to print STRUCTs
 ```C
 extern void listSetStructPrinter(void (*listStructPrinter)(void* pStruct, size_t size));
 ```
-By default, the supplied listPrintStructByDefault() function is used to print STRUCTs, but if you intend to more useful information you'd better define your own function.
+The supplied listPrintStructByDefault() function is used to print STRUCTs, but if you intend to print more useful information you'd better define your own function.
 
 Example use:
 ```C
