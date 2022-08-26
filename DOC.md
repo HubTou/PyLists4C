@@ -537,7 +537,7 @@ Prints a [Python-style representated LIST](DOC.md#list) to stdout
 ```C
 extern void listPrint(LIST* pList);
 ```
-:warning: We only print the address of STRUCTs. Doing more would require passing as parameter a user defined STRUCT printing function or NULL in most cases...
+:warning: By default, STRUCTs printing is minimalist (we only print the address) but you can supply your own printing function with [listSetStructPrinter()](DOC.md#listsetstructprinter).
 
 :construction: Single quotes characters are not backslash-escaped (yet).
 
