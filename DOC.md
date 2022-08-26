@@ -1212,7 +1212,7 @@ Returns a sorted copy of a LIST, using a [Quicksort](https://en.wikipedia.org/wi
 ```C
 extern LIST* listSortedByQsort(LIST* pList, BOOLEAN reversed, BOOLEAN caseInsensitive, BOOLEAN noDuplicates);
 ```
-As Quicksort is made for sorting tables, we go through a [LIST to ARRAY to LIST conversion](DOC.md#lists-to-arrays-conversion).
+:warning: As Quicksort is made for sorting tables, we go through a [LIST to ARRAY to LIST conversion](DOC.md#lists-to-arrays-conversion). Thus it will only work on *homogeneous LISTs*.
 
 The function is meant to be called (if you set it as the new default) by the [listSort()](DOC.md#listsort) function.
 
