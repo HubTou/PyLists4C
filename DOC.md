@@ -764,6 +764,8 @@ Example use:
 LIST* pNumbers = list("128, 64, 32, 16, 8, 4, 2, 1");
 long min = listMinLong(pList);
 // min now is 1
+...
+listClear(&pNumbers);
 ```
 
 ### listMaxXXX()
@@ -790,6 +792,8 @@ Example use:
 LIST* pNumbers = list("128, 64, 32, 16, 8, 4, 2, 1");
 long max = listMaxLong(pList);
 // max now is 128
+...
+listClear(&pNumbers);
 ```
 
 ### listSumXXX()
@@ -816,6 +820,8 @@ Example use:
 LIST* pNumbers = list("128, 64, 32, 16, 8, 4, 2, 1");
 long long sum = listSumLong(pList);
 // sum now is 255
+...
+listClear(&pNumbers);
 ```
 
 ## Fetching elements
@@ -1206,6 +1212,17 @@ This function is based on [listInsertSorted()](DOC.md#listinsertsorted), so chec
 It may seems a little simple, but when it comes to sorting linked lists, such an algorithm is almost as good as any other...
 
 It's meant to be called (by default) by the [listSort()](DOC.md#listsort) function, but you can still call it directly if you want to benchmark the efficiency of different sort algorithms on linked lists...
+
+Example use:
+```C
+LIST* pDemiGods = list("'Ken', 'Dennis', 'Brian', 'bill', 'kirk', 'richard', 'bill', 'linus', 'guido'");
+LIST* pSortedDemiGods = listSortedByInsertion(pDemiGods, FALSE, TRUE, TRUE);
+// pSortedDemiGods now is ['bill', 'Brian', 'Dennis', 'guido', 'Ken', 'kirk', 'linus', 'richard']
+// NB: Joy & Jolitz bills are factored
+...
+listClear(&pDemiGods);
+listClear(&pSortedDemiGods);
+```
 
 ### listSortedByQsort()
 Returns a sorted copy of a LIST, using a [Quicksort](https://en.wikipedia.org/wiki/Quicksort) algorithm
