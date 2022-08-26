@@ -83,7 +83,7 @@ Base function | Aliases | Description
 **Changing list order**||
 [listSort()](DOC.md#listsort)||Sorts a LIST
 [listSorted()](DOC.md#listsorted)||Returns a sorted copy of a LIST
-[listSortedByInsertion()](DOC.md#listsortedbyinsertion)||Returns a sorted copy of a LIST, using an insertion sort algorithm
+[listSortedByInsertion()](DOC.md#listsortedbyinsertion)||Returns a sorted copy of a LIST, using an [insertion sort](DOC.md#listinsertsorted) algorithm
 [listSortedByQsort()](DOC.md#listsortedbyqsort)||Returns a sorted copy of a LIST, using a [Quicksort](https://en.wikipedia.org/wiki/Quicksort) algorithm
 [listSetDefaultSort()](DOC.md#listsetdefaultsort)||Sets the default sorting algorithm
 [listReverse()](DOC.md#listreverse)||Reverses the order of a LIST
