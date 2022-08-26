@@ -1237,18 +1237,7 @@ extern LIST* listSortedByQsort(LIST* pList, BOOLEAN reversed, BOOLEAN caseInsens
 ```
 :warning: As Quicksort is made for sorting tables, we go through a [LIST to ARRAY to LIST conversion](DOC.md#lists-to-arrays-conversion). Thus it will only work on *homogeneous LISTs*.
 
-The function is meant to be called (if you set it as the new default) by the [listSort()](DOC.md#listsort) function.
-
-### listSetDefaultSort()
-Sets the default sorting algorithm
-```C
-extern void listSetDefaultSort(LIST* (*defaultSortAlgorithm)(LIST* pList, BOOLEAN reversed, BOOLEAN caseInsensitive, BOOLEAN noDuplicates));
-```
-
-Example use:
-```C
-listSetDefaultSort(listSortedByQsort);
-```
+The function is meant to be called (if you set it as the new default with [listSetDefaultSort()](DOC.md#listsetdefaultsort)) by the [listSort()](DOC.md#listsort) function.
 
 ### listReverse()
 Reverses the order of a LIST
@@ -1545,6 +1534,17 @@ Example use:
 ```C
 // Do the following near the beginning of your program.
 listSetFatalMallocErrors(TRUE);
+```
+
+### listSetDefaultSort()
+Sets the default sorting algorithm
+```C
+extern void listSetDefaultSort(LIST* (*defaultSortAlgorithm)(LIST* pList, BOOLEAN reversed, BOOLEAN caseInsensitive, BOOLEAN noDuplicates));
+```
+
+Example use:
+```C
+listSetDefaultSort(listSortedByQsort);
 ```
 
 ### listGetAllocatedMemory()
