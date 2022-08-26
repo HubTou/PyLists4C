@@ -443,7 +443,7 @@ listInsert(&pList, 2, &v, ETYPE_LONG, sizeof(v));
 // pList now is [2, 4, 5, 6, 8]
 
 // or, more simply:
-// listInsertLong(&pList, 5);
+// listInsertLong(&pList, 2, 5);
 ```
 
 ### listInsertSorted()
