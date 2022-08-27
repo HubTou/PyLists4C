@@ -341,7 +341,7 @@ Please note:
 
 :construction: There's currently no way to insert CHAR, SHORT, INT, LONG_LONG, UNSIGNED_\*, FLOAT and LONG_DOUBLE values in a LIST declaration strings.
 
-:construction: Consequently, there's currently no way either to declare STRUCTs (we'll use simple braces for them). 
+:construction: Consequently, there's currently no way either to declare STRUCTs (we'll use simple braces for them when they are available). 
 
 :warning: Contrarily to what Python does, you don't have to enclose your list declaration string in braces (for once, this is a Python syntax limitation!).
 
