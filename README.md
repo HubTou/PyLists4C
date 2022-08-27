@@ -103,6 +103,7 @@ Base function | Aliases | Description
 **Structs handling**||
 [listSetStructSize()](DOC.md#listsetstructsize)||Sets the size of a STRUCT you want to compare
 [listSetStructComparator()](DOC.md#listsetstructcomparator)||Sets the function to be used to compare STRUCTs
+[listSetStructStringer()](DOC.md#listsetstructstringer)||Sets the function to be used to string STRUCTs
 [listSetStructPrinter()](DOC.md#listsetstructprinter)||Sets the function to be used to print STRUCTs
 [listSetStructDebugger()](DOC.md#listsetstructdebugger)||Sets the function to be used to debug STRUCTs
 **Miscellaneous**||
