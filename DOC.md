@@ -509,7 +509,7 @@ extern STRING listStr(LIST* pList);
 extern STRING listAscii(LIST* pList); // listStr() alias
 extern STRING listRepr(LIST* pList); // listStr() alias
 ```
-:warning: We only print the address of STRUCTs.
+:warning: By default, STRUCTs stringing is minimalist (we only string their address) but you can supply your own printing function with [listSetStructStringer()](DOC.md#listsetstructstringer).
 
 :construction: Single quotes characters are not backslash-escaped (yet).
 
