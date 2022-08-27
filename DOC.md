@@ -1547,6 +1547,23 @@ int myStructComparator(const void* pStruct1, const void* pStruct2)
 listSetStructComparator(myStructComparator);
 ```
 
+### listSetStructStringer()
+Sets the function to be used to string STRUCTs
+```C
+extern void listSetStructStringer(void (*listStructStringer)(STRING buffer, void* pStruct, size_t size));
+```
+The supplied listStringStructByDefault() function is used to string STRUCTs, but if you intend to print more useful information you'd better define your own function.
+
+Example use:
+```C
+int myStructStringer(STRING buffer, void* pStruct, size_t size)
+{
+    // my stuff
+}
+
+listSetStructStringer(myStructStringer);
+```
+
 ### listSetStructPrinter()
 Sets the function to be used to print STRUCTs
 ```C
