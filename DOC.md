@@ -1535,7 +1535,9 @@ Sets the size of a STRUCT you want to compare
 ```C
 extern void listSetStructSize(size_t size);
 ```
-:warning: This function has to be called *before* any call to the STRUCT comparator function and each time the size changes.
+In order to maintain homogeneous interfaces for comparison functions which all take 2 parameters, the size parameter required for STRUCTs has to be passed through this function.
+
+:warning: Thus this function has to be called *before* any call to the STRUCT comparator function and each time the size changes.
 
 ### listSetStructComparator()
 Sets the function to be used to compare STRUCTs
