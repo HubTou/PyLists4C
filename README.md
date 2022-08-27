@@ -100,12 +100,14 @@ Base function | Aliases | Description
 [listRemoveAll()](DOC.md#listremoveall)||Removes all the items with the specified value
 **Clearing lists**||
 [listClear()](DOC.md#listclear)|[listDel()](DOC.md#listdel)<br>[listFree()](DOC.md#listfree)|Removes all the elements of the LIST
-**Miscellaneous**||
-[listSetFatalMallocErrors()](DOC.md#listsetfatalmallocerrors)||Sets whether memory allocation errors are fatal or not
-[listSetDefaultSort()](DOC.md#listsetdefaultsort)||Sets the default sorting algorithm
+**Structs handling**||
 [listSetStructSize()](DOC.md#listsetstructsize)||Sets the size of a STRUCT you want to compare
 [listSetStructComparator()](DOC.md#listsetstructcomparator)||Sets the function to be used to compare STRUCTs
 [listSetStructPrinter()](DOC.md#listsetstructprinter)||Sets the function to be used to print STRUCTs
+[listSetStructDebugger()](DOC.md#listsetstructdebugger)||Sets the function to be used to debug STRUCTs
+**Miscellaneous**||
+[listSetFatalMallocErrors()](DOC.md#listsetfatalmallocerrors)||Sets whether memory allocation errors are fatal or not
+[listSetDefaultSort()](DOC.md#listsetdefaultsort)||Sets the default sorting algorithm
 [listGetAllocatedMemory()](DOC.md#listgetallocatedmemory)||Returns the quantity of allocated/unfreed memory used by this library
 
 ## Where to go from here?
