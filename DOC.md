@@ -1556,7 +1556,7 @@ The supplied listStringStructByDefault() function is used to string STRUCTs, but
 
 Example use:
 ```C
-int myStructStringer(STRING buffer, void* pStruct, size_t size)
+void myStructStringer(STRING buffer, void* pStruct, size_t size)
 {
     // my stuff
 }
@@ -1573,7 +1573,7 @@ The supplied listPrintStructByDefault() function is used to print STRUCTs, but i
 
 Example use:
 ```C
-int myStructPrinter(void* pStruct, size_t size)
+void myStructPrinter(void* pStruct, size_t size)
 {
     // my stuff
 }
@@ -1590,7 +1590,7 @@ The supplied listDebugStructByDefault() function is used to debug STRUCTs, but i
 
 Example use:
 ```C
-int myStructDebugger(void* pStruct, size_t size)
+void myStructDebugger(void* pStruct, size_t size)
 {
     // my stuff
 }
