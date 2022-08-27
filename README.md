@@ -24,7 +24,7 @@ Beyond Python lists emulation, you'll also find:
 * Statistics and debugging, including memory allocation followup
 
 With:
-* 55 base functions + 15 other intuitive aliases,
+* 59 base functions + 15 other intuitive aliases,
 * 277 convenience type-oriented functions,
 * High modularity so your linker only includes what you use in your own executables,
 * Extensive [documentation](DOC.md) with examples for almost everything,
@@ -107,6 +107,7 @@ Base function | Aliases | Description
 [listSetStructPrinter()](DOC.md#listsetstructprinter)||Sets the function to be used to print STRUCTs
 [listSetStructDebugger()](DOC.md#listsetstructdebugger)||Sets the function to be used to debug STRUCTs
 **Miscellaneous**||
+[listSetDebugMessagesDisplay()](DOC.md#listsetdebugmessagesdisplay)||Sets whether or not to print debugging messages to stderr
 [listSetFatalMallocErrors()](DOC.md#listsetfatalmallocerrors)||Sets whether memory allocation errors are fatal or not
 [listSetDefaultSort()](DOC.md#listsetdefaultsort)||Sets the default sorting algorithm
 [listGetAllocatedMemory()](DOC.md#listgetallocatedmemory)||Returns the quantity of allocated/unfreed memory used by this library
