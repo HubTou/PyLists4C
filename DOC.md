@@ -509,7 +509,7 @@ extern STRING listStr(LIST* pList);
 extern STRING listAscii(LIST* pList); // listStr() alias
 extern STRING listRepr(LIST* pList); // listStr() alias
 ```
-:warning: We only print the address of STRUCTs. Doing more would require passing as parameter a user defined STRUCT printing function or NULL in most cases...
+:warning: We only print the address of STRUCTs.
 
 :construction: Single quotes characters are not backslash-escaped (yet).
 
@@ -557,7 +557,7 @@ extern void listDebug(LIST* pList, STRING name);
 ```
 * *name* is an optional STRING (you can pass NULL instead) containing the name of your LIST variable.
 
-:warning: We only print the address of STRUCTs. Doing more would require passing as parameter a user defined STRUCT printing function or NULL in most cases...
+:warning: By default, STRUCTs debugging is minimalist (we only print their address) but you can supply your own debugging function with [listSetStructDebugger()](DOC.md#listsetstructdebugger).
 
 Example use:
 ```C
