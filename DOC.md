@@ -203,6 +203,7 @@ typedef struct
 {
     long length; // Same as listLen() result
 
+    long nullCount;
     long charCount;
     long uCharCount;
     long shortCount;
@@ -217,7 +218,9 @@ typedef struct
     long doubleCount;
     long longDoubleCount;
     long stringCount;
+    long arrayCount;
     long listCount;
+    long dictCount;
     long structCount;
     long unknownCount;
 
@@ -226,8 +229,12 @@ typedef struct
     unsigned long smallestStruct;
     unsigned long largestStruct;
 
+    long shortestArray;
+    long longestArray;
     long shortestList; // Number of elements at first level
     long longestList; // Number of elements at first level
+    long shortestDict;
+    long longestDict;
 
     BOOLEAN isHomogeneous;
     ETYPE homogeneousType;
