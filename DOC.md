@@ -1599,6 +1599,19 @@ listSetStructDebugger(myStructDebugger);
 ```
 
 ## Miscellaneous
+### listSetDebugMessagesDisplay()
+Sets whether or not to print debugging messages to stderr
+```C
+extern void listSetDebugMessagesDisplay(BOOLEAN display);
+```
+By default the library will print a few informative messages to stderr in case of errors. You can use this function with a FALSE parameter if you want to prevent that.
+
+Example use:
+```C
+// Do the following near the beginning of your program.
+listSetDebugMessagesDisplay(FALSE);
+```
+
 ### listSetFatalMallocErrors()
 Sets whether memory allocation errors are fatal or not
 ```C
