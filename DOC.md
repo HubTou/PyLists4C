@@ -1522,37 +1522,13 @@ The LIST pointer is resetted to NULL after use.
 
 Example uses provided all through this documentation 😄...
 
-## Miscellaneous
-### listSetFatalMallocErrors()
-Sets whether memory allocation errors are fatal or not
-```C
-extern void listSetFatalMallocErrors(BOOLEAN fatal);
-```
-If you want to avoid testing the return code of the STATUS returning functions, as in most cases they can only fail if there's a memory allocation error, you can set this to TRUE so they'll exit to the [shell](https://en.wikipedia.org/wiki/Shell_(computing)) with a FAILURE exit code. Anyway, your program will probably be in jeopardy if there's no memory left!
-
-Example use:
-```C
-// Do the following near the beginning of your program.
-listSetFatalMallocErrors(TRUE);
-```
-
-### listSetDefaultSort()
-Sets the default sorting algorithm
-```C
-extern void listSetDefaultSort(LIST* (*defaultSortAlgorithm)(LIST* pList, BOOLEAN reversed, BOOLEAN caseInsensitive, BOOLEAN noDuplicates));
-```
-
-Example use:
-```C
-listSetDefaultSort(listSortedByQsort);
-```
-
+## Structs handling
 ### listSetStructSize()
 Sets the size of a STRUCT you want to compare
 ```C
 extern void listSetStructSize(size_t size);
 ```
-:warning: This function has to be called *before* any call to the STRUCT comparator function.
+:warning: This function has to be called *before* any call to the STRUCT comparator function and each time the size changes.
 
 ### listSetStructComparator()
 Sets the function to be used to compare STRUCTs
@@ -1586,6 +1562,48 @@ int myStructPrinter(void* pStruct, size_t size)
 }
 
 listSetStructPrinter(myStructPrinter);
+```
+
+### listSetStructDebugger()
+Sets the function to be used to debug STRUCTs
+```C
+extern void listSetStructDebugger(void (*listStructDebugger)(void* pStruct, size_t size));
+```
+The supplied listDebugStructByDefault() function is used to debug STRUCTs, but if you intend to print more useful information you'd better define your own function.
+
+Example use:
+```C
+int myStructDebugger(void* pStruct, size_t size)
+{
+    // my stuff
+}
+
+listSetStructDebugger(myStructDebugger);
+```
+
+## Miscellaneous
+### listSetFatalMallocErrors()
+Sets whether memory allocation errors are fatal or not
+```C
+extern void listSetFatalMallocErrors(BOOLEAN fatal);
+```
+If you want to avoid testing the return code of the STATUS returning functions, as in most cases they can only fail if there's a memory allocation error, you can set this to TRUE so they'll exit to the [shell](https://en.wikipedia.org/wiki/Shell_(computing)) with a FAILURE exit code. Anyway, your program will probably be in jeopardy if there's no memory left!
+
+Example use:
+```C
+// Do the following near the beginning of your program.
+listSetFatalMallocErrors(TRUE);
+```
+
+### listSetDefaultSort()
+Sets the default sorting algorithm
+```C
+extern void listSetDefaultSort(LIST* (*defaultSortAlgorithm)(LIST* pList, BOOLEAN reversed, BOOLEAN caseInsensitive, BOOLEAN noDuplicates));
+```
+
+Example use:
+```C
+listSetDefaultSort(listSortedByQsort);
 ```
 
 ### listGetAllocatedMemory()
