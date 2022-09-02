@@ -319,7 +319,7 @@ listClear(&pList);
 ```
 
 ### list()
-Creates a LIST from a Python-style list declaration string
+Creates a LIST from a Python-style LIST declaration string
 ```C
 extern LIST* list(STRING string);
 ```
@@ -349,8 +349,8 @@ You don't have to enclose them in brackets either because that would be like say
 
 Example use:
 ```C
-pList = list("123, 456.789, -987, 'abc', \"def\", garbage, ['r', 2, 'd', 2]");
-// pList now is [123, 456.789, -987, 'abc', 'def', '', ['r', 2, 'd', 2]]
+pList = list("123, 456.789, -987, 'abc', \"def\", garbage, ['r', 2, 'd', 2], []");
+// pList now is [123, 456.789, -987, 'abc', 'def', '', ['r', 2, 'd', 2], []]
 ...
 listClear(&pList);
 ```
@@ -510,12 +510,14 @@ listClear(&pFabFour);
 ### listStr()
 ### listAscii()
 ### listRepr()
-Returns a pointer to a string containing a [Python-style representated LIST](DOC.md#list) (you'll have to free it after use with [listFreeStr()](DOC.md#listfreestr)
+Returns a pointer to a string containing a [Python-style LIST representation](DOC.md#displaying-lists)
 ```C
 extern STRING listStr(LIST* pList);
 extern STRING listAscii(LIST* pList); // listStr() alias
 extern STRING listRepr(LIST* pList); // listStr() alias
 ```
+:warning: You'll have to free it after use with [listFreeStr()](DOC.md#listfreestr)
+
 :warning: By default, STRUCTs stringing is minimalist (we only string their address) but you can supply your own printing function with [listSetStructStringer()](DOC.md#listsetstructstringer).
 
 :construction: Single quotes characters are not backslash-escaped (yet).
@@ -531,7 +533,7 @@ listClear(&pList);
 ```
 
 ### listFreeStr()
-Frees the memory allocated to a LIST representation
+Frees the memory allocated to a [Python-style LIST representation](DOC.md#displaying-lists)
 ```C
 extern void listFreeStr(STRING*); // NB: passing the previous STRING by address to reset it
 ```
@@ -540,7 +542,7 @@ The STRING pointer is resetted to NULL after use.
 Example use provided just above...
 
 ### listPrint()
-Prints a [Python-style representated LIST](DOC.md#list) to stdout
+Prints a [Python-style LIST representation](DOC.md#displaying-lists) to stdout
 ```C
 extern void listPrint(LIST* pList);
 ```
@@ -1215,6 +1217,17 @@ listClear(&pList);
 listClear(&pSortedList);
 ```
 
+### listSetDefaultSort()
+Sets the default sorting algorithm
+```C
+extern void listSetDefaultSort(LIST* (*defaultSortAlgorithm)(LIST* pList, BOOLEAN reversed, BOOLEAN caseInsensitive, BOOLEAN noDuplicates));
+```
+
+Example use:
+```C
+listSetDefaultSort(listSortedByQsort);
+```
+
 ### listSortedByInsertion()
 Returns a sorted copy of a LIST, using an [insertion sort](DOC.md#listinsertsorted) algorithm
 ```C
@@ -1312,10 +1325,12 @@ listClear(&pShuffledList);
 
 ## Lists to arrays conversion
 ### listToArray()
-Converts a LIST into an ARRAY (you'll have to free it after use with [listFreeArray()](DOC.md#listfreearray))
+Converts a LIST into an ARRAY
 ```C
 extern ARRAY* listToArray(LIST* pList);
 ```
+:warning:  You'll have to free it after use with [listFreeArray()](DOC.md#listfreearray)
+
 :warning: This only works on *homogeneous* LISTs. Else a NULL pointer will be returned.
 
 :warning: The size of all STRING values is set to the longest one.
@@ -1634,18 +1649,7 @@ Example use:
 listSetFatalMallocErrors(TRUE);
 ```
 
-### listSetDefaultSort()
-Sets the default sorting algorithm
-```C
-extern void listSetDefaultSort(LIST* (*defaultSortAlgorithm)(LIST* pList, BOOLEAN reversed, BOOLEAN caseInsensitive, BOOLEAN noDuplicates));
-```
-
-Example use:
-```C
-listSetDefaultSort(listSortedByQsort);
-```
-
-### listGetAllocatedMemory()
+## listGetAllocatedMemory()
 Returns the quantity of allocated/unfreed memory used by this library
 ```C
 extern unsigned long listGetAllocatedMemory();
