@@ -2,7 +2,7 @@
 # PyLists4C: Python-style lists for the C language
 Coming back to the [C language](https://www.open-std.org/JTC1/SC22/WG14/www/standards) after 30+ years, and having discovered [Python](https://www.python.org/) in-between, I found it frustrating not having handy tools such as linked lists by default (and I guess many people now learning Python, then C, must feel the same!).
 
-Of course, there were multiple libraries available for that, but none with the power of [what's available in Python](https://www.w3schools.com/python/python_lists.asp), or packaged with too many things that I didn't need.
+Of course, there were multiple libraries available for that, but none with the power of [what's available in Python](https://www.w3schools.com/python/python_lists.asp), or packaged with too many unrelated things.
 
 So here's my attempt to fix this, with all I ever wanted from a C language linked list library...
 
@@ -83,6 +83,7 @@ Base function | Aliases | Description
 **Changing list order**||
 [listSort()](DOC.md#listsort)||Sorts a LIST
 [listSorted()](DOC.md#listsorted)||Returns a sorted copy of a LIST
+[listSetDefaultSort()](DOC.md#listsetdefaultsort)||Sets the default sorting algorithm
 [listSortedByInsertion()](DOC.md#listsortedbyinsertion)||Returns a sorted copy of a LIST, using an [insertion sort](DOC.md#listinsertsorted) algorithm
 [listSortedByQsort()](DOC.md#listsortedbyqsort)||Returns a sorted copy of a LIST, using a [Quicksort](https://en.wikipedia.org/wiki/Quicksort) algorithm
 [listReverse()](DOC.md#listreverse)||Reverses the order of a LIST
@@ -109,7 +110,6 @@ Base function | Aliases | Description
 **Miscellaneous**||
 [listSetDebugMessagesDisplay()](DOC.md#listsetdebugmessagesdisplay)||Sets whether or not to print debugging messages to stderr
 [listSetFatalMallocErrors()](DOC.md#listsetfatalmallocerrors)||Sets whether memory allocation errors are fatal or not
-[listSetDefaultSort()](DOC.md#listsetdefaultsort)||Sets the default sorting algorithm
 [listGetAllocatedMemory()](DOC.md#listgetallocatedmemory)||Returns the quantity of allocated/unfreed memory used by this library
 
 ## Where to go from here?
@@ -120,7 +120,7 @@ Still missing something? Then go to the [discussions](https://github.com/HubTou/
 Encountering issues? Then report it in the [issues](https://github.com/HubTou/PyLists4C/issues) section.
 
 Happy with it? Then please help me promote this library.
-* Go, tell it on the mountain, over the hills and everywhere!
-* Reference your own creations with the [pylists4c](https://github.com/topics/pylists4c) GitHub topic,
+* Go, tell it on the mountain(s), over the hills and everywhere!
 * Package it for your favourite operating system,
+* Reference your own creations with the [pylists4c](https://github.com/topics/pylists4c) GitHub topic,
 * ...
