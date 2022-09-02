@@ -562,13 +562,11 @@ extern void listPrint(LIST* pList);
 ```
 :warning: By default, STRUCTs printing is minimalist (we only print their address) but you can supply your own printing function with [listSetStructPrinter()](DOC.md#listsetstructprinter).
 
-:construction: Single quotes characters are not backslash-escaped (yet).
-
 Example use:
 ```C
 LIST* pList = list("'Now', 'it', 'looks', 'as', 'though', 'they\'re', 'here', 'to', 'stay'");
 listPrint(pList);
-// "['Now', 'it', 'looks', 'as', 'though', 'they're', 'here', 'to', 'stay']" is printed to stdout
+// "['Now', 'it', 'looks', 'as', 'though', 'they\'re', 'here', 'to', 'stay']" is printed to stdout
 ...
 listClear(&pList);
 ```
