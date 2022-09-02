@@ -513,7 +513,7 @@ A Python-style LIST representation is a square-bracketed list of comma-separated
 
 And in the future:
 * (STRUCTs)
-* <ARRAYs> (we can't use square-brackets again and ARRAYs do not exist in Python anyway!)
+* \<ARRAYs\> (we can't use square-brackets again and ARRAYs do not exist in Python anyway!)
 * {DICTs}
 
 For example:
