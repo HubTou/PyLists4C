@@ -339,9 +339,9 @@ Please note:
 
 :construction: Exponents are not yet supported for decimal numbers.
 
-:construction: There's currently no way to insert CHAR, SHORT, INT, LONG_LONG, UNSIGNED_\*, FLOAT and LONG_DOUBLE values in a LIST declaration strings.
+:construction: There's currently no way to insert CHAR, SHORT, INT, LONG_LONG, UNSIGNED_\*, FLOAT and LONG_DOUBLE values in a LIST declaration strings, but we'll use a type prefix in the future (for example: int:5, float:3.14, char:'c')
 
-:construction: Consequently, there's currently no way either to declare STRUCTs (we'll use simple braces for them when they are available). 
+:construction: Consequently, there's currently no way either to declare STRUCTs, but we'll use simple braces for them when they are available. 
 
 :warning: Contrarily to what Python does, you don't have to enclose your list declaration string in braces (for once, this is a Python syntax limitation!).
 
