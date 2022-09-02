@@ -36,7 +36,7 @@ Base function | Aliases | Description
 **Creating a list**||
 [LIST](DOC.md#list-type)* MyList = NULL;||Creates an empty [LIST](DOC.md#list-type)
 [listCreateElement()](DOC.md#listcreateelement)||Creates an unlinked LIST element
-[list()](DOC.md#list)||Creates a LIST from a [Python-style list declaration string](DOC.md#list)
+[list()](DOC.md#list)||Creates a LIST from a [Python-style LIST declaration string](DOC.md#list)
 [listFromTable()](DOC.md#listfromtable)||Converts a C language table into a LIST
 **Adding & changing elements**||
 [listAppend()](DOC.md#listappend)|[listPush()](DOC.md#listpush)<br>[listEnqueue()](DOC.md#listenqueue)|Adds an element at the end of a LIST
