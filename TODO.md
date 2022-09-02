@@ -34,8 +34,6 @@
 * src/list.c
   * exponents support
   * type indicators (ex: int:5, float:0.5)
-
-* src/list.c
   * STRUCTs declaration
     * Declared in list() with braces. For example: (subtype, int:x, int:y)
 
