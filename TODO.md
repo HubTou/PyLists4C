@@ -44,6 +44,7 @@
 * ETYPE support
   * NULL elements support (already partial)
   * ARRAY elements support
+    * Declared in list() with angle-brackets. For example: <int:1, 2, 3> (only the first element will need a type indicator if it's not supposed to be a long) 
 
 ## Maybe?
 * list{Contains, Count, Index, IndexAll}Values()
@@ -58,7 +59,7 @@
   * Calls a user-defined function for each element
     * Really useful?
 
-*  src/filter.c
+* src/filter.c
   * listComprehension()
     * Better Python emulation?
 
@@ -70,8 +71,8 @@
   * pydicts4c library!
     * Declared with curly braces. For example: {'': value}
 
-* STRINGS elements
+* STRINGS elements?
   * pystrings4c library?
-    * What"s missing in C?
+    * What could be missing in C?
 
 * ARRAY library?
