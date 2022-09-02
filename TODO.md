@@ -14,8 +14,9 @@
 * src/str.c
   * 1 byte offset bug correction
 
-* src/str.c src/print.c:
-  * Single quote escaping
+* src/str.c:
+  * Single quote and backslash escaping
+  * Handling buffer overflow risk with STRINGs
 
 * src/Makefile
   * Installation
