@@ -45,9 +45,9 @@ Base function | Aliases | Description
 [listInsertSorted()](DOC.md#listinsertsorted)||Inserts an element in a sorted LIST
 [listChange(n)](DOC.md#listchangen)||Changes the value of the element at the Nth position of a LIST
 **Displaying lists**||
-[listStr()](DOC.md#liststr)|[listAscii()](DOC.md#listascii)<br>[listRepr()](DOC.md#listrepr)|Returns a pointer to a string containing a Python-style (ie. [e1, e2...]) representated LIST<br>(you'll have to free it after use with [listFreeStr()](DOC.md#listfreestr))
-[listFreeStr()](DOC.md#listfreestr)||Frees the memory allocated to a LIST representation
-[listPrint()](DOC.md#listprint)||Prints a Python-style (ie. [e1, e2...]) representated LIST to stdout
+[listStr()](DOC.md#liststr)|[listAscii()](DOC.md#listascii)<br>[listRepr()](DOC.md#listrepr)|Returns a pointer to a string containing a [Python-style LIST representation](DOC.md#displaying-lists)
+[listFreeStr()](DOC.md#listfreestr)||Frees the memory allocated to a [Python-style LIST representation](DOC.md#displaying-lists)
+[listPrint()](DOC.md#listprint)||Prints a [Python-style LIST representation](DOC.md#displaying-lists) to stdout
 [listDebug()](DOC.md#listdebug)||Prints all LIST details to stderr
 **Getting list information**||
 [listLen()](DOC.md#listlen)||Returns the number of elements in a LIST
@@ -91,7 +91,7 @@ Base function | Aliases | Description
 [listShuffle()](DOC.md#listshuffle)||Shuffles a LIST
 [listShuffled()](DOC.md#listshuffled)||Returns a shuffled copy of a LIST
 **Lists to arrays conversion**||
-[listToArray()](DOC.md#listtoarray)||Converts a LIST into an [ARRAY](DOC.md#array-type)<br>(you'll have to free it after use with [listFreeArray()](DOC.md#listfreearray))
+[listToArray()](DOC.md#listtoarray)||Converts a LIST into an [ARRAY](DOC.md#array-type)
 [listFromArray()](DOC.md#listfromarray)||Converts an ARRAY into a LIST
 [listFreeArray()](DOC.md#listfreearray)||Frees the memory allocated to an ARRAY
 **Removing elements**||
