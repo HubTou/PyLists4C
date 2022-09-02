@@ -507,6 +507,20 @@ listClear(&pFabFour);
 ```
 
 ## Displaying lists
+A Python-style LIST representation is a square-bracketed list of comma-separated elements, with:
+* 'strings'
+* \[sub-LISTs\]
+
+And in the future:
+* (STRUCTs)
+* <ARRAYs> (we can't use square-brackets again and ARRAYs do not exist in Python anyway!)
+* {DICTs}
+
+For example:
+```Python
+[123, 456.789, -987, 'abc', 'def', '', ['r', 2, 'd', 2], []]
+```
+
 ### listStr()
 ### listAscii()
 ### listRepr()
@@ -518,7 +532,7 @@ extern STRING listRepr(LIST* pList); // listStr() alias
 ```
 :warning: You'll have to free it after use with [listFreeStr()](DOC.md#listfreestr)
 
-:warning: By default, STRUCTs stringing is minimalist (we only string their address) but you can supply your own printing function with [listSetStructStringer()](DOC.md#listsetstructstringer).
+:warning: By default, STRUCTs stringing is minimalist (we only string their address) but you can supply your own stringing function with [listSetStructStringer()](DOC.md#listsetstructstringer).
 
 :construction: Single quotes characters are not backslash-escaped (yet).
 
