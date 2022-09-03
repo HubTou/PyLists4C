@@ -1576,6 +1576,22 @@ listRemoveAll(&pFruits, fruit, ETYPE_STRING, strlen(fruit) + 1);
 listClear(&pFruits);
 ```
 
+### listRemoveDuplicates()
+Removes duplicate items in a sorted LIST
+```C
+extern void listRemoveDuplicates(LIST* pList);
+```
+:warning: Exceptionally, there is no need to provide the address of the LIST as the first element cannot change.
+
+Example use:
+```C
+LIST* pList = list("1, 2, 2, 3, 3, 3, 4");
+listRemoveDuplicates(pList);
+// pList now is [1, 2, 3, 4]
+...
+listClear(&pList);
+```
+
 ## Clearing lists
 ### listClear()
 ### listDel()
