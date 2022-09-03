@@ -12,7 +12,7 @@
 * listHalve() (in Working with LISTs)
 
 * src/str.c
-  * 1 byte offset bug correction
+  * Memory allocated 1 byte offset bug correction
 
 * src/str.c:
   * Single quote and backslash escaping
