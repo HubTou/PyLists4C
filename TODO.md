@@ -2,8 +2,6 @@
 # PyLists4C: Python-style lists for the C language
 
 ## Missing till Release 1.0
-* listRemoveDuplicates() (in Removing elements)
-
 * src/str.c
   * Memory allocated 1 byte offset bug correction
 
