@@ -1190,6 +1190,42 @@ listClear(&pList1);
 listClear(&pList2);
 ```
 
+### listSplit(n)
+### listHalve()
+Cuts a LIST in two parts and returns a pointer to the second part
+```C
+extern LIST* listSplit(LIST** ppList, long n);
+extern LIST* listHalve(LIST* pList); // listSplit() wrapper
+```
+*n* is the first element of the second part.
+
+Thus for *n* = 0, the first part will be NULL. For *n* above the length of the LIST, the second part will be NULL.
+
+listHalve() is a convenience wrapper where *n* will be set to half of the length of the LIST, adjusted to the upper bound.
+
+Thus for even length LISTs, the first part will have the additional element.
+
+Example use:
+```C
+LIST* pList = list("1, 2, 3, 4, 5");
+LIST* pList2 = listSplit(&pList, 2);
+// pList now is [1, 2]
+// pList2 now is [3, 4, 5]
+...
+listClear(&pList);
+listClear(&pList2);
+```
+
+```C
+LIST* pList = list("1, 2, 3, 4, 5");
+LIST* pList2 = listHalve(pList);
+// pList now is [1, 2, 3]
+// pList2 now is [4, 5]
+...
+listClear(&pList);
+listClear(&pList2);
+```
+
 ## Changing list order
 We follow the Python convention here:
 * listSort(), listReverse(), listShuffle() modify the order of your LIST,
