@@ -2,10 +2,11 @@
 # PyLists4C: Python-style lists for the C language
 
 ## Missing till Release 1.0
+* src/sortedByQsort.c
+  * Char and UChard caseinsensitive comparisons 
+
 * src/str.c
   * Memory allocated 1 byte offset bug correction
-
-* src/str.c:
   * Single quote and backslash escaping
   * Handling buffer overflow risk with STRINGs
 
