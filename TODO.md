@@ -7,10 +7,6 @@
 
 * listRemoveDuplicates() (in Removing elements)
 
-* listSplit() (in Working with LISTs)
-
-* listHalve() (in Working with LISTs)
-
 * src/str.c
   * Memory allocated 1 byte offset bug correction
 
