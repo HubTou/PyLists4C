@@ -1609,6 +1609,8 @@ extern void listSetStructComparator(int (*listStructComparator)(const void* pStr
 ```
 By default, the supplied listCompareStructByMemcmp() function is used to compare STRUCTs, but if you intend to sort LISTs containing STRUCTs elements you'd better define your own function.
 
+Your function must return -1, 0 or +1 if the second element precedes, is equal to, or succedes the first one. 
+
 Example use:
 ```C
 int myStructComparator(const void* pStruct1, const void* pStruct2)
