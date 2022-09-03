@@ -63,7 +63,7 @@
 * Tree data structures functions
   * Which ones?
 
-## Other projects
+## Possible other projects
 * DICT elements
   * pydicts4c library!
     * Declared with curly braces. For example: {'': value}
