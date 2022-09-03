@@ -1201,11 +1201,11 @@ extern LIST* listHalve(LIST* pList); // listSplit() wrapper
 
 Thus for *n* = 0, the first part will be NULL. For *n* above the length of the LIST, the second part will be NULL.
 
-listHalve() is a convenience wrapper where *n* will be set to half of the length of the LIST, adjusted to the upper bound.
+listHalve() is a convenience wrapper meant for [divide and conquer algorithms](https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm), where *n* will be set to half of the length of the LIST, adjusted to the upper bound.
 
 Thus for even length LISTs, the first part will have the additional element.
 
-Example use:
+Example uses:
 ```C
 LIST* pList = list("1, 2, 3, 4, 5");
 LIST* pList2 = listSplit(&pList, 2);
