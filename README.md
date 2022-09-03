@@ -80,7 +80,7 @@ Base function | Aliases | Description
 [listConcat()](DOC.md#listconcat)||Returns a new LIST with the concatenation of the elements of LIST1 and LIST2
 [listExtend()](DOC.md#listextend)||Adds a copy of the elements of the second LIST to the end of the first one
 [listJoin()](DOC.md#listjoin)||Moves the elements of the second LIST to the end of the first one
-[listSplit()](DOC.md#listsplit)|[listHalve()](DOC.md#listhalve) for n = length/2|Cuts a LIST in two parts and returns a pointer to the second part
+[listSplit(n)](DOC.md#listsplitn)|[listHalve()](DOC.md#listhalve) for n = length/2|Cuts a LIST in two parts and returns a pointer to the second part
 **Changing list order**||
 [listSort()](DOC.md#listsort)||Sorts a LIST
 [listSorted()](DOC.md#listsorted)||Returns a sorted copy of a LIST
