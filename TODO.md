@@ -2,9 +2,6 @@
 # PyLists4C: Python-style lists for the C language
 
 ## Missing till Release 1.0
-* listSortedByQsort() (in Changing elements order)
-  * 3 BOOLEAN parameters to take into account
-
 * listRemoveDuplicates() (in Removing elements)
 
 * src/str.c
