@@ -11,9 +11,6 @@
   * Handling buffer overflow risk with STRINGs
 
 * src/Makefile
-  * Installation
-    * System
-    * User
   * Shared Output library
 
 * DOC.md
