@@ -21,9 +21,9 @@
   * Installation procedure
 
 ## For future releases
-* listChangeRange()
-  * listDelRange()
-  * listInsertRange()
+* listChangeRange(n, m)
+  * listDelRange(n, m)
+  * listInsertList(n)
 
 * src/list.c
   * exponents support
