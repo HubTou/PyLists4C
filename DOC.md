@@ -31,6 +31,11 @@ If you have only installed the library in your user account, you have to add the
 * -I$(HOME)/include in the CFLAGS definition
 * -L$(HOME)/lib in the LDFLAGS definition
 
+And also to add the following in your shell startup execution script (.profile, .bash_profile, etc.):
+```bash
+export LD_LIBRARY_PATH=${HOME}/lib:${LD_LIBRARY_PATH}
+```
+
 ### Using the dynamic version
 :construction: TODO
 
