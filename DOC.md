@@ -7,7 +7,7 @@ If your favourite Operating System has a package for this library, then install 
 
 Else, you'll just need (at least) an ISO C 1999 compiler (because some of the C types we use did not exist before that C language version), go into the source code directory and compile the library yourself:
 
-```Shell
+```bash
 cd src
 make install clean
 ```
