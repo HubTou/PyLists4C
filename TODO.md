@@ -2,6 +2,8 @@
 # PyLists4C: Python-style lists for the C language
 
 ## Missing till Release 1.0
+* listAreEqual() and listAreEqualCaseInsensitive()
+
 * src/sortedByQsort.c
   * Char and UChard caseinsensitive comparisons 
 
@@ -15,6 +17,8 @@
 
 * DOC.md
   * Installation procedure
+
+* LIST_ELEMENT and LIST_ITERATOR
 
 ## For future releases
 * listChangeRange(n, m)
@@ -30,6 +34,7 @@
 * Packages
   * FreeBSD
   * RaspberryPiOS
+  * Windows binary distribution?
 
 * ETYPE support
   * NULL elements support (already partial)
