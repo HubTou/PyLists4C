@@ -17,10 +17,9 @@ This library provides [Python-style](https://docs.python.org/3/tutorial/datastru
 
 Beyond Python lists emulation, you'll also find:
 * Conversion from or to arrays
-* Sorted insertion with optional removal of duplicate values
+* Sorted insertion with optional removal of duplicate values, or list duplicates removal
 * List shuffling
 * List joining (beyond concatenation or extension) or splitting
-* List deduplication
 * Heap (push/pop) and queue (enqueue/dequeue) management aliases 
 * Statistics and debugging, including memory allocation followup
 
@@ -64,11 +63,11 @@ Base function | Aliases | Description
 [listMinXXX()](DOC.md#listminxxx)||Returns the minimum value in the LIST for the XXX type
 [listSumXXX()](DOC.md#listsumxxx)||Returns the sum of values in the LIST for the XXX type
 **Fetching elements**||
-[listGet(n)](DOC.md#listgetn)||Returns the Nth [ELEMENT](DOC.md#element-type) of a LIST
-[listGetLast()](DOC.md#listgetlast)||Returns the last ELEMENT of a LIST
-[listSetIterator()](DOC.md#listsetiterator)||Defines an [ITERATOR](DOC.md#iterator-type) from an ELEMENT of a LIST
-[listNext()](DOC.md#listnext)||Returns the next ELEMENT of a LIST starting from an ITERATOR
-[listPrevious()](DOC.md#listprevious)||Returns the previous ELEMENT of a LIST starting from an ITERATOR
+[listGet(n)](DOC.md#listgetn)||Returns the Nth [LIST_ELEMENT](DOC.md#element-type) of a LIST
+[listGetLast()](DOC.md#listgetlast)||Returns the last LIST_ELEMENT of a LIST
+[listSetIterator()](DOC.md#listsetiterator)||Defines a [LIST_ITERATOR](DOC.md#iterator-type) from a LIST_ELEMENT of a LIST
+[listNext()](DOC.md#listnext)||Returns the next LIST_ELEMENT of a LIST starting from a LIST_ITERATOR
+[listPrevious()](DOC.md#listprevious)||Returns the previous LIST_ELEMENT of a LIST starting from a LIST_ITERATOR
 **Fetching elements values**||
 [listValueXXX()](DOC.md#listvaluexxx)||Returns the element value in the requested type
 **Testing lists**||
@@ -77,7 +76,7 @@ Base function | Aliases | Description
 **Working with lists**||
 [listCopy()](DOC.md#listcopy)||Returns a copy of the LIST (a full/deep copy as we don't want multiple references to the same values)
 [listSlice(n, m)](DOC.md#listslicenm)<br>[listSliceFrom(n)](DOC.md#listslicefromn)<br>[listSliceTo(m)](DOC.md#listslicetom)||Returns a copy of a slice (i.e.: [n:m]) of a LIST
-[listFilter()](DOC.md#listfilter)|[listComprehension()](DOC.md#listcomprehension)|Returns a filtered copy of the LIST according to a user defined function telling if an ELEMENT should be included or not
+[listFilter()](DOC.md#listfilter)|[listComprehension()](DOC.md#listcomprehension)|Returns a filtered copy of the LIST according to a user defined function telling if a LIST_ELEMENT should be included or not
 [listConcat()](DOC.md#listconcat)||Returns a new LIST with the concatenation of the elements of LIST1 and LIST2
 [listExtend()](DOC.md#listextend)||Adds a copy of the elements of the second LIST to the end of the first one
 [listJoin()](DOC.md#listjoin)||Moves the elements of the second LIST to the end of the first one
