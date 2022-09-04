@@ -918,7 +918,7 @@ LIST* pList = list("1, 2, 3, 4, 5");
 LIST_ITERATOR i = listSetIterator(pList);
 
 // or, more simply:
-// ITERATOR i = pList;
+// LIST_ITERATOR i = pList;
 ...
 listClear(&pList);
 ```
