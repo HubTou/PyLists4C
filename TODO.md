@@ -12,13 +12,9 @@
   * Single quote and backslash escaping
   * Handling buffer overflow risk with STRINGs
 
-* src/Makefile
-  * Shared Output library
-
 * DOC.md
   * Installation procedure
-
-* LIST_ELEMENT and LIST_ITERATOR
+  * C compiler requirements
 
 ## For future releases
 * listChangeRange(n, m)
