@@ -13,8 +13,7 @@
   * Handling buffer overflow risk with STRINGs
 
 * DOC.md
-  * Installation procedure
-  * C compiler requirements
+  * Using the dynamic version
 
 ## For future releases
 * listChangeRange(n, m)
