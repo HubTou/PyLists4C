@@ -5,7 +5,7 @@
 * listAreEqual() and listAreEqualCaseInsensitive()
 
 * src/sortedByQsort.c
-  * Char and UChard caseinsensitive comparisons 
+  * Char and UChar caseinsensitive comparisons 
 
 * src/str.c
   * Memory allocated 1 byte offset bug correction
