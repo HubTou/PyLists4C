@@ -3,23 +3,36 @@
 (Way more than) all you ever wanted to know about this library in one printable page!
 
 ## Installation
-:construction: TODO
+If your favourite Operating System has a package for this library, then install it like you would do for any other software.
+
+Else, you'll just need (at least) an ISO C 1999 compiler (because some of the C types we use did not exist before that C language version), go into the source code directory and compile the library yourself:
+
+```Shell
+cd src
+make install clean
+```
+
+If you have super-user access rights, the library will be installed system-wide. Else it will be installed under your HOME directory just for you.
 
 ## Use within your own programs
+### Using th static version
 If the library has been installed system-wide, you just have to:
-* include the library header in your programs:
+* Include the library header in your programs:
 ```C
 #include <pylists4c.h>
 ```
-* link the library with the rest of your objects. For example, if you're working on a Unix-like system, put something like this in your **makefile**:
+* Link the library with the rest of your objects. For example, if you're working on a Unix-like system, put something like this in your **makefile**:
 ```C
 LDFLAGS=-lpylists4c
 $(CC) $(CFLAGS) $LDFLAGS) $(MY_OBJECTS_FILES) -o $(MY_PROGRAM_NAME)
 ```
 
-If you have only installed the library in your user account, you have to add:
+If you have only installed the library in your user account, you have to add the following in your makefiles:
 * -I$(HOME)/include in the CFLAGS definition
 * -L$(HOME)/lib in the LDFLAGS definition
+
+### Using the dynamic version
+:construction: TODO
 
 # Data structures
 ## Glossary and conventions
@@ -61,15 +74,15 @@ Design notes:
   * If you use multiple kinds of STRUCTs in the same LIST, it is advised to start each of these STRUCTs with a fixed length field indicating its sub type.
 * As all *elements* should have the same memory size, we use pointers for all *values*, not just STRINGs, LISTs and STRUCTS. Thus we need a **pValue** variable to point to the *value* of each *element*.
 
-### ELEMENT type
+### LIST_ELEMENT type
 An alias for a pointer to a LIST, defined like this:
 ```C
-typedef LIST* ELEMENT;
+typedef LIST* LIST_ELEMENT;
 ```
 Design notes:
-* It's main use is to differenciate functions that return a whole LIST that would need to be freed after use, from those that return an ELEMENT of a LIST that must not be freed).
+* It's main use is to differenciate functions that return a whole LIST that would need to be freed after use, from those that return a LIST_ELEMENT of a LIST that must not be freed).
 * The use of a variable-like name is meant to discourage the idea of freeing it, though as it's still a pointer its members will have to be accessed with "->" rather than "."...
-* In order to obtain the *value* carried by an ELEMENT, you'll either have to:
+* In order to obtain the *value* carried by a LIST_ELEMENT, you'll either have to:
   * cast its pointer to a void to a pointer of a known type, and then take its value before use.<br>For example, assuming you want to retrieve a "short" value, do:
 ```C
 *((short*) element -> pValue)
@@ -80,20 +93,20 @@ listValueShort(element)
 ```
   * The types available for XXX are: Char, UChar, Short, UShort, Int, UInt, Long, ULong, LongLong, ULongLong, Float, Double, LongDouble and String (with the U prefix standing for Unsigned).
   
-### ITERATOR type
+### LIST_ITERATOR type
 An alias for a pointer to a LIST, defined like this:
 ```C
-typedef LIST* ITERATOR;
+typedef LIST* LIST_ITERATOR;
 ```
 Design notes:
 * It's main use is to walkthrough a LIST without restarting from its first element at each iteration.
-* Like the ELEMENT type, it's also used to differenciate LISTs that would need to be freed after use, from pointers to walkthrough a LIST, that must not be freed.
+* Like the LIST_ELEMENT type, it's also used to differenciate LISTs that would need to be freed after use, from pointers to walkthrough a LIST, that must not be freed.
 
 Example use:
 ```C
 LIST* pList = NULL;
-ITERATOR i;
-ELEMENT e;
+LIST_ITERATOR i;
+LIST_ELEMENT e;
 
 // pList defined somewhere...
 
@@ -532,7 +545,7 @@ extern STRING listRepr(LIST* pList); // listStr() alias
 ```
 :warning: You'll have to free it after use with [listFreeStr()](DOC.md#listfreestr)
 
-:warning: By default, STRUCTs stringing is minimalist (we only string their address) but you can supply your own stringing function with [listSetStructStringer()](DOC.md#listsetstructstringer).
+:warning: By default, STRUCTs stringing is minimalist but you can supply your own stringing function with [listSetStructStringer()](DOC.md#listsetstructstringer).
 
 :construction: Single quotes characters are not backslash-escaped (yet).
 
@@ -560,7 +573,7 @@ Prints a [Python-style LIST representation](DOC.md#displaying-lists) to stdout
 ```C
 extern void listPrint(LIST* pList);
 ```
-:warning: By default, STRUCTs printing is minimalist (we only print their address) but you can supply your own printing function with [listSetStructPrinter()](DOC.md#listsetstructprinter).
+:warning: By default, STRUCTs printing is minimalist but you can supply your own printing function with [listSetStructPrinter()](DOC.md#listsetstructprinter).
 
 Example use:
 ```C
@@ -578,7 +591,7 @@ extern void listDebug(LIST* pList, STRING name);
 ```
 * *name* is an optional STRING (you can pass NULL instead) containing the name of your LIST variable.
 
-:warning: By default, STRUCTs debugging is minimalist (we only print their address) but you can supply your own debugging function with [listSetStructDebugger()](DOC.md#listsetstructdebugger).
+:warning: By default, STRUCTs debugging is minimalist but you can supply your own debugging function with [listSetStructDebugger()](DOC.md#listsetstructdebugger).
 
 Example use:
 ```C
@@ -848,22 +861,22 @@ listClear(&pNumbers);
 ```
 
 ## Fetching elements
-:no_entry: ELEMENTs and ITERATORs must never be freed or you'll disrupt the LIST they belong to!
+:no_entry: LIST_ELEMENTs and LIST_ITERATORs must never be freed or you'll disrupt the LIST they belong to!
 
-:warning: Of course, beware of using ELEMENTS or ITERATORs if you have destroyed the underlying LIST element!
+:warning: Of course, beware of using LIST_ELEMENTS or LIST_ITERATORs if you have destroyed the underlying LIST element!
 
 ### listGet(n)
-Returns the Nth ELEMENT of a LIST
+Returns the Nth LIST_ELEMENT of a LIST
 ```C
-extern ELEMENT listGet(LIST* pList, long n);
+extern LIST_ELEMENT listGet(LIST* pList, long n);
 ```
 *n* can be a positive or negative index.
 
 NULL will be returned if the index requested is out of the LIST.
 
-Otherwise the requested ELEMENT will be returned.
+Otherwise the requested LIST_ELEMENT will be returned.
 
-:no_entry: ELEMENTs must never be freed or you'll disrupt the LIST they belong to!
+:no_entry: LIST_ELEMENTs must never be freed or you'll disrupt the LIST they belong to!
 
 Example use:
 ```C
@@ -875,13 +888,13 @@ printf("%ld\n", listValueString(listGet(-2)));
 ```
 
 ### listGetLast()
-Returns the last ELEMENT of a LIST
+Returns the last LIST_ELEMENT of a LIST
 ```C
-extern ELEMENT listGetLast(LIST* pList);
+extern LIST_ELEMENT listGetLast(LIST* pList);
 ```
 Equivalent to listGet(-1) though optimized as it's frequently used.
 
-:no_entry: ELEMENTs must never be freed or you'll disrupt the LIST they belong to!
+:no_entry: LIST_ELEMENTs must never be freed or you'll disrupt the LIST they belong to!
 
 Example use:
 ```C
@@ -891,18 +904,18 @@ printf("%ld\n", listValueString(listGetLast()));
 ```
 
 ### listSetIterator()
-Defines an ITERATOR from an ELEMENT of a LIST
+Defines a LIST_ITERATOR from a LIST_ELEMENT of a LIST
 ```C
-extern ITERATOR listSetIterator(ELEMENT element);
+extern LIST_ITERATOR listSetIterator(LIST_ELEMENT element);
 ```
-This function is really only here for the sake of readability, as you could, just as simply, affect a LIST* or ELEMENT variable to an ITERATOR...
+This function is really only here for the sake of readability, as you could, just as simply, affect a LIST* or LIST_ELEMENT variable to an LIST_ITERATOR...
 
-:no_entry: ITERATORs must never be freed or you'll disrupt the LIST they belong to!
+:no_entry: LIST_ITERATORs must never be freed or you'll disrupt the LIST they belong to!
 
 Example use:
 ```C
 LIST* pList = list("1, 2, 3, 4, 5");
-ITERATOR i = listSetIterator(pList);
+LIST_ITERATOR i = listSetIterator(pList);
 
 // or, more simply:
 // ITERATOR i = pList;
@@ -911,21 +924,21 @@ listClear(&pList);
 ```
 
 ### listNext()
-Returns the next ELEMENT of a LIST starting from an ITERATOR
+Returns the next LIST_ELEMENT of a LIST starting from a LIST_ITERATOR
 ```C
-extern ELEMENT listNext(ITERATOR* pIterator);
+extern LIST_ELEMENT listNext(LIST_ITERATOR* pIterator);
 ```
 The main purpose of this function is to avoid making a walkthrough of your LIST each time you want to reach a new element.
 
 The function will return NULL when there are no more elements to get.
 
-:no_entry: ELEMENTs must never be freed or you'll disrupt the LIST they belong to!
+:no_entry: LIST_ELEMENTs must never be freed or you'll disrupt the LIST they belong to!
 
 Example use:
 ```C
 LIST* pList = list("1, 2, 3, 4, 5");
-ITERATOR i = listSetIterator(pList);
-ELEMENT e;
+LIST_ITERATOR i = listSetIterator(pList);
+LIST_ELEMENT e;
 
 while ((e = listNext(&i)) != NULL)
     /* do something with e */ ;
@@ -934,21 +947,21 @@ listClear(&pList);
 ```
 
 ### listPrevious()
-Returns the previous ELEMENT of a LIST starting from an ITERATOR
+Returns the previous LIST_ELEMENT of a LIST starting from a LIST_ITERATOR
 ```C
-extern ELEMENT listPrevious(ITERATOR* pIterator);
+extern LIST_ELEMENT listPrevious(LIST_ITERATOR* pIterator);
 ```
 The main purpose of this function is to avoid making a walkthrough of your LIST each time you want to reach a new element.
 
 The function will return NULL when there are no more elements to get.
 
-:no_entry: ELEMENTs must never be freed or you'll disrupt the LIST they belong to!
+:no_entry: LIST_ELEMENTs must never be freed or you'll disrupt the LIST they belong to!
 
 Example use:
 ```C
 LIST* pList = list("1, 2, 3, 4, 5");
-ITERATOR i = listSetIterator(getLast(pList)); // starting from the end of the LIST
-ELEMENT e;
+LIST_ITERATOR i = listSetIterator(getLast(pList)); // starting from the end of the LIST
+LIST_ELEMENT e;
 
 while ((e = listPrevious(&i)) != NULL)
     /* do something with e */ ;
@@ -960,28 +973,28 @@ listClear(&pList);
 ### listValueXXX()
 Returns the element value in the requested type
 ```C
-extern char listValueChar(ELEMENT element);
-extern unsigned char listValueUChar(ELEMENT element);
-extern short listValueShort(ELEMENT element);
-extern unsigned short listValueUShort(ELEMENT element);
-extern int listValueInt(ELEMENT element);
-extern unsigned int listValueUInt(ELEMENT element);
-extern long listValueLong(ELEMENT element);
-extern unsigned long listValueULong(ELEMENT element);
-extern long long listValueLongLong(ELEMENT element);
-extern unsigned long long listValueULongLong(ELEMENT element);
-extern float listValueFloat(ELEMENT element);
-extern double listValueDouble(ELEMENT element);
-extern long double listValueLongDouble(ELEMENT element);
-extern STRING listValueString(ELEMENT element);
+extern char listValueChar(LIST_ELEMENT element);
+extern unsigned char listValueUChar(LIST_ELEMENT element);
+extern short listValueShort(LIST_ELEMENT element);
+extern unsigned short listValueUShort(LIST_ELEMENT element);
+extern int listValueInt(LIST_ELEMENT element);
+extern unsigned int listValueUInt(LIST_ELEMENT element);
+extern long listValueLong(LIST_ELEMENT element);
+extern unsigned long listValueULong(LIST_ELEMENT element);
+extern long long listValueLongLong(LIST_ELEMENT element);
+extern unsigned long long listValueULongLong(LIST_ELEMENT element);
+extern float listValueFloat(LIST_ELEMENT element);
+extern double listValueDouble(LIST_ELEMENT element);
+extern long double listValueLongDouble(LIST_ELEMENT element);
+extern STRING listValueString(LIST_ELEMENT element);
 ```
-Meant for use with the [listGet(n)](DOC.md#listgetn), [listGetlast()](DOC.md#listgetlast), [listNext()](DOC.md#listnext) and [listPrevious()](DOC.md#listprevious) functions if you want something fancier than pointer casting + value getting, and you know the types of the ELEMENTs in the LIST...
+Meant for use with the [listGet(n)](DOC.md#listgetn), [listGetlast()](DOC.md#listgetlast), [listNext()](DOC.md#listnext) and [listPrevious()](DOC.md#listprevious) functions if you want something fancier than pointer casting + value getting, and you know the types of the LIST_ELEMENTs in the LIST...
 
 Example use:
 ```C
 LIST* pList = list("1, 2, 3, 4, 5");
-ITERATOR i;
-ELEMENT e;
+LIST_ITERATOR i;
+LIST_ELEMENT e;
 
 i = listSetIterator(pList);
 while ((e = listNext(&i)) != NULL)
@@ -1090,10 +1103,10 @@ listClear(&pList);
 
 ### listFilter()
 ### listComprehension()
-Returns a filtered copy of the LIST according to a user defined function telling if an ELEMENT should be included or not
+Returns a filtered copy of the LIST according to a user defined function telling if a LIST_ELEMENT should be included or not
 ```C
-extern LIST* listFilter(LIST* pList, BOOLEAN (*pMyInclusionFunction)(ELEMENT element));
-extern LIST* listComprehension(LIST* pList, BOOLEAN (*pMyInclusionFunction)(ELEMENT element)); // listFilter() alias
+extern LIST* listFilter(LIST* pList, BOOLEAN (*pMyInclusionFunction)(LIST_ELEMENT element));
+extern LIST* listComprehension(LIST* pList, BOOLEAN (*pMyInclusionFunction)(LIST_ELEMENT element)); // listFilter() alias
 ```
 :warning: listComprehension() currently only offers a subset of what can be done with list comprehension in Python...
 
@@ -1103,7 +1116,7 @@ Example use:
 #include <string.h>
 #include <pylists4c.h>
 
-BOOLEAN noEInStrings(ELEMENT element)
+BOOLEAN noEInStrings(LIST_ELEMENT element)
 {
     if (element -> type == ETYPE_STRING)
         if (strchr(element -> pValue, 'e') || strchr(element -> pValue, 'E'))
