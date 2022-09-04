@@ -63,9 +63,9 @@ Base function | Aliases | Description
 [listMinXXX()](DOC.md#listminxxx)||Returns the minimum value in the LIST for the XXX type
 [listSumXXX()](DOC.md#listsumxxx)||Returns the sum of values in the LIST for the XXX type
 **Fetching elements**||
-[listGet(n)](DOC.md#listgetn)||Returns the Nth [LIST_ELEMENT](DOC.md#element-type) of a LIST
+[listGet(n)](DOC.md#listgetn)||Returns the Nth [LIST_ELEMENT](DOC.md#list_element-type) of a LIST
 [listGetLast()](DOC.md#listgetlast)||Returns the last LIST_ELEMENT of a LIST
-[listSetIterator()](DOC.md#listsetiterator)||Defines a [LIST_ITERATOR](DOC.md#iterator-type) from a LIST_ELEMENT of a LIST
+[listSetIterator()](DOC.md#listsetiterator)||Defines a [LIST_ITERATOR](DOC.md#list_iterator-type) from a LIST_ELEMENT of a LIST
 [listNext()](DOC.md#listnext)||Returns the next LIST_ELEMENT of a LIST starting from a LIST_ITERATOR
 [listPrevious()](DOC.md#listprevious)||Returns the previous LIST_ELEMENT of a LIST starting from a LIST_ITERATOR
 **Fetching elements values**||
