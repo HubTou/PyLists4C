@@ -2,7 +2,7 @@
 # PyLists4C: Python-style lists for the C language
 Coming back to the [C language](https://www.open-std.org/JTC1/SC22/WG14/www/standards) after 30+ years, and having discovered [Python](https://www.python.org/) in-between, I found it frustrating not having handy tools such as linked lists by default (and I guess many people now learning Python, then C, must feel the same!).
 
-Of course, there were multiple libraries available for that, but none with the power of [what's available in Python](https://www.w3schools.com/python/python_lists.asp), or packaged with too many unrelated things.
+Of course, there are multiple libraries available for that, but none with the power of [what's available in Python](https://www.w3schools.com/python/python_lists.asp), or packaged with too many unrelated things.
 
 So here's my attempt to fix this, with all I ever wanted from a C language linked list library...
 
@@ -17,7 +17,7 @@ This library provides [Python-style](https://docs.python.org/3/tutorial/datastru
 
 Beyond Python lists emulation, you'll also find:
 * Conversion from or to arrays
-* Sorted insertion with optional removal of duplicate values, or list duplicates removal
+* List deduplication or sorted insertion with optional removal of duplicate values
 * List shuffling
 * List joining (beyond concatenation or extension) or splitting
 * Heap (push/pop) and queue (enqueue/dequeue) management aliases 
