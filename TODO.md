@@ -26,6 +26,7 @@
 * Packages
   * FreeBSD
   * RaspberryPiOS
+  * Ubuntu (I use this in Windows Subsystem for Linux 2)
   * Windows binary distribution?
 
 * ETYPE support
