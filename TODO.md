@@ -12,9 +12,6 @@
   * Single quote and backslash escaping
   * Handling buffer overflow risk with STRINGs
 
-* DOC.md
-  * Using the dynamic version
-
 ## For future releases
 * listChangeRange(n, m)
   * listDelRange(n, m)
