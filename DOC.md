@@ -15,7 +15,6 @@ make install clean
 If you have super-user access rights, the library will be installed system-wide. Else it will be installed under your HOME directory just for you.
 
 ## Use within your own programs
-### Using the static version
 If the library has been installed system-wide, you just have to:
 * Include the library header in your programs:
 ```C
@@ -29,15 +28,17 @@ $(CC) $(CFLAGS) $(LDFLAGS) $(MY_OBJECTS_FILES) -o $(MY_PROGRAM_NAME)
 
 If you have only installed the library in your user account, you have to add the following in your makefiles:
 * -I$(HOME)/include in the CFLAGS definition
-* -L$(HOME)/lib in the LDFLAGS definition
+* -L$(HOME)/lib in the LDFLAGS definition (before the -l option)
 
-And also to add the following in your shell startup execution script (.profile, .bash_profile, etc.):
+And also to add the following in your shell startup execution script (.profile, .bash_profile, etc.) and in your current shell instance:
 ```bash
 export LD_LIBRARY_PATH=${HOME}/lib:${LD_LIBRARY_PATH}
 ```
 
-### Using the dynamic version
-:construction: TODO
+By default the dynamic version of the library will be used.
+
+If you want the static version instead, you have to add the following in your makefiles:
+* -static in the LDFLAGS definition
 
 # Data structures
 ## Glossary and conventions
