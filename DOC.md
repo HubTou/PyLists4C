@@ -1012,18 +1012,18 @@ listClear(&pList);
 
 ## Testing lists
 ### listAreEqual()
-Tests if two LISTs contain exactly the same values
+Tests if two LISTs contain the same values
 ```C
-extern BOOLEAN listAreEqual(LIST* pList1, LIST* pList2);
+extern BOOLEAN listAreEqual(LIST* pList1, LIST* pList2, BOOLEAN caseInsensitive);
 ```
-:warning: "exactly the same values" means having the same value *and* the same type *and* the same allocated size!
+:warning: Having "the same values" means having both the same value *and* the same type *and* the same allocated size!
 
 Example use:
 ```C
 LIST* pList1 = list("1, 2, 3");
 LIST* pList2 = list("1, 2, 3, 4");
 
-if (listAreEqual(pList1, pList2))
+if (listAreEqual(pList1, pList2, FALSE))
     printf("The lists are equal!\n");
 else
     printf("The lists are NOT equal!\n");
@@ -1032,13 +1032,6 @@ else
 listClear(&pList1);
 listClear(&pList2);
 ```
-
-### listAreEqualCaseInsensitive()
-Tests if two LISTs contain the same values, without regard to case
-```C
-extern BOOLEAN listAreEqualCaseInsensitive(LIST* pList1, LIST* pList2);
-```
-It's the same as above, but the CHAR, U_CHAR and STRING ETYPEs are compared without regard to case.
 
 ## Working with lists
 ### listCopy()
