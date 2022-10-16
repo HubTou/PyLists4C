@@ -2,8 +2,6 @@
 # PyLists4C: Python-style lists for the C language
 
 ## Missing till Release 1.0
-* listAreEqual() and listAreEqualCaseInsensitive() merge
-
 * src/sortedByQsort.c
   * Char and UChar caseinsensitive comparisons 
 
