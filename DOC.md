@@ -1016,7 +1016,7 @@ Tests if two LISTs contain the same values
 ```C
 extern BOOLEAN listAreEqual(LIST* pList1, LIST* pList2, BOOLEAN caseInsensitive);
 ```
-:warning: Having "the same values" means having both the same value *and* the same type *and* the same allocated size!
+:warning: Having "the same values" means having the same value *and* the same type *and* the same allocated size!
 
 Example use:
 ```C
