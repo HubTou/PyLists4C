@@ -71,8 +71,7 @@ Base function | Aliases | Description
 **Fetching elements values**||
 [listValueXXX()](DOC.md#listvaluexxx)||Returns the element value in the requested type
 **Testing lists**||
-[listAreEqual()](DOC.md#listareequal)||Tests if two LISTs contain exactly the same values
-[listAreEqualCaseInsensitive()](DOC.md#listareequalcaseinsensitive)||Tests if two LISTs contain the same values, without regard to case
+[listAreEqual()](DOC.md#listareequal)||Tests if two LISTs contain the same values
 **Working with lists**||
 [listCopy()](DOC.md#listcopy)||Returns a copy of the LIST (a full/deep copy as we don't want multiple references to the same values)
 [listSlice(n, m)](DOC.md#listslicenm)<br>[listSliceFrom(n)](DOC.md#listslicefromn)<br>[listSliceTo(m)](DOC.md#listslicetom)||Returns a copy of a slice (i.e.: [n:m]) of a LIST
