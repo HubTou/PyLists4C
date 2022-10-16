@@ -28,6 +28,7 @@
   * Windows binary distribution?
 
 * ETYPE support
+  * STRUCT elements: provide an example in the documentation and a test program 
   * NULL elements support (already partial)
   * ARRAY elements support
     * Declared in list() with angle-brackets. For example: <int:1, 2, 3> (only the first element will need a type indicator if it's not supposed to be a long) 
