@@ -2,10 +2,6 @@
 # PyLists4C: Python-style lists for the C language
 
 ## Missing till Release 1.0
-* src/str.c
-  * Single quote and backslash escaping
-  * Handling buffer overflow risk with STRINGs
-
 * listChangeRange(n, m)
   * listDelRange(n, m)
   * listInsertList(n)
