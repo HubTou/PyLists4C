@@ -2,19 +2,15 @@
 # PyLists4C: Python-style lists for the C language
 
 ## Missing till Release 1.0
-* src/sortedByQsort.c
-  * Char and UChar caseinsensitive comparisons 
-
 * src/str.c
-  * Memory allocated 1 byte offset bug correction
   * Single quote and backslash escaping
   * Handling buffer overflow risk with STRINGs
 
-## For future releases
 * listChangeRange(n, m)
   * listDelRange(n, m)
   * listInsertList(n)
 
+## For future releases
 * src/list.c
   * exponents support
   * type indicators (ex: int:5, float:0.5)
@@ -28,7 +24,7 @@
   * Windows binary distribution?
 
 * ETYPE support
-  * STRUCT elements: provide an example in the documentation and a test program 
+  * STRUCT elements documentation: provide an example and a test program 
   * NULL elements support (already partial)
   * ARRAY elements support
     * Declared in list() with angle-brackets. For example: <int:1, 2, 3> (only the first element will need a type indicator if it's not supposed to be a long) 
