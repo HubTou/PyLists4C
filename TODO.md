@@ -48,10 +48,10 @@
 ## Possible other projects
 * DICT elements
   * pydicts4c library!
-    * Declared with curly braces. For example: {'': value}
+    * Declared with curly braces. For example: {\'key1\': value1, \'key2\': value2}
 
 * STRINGS elements?
   * pystrings4c library?
-    * What could be missing in C?
+    * What could be missing in C that is available in Python?
 
 * ARRAY library?
