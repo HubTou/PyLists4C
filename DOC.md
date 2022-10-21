@@ -1,6 +1,6 @@
 ![alt text](https://github.com/HubTou/PyLists4C/blob/main/logo/pylists4c-logo.png "PyLists4C: Python-style lists for the C language")
 # PyLists4C: Python-style lists for the C language
-(Way more than) all you ever wanted to know about this library in one printable page!
+All you would ever want to know about this library in one printable page!
 
 ## Installation
 If your favourite Operating System has a package for this library, then install it like you would do for any other software.
@@ -552,8 +552,6 @@ extern STRING listRepr(LIST* pList); // listStr() alias
 :warning: You'll have to free it after use with [listFreeStr()](DOC.md#listfreestr)
 
 :warning: By default, STRUCTs stringing is minimalist but you can supply your own stringing function with [listSetStructStringer()](DOC.md#listsetstructstringer).
-
-:construction: Single quotes characters are not backslash-escaped (yet).
 
 Example use:
 ```C
