@@ -38,14 +38,17 @@ If the library has been installed system-wide, you just have to:
 ```
 * Link the library with the rest of your objects. For example, if you're working on a Unix-like system, put something like this in your **makefile**:
 ```C
-LDFLAGS=-lpylists4c
-$(CC) $(CFLAGS) $(LDFLAGS) $(MY_OBJECTS_FILES) -o $(MY_PROGRAM_NAME)
+LDFLAGS += -lpylists4c
+
+$(MY_PROGRAM_NAME): $(MY_OBJECTS_FILES)
+    $(CC) $(MY_OBJECTS_FILES) $(LDFLAGS) -o $(MY_PROGRAM_NAME)
 ```
 
 If you have only installed the library in your user account, you have to add the following in your makefiles:
-* -I$(HOME)/include in the CFLAGS definition
-* -L$(HOME)/lib in the LDFLAGS definition (before the -l option)
-
+```C
+CFLAGS += -I$(HOME)/include
+LDFLAGS += -L$(HOME)/lib -lpylists4c
+```
 And also to add the following in your shell startup execution script (.profile, .bash_profile, etc.) and in your current shell instance:
 ```bash
 export LD_LIBRARY_PATH=${HOME}/lib:${LD_LIBRARY_PATH}
