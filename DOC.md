@@ -18,6 +18,13 @@ make install clean
 
 If you have super-user access rights, the library will be installed system-wide. Else it will be installed under your HOME directory just for you.
 
+Under unpriviledged but "rootable" accounts, you just need to use sudo:
+
+```bash
+cd src
+sudo make install clean
+```
+
 ## Use within your own programs
 If the library has been installed system-wide, you just have to:
 * Include the library header in your programs:
