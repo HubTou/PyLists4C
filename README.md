@@ -1,11 +1,5 @@
 ![alt text](https://github.com/HubTou/PyLists4C/blob/main/logo/pylists4c-logo.png "PyLists4C: Python-style lists for the C language")
 # PyLists4C: Python-style lists for the C language
-Coming back to the [C language](https://www.open-std.org/JTC1/SC22/WG14/www/standards) after 30+ years, and having discovered [Python](https://www.python.org/) in-between, I found it frustrating not having handy tools such as linked lists by default (and I guess many people now learning Python, then C, must feel the same!).
-
-Of course, there are multiple libraries available for that, but none with the power of [what's available in Python](https://www.w3schools.com/python/python_lists.asp), or packaged with too many unrelated things.
-
-So here's my attempt to fix this, with all I ever wanted from a C language linked list library...
-
 ## Features
 This library provides [Python-style](https://docs.python.org/3/tutorial/datastructures.html) (within the limits of the C language syntax of course) doubly-linked lists:
 * List items are ordered, changeable, and allow duplicate values.
