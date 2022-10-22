@@ -44,7 +44,7 @@ $(MY_PROGRAM_NAME): $(MY_OBJECTS_FILES)
     $(CC) $(MY_OBJECTS_FILES) $(LDFLAGS) -o $(MY_PROGRAM_NAME)
 ```
 
-If you have only installed the library in your user account, you have to replace the LDFLAGS statement with the following in your makefiles:
+If you have only installed the library in your user account, you have to replace the LDFLAGS statement above with the following in your makefile:
 ```C
 CFLAGS += -I$(HOME)/include
 LDFLAGS += -L$(HOME)/lib -lpylists4c
