@@ -28,7 +28,7 @@ sudo make install clean
 ### Tests
 The library has been successfully compiled and tested on:
 * FreeBSD 13.1 with clang 13
-* Ubuntu 20.4 with GCC 9.4 (under [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install))
+* Ubuntu 20.4 GNU/Linux with GCC 9.4 (under [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install))
 
 ## Use within your own programs
 If the library has been installed system-wide, you just have to:
