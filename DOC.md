@@ -25,6 +25,11 @@ cd src
 sudo make install clean
 ```
 
+### Tests
+The library has been successfully compiled and tested on:
+* FreeBSD 13.1 with clang 13
+* Ubuntu 20.4 with GCC 9.4 (under [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install))
+
 ## Use within your own programs
 If the library has been installed system-wide, you just have to:
 * Include the library header in your programs:
@@ -1749,8 +1754,3 @@ Example use:
 // If you have more than 0 bytes allocated, you probably have a memory leak somewhere...
 printf("Allocated memory: %lu\n", listGetAllocatedMemory());
 ```
-
-## Tests
-Successfully compiled and tested on:
-* FreeBSD 13.1 with clang 13
-* Ubuntu 20.4 with GCC 9.4 (under [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install))
