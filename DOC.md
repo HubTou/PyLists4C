@@ -36,7 +36,7 @@ If the library has been installed system-wide, you just have to:
 ```C
 #include <pylists4c.h>
 ```
-* Link the library with the rest of your objects. For example, if you're working on a Unix-like system, put something like this in your **makefile**:
+* Link the library with the rest of your objects. For example, if you're working on a Unix-like system, put something like this in your **makefile** (beware, the spaces have to be replaced by a TAB character before $(CC)):
 ```C
 LDFLAGS += -lpylists4c
 
@@ -44,11 +44,12 @@ $(MY_PROGRAM_NAME): $(MY_OBJECTS_FILES)
     $(CC) $(MY_OBJECTS_FILES) $(LDFLAGS) -o $(MY_PROGRAM_NAME)
 ```
 
-If you have only installed the library in your user account, you have to add the following in your makefiles:
+If you have only installed the library in your user account, you have to replace the LDFLAGS statement with the following in your makefiles:
 ```C
 CFLAGS += -I$(HOME)/include
 LDFLAGS += -L$(HOME)/lib -lpylists4c
 ```
+
 And also to add the following in your shell startup execution script (.profile, .bash_profile, etc.) and in your current shell instance:
 ```bash
 export LD_LIBRARY_PATH=${HOME}/lib:${LD_LIBRARY_PATH}
