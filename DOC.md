@@ -1729,7 +1729,7 @@ Example use:
 listSetFatalMallocErrors(TRUE);
 ```
 
-## listGetAllocatedMemory()
+### listGetAllocatedMemory()
 Returns the quantity of allocated/unfreed memory used by this library
 ```C
 extern unsigned long listGetAllocatedMemory();
@@ -1742,3 +1742,8 @@ Example use:
 // If you have more than 0 bytes allocated, you probably have a memory leak somewhere...
 printf("Allocated memory: %lu\n", listGetAllocatedMemory());
 ```
+
+## Tests
+Successfully compiled and tested on:
+* FreeBSD 13.1 with clang 13
+* Ubuntu 20.4 with GCC 9.4
