@@ -1746,4 +1746,4 @@ printf("Allocated memory: %lu\n", listGetAllocatedMemory());
 ## Tests
 Successfully compiled and tested on:
 * FreeBSD 13.1 with clang 13
-* Ubuntu 20.4 with GCC 9.4
+* Ubuntu 20.4 with GCC 9.4 (under [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install))
