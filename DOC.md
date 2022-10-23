@@ -31,13 +31,14 @@ The library has been successfully compiled and tested on:
 * [Ubuntu](https://ubuntu.com/) 20.4 GNU/Linux with [GCC](https://gcc.gnu.org/) 9.4 (under [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install))
 
 ## Use within your own programs
+### System-wide installations
 If the library has been installed system-wide, you just have to:
 * Include the library header in your programs:
 ```C
 #include <pylists4c.h>
 ```
 
-* Link the library with the rest of your objects. For example, if you're working on a Unix-like system, put something like this in your [makefile](https://en.wikipedia.org/wiki/Make_(software)):
+* Link the library with the rest of your objects. If you're working on a Unix-like system, put something like this in your [makefile](https://en.wikipedia.org/wiki/Make_(software)):
 ```C
 LDFLAGS += -lpylists4c
 
@@ -46,6 +47,13 @@ $(MY_PROGRAM_NAME): $(MY_OBJECTS_FILES)
 ```
 :warning: Beware! The spaces before $(CC) have to be replaced by a TAB character
 
+Compilation (not use) on FreeBSD/Clang will require you to specify the location of the header and library files. You'll have to replace the LDFLAGS statement above with the following in your Makefile:
+```C
+CFLAGS += -I/usr/local/include
+LDFLAGS += -L/usr/local/lib -lpylists4c
+```
+
+### User-only installations
 If you have only installed the library in your user account, you have to replace the LDFLAGS statement above with the following in your makefile:
 ```C
 CFLAGS += -I$(HOME)/include
@@ -56,10 +64,10 @@ And also to add the following in your shell startup execution script (.profile, 
 ```bash
 export LD_LIBRARY_PATH=${HOME}/lib:${LD_LIBRARY_PATH}
 ```
+### Static or dynamic?
+By default the dynamic version of the library will be used, which is what most people will want.
 
-By default the dynamic version of the library will be used.
-
-If you want the static version instead, you have to add the following in your makefiles:
+If you want the static version instead, you'll have to add the following in your makefiles:
 * -static in the LDFLAGS definition
 
 # Data structures
