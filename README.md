@@ -1,20 +1,20 @@
 ![alt text](https://github.com/HubTou/PyLists4C/blob/main/logo/pylists4c-logo.png "PyLists4C: Python-style lists for the C language")
 # PyLists4C: Python-style lists for the C language
 ## Features
-This library provides [Python-style](https://docs.python.org/3/tutorial/datastructures.html) (within the limits of the C language syntax of course) doubly-linked lists:
+This library provides [Python-style](https://docs.python.org/3/tutorial/datastructures.html) (within the limits of the C language syntax of course) doubly-[linked lists](https://en.wikipedia.org/wiki/Linked_list):
 * List items are ordered, changeable, and allow duplicate values.
 * List items can be of any standard C data type, plus:
   * strings,
-  * sub-lists (thus enabling tree data structures)
+  * sub-lists (thus enabling [trees](https://en.wikipedia.org/wiki/Tree_(data_structure)) data structures)
   * and self-contained (= without pointers) structs of variable sizes.
 * A list can contain different data types at the same time.
 
 Beyond Python lists emulation, you'll also find:
-* Conversion from or to arrays
+* Conversion from or to [arrays](https://en.wikipedia.org/wiki/Array_(data_structure))
 * List deduplication or sorted insertion with optional removal of duplicate values
 * List shuffling
 * List joining (beyond concatenation or extension) or splitting
-* Heap (push/pop) and queue (enqueue/dequeue) management aliases 
+* [Stacks](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) (push/pop) and [queues](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)) (enqueue/dequeue) management aliases 
 * Statistics and debugging, including memory allocation followup
 
 With:
