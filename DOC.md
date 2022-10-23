@@ -18,7 +18,7 @@ make install clean
 
 If you have super-user access rights, the library will be installed system-wide. Else it will be installed under your HOME directory just for you.
 
-Under unpriviledged but "rootable" accounts, you just need to use [sudo](https://www.sudo.ws/) to perform a system-wide install:
+On GNU/Linux systems, under unpriviledged but "rootable" accounts, you just need to use [sudo](https://www.sudo.ws/) to perform a system-wide install:
 
 ```bash
 cd src
