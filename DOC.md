@@ -1,6 +1,6 @@
 ![alt text](https://github.com/HubTou/PyLists4C/blob/main/logo/pylists4c-logo.png "PyLists4C: Python-style lists for the C language")
 # PyLists4C: Python-style lists for the C language
-Coming back to the [C language](https://www.open-std.org/JTC1/SC22/WG14/www/standards) after 30+ years, and having discovered [Python](https://www.python.org/) in-between, I found it frustrating not having handy tools such as linked lists by default (and I guess many people now learning Python, then C, must feel the same!).
+Coming back to the [C language](https://www.open-std.org/JTC1/SC22/WG14/www/standards) after 30+ years, and having discovered [Python](https://www.python.org/) in-between, I found it frustrating not having handy tools such as [linked lists](https://en.wikipedia.org/wiki/Linked_list) by default (and I guess many people now learning Python, then C, must feel the same!).
 
 Of course, there are multiple libraries available for that, but none with the power of [what's available in Python](https://www.w3schools.com/python/python_lists.asp), or packaged with too many unrelated things.
 
@@ -18,7 +18,7 @@ make install clean
 
 If you have super-user access rights, the library will be installed system-wide. Else it will be installed under your HOME directory just for you.
 
-Under unpriviledged but "rootable" accounts, you just need to use sudo to perform a system-wide install:
+Under unpriviledged but "rootable" accounts, you just need to use [sudo](https://www.sudo.ws/) to perform a system-wide install:
 
 ```bash
 cd src
@@ -27,8 +27,8 @@ sudo make install clean
 
 ### Tests
 The library has been successfully compiled and tested on:
-* FreeBSD 13.1 with clang 13
-* Ubuntu 20.4 GNU/Linux with GCC 9.4 (under [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install))
+* [FreeBSD](https://www.freebsd.org/) 13.1 with [Clang](https://clang.llvm.org/) 13
+* [Ubuntu](https://ubuntu.com/) 20.4 GNU/Linux with [GCC](https://gcc.gnu.org/) 9.4 (under [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install))
 
 ## Use within your own programs
 If the library has been installed system-wide, you just have to:
@@ -36,13 +36,15 @@ If the library has been installed system-wide, you just have to:
 ```C
 #include <pylists4c.h>
 ```
-* Link the library with the rest of your objects. For example, if you're working on a Unix-like system, put something like this in your **makefile** (beware, the spaces have to be replaced by a TAB character before $(CC)):
+
+* Link the library with the rest of your objects. For example, if you're working on a Unix-like system, put something like this in your [makefile](https://en.wikipedia.org/wiki/Make_(software)):
 ```C
 LDFLAGS += -lpylists4c
 
 $(MY_PROGRAM_NAME): $(MY_OBJECTS_FILES)
     $(CC) $(MY_OBJECTS_FILES) $(LDFLAGS) -o $(MY_PROGRAM_NAME)
 ```
+:warning: Beware! The spaces before $(CC) have to be replaced by a TAB character
 
 If you have only installed the library in your user account, you have to replace the LDFLAGS statement above with the following in your makefile:
 ```C
