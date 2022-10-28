@@ -13,7 +13,9 @@
   * [FreeBSD](https://docs.freebsd.org/en/books/porters-handbook/book/)
   * RaspberryPiOS
   * Ubuntu & [Debian](https://www.debian.org/doc/manuals/maint-guide/) (I use these in Windows Subsystem for Linux 2)
-  * Windows binary )distribution?
+  * * Windows packageeqqz
+  * [Windows package](https://learn.microsoft.com/en-us/windows/package-manager/package/repository)
+  * Windows binary distribution?
   * ...
 
 * [Documentation](DOC.md) translation
