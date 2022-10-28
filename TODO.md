@@ -2,7 +2,7 @@
 # PyLists4C: Python-style lists for the C language
 
 ## Missing till Release 1.0
-* listChangeRange(n, m)
+* [listChangeRange(n, m)](https://www.w3schools.com/python/trypython.asp?filename=demo_list_change_range)
   * listDelRange(n, m)
   * listInsertList(n)
 
@@ -34,7 +34,7 @@
     * Declared in list() with angle-brackets. For example: <int:1, 2, 3> (only the first element will need a type indicator if it's not supposed to be a long) 
 
 ## Maybe?
-* Type conversion for [hybrid Python / C language programs](https://docs.python.org/3/extending/extending.html)?
+* Support for [hybrid Python / C language programs](https://docs.python.org/3/extending/extending.html) or [type conversion](https://docs.python.org/3/library/ctypes.html#module-ctypes)?
 
 * list{Contains, Count, Index, IndexAll}Values()
   * Regardless of ETYPE
