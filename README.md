@@ -1,7 +1,7 @@
 ![alt text](https://github.com/HubTou/PyLists4C/blob/main/logo/pylists4c-logo.png "PyLists4C: Python-style lists for the C language")
 # PyLists4C: Python-style lists for the C language
 ## Features
-This library provides [Python-style](https://docs.python.org/3/tutorial/datastructures.html) (within the limits of the C language syntax of course) doubly-[linked lists](https://en.wikipedia.org/wiki/Linked_list):
+This library provides a [Python-style](https://docs.python.org/3/tutorial/datastructures.html) (within the limits of the C language syntax of course) [lists](https://en.wikipedia.org/wiki/List_(abstract_data_type)) implementation, as doubly-[linked lists](https://en.wikipedia.org/wiki/Linked_list):
 * List items are ordered, changeable, and allow duplicate values.
 * List items can be of any standard C data type, plus:
   * strings,
@@ -112,10 +112,14 @@ Interested? Then go to the [documentation](DOC.md) to learn more about this libr
 
 Still missing something? Then go to the [discussions](https://github.com/HubTou/PyLists4C/discussions) and tell me!
 
-Encountering issues? Then report it in the [issues](https://github.com/HubTou/PyLists4C/issues) section.
+Encountering an issue? Then report it in the [issues](https://github.com/HubTou/PyLists4C/issues) section.
 
 Happy with it? Then please help me promote this library.
 * Go, tell it on the mountain(s), over the hills and everywhere!
-* Package it for your favourite operating system,
-* Reference your own creations with the [pylists4c](https://github.com/topics/pylists4c) GitHub topic,
+* Reference your own creations with the [pylists4c](https://github.com/topics/pylists4c) GitHub topic
+
+Volunteering to contribute? Then check our [evolution ideas](TODO.md). For example:
+* Make a package for your favourite operating system
+* Translate the documentation
+* Help with missing features and evolution ideas
 * ...
