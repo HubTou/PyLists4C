@@ -54,9 +54,9 @@
 
 * src/filter.c
   * listComprehension()
-    * Better Python emulation?
+    * Better emulation of Python's [list comprehension](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions)?
 
-* Tree data structures functions
+* [Tree](https://en.wikipedia.org/wiki/Tree_(data_structure)) data structures functions
   * Which ones?
 
 ## Possible other projects
@@ -66,6 +66,6 @@
 
 * STRINGS elements?
   * pystrings4c library?
-    * What could be missing in C that is available in Python?
+    * What could be missing in C that is [available in Python](https://www.w3schools.com/python/python_strings.asp)?
 
 * ARRAY library?
