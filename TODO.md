@@ -46,7 +46,7 @@
 * listSortedByMerge()
   * Cf. [man 3 qsort](https://www.freebsd.org/cgi/man.cgi?query=qsort&sektion=3)
 * Stable sort?
-* Other sort algorithms?
+* Other [sorting algorithms](https://en.wikipedia.org/wiki/Sorting_algorithm)?
 
 * listForeach()
   * Calls a user-defined function for each element
