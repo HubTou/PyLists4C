@@ -12,8 +12,8 @@
 * Operating systems packages
   * [FreeBSD](https://docs.freebsd.org/en/books/porters-handbook/book/)
   * RaspberryPiOS
-  * Ubuntu & Debian (I use these in Windows Subsystem for Linux 2)
-  * Windows binary distribution?
+  * Ubuntu & [Debian](https://www.debian.org/doc/manuals/maint-guide/) (I use these in Windows Subsystem for Linux 2)
+  * Windows binary )distribution?
   * ...
 
 * [Documentation](DOC.md) translation
