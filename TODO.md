@@ -6,6 +6,8 @@
   * listDelRange(n, m)
   * listInsertList(n)
 
+* Replacing alias functions with macros?
+
 ## Generic needs
 * Operating systems packages
   * FreeBSD
@@ -14,7 +16,7 @@
   * Windows binary distribution?
   * ...
 
-* Documentation translation
+* [Documentation](DOC.md) translation
 
 ## For future releases
 * src/list.c
