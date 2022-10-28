@@ -11,7 +11,7 @@
 ## Generic needs
 * Operating systems packages creation and maintenance
   * [FreeBSD](https://docs.freebsd.org/en/books/porters-handbook/book/)
-  * RaspberryPiOS
+  * [Raspberry Pi OS](https://pi.gate.ac.uk/pages/package.html)
   * [Ubuntu](https://packaging.ubuntu.com/html/packaging-new-software.html)
   * [Debian](https://www.debian.org/doc/manuals/maint-guide/)
   * [Windows package](https://learn.microsoft.com/en-us/windows/package-manager/package/repository)
