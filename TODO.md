@@ -9,7 +9,7 @@
 * Replacing alias functions with macros?
 
 ## Generic needs
-* Operating systems packages
+* Operating systems packages creation and maintenance
   * [FreeBSD](https://docs.freebsd.org/en/books/porters-handbook/book/)
   * RaspberryPiOS
   * Ubuntu & [Debian](https://www.debian.org/doc/manuals/maint-guide/) (I use these in Windows Subsystem for Linux 2)
