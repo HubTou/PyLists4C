@@ -41,7 +41,7 @@
 * Support for [hybrid Python / C language programs](https://docs.python.org/3/extending/extending.html) or [type conversion](https://docs.python.org/3/library/ctypes.html#module-ctypes)?
 
 * list{Contains, Count, Index, IndexAll}Values()
-  * Regardless of ETYPE
+  * "Regardless of ETYPE" comparison
 
 * listSortedByMerge()
   * Cf. [man 3 qsort](https://www.freebsd.org/cgi/man.cgi?query=qsort&sektion=3)
