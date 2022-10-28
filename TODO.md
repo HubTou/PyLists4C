@@ -60,7 +60,7 @@
   * Which ones?
 
 ## Possible other projects
-* [DICT](https://www.w3schools.com/python/python_dictionaries.asp elements)
+* [DICT](https://www.w3schools.com/python/python_dictionaries.asp) elements
   * pydicts4c library!
     * Declared with curly braces. For example: {\'key1\': value1, \'key2\': value2}
 
