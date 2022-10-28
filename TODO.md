@@ -42,7 +42,7 @@
   * Regardless of ETYPE
 
 * listSortedByMerge()
-  * Cf. man 3 qsort
+  * Cf. [man 3 qsort](https://www.freebsd.org/cgi/man.cgi?query=qsort&sektion=3)
 * Stable sort?
 * Other sort algorithms?
 
@@ -58,7 +58,7 @@
   * Which ones?
 
 ## Possible other projects
-* DICT elements
+* [DICT](https://www.w3schools.com/python/python_dictionaries.asp elements)
   * pydicts4c library!
     * Declared with curly braces. For example: {\'key1\': value1, \'key2\': value2}
 
