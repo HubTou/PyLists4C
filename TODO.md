@@ -10,7 +10,7 @@
 
 ## Generic needs
 * Operating systems packages
-  * FreeBSD
+  * [FreeBSD](https://docs.freebsd.org/en/books/porters-handbook/book/)
   * RaspberryPiOS
   * Ubuntu & Debian (I use these in Windows Subsystem for Linux 2)
   * Windows binary distribution?
