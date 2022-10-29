@@ -10,11 +10,11 @@ This library provides a [Python-style](https://docs.python.org/3/tutorial/datast
 * A list can contain different data types at the same time.
 
 Beyond Python lists emulation, you'll also find:
+* List initialization with a powerful constructor or from C language tables
 * Conversion from or to [arrays](https://en.wikipedia.org/wiki/Array_(data_structure))
-* List deduplication or sorted insertion with optional removal of duplicate values
-* List shuffling
+* List deduplication, sorted insertion (with optional removal of duplicate values) or shuffling
 * List joining (beyond concatenation or extension) or splitting
-* [Stacks](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) (push/pop) and [queues](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)) (enqueue/dequeue) management aliases 
+* [Stacks](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) (push/pop) and [queues](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)) (enqueue/dequeue) management aliases
 * Statistics and debugging, including memory allocation followup
 
 With:
