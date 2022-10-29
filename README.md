@@ -93,7 +93,7 @@ Base function | Aliases | Description
 [listPopNth(n)](DOC.md#listpopnthn)|[listPopFirst()](doc.md#listpopfirst) for n=0<br>[listDequeue()](DOC.md#listdequeue) for n=0<br>[listPop()](DOC.md#listpop) for n=-1|Removes the element at the specified position and returns it<br>(you'll have to free it after use with [listClear()](DOC.md#listclear))
 [listRemove()](DOC.md#listremove)||Removes the first item with the specified value
 [listRemoveAll()](DOC.md#listremoveall)||Removes all the items with the specified value
-[listRemoveDuplicates()](DOC.md#listremoveduplicates)||Removes duplicate items in a sorted LIST
+[listRemoveDuplicates()](DOC.md#listremoveduplicates)||Removes adjacent duplicate items in a sorted LIST
 **Clearing lists**||
 [listClear()](DOC.md#listclear)|[listDel()](DOC.md#listdel)<br>[listFree()](DOC.md#listfree)|Removes all the elements of the LIST
 **Structs handling**||
