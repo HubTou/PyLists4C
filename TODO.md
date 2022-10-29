@@ -7,7 +7,7 @@
   * listInsertList(n)
 
 * listComprehension() / listForEach()
-  * Extended version of listFilter() with a user defined function returning a (potentially empty) LIST of elements to insert in the new list for better emulation of Python's [list comprehension](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions) than what listFilter() does
+  * Extended version of listFilter() with a user defined function returning a (potentially empty) LIST of elements to insert in the new list for better emulation of Python's [list comprehension](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions)
 
 * Replacing alias functions with macros?
 
