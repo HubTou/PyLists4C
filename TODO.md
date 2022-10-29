@@ -45,8 +45,6 @@
   * Windows binary distribution?
 
 ## Maybe?
-* Support for [hybrid Python / C language programs](https://docs.python.org/3/extending/extending.html) or [type conversion](https://docs.python.org/3/library/ctypes.html#module-ctypes)?
-
 * listJoinChars()
   * Join adjacent char elements into a single STRING element
 
@@ -62,6 +60,10 @@
 
 * [Tree](https://en.wikipedia.org/wiki/Tree_(data_structure)) data structures functions
   * Which ones?
+
+* Extension of [ctypes](https://docs.python.org/3/library/ctypes.html#module-ctypes) library to the exchange of lists
+
+* Support for [C language extensions for Python](https://docs.python.org/3/extending/extending.html) using lists?
 
 ## Possible other projects
 * [DICT](https://www.w3schools.com/python/python_dictionaries.asp) elements
