@@ -6,6 +6,9 @@
   * listDelRange(n, m)
   * listInsertList(n)
 
+* listComprehension()
+  * Extended version of listFilter() with a user defined function returning a (potentially empty) LIST of elements to insert in the new list 
+
 * Replacing alias functions with macros?
 
 ## Generic needs
