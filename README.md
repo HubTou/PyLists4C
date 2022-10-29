@@ -69,7 +69,7 @@ Base function | Aliases | Description
 **Working with lists**||
 [listCopy()](DOC.md#listcopy)||Returns a copy of the LIST (a full/deep copy as we don't want multiple references to the same values)
 [listSlice(n, m)](DOC.md#listslicenm)<br>[listSliceFrom(n)](DOC.md#listslicefromn)<br>[listSliceTo(m)](DOC.md#listslicetom)||Returns a copy of a slice (i.e.: [n:m]) of a LIST
-[listFilter()](DOC.md#listfilter)|[listComprehension()](DOC.md#listcomprehension)|Returns a filtered copy of the LIST according to a user defined function telling if a LIST_ELEMENT should be included or not
+[listFilter()](DOC.md#listfilter)||Returns a filtered copy of the LIST according to a user defined function telling if a LIST_ELEMENT should be included or not
 [listConcat()](DOC.md#listconcat)||Returns a new LIST with the concatenation of the elements of LIST1 and LIST2
 [listExtend()](DOC.md#listextend)||Adds a copy of the elements of the second LIST to the end of the first one
 [listJoin()](DOC.md#listjoin)||Moves the elements of the second LIST to the end of the first one
