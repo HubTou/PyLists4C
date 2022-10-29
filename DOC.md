@@ -18,7 +18,7 @@ make install clean
 
 If you have super-user access rights, the library will be installed system-wide. Else it will be installed under your HOME directory just for you.
 
-On GNU/Linux systems, under unpriviledged but "rootable" accounts, you just need to use [sudo](https://www.sudo.ws/) to perform a system-wide install:
+On GNU/Linux systems, under unpriviledged accounts, you just need to use [sudo](https://www.sudo.ws/) to perform a system-wide install:
 
 ```bash
 cd src
@@ -1131,13 +1131,11 @@ listClear(&pList);
 ```
 
 ### listFilter()
-### listComprehension()
 Returns a filtered copy of the LIST according to a user defined function telling if a LIST_ELEMENT should be included or not
 ```C
 extern LIST* listFilter(LIST* pList, BOOLEAN (*pMyInclusionFunction)(LIST_ELEMENT element));
 extern LIST* listComprehension(LIST* pList, BOOLEAN (*pMyInclusionFunction)(LIST_ELEMENT element)); // listFilter() alias
 ```
-:warning: listComprehension() currently only offers a subset of what can be done with list comprehension in Python...
 
 Example use:
 ```C
