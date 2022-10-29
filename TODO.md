@@ -6,8 +6,8 @@
   * listDelRange(n, m)
   * listInsertList(n)
 
-* listComprehension()
-  * Extended version of listFilter() with a user defined function returning a (potentially empty) LIST of elements to insert in the new list 
+* listComprehension() / listForEach()
+  * Extended version of listFilter() with a user defined function returning a (potentially empty) LIST of elements to insert in the new list for better emulation of Python's [list comprehension](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions) than what listFilter() does
 
 * Replacing alias functions with macros?
 
@@ -59,14 +59,6 @@
 * listSortedByMerge()
   * Cf. [man 3 qsort](https://www.freebsd.org/cgi/man.cgi?query=qsort&sektion=3)
 * Other [sorting algorithms](https://en.wikipedia.org/wiki/Sorting_algorithm)?
-
-* listForeach()
-  * Calls a user-defined function for each element
-    * Really useful?
-
-* src/filter.c
-  * listComprehension()
-    * Better emulation of Python's [list comprehension](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions)?
 
 * [Tree](https://en.wikipedia.org/wiki/Tree_(data_structure)) data structures functions
   * Which ones?
