@@ -14,8 +14,6 @@
   * [Raspberry Pi OS](https://pi.gate.ac.uk/pages/package.html)
   * [Ubuntu](https://packaging.ubuntu.com/html/packaging-new-software.html)
   * [Debian](https://www.debian.org/doc/manuals/maint-guide/)
-  * [Windows package](https://learn.microsoft.com/en-us/windows/package-manager/package/repository)
-  * Windows binary distribution?
   * ...
 
 * [Documentation](DOC.md) translation
@@ -27,9 +25,11 @@
   * STRUCTs declaration
     * Declared in list() with braces. For example: (subtype, int:x, int:y)
 
-* listFromFile() / list[Readlines](https://docs.python.org/3/library/io.html?highlight=readlines#io.IOBase.readlines)()
-* listToFile() / list[Writelines](https://docs.python.org/3/library/io.html?highlight=writelines#io.IOBase.writelines)()
-  * Loading & Writing from/to an ASCII text file, line by line
+* list[Readlines](https://docs.python.org/3/library/io.html?highlight=readlines#io.IOBase.readlines)() / list[Writelines](https://docs.python.org/3/library/io.html?highlight=writelines#io.IOBase.writelines)()
+  * Loading or writing a LIST of STRINGs from/to an ASCII text file, line by line
+
+* listFromFile() / listToFile()
+  * Initializing a LIST from/to an ASCII text file, list() like
 
 * ETYPE support
   * STRUCT elements documentation: provide an example and a test program 
@@ -37,8 +37,18 @@
   * ARRAY elements support
     * Declared in list() with angle-brackets. For example: <int:1, 2, 3> (only the first element will need a type indicator if it's not supposed to be a long) 
 
+* Windows DLL port
+  * [Windows package](https://learn.microsoft.com/en-us/windows/package-manager/package/repository)
+  * Windows binary distribution?
+
 ## Maybe?
 * Support for [hybrid Python / C language programs](https://docs.python.org/3/extending/extending.html) or [type conversion](https://docs.python.org/3/library/ctypes.html#module-ctypes)?
+
+* listJoinChars()
+  * Join adjacent char elements into a single STRING element
+
+* listJoinStrings()
+  * Join adjacent STRING elements into a single STRING element
 
 * list{Contains, Count, Index, IndexAll}Values()
   * "Regardless of ETYPE" comparison
