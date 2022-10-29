@@ -1617,7 +1617,7 @@ listClear(&pFruits);
 ```
 
 ### listRemoveDuplicates()
-Removes duplicate items in a sorted LIST
+Removes adjacent duplicate items in a sorted LIST
 ```C
 extern void listRemoveDuplicates(LIST* pList);
 ```
