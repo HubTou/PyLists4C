@@ -3,7 +3,6 @@
 
 ## Missing till Release 1.0
 * [listChangeRange(n, m)](https://www.w3schools.com/python/trypython.asp?filename=demo_list_change_range)
-  * listInsertList(n)
 
 * listComprehension() / listForEach()
   * Extended version of listFilter() with a user defined function returning a (potentially empty) LIST of elements to insert in the new list for better emulation of Python's [list comprehension](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions)
