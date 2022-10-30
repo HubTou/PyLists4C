@@ -3,7 +3,6 @@
 
 ## Missing till Release 1.0
 * [listChangeRange(n, m)](https://www.w3schools.com/python/trypython.asp?filename=demo_list_change_range)
-  * listDelRange(n, m)
   * listInsertList(n)
 
 * listComprehension() / listForEach()
