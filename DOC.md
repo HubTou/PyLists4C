@@ -32,7 +32,9 @@ cd src
 .\MakeWin.cmd
 ```
 
-If you don't have a C compiler command line toolchain, the script will guide you to set up a minimal one...
+If you don't have a C compiler command line toolchain, the script will guide you to set up a minimal one using the LLVM [Clang](https://clang.llvm.org/) C compiler and Microsoft [Visual Studio](https://visualstudio.microsoft.com/) Community edition for the Windows SDK and C Runtime.
+
+There is no installation *per se* at this time, you just have to put the library's DLL in the same directory than your programs...
 
 ### Tests
 The library has been successfully compiled and tested on:
