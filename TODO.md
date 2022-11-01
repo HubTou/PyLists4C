@@ -13,6 +13,7 @@
   * [Raspberry Pi OS](https://pi.gate.ac.uk/pages/package.html)
   * [Ubuntu](https://packaging.ubuntu.com/html/packaging-new-software.html)
   * [Debian](https://www.debian.org/doc/manuals/maint-guide/)
+  * [Windows](https://learn.microsoft.com/en-us/windows/package-manager/package/repository)
   * ...
 
 * [Documentation](DOC.md) translation
@@ -35,10 +36,6 @@
   * NULL elements support (already partial)
   * ARRAY elements support
     * Declared in list() with angle-brackets. For example: <int:1, 2, 3> (only the first element will need a type indicator if it's not supposed to be a long) 
-
-* Windows DLL port
-  * [Windows package](https://learn.microsoft.com/en-us/windows/package-manager/package/repository)
-  * Windows binary distribution?
 
 ## Maybe?
 * listJoinChars()
