@@ -11,6 +11,7 @@ If your favourite Operating System has a package for this library, then install 
 
 Else, you'll just need (at least) an ISO C 1999 compiler (because some of the C types we use did not exist before that C language version), then go into the source code directory and compile the library yourself:
 
+### Unix-like systems
 ```bash
 cd src
 make install clean
@@ -24,6 +25,14 @@ On GNU/Linux systems, under unpriviledged accounts, you just need to use [sudo](
 cd src
 sudo make install clean
 ```
+
+### Windows systems
+```Batchfile
+cd src
+.\MakeWin.cmd
+```
+
+If you don't have a C compiler command line toolchain, the script will guide you to set up a minimal one...
 
 ### Tests
 The library has been successfully compiled and tested on:
