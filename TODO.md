@@ -5,8 +5,6 @@
 * listComprehension() / listForEach()
   * Extended version of listFilter() with a user defined function returning a (potentially empty) LIST of elements to insert in the new list for better emulation of Python's [list comprehension](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions)
 
-* Replacing alias functions with macros?
-
 ## Generic needs
 * Operating systems packages creation and maintenance
   * [FreeBSD](https://docs.freebsd.org/en/books/porters-handbook/book/)
