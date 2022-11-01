@@ -34,7 +34,7 @@ cd src
 
 If you don't have a C compiler command line toolchain, the script will guide you to set up a minimal one using the LLVM [Clang](https://clang.llvm.org/) C compiler and Microsoft [Visual Studio](https://visualstudio.microsoft.com/) Community edition for the Windows SDK and C Runtime.
 
-There is no installation *per se* at this time, you just have to put the library's DLL in the same directory than your programs...
+There is no installation *per se* at this time.
 
 ### Tests
 The library has been successfully compiled and tested on:
@@ -44,7 +44,8 @@ The library has been successfully compiled and tested on:
 * [Windows](https://www.microsoft.com/windows/get-windows-10) 10 with [Clang](https://clang.llvm.org/) 15 and  [Windows SDK](https://developer.microsoft.com/windows/downloads/sdk-archive/) 10.0.20348.0
 
 ## Use within your own programs
-### System-wide installations
+### Unix-like systems
+#### System-wide installations
 If the library has been installed system-wide, you just have to:
 * Include the library header in your programs:
 ```C
@@ -66,7 +67,7 @@ CFLAGS += -I/usr/local/include
 LDFLAGS += -L/usr/local/lib -lpylists4c
 ```
 
-### User-only installations
+#### User-only installations
 If you have only installed the library in your user account, you have to replace the LDFLAGS statement above with the following in your Makefile:
 ```C
 CFLAGS += -I$(HOME)/include
@@ -78,11 +79,20 @@ And also to add the following in your shell startup execution script (.profile, 
 export LD_LIBRARY_PATH=${HOME}/lib:${LD_LIBRARY_PATH}
 ```
 
-### Static or dynamic?
+#### Static or dynamic?
 By default the dynamic version of the library will be used, which is what most people will want.
 
 If you want the static version instead, you'll have to add the following in your Makefile:
 * -static in the LDFLAGS definition
+
+### Windows systems
+#### Building your programs ####
+You'll need either to copy the **pylists4c.\*** files in the library's source code directory into your own source code directory, or reference them using the -I and -L C compiler options, before attempting to compile your programs
+
+Check the examples in the *tests* subdirectory for additional guidance.
+
+#### Running/distributing your programs ####
+You'll just have to bundle the **pylists4c.dll** file with your own programs.
 
 # Data structures
 ## Glossary and conventions
