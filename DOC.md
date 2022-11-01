@@ -30,6 +30,7 @@ The library has been successfully compiled and tested on:
 * [FreeBSD](https://www.freebsd.org/) 13.1 with [Clang](https://clang.llvm.org/) 13
 * [Ubuntu](https://ubuntu.com/) 20.4 GNU/Linux with [GCC](https://gcc.gnu.org/) 9.4 (under [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install))
 * [Debian](https://www.debian.org/) 9.13 GNU/Linux with [GCC](https://gcc.gnu.org/) 6.3 (under [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install))
+* [Windows](https://www.microsoft.com/windows/get-windows-10) 10 with [Clang](https://clang.llvm.org/) 15 and  [Windows SDK](https://developer.microsoft.com/windows/downloads/sdk-archive/) 10.0.20348.0
 
 ## Use within your own programs
 ### System-wide installations
