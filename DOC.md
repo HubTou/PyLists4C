@@ -87,7 +87,7 @@ If you want the static version instead, you'll have to add the following in your
 
 ### Windows systems
 #### Building your programs ####
-You'll need either to copy the **pylists4c.\*** files in the library's source code directory into your own source code directory, or reference them using the -I and -L C compiler options, before attempting to compile your programs
+You'll need either to copy the **pylists4c.\*** files (.h .lib .exp .dll) in the library's source code directory into your own source code directory, or reference them using the -I and -L C compiler options, before attempting to compile your programs
 
 Check the examples in the *tests* subdirectory for additional guidance.
 
