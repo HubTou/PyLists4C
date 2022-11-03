@@ -453,8 +453,8 @@ listClear(&pList);
 Adds an element at the end of a LIST
 ```C
 extern STATUS listAppend(LIST** ppList, void* pValue, ETYPE type, size_t size);
-extern STATUS listPush(LIST** ppList, void* pValue, ETYPE type, size_t size); // listAppend() alias
-extern STATUS listEnqueue(LIST** ppList, void* pValue, ETYPE type, size_t size); // listAppend() alias
+#define listPush listAppend
+#define listEnqueue listAppend
 ```
 * *ppList* is the address of your LIST pointer as the first element will change if your LIST was empty.
 
@@ -485,7 +485,7 @@ listClear(&pAstronauts);
 Adds an element at the start of a LIST
 ```C
 extern STATUS listInsertFirst(LIST** ppList, void* pValue, ETYPE type, size_t size);
-extern STATUS listPrepend(LIST** ppList, void* pValue, ETYPE type, size_t size); // listInsertFirst() alias
+#define listPrepend listInsertFirst
 ```
 * *ppList* is the address of your LIST pointer as the first element will, by design, always change!
 
@@ -600,8 +600,8 @@ For example:
 Returns a pointer to a string containing a [Python-style LIST representation](DOC.md#displaying-lists)
 ```C
 extern STRING listStr(LIST* pList);
-extern STRING listAscii(LIST* pList); // listStr() alias
-extern STRING listRepr(LIST* pList); // listStr() alias
+#define listAscii listStr
+#define listRepr listStr
 ```
 :warning: You'll have to free it after use with [listFreeStr()](DOC.md#listfreestr)
 
@@ -809,8 +809,8 @@ listClear(&pFruits);
 Returns a LIST of all the indexes of the elements with the specified value
 ```C
 extern LIST* listIndexAll(LIST* pList, void* pValue, ETYPE type, size_t size);
-extern LIST* listFind(LIST* pList, void* pValue, ETYPE type, size_t size); // listIndexAll() alias
-extern LIST* listSearch(LIST* pList, void* pValue, ETYPE type, size_t size); // listIndexAll() alias
+#define listFind listIndexAll
+#define listSearch listIndexAll
 ```
 
 Example use:
@@ -1515,7 +1515,7 @@ listClear(&pList);
 ### listDelFirst()
 Equivalent to listDelNth(0)
 ```C
-extern void listDelFirst(LIST** ppList); // listDelNth(0) alias
+#define listDelFirst(ppList) listDelNth(ppList, 0)
 ```
 Example use:
 ```C
@@ -1529,7 +1529,7 @@ listClear(&pList);
 ### listDelLast()
 Equivalent to listDelNth(-1)
 ```C
-extern void listDelLast(LIST** ppList); // listDelNth(-1) alias
+#define listDelLast(ppList) listDelNth(ppList, -1)
 ```
 Example use:
 ```C
@@ -1565,8 +1565,8 @@ listClear(&pList);
 ### listDequeue()
 Equivalent to listPopNth(0)
 ```C
-extern LIST* listPopFirst(LIST** ppList); // listPopNth(-1) alias
-extern LIST* listDequeue(LIST** ppList); // listPopNth(-1) alias
+#define listPopFirst(ppList) listPopNth(ppList, 0)
+#define listPopDequeue(ppList) listPopNth(ppList, 0)
 ```
 Example use:
 ```C
@@ -1585,7 +1585,7 @@ listClear(&pList);
 ### listPop()
 Equivalent to listPopNth(-1)
 ```C
-extern LIST* listPop(LIST** ppList); // listPopNth(-1) alias
+#define listPop(ppList) listPopNth(ppList, -1)
 ```
 ```C
 LIST* pList = list("1, 2, 3");
@@ -1661,8 +1661,8 @@ listClear(&pList);
 Removes all the elements of the LIST
 ```C
 extern void listClear(LIST** ppList);
-extern void listDel(LIST** ppList); // listClear() alias
-extern void listFree(LIST** ppList); // listClear() alias
+#define listDel(ppList) listClear(ppList)
+#define listFree(ppList) listClear(ppList)
 ```
 The LIST pointer is resetted to NULL after use.
 
