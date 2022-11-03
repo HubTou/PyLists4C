@@ -461,7 +461,6 @@ extern STATUS listAppend(LIST** ppList, void* pValue, ETYPE type, size_t size);
 In case of FAILURE return code (which can only happen in case of memory allocation error), the existing LIST is unaffected.
 If you don't want to test the result of each STATUS returning function call, you can use the [listSetFatalMallocErrors(TRUE)](DOC.md#listSetFatalMallocErrors) function at the start of your program to make it exit on any memory allocation error (anyway it'll be difficult to continue if there is no more memory available...)
  
-
 Example use:
 ```C
 LIST* pAstronauts = NULL;
@@ -567,7 +566,6 @@ Inserts a copy of the elements of a LIST at the Nth position of another LIST
 ```C
 extern void listInsertList(LIST** ppTarget, long n, LIST* pSource);
 ```
-
 Example use:
 ```C
 LIST* pList = list("1, 4");
@@ -600,6 +598,24 @@ listChange(pFabFour, 3, fourthMember, ETYPE_STRING, strlen(fourthMember) + 1);
 // listChangeString(pFabFour, 3, "ringo");
 ...
 listClear(&pFabFour);
+```
+
+### listChangeSlice(n, m)
+Changes the elements at the defined LIST slice with those from the second LIST
+```C
+extern void listChangeSlice(LIST** ppTarget, long n, long m, LIST* pSource);
+```
+* As always with slices the lower bound *n* is included and the upper one *m* is excluded  
+
+Example use:
+```C
+LIST* pList = list("1, 3, 2, 4");
+LIST* pList2 = list("2, 3");
+listChangeSlice(&pList, 1, 3, pList2);
+// pList now is [1, 2, 3, 4]
+...
+listClear(&pList);
+listClear(&pList2);
 ```
 
 ## Displaying lists
@@ -835,7 +851,6 @@ extern LIST* listIndexAll(LIST* pList, void* pValue, ETYPE type, size_t size);
 #define listFind listIndexAll
 #define listSearch listIndexAll
 ```
-
 Example use:
 ```C
 LIST* pFruits = list("'apple', 'banana', 'mango', 'pear', 'banana'");
@@ -1185,7 +1200,6 @@ Returns a filtered copy of the LIST according to a user defined function telling
 extern LIST* listFilter(LIST* pList, BOOLEAN (*pMyInclusionFunction)(LIST_ELEMENT element));
 extern LIST* listComprehension(LIST* pList, BOOLEAN (*pMyInclusionFunction)(LIST_ELEMENT element)); // listFilter() alias
 ```
-
 Example use:
 ```C
 #include <stdio.h>
@@ -1417,7 +1431,6 @@ Returns a reversed copy of a LIST
 ```C
 extern LIST* listReversed(LIST* pList);
 ```
-
 Example use:
 ```C
 LIST* pList = list("1, 2, 3, 4");
@@ -1450,7 +1463,6 @@ Returns a shuffled copy of a LIST
 ```C
 extern LIST* listShuffled(LIST** ppList);
 ```
-
 Example use:
 ```C
 LIST* pList = list("1, 2, 3, 4");
@@ -1532,7 +1544,6 @@ Removes the element at the specified position
 ```C
 extern void listDelNth(LIST** ppList, long n);
 ```
-
 Example use:
 ```C
 LIST* pList = list("1, 2, 3");
@@ -1547,7 +1558,6 @@ Equivalent to listDelNth(0)
 ```C
 #define listDelFirst(ppList) listDelNth(ppList, 0)
 ```
-
 Example use:
 ```C
 LIST* pList = list("1, 2, 3");
@@ -1562,12 +1572,29 @@ Equivalent to listDelNth(-1)
 ```C
 #define listDelLast(ppList) listDelNth(ppList, -1)
 ```
-
 Example use:
 ```C
 LIST* pList = list("1, 2, 3");
 listDelLast(&pList);
 // pList now is [1, 2]
+...
+listClear(&pList);
+```
+
+### listDelSlice(n, m)
+Removes the elements at the specified slice
+```C
+extern void listDelSlice(LIST** ppList, long n, long m);
+```C```
+* As always with slices the lower bound *n* is included and the upper one *m* is excluded  
+
+Example use:
+```C
+LIST* pList = list("'Nikolaï Antipov', 'Joseph Staline', 'Serguei Kirov', 'Nikolaï Chvernik'");
+listDelNth(&pList, 0);
+// pList now is ['Joseph Staline', 'Serguei Kirov', 'Nikolaï Chvernik']
+litDelSlice(&pList, 1, 10);
+// pList now is ['Joseph Staline']
 ...
 listClear(&pList);
 ```
@@ -1621,6 +1648,7 @@ Equivalent to listPopNth(-1)
 ```C
 #define listPop(ppList) listPopNth(ppList, -1)
 ```
+Example use:
 ```C
 LIST* pList = list("1, 2, 3");
 LIST* pElement = NULL;
@@ -1702,7 +1730,7 @@ The LIST pointer is resetted to NULL after use.
 
 :warning: Contrarily to what Python does, listDel() only clears the LIST (i.e.: reset it to 0 elements), but does not destroy it.
 
-Example uses provided all through this documentation 😄...
+Example uses provided all through this documentation. It should be clear by now that you have to clear your lists after use 😄...
 
 ## Structs handling
 ### listSetStructSize()
