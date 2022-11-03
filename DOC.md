@@ -89,7 +89,7 @@ If you want the static version instead, you'll have to add the following in your
 #### Building your programs ####
 You'll need either to copy the **pylists4c.\*** files (.h .lib .exp .dll) in the library's source code directory into your own source code directory, or reference them using the -I and -L C compiler options, before attempting to compile your programs
 
-Check the examples in the *tests* subdirectory for additional guidance.
+Check the examples in the [tests](tests/) subdirectory for additional guidance.
 
 #### Running/distributing your programs ####
 You'll just have to bundle the **pylists4c.dll** file with your own programs.
