@@ -25,13 +25,14 @@
 * list[Readlines](https://docs.python.org/3/library/io.html?highlight=readlines#io.IOBase.readlines)() / list[Writelines](https://docs.python.org/3/library/io.html?highlight=writelines#io.IOBase.writelines)()
   * Loading or writing a LIST of STRINGs from/to an ASCII text file, line by line
 
-* listRange(n):
-  * like Python's range(n) function 
+* listRange():
+  * like Python's [range()](https://docs.python.org/fr/3/tutorial/controlflow.html#the-range-function) function 
 
 * listFromFile() / listToFile()
   * Initializing a LIST from/to an ASCII text file, list() like
 
-* ETYPE support
+* ETYPE support[
+](https://docs.python.org/fr/3/tutorial/controlflow.html#the-range-function)
   * STRUCT elements documentation: provide an example and a test program 
   * NULL elements support (already partial)
   * ARRAY elements support
