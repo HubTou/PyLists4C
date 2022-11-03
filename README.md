@@ -21,6 +21,7 @@ With:
 * Over 60 base functions,
 * Plus over 320 convenience type-oriented functions and intuitive aliases,
 * High modularity so your linker only includes what you use in your own executables,
+* Identical behavior across Unix-like and Windows operating systems for your programs portability,
 * Extensive [documentation](DOC.md) with examples for almost everything,
 * And friendly [BSD license](License), for open and free usage.
 
