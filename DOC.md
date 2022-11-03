@@ -1911,3 +1911,4 @@ Example use:
 // If you have more than 0 bytes allocated, you probably have a memory leak somewhere...
 printf("Allocated memory: %lu\n", listGetAllocatedMemory());
 ```
+
