@@ -528,6 +528,8 @@ listInsert(&pList, 2, &v, ETYPE_LONG, sizeof(v));
 
 // or, more simply:
 // listInsertLong(&pList, 2, 5);
+...
+listClear(&pList);
 ```
 
 ### listInsertSorted()
@@ -556,6 +558,25 @@ listInsertSorted(&pList, &v, ETYPE_LONG, sizeof(v), FALSE, FALSE, FALSE);
 
 // or, more simply:
 // listInsertSortedLong(&pList, 5, FALSE, FALSE, FALSE);
+...
+listClear(&pList);
+```
+
+### listInsertList(n)
+Inserts a copy of the elements of a LIST at the Nth position of another LIST
+```C
+extern void listInsertList(LIST** ppTarget, long n, LIST* pSource);
+```
+
+Example use:
+```C
+LIST* pList = list("1, 4");
+LIST* pList2 = list("2, 3");
+listInsertList(&pList, 1, pList2);
+// pList now is [1, 2, 3, 4]
+...
+listClear(&pList);
+listClear(&pList2);
 ```
 
 ### listChange(n)
