@@ -566,6 +566,8 @@ Inserts a copy of the elements of a LIST at the Nth position of another LIST
 ```C
 extern void listInsertList(LIST** ppTarget, long n, LIST* pSource);
 ```
+If *n* is greater than the LIST length, your elements will be appended at the end of the LIST.
+
 Example use:
 ```C
 LIST* pList = list("1, 4");
