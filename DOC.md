@@ -52,7 +52,7 @@ If the library has been installed system-wide, you just have to:
 #include <pylists4c.h>
 ```
 
-* Link the library with the rest of your objects. If you're working on a Unix-like system, put something like this in your [Makefile](https://en.wikipedia.org/wiki/Make_(software)):
+* Link the library with the rest of your objects by putting something like this in your [Makefiles](https://en.wikipedia.org/wiki/Make_(software)):
 ```C
 LDFLAGS += -lpylists4c
 
