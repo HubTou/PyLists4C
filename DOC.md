@@ -61,14 +61,14 @@ $(MY_PROGRAM_NAME): $(MY_OBJECTS_FILES)
 ```
 :warning: Beware! The spaces before $(CC) have to be replaced by a TAB character
 
-Compilation (not use) on FreeBSD/Clang will require you to specify the location of the header and library files. You'll have to replace the LDFLAGS statement above with the following in your Makefile:
+Compilation (not use) on FreeBSD/Clang will require you to specify the location of the header and library files. You'll have to replace the LDFLAGS statement above with the following in your Makefiles:
 ```C
 CFLAGS += -I/usr/local/include
 LDFLAGS += -L/usr/local/lib -lpylists4c
 ```
 
 #### User-only installations
-If you have only installed the library in your user account, you have to replace the LDFLAGS statement above with the following in your Makefile:
+If you have only installed the library in your user account, you have to replace the LDFLAGS statement above with the following in your Makefiles:
 ```C
 CFLAGS += -I$(HOME)/include
 LDFLAGS += -L$(HOME)/lib -lpylists4c
