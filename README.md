@@ -109,7 +109,7 @@ Base function | Aliases | Description
 [listGetAllocatedMemory()](DOC.md#listgetallocatedmemory)||Returns the quantity of allocated/unfreed memory used by this library
 
 ## Where to go from here?
-Interested? Then go to the [documentation](DOC.md) to learn more about this library and find multiple examples.
+Interested? Then go to the [documentation](DOC.md) to learn more about this library and find multiple [examples](tests/).
 
 Still missing something? Then go to the [discussions](https://github.com/HubTou/PyLists4C/discussions) and tell me!
 
@@ -117,10 +117,10 @@ Encountering an issue? Then report it in the [issues](https://github.com/HubTou/
 
 Happy with it? Then please help me promote this library.
 * Go, tell it on the mountain(s), over the hills and everywhere!
-* If your code is on GitHub, reference your own creations with the [pylists4c](https://github.com/topics/pylists4c) topic
+* If your code is also on GitHub, reference your own creations with the [pylists4c](https://github.com/topics/pylists4c) topic
 
 Volunteering to contribute? Then check our [evolution ideas](TODO.md). For example:
 * Make a package for your favourite operating system
-* Translate the documentation
+* Translate the [documentation](DOC.md)
 * Help with missing features and evolution ideas
 * ...
