@@ -489,6 +489,8 @@ extern STATUS listInsertFirst(LIST** ppList, void* pValue, ETYPE type, size_t si
 ```
 * *ppList* is the address of your LIST pointer as the first element will, by design, always change!
 
+Equivalent to listInsert(0) though optimized.
+
 In case of FAILURE return code, the LIST is unaffected.
 
 Example use:
