@@ -1281,8 +1281,6 @@ int main()
     listClear(&pDigits);
     listClear(&pOddDigitsSquares);
 
-    printf("\nAllocated memory: %lu\n", listGetAllocatedMemory());
-
     return 0;
 }
 ```
