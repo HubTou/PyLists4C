@@ -40,7 +40,7 @@ Base function | Aliases | Description
 [listInsertSorted()](DOC.md#listinsertsorted)||Inserts an element in a sorted LIST
 [listInsertList(n)](DOC.md#listinsertlistn)||Inserts a copy of the elements of a LIST at the Nth position of another LIST
 [listChange(n)](DOC.md#listchangen)||Changes the value of the element at the Nth position of a LIST
-[listChangeSlice(n, m)](DOC.md#listinsertchangeslicenm)||Changes the elements at the defined LIST slice with those from the second LIST
+[listChangeSlice(n, m)](DOC.md#listchangeslicenm)||Changes the elements at the defined LIST slice with those from the second LIST
 **Displaying lists**||
 [listStr()](DOC.md#liststr)|[listAscii()](DOC.md#listascii)<br>[listRepr()](DOC.md#listrepr)|Returns a pointer to a string containing a [Python-style LIST representation](DOC.md#displaying-lists)
 [listFreeStr()](DOC.md#listfreestr)||Frees the memory allocated to a [Python-style LIST representation](DOC.md#displaying-lists)
