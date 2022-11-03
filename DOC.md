@@ -966,6 +966,8 @@ printf("%ld\n", listValueString(listGet(1)));
 // "b\n" is printed to stdout
 printf("%ld\n", listValueString(listGet(-2)));
 // "b\n" is also printed to stdout
+...
+listClear(&pList);
 ```
 
 ### listGetLast()
@@ -982,6 +984,8 @@ Example use:
 LIST* pList = list("'a', 'b', 'c'");
 printf("%ld\n", listValueString(listGetLast()));
 // "c\n" is printed to stdout
+...
+listClear(&pList);
 ```
 
 ### listSetIterator()
@@ -1413,6 +1417,7 @@ Returns a reversed copy of a LIST
 ```C
 extern LIST* listReversed(LIST* pList);
 ```
+
 Example use:
 ```C
 LIST* pList = list("1, 2, 3, 4");
@@ -1445,6 +1450,7 @@ Returns a shuffled copy of a LIST
 ```C
 extern LIST* listShuffled(LIST** ppList);
 ```
+
 Example use:
 ```C
 LIST* pList = list("1, 2, 3, 4");
@@ -1526,6 +1532,7 @@ Removes the element at the specified position
 ```C
 extern void listDelNth(LIST** ppList, long n);
 ```
+
 Example use:
 ```C
 LIST* pList = list("1, 2, 3");
@@ -1540,6 +1547,7 @@ Equivalent to listDelNth(0)
 ```C
 #define listDelFirst(ppList) listDelNth(ppList, 0)
 ```
+
 Example use:
 ```C
 LIST* pList = list("1, 2, 3");
@@ -1554,6 +1562,7 @@ Equivalent to listDelNth(-1)
 ```C
 #define listDelLast(ppList) listDelNth(ppList, -1)
 ```
+
 Example use:
 ```C
 LIST* pList = list("1, 2, 3");
@@ -1568,6 +1577,8 @@ Removes the element at the specified position and returns it (you'll have to fre
 ```C
 extern LIST* listPopNth(LIST** ppList, long n);
 ```
+* The function returns a LIST* instead of a LIST_ELEMENT as a reminder that you'll have to free it after use.
+
 Will return NULL if *n* is greater than the LIST length.
 
 Example use:
