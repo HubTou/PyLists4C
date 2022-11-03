@@ -12,6 +12,9 @@
 
 * [Documentation](DOC.md) translation
 
+* Testing on more operating systems & hardware architectures:
+  * [Raspberry Pi](https://www.raspberrypi.com/) 
+
 ## For future releases
 * src/list.c
   * exponents support
@@ -21,6 +24,9 @@
 
 * list[Readlines](https://docs.python.org/3/library/io.html?highlight=readlines#io.IOBase.readlines)() / list[Writelines](https://docs.python.org/3/library/io.html?highlight=writelines#io.IOBase.writelines)()
   * Loading or writing a LIST of STRINGs from/to an ASCII text file, line by line
+
+* listRange(n):
+  * like Python's range(n) function 
 
 * listFromFile() / listToFile()
   * Initializing a LIST from/to an ASCII text file, list() like
