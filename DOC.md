@@ -4,7 +4,7 @@ Coming back to the [C language](https://www.open-std.org/JTC1/SC22/WG14/www/stan
 
 Of course, there are multiple libraries available for that, but none with the power of [what's available in Python](https://www.w3schools.com/python/python_lists.asp), or packaged with too many additional things hindering portability across operating systems.
 
-So here's my attempt to fix this, with all I ever wanted from a C language linked list library...
+So here's my attempt to fix this, with all I ever wanted from a dedicated C language linked list library...
 
 ## Installation
 If your favourite Operating System has a package for this library, then install it like you would do for any other software.
