@@ -1,10 +1,6 @@
 ![alt text](https://github.com/HubTou/PyLists4C/blob/main/logo/pylists4c-logo.png "PyLists4C: Python-style lists for the C language")
 # PyLists4C: Python-style lists for the C language
 
-## Missing till Release 1.0
-* listComprehension() / listForEach()
-  * Extended version of listFilter() with a user defined function returning a (potentially empty) LIST of elements to insert in the new list for better emulation of Python's [list comprehension](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions)
-
 ## Generic needs
 * Operating systems packages creation and maintenance
   * [FreeBSD](https://docs.freebsd.org/en/books/porters-handbook/book/)
