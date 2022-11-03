@@ -1587,7 +1587,7 @@ listClear(&pList);
 Removes the elements at the specified slice
 ```C
 extern void listDelSlice(LIST** ppList, long n, long m);
-```C```
+```
 * As always with slices the lower bound *n* is included and the upper one *m* is excluded  
 
 Example use:
