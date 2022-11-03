@@ -1234,6 +1234,65 @@ int main(int argc, char *argv[])
 }
 ```
 
+### listComprehension()
+### listForEach()
+Returns a new LIST according to a user defined function producing 0-N elements for each LIST_ELEMENT
+```C
+extern LIST* listComprehension(LIST* pList, LIST* (*pMyListComprehensionFunction)(LIST_ELEMENT element));
+#define listForEach listComprehension
+```
+A better attempt at [list comprehension](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions) than the more restricted [listFilter()](#listfilter) function.
+
+Your supplied list comprehension function must return a LIST of 0-N new elements for each given entry element.
+
+If you just want some processing to happen without filling a new list which you would have to clear, just return empty lists (i.e.: NULL).
+
+Example use emulating Python's:
+```Python
+[x**2 for x in range(10) if x%2]
+```
+
+```C
+#include <pylists4c.h>
+
+LIST* onlyOddDigitsSquares(LIST_ELEMENT element)
+{
+    LIST* pSubList = NULL;
+
+    if (element -> type == ETYPE_LONG)
+    {
+        long value = listValueLong(element);
+
+        if (value % 2)
+            (void) listAppendLong(&pSubList, value * value);
+    }
+
+    return pSubList;
+}
+
+int main()
+{
+    LIST* pDigits = list("0, 1, 2, 3, 4, 5, 6, 7, 8, 9");
+    LIST* pOddDigitsSquares = NULL;
+
+    listPrint(pDigits);
+    pOddDigitsSquares = listComprehension(pDigits, onlyOddDigitsSquares);
+    listPrint(pOddDigitsSquares);
+    listClear(&pDigits);
+    listClear(&pOddDigitsSquares);
+
+    printf("\nAllocated memory: %lu\n", listGetAllocatedMemory());
+
+    return 0;
+}
+```
+
+The output will be:
+```
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[1, 9, 25, 49, 81]
+```
+
 ### listConcat()
 Returns a new LIST with the concatenation of the elements of LIST1 and LIST2
 ```C
