@@ -12,8 +12,9 @@
 
 * [Documentation](DOC.md) translation
 
-* Testing on more operating systems & hardware architectures:
-  * [Raspberry Pi](https://www.raspberrypi.com/) 
+* Testing on more operating systems & hardware architectures
+
+* Code secutiry testing
 
 ## For future releases
 * src/list.c
@@ -39,6 +40,8 @@
     * Declared in list() with angle-brackets. For example: <int:1, 2, 3> (only the first element will need a type indicator if it's not supposed to be a long) 
 
 ## Maybe?
+* "Huge lists" version using long long indices instead of long
+
 * listJoinChars()
   * Join adjacent char elements into a single STRING element
 
