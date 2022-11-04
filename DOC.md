@@ -4,7 +4,7 @@ Coming back to the [C language](https://www.open-std.org/JTC1/SC22/WG14/www/stan
 
 Of course, there are multiple libraries available for that, but none with the power of [what's available in Python](https://www.w3schools.com/python/python_lists.asp), or packaged with too many additional things hindering portability across operating systems.
 
-So here's my attempt to fix this, with all I ever wanted from a dedicated C language linked list library...
+So here's my attempt to fix this, with all I ever wanted from a C language dedicated linked list library...
 
 ## Installation
 If your favourite Operating System has a package for this library, then install it like you would do for any other software.
@@ -38,10 +38,13 @@ There is no installation *per se* at this time.
 
 ### Tests
 The library has been successfully compiled and tested on:
-* [FreeBSD](https://www.freebsd.org/) 13.1 with [Clang](https://clang.llvm.org/) 13
-* [Ubuntu](https://ubuntu.com/) 20.4 GNU/Linux with [GCC](https://gcc.gnu.org/) 9.4 (under [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install))
-* [Debian](https://www.debian.org/) 9.13 GNU/Linux with [GCC](https://gcc.gnu.org/) 6.3 (under [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install))
-* [Windows](https://www.microsoft.com/windows/get-windows-10) 10 with [Clang](https://clang.llvm.org/) 15 and  [Windows SDK](https://developer.microsoft.com/windows/downloads/sdk-archive/) 10.0.20348.0
+* x64 architectures:
+  * [FreeBSD](https://www.freebsd.org/) 13.1 with [Clang](https://clang.llvm.org/) 13
+  * [Ubuntu](https://ubuntu.com/) GNU/Linux 20.4 with [GCC](https://gcc.gnu.org/) 9.4 (under [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install))
+  * [Debian](https://www.debian.org/) GNU/Linux 9.13 with [GCC](https://gcc.gnu.org/) 6.3 (under [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install))
+  * [Windows](https://www.microsoft.com/windows/get-windows-10) 10 with [Clang](https://clang.llvm.org/) 15 and  [Windows SDK](https://developer.microsoft.com/windows/downloads/sdk-archive/) 10.0.20348.0
+* aarche64 (ARM) architectures:
+  * [Raspberry Pi OS (64-bit)](https://www.raspberrypi.com/) Debian GNU/Linux 11 with [GCC](https://gcc.gnu.org/) 10.2
 
 ## Use within your own programs
 ### Unix-like systems
@@ -52,7 +55,7 @@ If the library has been installed system-wide, you just have to:
 #include <pylists4c.h>
 ```
 
-* Link the library with the rest of your objects by putting something like this in your [Makefiles](https://en.wikipedia.org/wiki/Make_(software)):
+* Link the library with t [GCC](https://gcc.gnu.org/) 10.2he rest of your objects by putting something like this in your [Makefiles](https://en.wikipedia.org/wiki/Make_(software)):
 ```C
 LDFLAGS += -lpylists4c
 
