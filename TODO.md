@@ -14,7 +14,7 @@
 
 * Testing on more operating systems & hardware architectures
 
-* Code secutiry testing
+* Code security testing
 
 ## For future releases
 * src/list.c
