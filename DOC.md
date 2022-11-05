@@ -608,7 +608,7 @@ listClear(&pFabFour);
 ```
 
 ### listChangeSlice(n, m))
-Changes the elements at the defined LIST [slices](https://docs.python.org/3/library/stdtypes.html#typesseq) with those from the second LIST
+Changes the elements at the defined LIST [slice](https://docs.python.org/3/library/stdtypes.html#typesseq) with those from the second LIST
 ```C
 extern void listChangeSlice(LIST** ppTarget, long n, long m, LIST* pSource);
 ```
@@ -1155,7 +1155,7 @@ listClear(&pList2);
 ### listSlice(n, m)
 ### listSliceFrom(n)
 ### listSliceTo(m)
-Returns a copy of a [slices](https://docs.python.org/3/library/stdtypes.html#typesseq) (i.e.: [n:m]) of a LIST
+Returns a copy of a [slice](https://docs.python.org/3/library/stdtypes.html#typesseq) (i.e.: [n:m]) of a LIST
 ```C
 extern LIST* listSlice(LIST* pList, long n, long m);
 extern LIST* listSliceFrom(LIST* pList, long n);
@@ -1648,7 +1648,7 @@ listClear(&pList);
 ```
 
 ### listDelSlice(n, m)
-Removes the elements at the specified [slices](https://docs.python.org/3/library/stdtypes.html#typesseq)
+Removes the elements at the specified [slice](https://docs.python.org/3/library/stdtypes.html#typesseq)
 ```C
 extern void listDelSlice(LIST** ppList, long n, long m);
 ```
