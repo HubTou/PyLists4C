@@ -5,6 +5,9 @@
 #include <pylists4c.h>
 #include "global.h"
 
+#define MAX_NAME_SIZE 80
+#define BUFFER_SIZE (MAX_NAME_SIZE + 22) // 22 = '[' + 19 digits 64 bits long + ']' + '\0'
+
 /******************************************************************************/
 // FUNCTION: listDebug()
 //     Prints all LIST details to stderr
@@ -16,7 +19,7 @@ EXPORT void listDebug(LIST* pList, STRING name)
 {
     LIST* pElement = NULL;
     long i = 0;
-    char subname[1024];
+    char subname[BUFFER_SIZE];
     char* pCharacter;
 
     pElement = pList;
@@ -56,9 +59,9 @@ EXPORT void listDebug(LIST* pList, STRING name)
             case ETYPE_LIST:
                 fprintf(stderr, "%s (%s, %zu byte%s) --> @%p\n", (pElement -> pValue)?"see below":"[]", "LIST*", pElement -> size, (pElement -> size > 1)?"s":"", pElement -> pNext);
                 if (name == NULL)
-                    snprintf(subname, 1024, "list[%ld]", i);
+                    snprintf(subname, BUFFER_SIZE, "list[%ld]", i);
                 else
-                    snprintf(subname, 1024, "%s[%ld]", name, i);
+                    snprintf(subname, BUFFER_SIZE, "%.*s[%ld]", MAX_NAME_SIZE, name, i);
                 listDebug(pElement -> pValue, subname);
                 break;
             case ETYPE_STRUCT: listDebugStruct(pElement -> pValue, pElement -> size); break;

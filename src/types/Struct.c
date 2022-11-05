@@ -12,6 +12,8 @@ void (*listStringStruct)(STRING buffer, void* pStruct, size_t size) = listString
 void (*listPrintStruct)(void* pStruct, size_t size) = listPrintStructByDefault;
 void (*listDebugStruct)(void* pStruct, size_t size) = listDebugStructByDefault;
 
+#define BUFFER_SIZE 4
+
 /******************************************************************************/
 // FUNCTION: listSetStructSize()
 //     Sets the size of a STRUCT you want to compare
@@ -64,7 +66,7 @@ EXPORT int listCompareStructReversed(const void *p1, const void *p2)
 /******************************************************************************/
 EXPORT void listStringStructByDefault(STRING buffer, void* pStruct, size_t size)
 {
-    char hexa[4];
+    char hexa[BUFFER_SIZE]; // 2 hexadecimal digits + ' ' + '\0'
 
     buffer[0] = 0;
     for (size_t i = 0; i < size; i++)
@@ -73,7 +75,7 @@ EXPORT void listStringStructByDefault(STRING buffer, void* pStruct, size_t size)
 #if ! (defined(_WIN32) || defined(_WIN64) )
         strcat(buffer, hexa);
 #else
-        strcat_s(buffer, 4, hexa);
+        strcat_s(buffer, BUFFER_SIZE, hexa);
 #endif
     }
 }
