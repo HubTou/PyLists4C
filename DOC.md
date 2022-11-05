@@ -43,7 +43,7 @@ The library has been successfully compiled and tested on:
   * [Ubuntu](https://ubuntu.com/) GNU/Linux 20.4 with [GCC](https://gcc.gnu.org/) 9.4 (under [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install))
   * [Debian](https://www.debian.org/) GNU/Linux 9.13 with [GCC](https://gcc.gnu.org/) 6.3 (under [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install))
   * [Windows](https://www.microsoft.com/windows/get-windows-10) 10 with [Clang](https://clang.llvm.org/) 15 and  [Windows SDK](https://developer.microsoft.com/windows/downloads/sdk-archive/) 10.0.20348.0
-* aarche64 (ARM) architectures:
+* aarch64 (ARM) architectures:
   * [Raspberry Pi OS (64-bit)](https://www.raspberrypi.com/) Debian GNU/Linux 11 with [GCC](https://gcc.gnu.org/) 10.2
 
 ## Use within your own programs
@@ -55,7 +55,7 @@ If the library has been installed system-wide, you just have to:
 #include <pylists4c.h>
 ```
 
-* Link the library with t [GCC](https://gcc.gnu.org/) 10.2he rest of your objects by putting something like this in your [Makefiles](https://en.wikipedia.org/wiki/Make_(software)):
+* Link the library with the rest of your objects by putting something like this in your [Makefiles](https://en.wikipedia.org/wiki/Make_(software)):
 ```C
 LDFLAGS += -lpylists4c
 
