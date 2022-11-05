@@ -121,7 +121,7 @@ Encountering an issue? Then report it in the [issues](https://github.com/HubTou/
 
 Happy with it? Then please help me promote this library.
 * Go, tell it on the mountain(s), over the hills and everywhere!
-* If your code is also on GitHub, reference your own creations with the [pylists4c](https://github.com/topics/pylists4c) topic
+* If your code is also on GitHub, reference and co-promote your own creations with the [pylists4c](https://github.com/topics/pylists4c) topic 
 
 Volunteering to contribute? Then check our [evolution ideas](TODO.md). For example:
 * Make a package for your favourite operating system
