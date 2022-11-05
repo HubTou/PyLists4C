@@ -44,12 +44,12 @@ Base function | Aliases | Description
 **Displaying lists**||
 [listStr()](DOC.md#liststr)|[listAscii()](DOC.md#listascii)<br>[listRepr()](DOC.md#listrepr)|Returns a pointer to a string containing a [Python-style LIST representation](DOC.md#displaying-lists)
 [listFreeStr()](DOC.md#listfreestr)||Frees the memory allocated to a [Python-style LIST representation](DOC.md#displaying-lists)
-[listPrint()](DOC.md#listprint)||Prints a [Python-style LIST representation](DOC.md#displaying-lists) to stdout
-[listDebug()](DOC.md#listdebug)||Prints all LIST details to stderr
+[listPrint()](DOC.md#listprint)||Prints a [Python-style LIST representation](DOC.md#displaying-lists) to [stdout](https://en.wikipedia.org/wiki/Standard_streams#Standard_output_(stdout))
+[listDebug()](DOC.md#listdebug)||Prints all LIST details to [stderr](https://en.wikipedia.org/wiki/Standard_streams#Standard_error_(stderr))
 **Getting list information**||
 [listLen()](DOC.md#listlen)||Returns the number of elements in a LIST
 [listStats()](DOC.md#liststats)||Fills statistics about a LIST in one walkthrough
-[listStatsPrint()](DOC.md#liststatsprint)||Prints statistics about a LIST to stdout
+[listStatsPrint()](DOC.md#liststatsprint)||Prints statistics about a LIST to [stdout](https://en.wikipedia.org/wiki/Standard_streams#Standard_output_(stdout))
 **Searching for elements**||
 [listContains()](DOC.md#listcontains)||Tests if a value appears in a LIST
 [listCount()](DOC.md#listcount)||Returns the number of elements with the specified value
@@ -105,11 +105,11 @@ Base function | Aliases | Description
 [listSetStructSize()](DOC.md#listsetstructsize)||Sets the size of a STRUCT you want to compare
 [listSetStructComparator()](DOC.md#listsetstructcomparator)||Sets the function to be used to compare STRUCTs
 [listSetStructStringer()](DOC.md#listsetstructstringer)||Sets the function to be used to string STRUCTs
-[listSetStructPrinter()](DOC.md#listsetstructprinter)||Sets the function to be used to print STRUCTs
-[listSetStructDebugger()](DOC.md#listsetstructdebugger)||Sets the function to be used to debug STRUCTs
+[listSetStructPrinter()](DOC.md#listsetstructprinter)||Sets the function to be used to print STRUCTs to [stdout](https://en.wikipedia.org/wiki/Standard_streams#Standard_output_(stdout))
+[listSetStructDebugger()](DOC.md#listsetstructdebugger)||Sets the function to be used to debug STRUCTs to [stderr](https://en.wikipedia.org/wiki/Standard_streams#Standard_error_(stderr))
 **Miscellaneous**||
-[listSetDebugMessagesDisplay()](DOC.md#listsetdebugmessagesdisplay)||Sets whether or not to print debugging messages to stderr
-[listSetFatalMallocErrors()](DOC.md#listsetfatalmallocerrors)||Sets whether memory allocation errors are fatal or not
+[listSetDebugMessagesDisplay()](DOC.md#listsetdebugmessagesdisplay)||Sets whether or not to print debugging messages to [stderr](https://en.wikipedia.org/wiki/Standard_streams#Standard_error_(stderr))
+[listSetFatalMallocErrors()](DOC.md#listsetfatalmallocerrors)||Sets whether memory allocation errors are fatal or not[stderr](https://en.wikipedia.org/wiki/Standard_streams#Standard_error_(stderr))
 [listGetAllocatedMemory()](DOC.md#listgetallocatedmemory)||Returns the quantity of allocated/unfreed memory used by this library
 
 ## Where to go from here?
