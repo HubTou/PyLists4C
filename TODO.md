@@ -14,7 +14,7 @@
 
 * Testing on [more](DOC.md#tests) operating systems & hardware architectures
 
-* [Additional](DOC.md#tests) code security testing
+* [Additional](DOC.md#tests) code [security testing](security/)
 
 ## For future releases
 * src/list.c
