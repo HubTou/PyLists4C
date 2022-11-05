@@ -445,7 +445,7 @@ extern LIST* listFromTable(void* pTable, ETYPE type, size_t size, long length); 
 Example use:
 ```C
 long anArrayOfLongs[] = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 9};
-long length = 9;
+long length = 12;
 LIST* pList = listFromTable(anArrayOfLongs, ETYPE_LONG, sizeof(long), length);
 // pList now is [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 9]
 ...
@@ -589,7 +589,6 @@ listClear(&pList2);
 Changes the value of the element at the Nth position of a LIST
 ```C
 extern STATUS listChange(LIST* pList, long n, void* pValue, ETYPE type, size_t size);
-extern STATUS listModify(LIST* pList, long n, void* pValue, ETYPE type, size_t size); // listChange() alias
 ```
 In case of FAILURE return code (which can happen either if *n* is greater than the LIST length or in case of memory allocation error), the LIST is unaffected.
 
