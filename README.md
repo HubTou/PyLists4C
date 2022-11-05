@@ -109,7 +109,7 @@ Base function | Aliases | Description
 [listSetStructDebugger()](DOC.md#listsetstructdebugger)||Sets the function to be used to debug STRUCTs to [stderr](https://en.wikipedia.org/wiki/Standard_streams#Standard_error_(stderr))
 **Miscellaneous**||
 [listSetDebugMessagesDisplay()](DOC.md#listsetdebugmessagesdisplay)||Sets whether or not to print debugging messages to [stderr](https://en.wikipedia.org/wiki/Standard_streams#Standard_error_(stderr))
-[listSetFatalMallocErrors()](DOC.md#listsetfatalmallocerrors)||Sets whether memory allocation errors are fatal or not[stderr](https://en.wikipedia.org/wiki/Standard_streams#Standard_error_(stderr))
+[listSetFatalMallocErrors()](DOC.md#listsetfatalmallocerrors)||Sets whether memory allocation errors are fatal or not
 [listGetAllocatedMemory()](DOC.md#listgetallocatedmemory)||Returns the quantity of allocated/unfreed memory used by this library
 
 ## Where to go from here?
