@@ -110,6 +110,7 @@ You'll just have to bundle the **pylists4c.dll** file with your own programs.
 * An **index** is the position of an element in a LIST.
   * Like in Python, indexes are numbered from 0 when you go through a LIST from its beginning, or from -1 when you go through its end.
   * LISTs indexes, lengths and counts are of the C language **long** type. 
+    * If you are wondering if "long indices [ought to be enough for anybody](https://en.wikiquote.org/wiki/Talk:Bill_Gates#640_k/1_MB)", remember that a *long* is 2 Giga elements on a 32 bits machine, but 9 Exa elements (9x10^18!) on a 64 bits machine, which indeed ought to be more than available memory for a long time (and by then, we will have 128+ bits architectures :smile:).
 * An **homogeneous** LIST is a special kind of LIST where all values are of the same type.
 * Pointers variable names are prefixed with a **p** character. Pointers to pointers with **pp** and so on.
   * Thus a ppList parameter means that you'll pass the address of your LIST, enabling the modification of the first element pointer or its NULL-ification if the LIST is emptied. 
