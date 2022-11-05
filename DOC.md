@@ -82,7 +82,7 @@ LDFLAGS += -L$(HOME)/lib -lpylists4c
 
 And also to add the following in your shell startup execution script (.profile, .bash_profile, etc.) and in your current shell instance:
 ```bash
-export LD_LIBRARY_PATH=${HOME}/lib:${LD_LIBRARY_PATH}
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HOME}/lib
 ```
 
 #### Static or dynamic?
