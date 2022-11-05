@@ -175,11 +175,11 @@
 //     listStringStructByDefault():
 //       Default handling of STRUCTs stringing
 //     listSetStructPrinter():
-//       Sets the function to be used to print STRUCTs
+//       Sets the function to be used to print STRUCTs to stdout
 //     listPrintStructByDefault():
 //       Default handling of STRUCTs printing
 //     listSetStructDebugger():
-//       Sets the function to be used to debug STRUCTs
+//       Sets the function to be used to debug STRUCTs to stderr
 //     listDebugStructByDefault():
 //       Default handling of STRUCTs debugging
 //
