@@ -12,9 +12,9 @@
 
 * [Documentation](DOC.md) translation
 
-* Testing on more operating systems & hardware architectures
+* Testing on [more](DOC.md#tests) operating systems & hardware architectures
 
-* Code security testing
+* [Additional](DOC.md#tests) code security testing
 
 ## For future releases
 * src/list.c
@@ -72,4 +72,3 @@
     * What could be missing in C that is [available in Python](https://www.w3schools.com/python/python_strings.asp)?
 
 * ARRAY library?
-
