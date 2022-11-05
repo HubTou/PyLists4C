@@ -46,6 +46,9 @@ The library has been successfully compiled and tested on:
 * [aarch64](https://en.wikipedia.org/wiki/AArch64) (ARM) architectures:
   * [Raspberry Pi OS (64-bit)](https://www.raspberrypi.com/) Debian GNU/Linux 11 with [GCC](https://gcc.gnu.org/) 10.2
 
+The code's security has been tested with:
+* [RATS](https://security.web.cern.ch/recommendations/en/codetools/rats.shtml) 2.4
+
 ## Use within your own programs
 ### Unix-like systems
 #### System-wide installations
