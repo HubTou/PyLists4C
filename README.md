@@ -40,7 +40,7 @@ Base function | Aliases | Description
 [listInsertSorted()](DOC.md#listinsertsorted)||Inserts an element in a sorted LIST
 [listInsertList(n)](DOC.md#listinsertlistn)||Inserts a copy of the elements of a LIST at the Nth position of another LIST
 [listChange(n)](DOC.md#listchangen)||Changes the value of the element at the Nth position of a LIST
-[listChangeSlice(n, m)](DOC.md#listchangeslicen-m)||Changes the elements at the defined LIST slice with those from the second LIST
+[listChangeSlice(n, m)](DOC.md#listchangeslicen-m)||Changes the elements at the defined LIST [slice](https://docs.python.org/3/library/stdtypes.html#typesseq) with those from the second LIST
 **Displaying lists**||
 [listStr()](DOC.md#liststr)|[listAscii()](DOC.md#listascii)<br>[listRepr()](DOC.md#listrepr)|Returns a pointer to a string containing a [Python-style LIST representation](DOC.md#displaying-lists)
 [listFreeStr()](DOC.md#listfreestr)||Frees the memory allocated to a [Python-style LIST representation](DOC.md#displaying-lists)
@@ -71,7 +71,7 @@ Base function | Aliases | Description
 [listAreEqual()](DOC.md#listareequal)||Tests if two LISTs contain the same values
 **Working with lists**||
 [listCopy()](DOC.md#listcopy)||Returns a copy of the LIST (a full/deep copy as we don't want multiple references to the same values)
-[listSlice(n, m)](DOC.md#listslicen-m)<br>[listSliceFrom(n)](DOC.md#listslicefromn)<br>[listSliceTo(m)](DOC.md#listslicetom)||Returns a copy of a slice (i.e.: [n:m]) of a LIST
+[listSlice(n, m)](DOC.md#listslicen-m)<br>[listSliceFrom(n)](DOC.md#listslicefromn)<br>[listSliceTo(m)](DOC.md#listslicetom)||Returns a copy of a [slice](https://docs.python.org/3/library/stdtypes.html#typesseq) (i.e.: [n:m]) of a LIST
 [listFilter()](DOC.md#listfilter)||Returns a filtered copy of the LIST according to a user defined function telling if a LIST_ELEMENT should be included or not
 [listComprehension()](DOC.md#listcomprehension)|[listForEach()](DOC.md#listforeach)|Returns a new LIST according to a user defined function producing 0-N elements for each LIST_ELEMENT
 [listConcat()](DOC.md#listconcat)||Returns a new LIST with the concatenation of the elements of LIST1 and LIST2
@@ -94,7 +94,7 @@ Base function | Aliases | Description
 [listFreeArray()](DOC.md#listfreearray)||Frees the memory allocated to an ARRAY
 **Removing elements**||
 [listDelNth(n)](DOC.md#listdelnthn)|[listDelFirst()](DOC.md#listdelfirst) for n=0<br>[listDelLast()](DOC.md#listdellast) for n=-1|Removes the element at the specified position
-[listDelSlice(n, m)](DOC.md#listdelslicen-m)||Removes the elements at the specified slice
+[listDelSlice(n, m)](DOC.md#listdelslicen-m)||Removes the elements at the specified [slice](https://docs.python.org/3/library/stdtypes.html#typesseq)
 [listPopNth(n)](DOC.md#listpopnthn)|[listPopFirst()](doc.md#listpopfirst) for n=0<br>[listDequeue()](DOC.md#listdequeue) for n=0<br>[listPop()](DOC.md#listpop) for n=-1|Removes the element at the specified position and returns it<br>(you'll have to free it after use with [listClear()](DOC.md#listclear))
 [listRemove()](DOC.md#listremove)||Removes the first item with the specified value
 [listRemoveAll()](DOC.md#listremoveall)||Removes all the items with the specified value
@@ -128,4 +128,3 @@ Volunteering to contribute? Then check our [evolution ideas](TODO.md). For examp
 * Translate the [documentation](DOC.md)
 * Help with missing features and evolution ideas
 * ...
-
