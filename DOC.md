@@ -9,7 +9,7 @@ So here's my attempt to fix this, with all I ever wanted from a C language dedic
 ## Installation
 If your favourite Operating System has a package for this library, then install it like you would do for any other software.
 
-Else, you'll just need (at least) an ISO C 1999 compiler (because some of the C types we use did not exist before that C language version), then go into the source code directory and compile the library yourself:
+Else, you'll just need (at least) an [ISO C 1999](https://en.wikipedia.org/wiki/C99) compiler (because some of the C types we use did not exist before that C language version), then go into the source code directory and compile the library yourself:
 
 ### Unix-like systems
 ```bash
@@ -38,12 +38,12 @@ There is no installation *per se* at this time.
 
 ### Tests
 The library has been successfully compiled and tested on:
-* x64 architectures:
+* [x64](https://en.wikipedia.org/wiki/X86-64) architectures:
   * [FreeBSD](https://www.freebsd.org/) 13.1 with [Clang](https://clang.llvm.org/) 13
   * [Ubuntu](https://ubuntu.com/) GNU/Linux 20.4 with [GCC](https://gcc.gnu.org/) 9.4 (under [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install))
   * [Debian](https://www.debian.org/) GNU/Linux 9.13 with [GCC](https://gcc.gnu.org/) 6.3 (under [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install))
   * [Windows](https://www.microsoft.com/windows/get-windows-10) 10 with [Clang](https://clang.llvm.org/) 15 and  [Windows SDK](https://developer.microsoft.com/windows/downloads/sdk-archive/) 10.0.20348.0
-* aarch64 (ARM) architectures:
+* [aarch64](https://en.wikipedia.org/wiki/AArch64) (ARM) architectures:
   * [Raspberry Pi OS (64-bit)](https://www.raspberrypi.com/) Debian GNU/Linux 11 with [GCC](https://gcc.gnu.org/) 10.2
 
 ## Use within your own programs
@@ -605,12 +605,12 @@ listChange(pFabFour, 3, fourthMember, ETYPE_STRING, strlen(fourthMember) + 1);
 listClear(&pFabFour);
 ```
 
-### listChangeSlice(n, m)
-Changes the elements at the defined LIST slice with those from the second LIST
+### listChangeSlice(n, m))
+Changes the elements at the defined LIST [slices](https://docs.python.org/3/library/stdtypes.html#typesseq) with those from the second LIST
 ```C
 extern void listChangeSlice(LIST** ppTarget, long n, long m, LIST* pSource);
 ```
-* As always with slices the lower bound *n* is included and the upper one *m* is excluded  
+* As always with Python's [slices](https://docs.python.org/3/library/stdtypes.html#typesseq) the lower bound *n* is included and the upper one *m* is excluded  
 
 Example use:
 ```C
@@ -671,7 +671,7 @@ The STRING pointer is resetted to NULL after use.
 Example use provided just above...
 
 ### listPrint()
-Prints a [Python-style LIST representation](DOC.md#displaying-lists) to stdout
+Prints a [Python-style LIST representation](DOC.md#displaying-lists) to [stdout](https://en.wikipedia.org/wiki/Standard_streams#Standard_output_(stdout))
 ```C
 extern void listPrint(LIST* pList);
 ```
@@ -687,7 +687,7 @@ listClear(&pList);
 ```
 
 ### listDebug()
-Prints all LIST details to stderr
+Prints all LIST details to [stderr](https://en.wikipedia.org/wiki/Standard_streams#Standard_error_(stderr))
 ```C
 extern void listDebug(LIST* pList, STRING name);
 ```
@@ -705,7 +705,7 @@ listDebug(pList, "pList");
 listClear(&pList);
 ```
 
-Which would result in the following stderr display:
+Which would result in the following [stderr](https://en.wikipedia.org/wiki/Standard_streams#Standard_error_(stderr)) display:
 ```
 pList[0] = address: @0x800a0a000 / contents: @0x0 <-- 123 (long, 8 bytes) --> @0x800a0a030
 pList[1] = address: @0x800a0a030 / contents: @0x800a0a000 <-- 456.789000 (double, 8 bytes) --> @0x800a0a060
@@ -753,7 +753,7 @@ listStatsPrint(stats, "pList");
 listClear(&pList);
 ```
 
-Which would result in the following stdout display:
+Which would result in the following [stdout](https://en.wikipedia.org/wiki/Standard_streams#Standard_output_(stdout)) display:
 ```
 pList:
   length=6
@@ -771,7 +771,7 @@ pList:
 ```
 
 ### listStatsPrint()
-Prints statistics about a LIST to stdout
+Prints statistics about a LIST to [stdout](https://en.wikipedia.org/wiki/Standard_streams#Standard_output_(stdout))
 ```C
 extern void listStatsPrint(LIST_STATS stats, STRING name);
 ```
@@ -1153,7 +1153,7 @@ listClear(&pList2);
 ### listSlice(n, m)
 ### listSliceFrom(n)
 ### listSliceTo(m)
-Returns a copy of a slice (i.e.: [n:m]) of a LIST
+Returns a copy of a [slices](https://docs.python.org/3/library/stdtypes.html#typesseq) (i.e.: [n:m]) of a LIST
 ```C
 extern LIST* listSlice(LIST* pList, long n, long m);
 extern LIST* listSliceFrom(LIST* pList, long n);
@@ -1166,6 +1166,8 @@ Depending on what you use, *n* and *m* values will go either from 0 to the lengt
 *n* is included in the results, but *m* is not.
 
 You'll get a **copy** of a part of your LIST, so you'll have to free it after use.
+
+:warning: Contrarily with what Python does, we don't provide a way to mention the third "step" argument.
 
 Example uses:
 ```C
@@ -1644,11 +1646,11 @@ listClear(&pList);
 ```
 
 ### listDelSlice(n, m)
-Removes the elements at the specified slice
+Removes the elements at the specified [slices](https://docs.python.org/3/library/stdtypes.html#typesseq)
 ```C
 extern void listDelSlice(LIST** ppList, long n, long m);
 ```
-* As always with slices the lower bound *n* is included and the upper one *m* is excluded  
+* As always with Python's [slices](https://docs.python.org/3/library/stdtypes.html#typesseq) the lower bound *n* is included and the upper one *m* is excluded  
 
 Example use:
 ```C
@@ -1841,7 +1843,7 @@ listSetStructStringer(myStructStringer);
 ```
 
 ### listSetStructPrinter()
-Sets the function to be used to print STRUCTs
+Sets the function to be used to print STRUCTs to [stdout](https://en.wikipedia.org/wiki/Standard_streams#Standard_output_(stdout))
 ```C
 extern void listSetStructPrinter(void (*listStructPrinter)(void* pStruct, size_t size));
 ```
@@ -1858,7 +1860,7 @@ listSetStructPrinter(myStructPrinter);
 ```
 
 ### listSetStructDebugger()
-Sets the function to be used to debug STRUCTs
+Sets the function to be used to debug STRUCTs to [stderr](https://en.wikipedia.org/wiki/Standard_streams#Standard_error_(stderr))
 ```C
 extern void listSetStructDebugger(void (*listStructDebugger)(void* pStruct, size_t size));
 ```
@@ -1876,11 +1878,11 @@ listSetStructDebugger(myStructDebugger);
 
 ## Miscellaneous
 ### listSetDebugMessagesDisplay()
-Sets whether or not to print debugging messages to stderr
+Sets whether or not to print debugging messages to [stderr](https://en.wikipedia.org/wiki/Standard_streams#Standard_error_(stderr))
 ```C
 extern void listSetDebugMessagesDisplay(BOOLEAN display);
 ```
-By default the library will print a few informative messages to stderr in case of errors. You can use this function with a FALSE parameter if you want to prevent that.
+By default the library will print a few informative messages to [stderr](https://en.wikipedia.org/wiki/Standard_streams#Standard_error_(stderr)) in case of errors. You can use this function with a FALSE parameter if you want to prevent that.
 
 Example use:
 ```C
@@ -1914,4 +1916,3 @@ Example use:
 // If you have more than 0 bytes allocated, you probably have a memory leak somewhere...
 printf("Allocated memory: %lu\n", listGetAllocatedMemory());
 ```
-
