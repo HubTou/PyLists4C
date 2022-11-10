@@ -47,7 +47,8 @@ The library has been successfully compiled and tested on:
   * [Raspberry Pi OS (64-bit)](https://www.raspberrypi.com/) Debian GNU/Linux 11 with [GCC](https://gcc.gnu.org/) 10.2
 
 The code's security has been tested with:
-* [RATS](https://security.web.cern.ch/recommendations/en/codetools/rats.shtml) 2.4
+* [RATS](https://code.google.com/archive/p/rough-auditing-tool-for-security/) 2.4
+* [flawfinder](https://dwheeler.com/flawfinder/) 2.0.19
 
 ## Use within your own programs
 ### Unix-like systems
