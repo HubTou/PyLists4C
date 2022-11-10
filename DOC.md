@@ -193,7 +193,7 @@ typedef enum
 {
     ETYPE_UNDEFINED = -1,
     // Empty elements:
-    ETYPE_NULL = 0, // Not implemented
+    ETYPE_NULL = 0,
     ETYPE_CHAR = 1,
     ETYPE_U_CHAR = 2,
     ETYPE_SHORT = 3,
@@ -222,7 +222,6 @@ typedef enum
 Design notes:
 * ETYPE_UNDEFINED is meant for internal use.
 * The following types are placeholders for possible future extensions:
-  * ETYPE_NULL for empty elements (I haven't found a use case for this yet),
   * ETYPE_ARRAY for our [ARRAYs](DOC.md#array-type) as we have defined them anyway (though the same functionalities could be achieved through sub-LISTs),
   * ETYPE_DICT for a possible complementary library of [Python-style dictionaries](https://www.w3schools.com/python/python_dictionaries.asp).
 
@@ -232,7 +231,7 @@ We provide convenience functions for each standard C language types, so you don'
 One thing we can't easily do in C language is to have directly indexed LIST *elements* (i.e.: MyList\[0], MyList\[1] and so on), though we provide a [listGet()](DOC.md#listgetn) base function to access the Nth *element* of a LIST.
 
 In order to make this easier, we provide the [listToArray()](DOC.md#listtoarray) and [listFromArray()](DOC.md#listfromarray) base functions in order to convert between LISTs and ARRAYs.
-These functions, however, only work on *homogeneous LISTs*.
+These functions, however, only work on *homogeneous LISTs* of non ETYPE_NULL elements.
 
 An ARRAY is defined like this:
 ```C
@@ -411,7 +410,7 @@ A LIST declaration string is a comma-separated list of:
 * decimal numbers (\[-]\[0-9]+\\.\[0-9]+) => converted to C language **double** type
 * strings ('.\*' or ".\*" with eventual embedded single or double quotes characters backslash-escaped) => converted to this library **STRING** type
 * lists (\\\[.\*\\]) => converted to this library **LIST** type
-* All the rest is treated as garbage => converted to this library *empty* **STRING** type (so you can notice there was something wrong)
+* All the rest is treated as garbage => converted to this library **ETYPE_NULL** type (so you can notice there was something wrong)
 
 Please note:
 * The decimal separator is a point, not a comma,
@@ -1550,7 +1549,7 @@ extern ARRAY* listToArray(LIST* pList);
 ```
 :warning:  You'll have to free it after use with [listFreeArray()](DOC.md#listfreearray)
 
-:warning: This only works on *homogeneous* LISTs. Else a NULL pointer will be returned.
+:warning: This only works on *homogeneous* LISTs of non ETYPE_NULL elements. Else a NULL pointer will be returned.
 
 :warning: The size of all STRING values is set to the longest one.
 
