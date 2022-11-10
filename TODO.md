@@ -18,8 +18,6 @@
 
 ## For future releases
 * src/list.c
-  * exponents support
-  * type indicators (ex: int:5, float:0.5)
   * STRUCTs declaration
     * Declared in list() with braces. For example: (subtype, int:x, int:y)
 
@@ -27,7 +25,7 @@
   * Loading or writing a LIST of STRINGs from/to an ASCII text file, line by line
 
 * listRange():
-  * like Python's [range()](https://docs.python.org/fr/3/tutorial/controlflow.html#the-range-function) function 
+  * Like Python's [range()](https://docs.python.org/fr/3/tutorial/controlflow.html#the-range-function) function 
 
 * listFromFile() / listToFile()
   * Initializing a LIST from/to an ASCII text file, list() like
