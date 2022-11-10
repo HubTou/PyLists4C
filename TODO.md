@@ -32,12 +32,7 @@
 * listFromFile() / listToFile()
   * Initializing a LIST from/to an ASCII text file, list() like
 
-* ETYPE support[
-](https://docs.python.org/fr/3/tutorial/controlflow.html#the-range-function)
-  * STRUCT elements documentation: provide an example and a test program 
-  * NULL elements support (already partial)
-  * ARRAY elements support
-    * Declared in list() with angle-brackets. For example: <int:1, 2, 3> (only the first element will need a type indicator if it's not supposed to be a long) 
+* STRUCT elements documentation: provide an example and a test program 
 
 ## Maybe?
 * listJoinChars()
@@ -59,6 +54,9 @@
 * Extension of [ctypes](https://docs.python.org/3/library/ctypes.html#module-ctypes) library to the exchange of lists
 
 * Support for [C language extensions for Python](https://docs.python.org/3/extending/extending.html) using lists?
+
+* ARRAY elements support
+  * Declared in list() with angle-brackets. For example: <int:1, 2, 3> (only the first element will need a type indicator if it's not supposed to be a long) 
 
 ## Possible other projects
 * [DICT](https://www.w3schools.com/python/python_dictionaries.asp) elements
