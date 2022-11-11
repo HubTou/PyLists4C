@@ -35,6 +35,8 @@ EXPORT BOOLEAN listContains(LIST* pList, void* pValue, ETYPE type, size_t size)
                 if (pElement -> size == size && ! memcmp(pElement -> pValue, pValue, size))
                     return TRUE;
             }
+            else if (type == ETYPE_NULL)
+                return TRUE;
             else if (! memcmp(pElement -> pValue, pValue, size))
                 return TRUE;
         }

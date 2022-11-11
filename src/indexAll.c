@@ -45,7 +45,7 @@ EXPORT LIST* listIndexAll(LIST* pList, void* pValue, ETYPE type, size_t size)
                         return NULL;
                     }
             }
-            else if (! memcmp(pElement -> pValue, pValue, size))
+            else if (type == ETYPE_NULL || ! memcmp(pElement -> pValue, pValue, size))
                 if (listAppendLong(&pIndexes, i) == FAILURE)
                 {
                     listClear(&pIndexes);

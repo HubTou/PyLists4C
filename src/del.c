@@ -42,7 +42,7 @@ EXPORT void listDelNth(LIST** ppList, long n)
 
         if (pNthElement -> type == ETYPE_LIST)
             listClear((LIST **) &(pNthElement -> pValue));
-        else
+        else if (pNthElement -> type != ETYPE_NULL)
             free(pNthElement -> pValue);
         free(pNthElement);
 

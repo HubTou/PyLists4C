@@ -27,6 +27,9 @@ EXPORT BOOLEAN listAreEqual(LIST* pList1, LIST* pList2, BOOLEAN caseInsensitive)
         if (pList1 -> type != pList2 -> type)
             return FALSE;
 
+        if (pList1 -> type == ETYPE_NULL)
+            return TRUE;
+
         if (pList1 -> type == ETYPE_STRING || pList1 -> type == ETYPE_STRUCT)
         {
             if (pList1 -> size != pList2 -> size)

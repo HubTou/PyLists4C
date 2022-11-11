@@ -33,8 +33,24 @@ EXPORT void listDebug(LIST* pList, STRING name)
         switch (pElement -> type)
         {
             case ETYPE_NULL: fprintf(stderr, "(NULL, "); break;
-            case ETYPE_CHAR: fprintf(stderr, "%c (%s, ", *((char*) pElement -> pValue), "char"); break;
-            case ETYPE_U_CHAR: fprintf(stderr, "%c (%s, ", *((unsigned char*) pElement -> pValue), "unsigned char"); break;
+            case ETYPE_CHAR:
+                if (*((char*) pElement -> pValue) < 0)
+                    fprintf(stderr, "%d (%s, ", (int) *((char*) pElement -> pValue), "char");
+                else if (*((char*) pElement -> pValue) == 127)
+                    fprintf(stderr, "127 (%s, ", "char");
+                else if (*((char*) pElement -> pValue) < ' ')
+                    fprintf(stderr, "%d or '^%c' (%s, ", (int) *((char*) pElement -> pValue), *((char*) pElement -> pValue) + '@', "char");
+                else
+                    fprintf(stderr, "%d or '%c' (%s, ", (int) *((char*) pElement -> pValue), *((char*) pElement -> pValue), "char");
+                break;
+            case ETYPE_U_CHAR:
+                if (*((unsigned char*) pElement -> pValue) < ' ')
+                    fprintf(stderr, "%d or '^%c' (%s, ", (int) *((unsigned char*) pElement -> pValue), *((unsigned char*) pElement -> pValue) + '@', "unsigned char");
+                else if (*((unsigned char*) pElement -> pValue) == 127)
+                    fprintf(stderr, "127 (%s, ", "unsigned char");
+                else
+                    fprintf(stderr, "%d or '%c' (%s, ", (int) *((unsigned char*) pElement -> pValue), *((unsigned char*) pElement -> pValue), "unsigned char");
+                break;
             case ETYPE_SHORT: fprintf(stderr, "%hd (%s, ", *((short*) pElement -> pValue), "short"); break;
             case ETYPE_U_SHORT: fprintf(stderr, "%hu (%s, ", *((unsigned short*) pElement -> pValue), "unsigned short"); break;
             case ETYPE_INT: fprintf(stderr, "%d (%s, ", *((int*) pElement -> pValue), "int"); break;
@@ -43,9 +59,9 @@ EXPORT void listDebug(LIST* pList, STRING name)
             case ETYPE_U_LONG: fprintf(stderr, "%lu (%s, ", *((unsigned long*) pElement -> pValue), "unsigned long"); break;
             case ETYPE_LONG_LONG: fprintf(stderr, "%lld (%s, ", *((long long*) pElement -> pValue), "long long"); break;
             case ETYPE_U_LONG_LONG: fprintf(stderr, "%llu (%s, ", *((unsigned long long*) pElement -> pValue), "unsigned long long"); break;
-            case ETYPE_FLOAT: fprintf(stderr, "%f (%s, ", *((float*) pElement -> pValue), "float"); break;
-            case ETYPE_DOUBLE: fprintf(stderr, "%lf (%s, ", *((double*) pElement -> pValue), "double"); break;
-            case ETYPE_LONG_DOUBLE: fprintf(stderr, "%Lf (%s, ", *((long double*) pElement -> pValue), "long double"); break;
+            case ETYPE_FLOAT: fprintf(stderr, "%g (%s, ", *((float*) pElement -> pValue), "float"); break;
+            case ETYPE_DOUBLE: fprintf(stderr, "%lg (%s, ", *((double*) pElement -> pValue), "double"); break;
+            case ETYPE_LONG_DOUBLE: fprintf(stderr, "%Lg (%s, ", *((long double*) pElement -> pValue), "long double"); break;
             case ETYPE_STRING:
                 fprintf(stderr, "'");
                 for (pCharacter = (char*) pElement -> pValue; *pCharacter != 0; pCharacter++)

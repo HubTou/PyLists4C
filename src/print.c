@@ -27,8 +27,24 @@ EXPORT void listPrint(LIST* pList)
         switch (pElement -> type)
         {
             case ETYPE_NULL: printf("NULL"); break;
-            case ETYPE_CHAR: printf("%c", *((char*) pElement -> pValue)); break;
-            case ETYPE_U_CHAR: printf("%c", *((unsigned char*) pElement -> pValue)); break;
+            case ETYPE_CHAR:
+                if (*((char*) pElement -> pValue) < 0)
+                    printf("%d", (int) *((char*) pElement -> pValue));
+                else if (*((char*) pElement -> pValue) == 127)
+                    printf("127");
+                else if (*((char*) pElement -> pValue) < ' ')
+                    printf("'^%c'", *((char*) pElement -> pValue) + '@');
+                else
+                    printf("'%c'", *((char*) pElement -> pValue));
+                break;
+            case ETYPE_U_CHAR:
+                if (*((char*) pElement -> pValue) < ' ')
+                    printf("'^%c'", *((unsigned char*) pElement -> pValue) + '@');
+                else if (*((char*) pElement -> pValue) == 127)
+                    printf("127");
+                else
+                    printf("'%c'", *((unsigned char*) pElement -> pValue));
+                break;
             case ETYPE_SHORT: printf("%hd", *((short*) pElement -> pValue)); break;
             case ETYPE_U_SHORT: printf("%hu", *((unsigned short*) pElement -> pValue)); break;
             case ETYPE_INT: printf("%d", *((int*) pElement -> pValue)); break;
@@ -37,9 +53,9 @@ EXPORT void listPrint(LIST* pList)
             case ETYPE_U_LONG: printf("%lu", *((unsigned long*) pElement -> pValue)); break;
             case ETYPE_LONG_LONG: printf("%lld", *((long long*) pElement -> pValue)); break;
             case ETYPE_U_LONG_LONG: printf("%llu", *((unsigned long long*) pElement -> pValue)); break;
-            case ETYPE_FLOAT: printf("%f", *((float*) pElement -> pValue)); break;
-            case ETYPE_DOUBLE: printf("%lf", *((double*) pElement -> pValue)); break;
-            case ETYPE_LONG_DOUBLE: printf("%Lf", *((long double*) pElement -> pValue)); break;
+            case ETYPE_FLOAT: printf("%g", *((float*) pElement -> pValue)); break;
+            case ETYPE_DOUBLE: printf("%lg", *((double*) pElement -> pValue)); break;
+            case ETYPE_LONG_DOUBLE: printf("%Lg", *((long double*) pElement -> pValue)); break;
             case ETYPE_STRING:
                 printf("'");
                 for (pCharacter = (char*) pElement -> pValue; *pCharacter != 0; pCharacter++)

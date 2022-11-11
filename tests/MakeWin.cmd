@@ -27,6 +27,8 @@ ECHO.
 %CC% test_comprehension.o -L.. -lpylists4c -o test_comprehension.exe
 %CC% %CFLAGS% -c test_delSlice.c -o test_delSlice.o
 %CC% test_delSlice.o -L.. -lpylists4c -o test_delSlice.exe
+%CC% %CFLAGS% -c test_exponents.c -o test_exponents.o
+%CC% test_exponents.o -L.. -lpylists4c -o test_exponents.exe
 %CC% %CFLAGS% -c test_filter.c -o test_filter.o
 %CC% test_filter.o -L.. -lpylists4c -o test_filter.exe
 %CC% %CFLAGS% -c test_fromArray.c -o test_fromArray.o
@@ -63,6 +65,8 @@ ECHO.
 %CC% test_str.o -L.. -lpylists4c -o test_str.exe
 %CC% %CFLAGS% -c test_toArray.c -o test_toArray.o
 %CC% test_toArray.o -L.. -lpylists4c -o test_toArray.exe
+%CC% %CFLAGS% -c test_typeIndicators.c -o test_typeIndicators.o
+%CC% test_typeIndicators.o -L.. -lpylists4c -o test_typeIndicators.exe
 %CC% %CFLAGS% -c test_value.c -o test_value.o
 %CC% test_value.o -L.. -lpylists4c -o test_value.exe
 

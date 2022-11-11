@@ -22,13 +22,13 @@
 EXPORT STATUS listChange(LIST* pList, long n, void* pValue, ETYPE type, size_t size)
 {
     LIST* pElement = listGet(pList, n);
-    void* newValue;
+    void* newValue = NULL;
 
     if (pElement == NULL)
         return FAILURE;
 
     // Allocate new space
-    if ((newValue = malloc(size)) == NULL)
+    if (size && (newValue = malloc(size)) == NULL)
     {
         if (listFatalMallocErrors)
         {
@@ -47,7 +47,7 @@ EXPORT STATUS listChange(LIST* pList, long n, void* pValue, ETYPE type, size_t s
     // Free the previous value
     if (pElement -> type == ETYPE_LIST)
         listClear((LIST **) &(pElement -> pValue));
-    else
+    else if (pElement -> type != ETYPE_NULL)
         free(pElement -> pValue);
 
     listAllocatedMemory -= pElement -> size;
@@ -69,7 +69,7 @@ EXPORT STATUS listChange(LIST* pList, long n, void* pValue, ETYPE type, size_t s
 #endif
         }
     }
-    else
+    else if (size)
         memset(newValue, 0, size);
 
     // Modify the element

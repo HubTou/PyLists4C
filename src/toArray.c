@@ -16,7 +16,7 @@
 // RETURN CODE:
 //     A pointer to an allocated ARRAY
 // CAVEATS:
-//     Only works on homogeneous LISTs
+//     Only works on homogeneous LISTs of non ETYPE_NULL elements
 /******************************************************************************/
 EXPORT ARRAY* listToArray(LIST* pList)
 {
@@ -30,7 +30,7 @@ EXPORT ARRAY* listToArray(LIST* pList)
         return NULL;
 
     listStats(pList, &stats);
-    if (stats.isHomogeneous == FALSE)
+    if (stats.isHomogeneous == FALSE || stats.homogeneousType == ETYPE_NULL)
         return NULL;
 
     if ((pArray = malloc(sizeof(ARRAY))) == NULL)

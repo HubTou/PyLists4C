@@ -49,7 +49,11 @@ EXPORT void listRemoveDuplicates(LIST* pList)
                 // pDuplicates is NULL after that
             }
         }
-        else if ((pList -> type == ETYPE_LIST && listAreEqual(pList -> pValue, lastValue, FALSE)) || ! memcmp(pList -> pValue, lastValue, lastSize))
+        else if (
+            (pList -> type == ETYPE_LIST && listAreEqual(pList -> pValue, lastValue, FALSE))
+            || pList -> type == ETYPE_NULL
+            || ! memcmp(pList -> pValue, lastValue, lastSize)
+        )
         {
             if (pDuplicates == NULL)
             {

@@ -30,6 +30,8 @@ EXPORT long listCount(LIST* pList, void* pValue, ETYPE type, size_t size)
                 if (listAreEqual(pElement -> pValue, pValue, FALSE))
                     count++;
             }
+            else if (type == ETYPE_NULL)
+                count++;
             else if (! memcmp(pElement -> pValue, pValue, size))
                 count++;
         }

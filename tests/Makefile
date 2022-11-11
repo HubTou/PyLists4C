@@ -3,6 +3,7 @@ PROGRAMS=\
 	test_changeSlice \
 	test_comprehension \
 	test_delSlice \
+	test_exponents \
 	test_filter \
 	test_fromArray \
 	test_fromTable \
@@ -21,6 +22,7 @@ PROGRAMS=\
 	test_stats \
 	test_str \
 	test_toArray \
+	test_typeIndicators \
 	test_value
 CFLAGS=-O3 -Wall -Wextra -pipe -I.. # --std c99 is a minimum requirement
 LDFLAGS += -L.. -lpylists4c -s
@@ -44,6 +46,9 @@ test_comprehension: test_comprehension.o
 
 test_delSlice: test_delSlice.o
 	$(CC) test_delSlice.o $(LDFLAGS) -o $@
+
+test_exponents: test_exponents.o
+	$(CC) test_exponents.o $(LDFLAGS) -o $@
 
 test_filter: test_filter.o
 	$(CC) test_filter.o $(LDFLAGS) -o $@
@@ -98,6 +103,9 @@ test_str: test_str.o
 
 test_toArray: test_toArray.o
 	$(CC) test_toArray.o $(LDFLAGS) -o $@
+
+test_typeIndicators: test_typeIndicators.o
+	$(CC) test_typeIndicators.o $(LDFLAGS) -o $@
 
 test_value: test_value.o
 	$(CC) test_value.o $(LDFLAGS) -o $@

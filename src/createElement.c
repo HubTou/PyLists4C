@@ -37,7 +37,7 @@ EXPORT LIST* listCreateElement(void* pValue, ETYPE type, size_t size)
         }
     }
 
-    if ((pElement -> pValue = malloc(size)) == NULL)
+    if (size && (pElement -> pValue = malloc(size)) == NULL)
     {
         free(pElement);
         if (listFatalMallocErrors)
@@ -70,8 +70,10 @@ EXPORT LIST* listCreateElement(void* pValue, ETYPE type, size_t size)
 #endif
         }
     }
-    else
+    else if (size)
         memset(pElement -> pValue, 0, size);
+    else
+        pElement -> pValue = NULL;
     pElement -> size = size;
     pElement -> type = type;
     pElement -> pPrevious = NULL;

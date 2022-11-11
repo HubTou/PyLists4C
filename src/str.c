@@ -49,8 +49,26 @@ EXPORT STRING listStr(LIST* pList)
         switch (pElement -> type)
         {
             case ETYPE_NULL: sprintf(buffer, "NULL"); stringPart = buffer; break;
-            case ETYPE_CHAR: sprintf(buffer, "%c", *((char*) pElement -> pValue)); stringPart = buffer; break;
-            case ETYPE_U_CHAR: sprintf(buffer, "%c", *((unsigned char*) pElement -> pValue)); stringPart = buffer; break;
+            case ETYPE_CHAR:
+                if (*((char*) pElement -> pValue) < 0)
+                    sprintf(buffer, "%d", (int) *((unsigned char*) pElement -> pValue));
+                else if (*((char*) pElement -> pValue) == 127)
+                    sprintf(buffer, "127");
+                else if (*((char*) pElement -> pValue) < ' ')
+                    sprintf(buffer, "'^%c'", *((unsigned char*) pElement -> pValue) + '@');
+                else
+                    sprintf(buffer, "'%c'", *((char*) pElement -> pValue));
+                stringPart = buffer;
+                break;
+            case ETYPE_U_CHAR:
+                if (*((unsigned char*) pElement -> pValue) < ' ')
+                    sprintf(buffer, "'^%c'", *((unsigned char*) pElement -> pValue) + '@');
+                else if (*((unsigned char*) pElement -> pValue) == 127)
+                    sprintf(buffer, "127");
+                else
+                    sprintf(buffer, "'%c'", *((unsigned char*) pElement -> pValue)); 
+                stringPart = buffer;
+                break;
             case ETYPE_SHORT: sprintf(buffer, "%hd", *((short*) pElement -> pValue)); stringPart = buffer; break;
             case ETYPE_U_SHORT: sprintf(buffer, "%hu", *((unsigned short*) pElement -> pValue)); stringPart = buffer; break;
             case ETYPE_INT: sprintf(buffer, "%d", *((int*) pElement -> pValue)); stringPart = buffer; break;
@@ -59,9 +77,9 @@ EXPORT STRING listStr(LIST* pList)
             case ETYPE_U_LONG: sprintf(buffer, "%lu", *((unsigned long*) pElement -> pValue)); stringPart = buffer; break;
             case ETYPE_LONG_LONG: sprintf(buffer, "%lld", *((long long*) pElement -> pValue)); stringPart = buffer; break;
             case ETYPE_U_LONG_LONG: sprintf(buffer, "%llu", *((unsigned long long*) pElement -> pValue)); stringPart = buffer; break;
-            case ETYPE_FLOAT: sprintf(buffer, "%f", *((float*) pElement -> pValue)); stringPart = buffer; break;
-            case ETYPE_DOUBLE: sprintf(buffer, "%lf", *((double*) pElement -> pValue)); stringPart = buffer; break;
-            case ETYPE_LONG_DOUBLE: sprintf(buffer, "%Lf", *((long double*) pElement -> pValue)); stringPart = buffer; break;
+            case ETYPE_FLOAT: sprintf(buffer, "%g", *((float*) pElement -> pValue)); stringPart = buffer; break;
+            case ETYPE_DOUBLE: sprintf(buffer, "%lg", *((double*) pElement -> pValue)); stringPart = buffer; break;
+            case ETYPE_LONG_DOUBLE: sprintf(buffer, "%Lg", *((long double*) pElement -> pValue)); stringPart = buffer; break;
             case ETYPE_STRING:
                 i = 0;
                 string = (char*) pElement -> pValue;

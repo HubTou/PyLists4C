@@ -34,6 +34,8 @@ EXPORT long listIndex(LIST* pList, void* pValue, ETYPE type, size_t size)
                 if (pElement -> size == size && ! memcmp(pElement -> pValue, pValue, size))
                     return i;
             }
+            else if (type == ETYPE_NULL)
+                return i;
             else if (! memcmp(pElement -> pValue, pValue, size))
                 return i;
         }

@@ -212,7 +212,7 @@ typedef enum
 {
     ETYPE_UNDEFINED = -1,
     // Empty elements:
-    ETYPE_NULL = 0, // Not implemented
+    ETYPE_NULL = 0,
     ETYPE_CHAR = 1,
     ETYPE_U_CHAR = 2,
     ETYPE_SHORT = 3,
@@ -475,7 +475,24 @@ extern IMPORT void listSetFatalMallocErrors(BOOLEAN fatal);
 extern IMPORT unsigned long listGetAllocatedMemory();
 
 // Convenience type-oriented aliases:
-// NB: values are not passed by address
+// NB: values below are NOT passed by address
+extern IMPORT STATUS listAppendNull(LIST** ppList);
+#define listPushNull listAppendNull
+#define listEnqueueNull listAppendNull
+extern IMPORT STATUS listInsertFirstNull(LIST** ppList);
+#define listPrependNull listInsertFirstNull
+extern IMPORT STATUS listInsertNull(LIST** ppList, long n);
+extern IMPORT STATUS listInsertSortedNull(LIST** ppList, BOOLEAN reversed, BOOLEAN caseInsensitive, BOOLEAN noDuplicates);
+extern IMPORT STATUS listChangeNull(LIST* pList, long n);
+extern IMPORT BOOLEAN listContainsNull(LIST* pList);
+extern IMPORT long listCountNull(LIST* pList);
+extern IMPORT long listIndexNull(LIST* pList);
+extern IMPORT LIST* listIndexAllNull(LIST* pList);
+#define listFindNull listIndexAllNull
+#define listSearchNull listIndexAllNull
+extern IMPORT void listRemoveNull(LIST** ppList);
+extern IMPORT void listRemoveAllNull(LIST** ppList);
+
 extern IMPORT STATUS listAppendChar(LIST** ppList, char value);
 #define listPushChar listAppendChar
 #define listEnqueueChar listAppendChar

@@ -91,6 +91,7 @@ SET CFLAGS=-O3 -Wall -Wextra -pipe -I..
 %CC% %CFLAGS% -c str.c -o str.o
 %CC% %CFLAGS% -c toArray.c -o toArray.o
 %CC% %CFLAGS% -c value.c -o value.o
+%CC% %CFLAGS% -c types/Null.c -o types/Null.o
 %CC% %CFLAGS% -c types/Char.c -o types/Char.o
 %CC% %CFLAGS% -c types/UChar.c -o types/UChar.o
 %CC% %CFLAGS% -c types/Short.c -o types/Short.o
@@ -110,7 +111,7 @@ SET CFLAGS=-O3 -Wall -Wextra -pipe -I..
 @ECHO.
 @ECHO.
 @ECHO Building the Dynamic Link Library:
-%CC% --shared append.o areEqual.o change.o changeSlice.o clear.o compareValues.o comprehension.o concat.o contains.o copy.o count.o createElement.o debug.o del.o delSlice.o extend.o filter.o fromArray.o get.o getAllocatedMemory.o getLast.o index.o indexAll.o insert.o insertFirst.o insertList.o insertSorted.o iterator.o join.o len.o list.o pop.o print.o remove.o removeAll.o removeDuplicates.o reverse.o reversed.o setDebugMessagesDisplay.o setFatalMallocErrors.o shuffle.o shuffled.o slice.o sort.o sorted.o sortedByInsertion.o sortedByQsort.o split.o stats.o statsPrint.o str.o toArray.o value.o types/Char.o types/UChar.o types/Short.o types/UShort.o types/Int.o types/UInt.o types/Long.o types/ULong.o types/LongLong.o types/ULongLong.o types/Float.o types/Double.o types/LongDouble.o types/String.o types/Struct.o -o ../pylists4c.dll >nul
+%CC% --shared append.o areEqual.o change.o changeSlice.o clear.o compareValues.o comprehension.o concat.o contains.o copy.o count.o createElement.o debug.o del.o delSlice.o extend.o filter.o fromArray.o get.o getAllocatedMemory.o getLast.o index.o indexAll.o insert.o insertFirst.o insertList.o insertSorted.o iterator.o join.o len.o list.o pop.o print.o remove.o removeAll.o removeDuplicates.o reverse.o reversed.o setDebugMessagesDisplay.o setFatalMallocErrors.o shuffle.o shuffled.o slice.o sort.o sorted.o sortedByInsertion.o sortedByQsort.o split.o stats.o statsPrint.o str.o toArray.o value.o types/Null.o types/Char.o types/UChar.o types/Short.o types/UShort.o types/Int.o types/UInt.o types/Long.o types/ULong.o types/LongLong.o types/ULongLong.o types/Float.o types/Double.o types/LongDouble.o types/String.o types/Struct.o -o ../pylists4c.dll >nul
 @ECHO.
 @dir ..\pylists4c.*
 @ECHO.

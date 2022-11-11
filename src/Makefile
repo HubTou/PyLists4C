@@ -1,8 +1,8 @@
 LIBRARY=pylists4c
 
 MAJOR_VERSION=1
-MINOR_VERSION=0
-PATCH_VERSION=1
+MINOR_VERSION=1
+PATCH_VERSION=0
 
 LIB=lib$(LIBRARY).a
 SOLIB=lib$(LIBRARY).so
@@ -10,15 +10,15 @@ SOLIB=lib$(LIBRARY).so
 OBJECTS= \
 	append.o areEqual.o change.o changeSlice.o clear.o compareValues.o \
 	comprehension.o concat.o contains.o copy.o count.o createElement.o debug.o \
-    del.o delSlice.o extend.o filter.o fromArray.o get.o getAllocatedMemory.o \
+	del.o delSlice.o extend.o filter.o fromArray.o get.o getAllocatedMemory.o \
 	getLast.o index.o indexAll.o insert.o insertFirst.o insertList.o \
 	insertSorted.o iterator.o join.o len.o list.o pop.o print.o remove.o \
 	removeAll.o removeDuplicates.o reverse.o reversed.o \
 	setDebugMessagesDisplay.o setFatalMallocErrors.o shuffle.o shuffled.o \
 	slice.o sort.o sorted.o sortedByInsertion.o sortedByQsort.o split.o \
-	stats.o statsPrint.o str.o toArray.o value.o types/Char.o types/UChar.o \
-	types/Short.o types/UShort.o types/Int.o types/UInt.o types/Long.o \
-	types/ULong.o types/LongLong.o types/ULongLong.o types/Float.o \
+	stats.o statsPrint.o str.o toArray.o value.o types/Null.o types/Char.o \
+	types/UChar.o types/Short.o types/UShort.o types/Int.o types/UInt.o \
+	types/Long.o types/ULong.o types/LongLong.o types/ULongLong.o types/Float.o \
 	types/Double.o types/LongDouble.o types/String.o types/Struct.o
 CFLAGS=-O3 -fPIC -Wall -Wextra -pipe -I.. # --std c99 is a minimum requirement
 LOCALDIR=/usr/local

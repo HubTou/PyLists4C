@@ -55,6 +55,10 @@ EXPORT STATUS listInsertSorted(LIST** ppList, void* pValue, ETYPE type, size_t s
 
             switch (pElement -> type)
             {
+                case ETYPE_NULL:
+                    foundPosition = TRUE;
+                    break;
+
                 case ETYPE_SHORT:
                     if (*((short*) pValue) < *((short*) pElement -> pValue))
                     {
