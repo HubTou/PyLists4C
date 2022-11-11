@@ -406,22 +406,40 @@ extern LIST* list(STRING string);
 That's the LIST constructor for easy initilization of LISTs.
 
 A LIST declaration string is a comma-separated list of:
-* integer numbers (\[-]\[0-9]+) => converted to C language **long** type
-* decimal numbers (\[-]\[0-9]+\\.\[0-9]+) => converted to C language **double** type
+* integer numbers (\[-+]?\[0-9]+) => converted to C language **long** type
+* decimal numbers (\[-+]?\[0-9]+\\.\[0-9]+(\[eE]\[-+]?\[0-9]+)?) => converted to C language **double** type
 * strings ('.\*' or ".\*" with eventual embedded single or double quotes characters backslash-escaped) => converted to this library **STRING** type
 * lists (\\\[.\*\\]) => converted to this library **LIST** type
-* All the rest is treated as garbage => converted to this library **ETYPE_NULL** type (so you can notice there was something wrong)
+* All the rest is treated as garbage => converted to this library **NULL** type (so you can notice there was something wrong)
 
 Please note:
 * The decimal separator is a point, not a comma,
 * You can have as many nested LISTs as you want,
 * You can declare empty STRINGs or LISTs.
 
-:construction: Exponents are not yet supported for decimal numbers.
+You can also use prefixes with type indicators in order to convert elements to other types:
+type indicators | ETYPE | Comment
+--- | --- | ---
+null, NULL|ETYPE_NULL|no comma as we don't need to specify the value
+char:, c:|ETYPE_CHAR|can be applied to an integer or a single character single quoted string
+uchar:|ETYPE_U_CHAR|can be applied to an integer or a single character single quoted string
+short:, hd:, hi:|ETYPE_SHORT|
+ushort:, hu:|ETYPE_U_SHORT|
+int:, i:, d:|ETYPE_INT|
+uinst:, u:|ETYPE_U_INT|
+long:, li:, ld:, (default for integers)|ETYPE_LONG|
+ulong:, lu:|ETYPE_U_LONG|
+longlong:, lli:, lld:|ETYPE_LONG_LONG|
+ulonglong:, llu:|ETYPE_U_LONG_LONG|
+float:, f:|ETYPE_FLOAT|can be applied to an integer value
+double:, lf:, (default for decimals)|ETYPE_DOUBLE|can be applied to an integer value
+longdouble:, Lf:|ETYPE_LONG_DOUBLE|can be applied to an integer value
 
-:construction: There's currently no way to insert CHAR, SHORT, INT, LONG_LONG, UNSIGNED_\*, FLOAT and LONG_DOUBLE values in a LIST declaration strings, but we'll use a type prefix in the future (for example: int:5, float:3.14, char:'c')
+For example: "int:2, float:0.5, char:'A', NULL".
 
-:construction: Consequently, there's currently no way either to declare STRUCTs, but we'll use simple braces for them when they are available. 
+All invalid values are set as NULL elements.
+
+:construction: There's currently no way to declare STRUCTs, but we'll use simple braces for them when they are available. 
 
 :warning: Contrarily to what Python does, you don't have to enclose your list declaration string in braces (for once, this is a Python syntax limitation!).
 
@@ -430,7 +448,7 @@ You don't have to enclose them in brackets either because that would be like say
 Example use:
 ```C
 pList = list("123, 456.789, -987, 'abc', \"def\", garbage, ['r', 2, 'd', 2], []");
-// pList now is [123, 456.789, -987, 'abc', 'def', '', ['r', 2, 'd', 2], []]
+// pList now is [123, 456.789, -987, 'abc', 'def', NULL, ['r', 2, 'd', 2], []]
 ...
 listClear(&pList);
 ```
