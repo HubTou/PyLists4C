@@ -10,6 +10,8 @@
   * [Windows](https://learn.microsoft.com/en-us/windows/package-manager/package/repository)
   * ...
 
+* Generic [Conan](https://conan.io/) package
+
 * [Documentation](DOC.md) translation
 
 * Testing on [more](DOC.md#tests) operating systems & hardware architectures
